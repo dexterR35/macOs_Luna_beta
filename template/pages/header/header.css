@@ -116,7 +116,7 @@
   
   .dropMenu-list li a {
     display: block;
-    padding: 10px 12px;
+    padding: 10px 8px;
     color: #fff;
     text-align: start;
     text-decoration: none;
@@ -138,7 +138,7 @@
     display: flex;
   }
   
-  .section4_topheader_right ul li {
+  .section4_topheader_right ul .dropdown-button {
     padding: 0 4px;
     width: max-content;
   }
@@ -155,15 +155,49 @@
   }
 
 
-  .list_icons_container {
+  /* .list_icons_container {
     width: fit-content;
-  }
+  } */
   .menu_icons_ul .network {
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: center;
   }
-  .volume_menu {
-    transform: rotate(90deg);
+  .volume_container {
+    height: 20em;
+    width: 50px !important;
+    left: -12px !important;
+    
+
   }
+  .volume_menu {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    position: relative;
+    top: 12em;
+  }
+
+  .wifi_container {
+    width: 250px;
+    left: -15em !important;
+  }
+
+ .symbols_container {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-around;
+ }
+ .symbols_container span {
+  position: relative;
+ }
+ .symbols_container span:nth-child(1) {
+  left: -10px;
+ }
+ .symbols_container span:nth-child(2) {
+  left: -25px;
+  top: 2px;
+ }
+ .symbols_container span:nth-child(3) {
+  left: 10px;
+ }
