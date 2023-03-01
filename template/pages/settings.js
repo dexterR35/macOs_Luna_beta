@@ -49,32 +49,31 @@ function appendStuff() {
 }
 
 export function startTime() {
-  var today = new Date();
-  var hr = today.getHours();
-  var min = today.getMinutes();
-  var sec = today.getSeconds();
-  // ap = (hr < 12) ? "<span>AM</span>" : "<span>PM</span>";
-  hr = (hr == 0) ? 12 : hr;
-  hr = (hr > 12) ? hr - 12 : hr;
-  //Add a zero in front of numbers<10
-  hr = checkTime(hr);
-  min = checkTime(min);
-  document.getElementById("clock").innerHTML = hr + ":" + min ;
-  
-  // var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  var curWeekDay = days[today.getDay()];
-  // var curDay = today.getDate();
-  // var curMonth = months[today.getMonth()];
-  // var curYear = today.getFullYear();
-  var date = curWeekDay;
-  document.getElementById("date").innerHTML = date;
-  
-  var time = setTimeout(function(){ startTime() }, 500);
-}
-function checkTime(i) {
-  if (i < 10) {
+  var date = new Date(),
+      hour = date.getHours(),
+      minute = checkTime(date.getMinutes()),
+      ss = checkTime(date.getSeconds());
+
+  function checkTime(i) {
+    if( i < 10 ) {
       i = "0" + i;
+    }
+    return i;
   }
-  return i;
+
+if ( hour > 12 ) {
+  hour = hour - 12;
+  if ( hour == 12 ) {
+    hour = checkTime(hour);
+  document.getElementById("t_date").innerHTML = hour+":"+minute+":"+ss+" AM";
+  }
+  else {
+    hour = checkTime(hour);
+    document.getElementById("t_date").innerHTML = hour+":"+minute+":"+ss+" PM";
+  }
+}
+else {
+  document.getElementById("t_date").innerHTML = hour+":"+minute+":"+ss+" AM";;
+}
+var time = setTimeout(startTime,1000);
 }
