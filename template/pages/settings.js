@@ -6,7 +6,7 @@ let title = "linkedin"
 let _TopNavBox =
 `<div class="container_top_nav_boxes">
 <div class="topnav-items-box">
-<div class ='circle circle1 close'></div>
+<div class ='circle circle1 close_box'></div>
 <div class ='circle circle2'></div>
 <div class ='circle circle3'></div>
 </div>
@@ -97,11 +97,9 @@ export function startTime() {
 
 
 export function clickDivs() {
-
-
-  // const divs_box = document.querySelectorAll(`div[id^="box_"]`);
   const _boxes = document.querySelectorAll(".box_open");
-  const _modals = document.querySelectorAll(".modal");
+  const _modals = document.querySelectorAll(`div[id^="modal_"]`);
+  console.log(_modals,"modals")
 
   _boxes.forEach(box => {
     box.addEventListener("click", () => {
@@ -115,10 +113,11 @@ export function clickDivs() {
   });
 
   _modals.forEach(modal => {
-    // const closeBtn = modal.querySelector(".close-btn");
-    // closeBtn.addEventListener("click", () => {
-    //   modal.style.display = "none";
-    // });
+    const closeBtn = modal.querySelector(".close_box");
+    console.log(closeBtn);
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
   });
 
   function closeModal() {

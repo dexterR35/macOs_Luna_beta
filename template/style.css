@@ -140,7 +140,9 @@ ul li a {
   border-radius: 50px;
   margin-left: 5px;
 }
-
+.close_box {
+  cursor: pointer;
+}
 .topnav-items-box > div:nth-child(1) {
   background: red;
 }
@@ -182,3 +184,9 @@ ul li a {
 /*END top header boxes*/
 
 
+
+.linkedinBox {
+  position: absolute;
+  top: 5%;
+  left: 20%;
+}
