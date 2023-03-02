@@ -1,6 +1,7 @@
 @import "./pages/header/header.css";
 @import "./pages/icons/icons.css";
 @import "./pages/linkdin/linkdin.css";
+@import "./pages/github/github.css";
 
 @font-face {
   font-family: product-sans;
@@ -191,10 +192,15 @@ ul li a {
 }
 /*END top header boxes*/
 
-
+.linkedinBox, .githubBox{
+  position:absolute;
+}
 
 .linkedinBox {
-  position: absolute;
   top: 5%;
   left: 20%;
+}
+.githubBox {
+  top: 7%;
+  left: 15%;
 }

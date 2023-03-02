@@ -4,7 +4,7 @@ console.log("exportNavLink");
 let title = "linkedin"
 
 let _TopNavBox =
-`<div class="container_top_nav_boxes">
+  `<div class="container_top_nav_boxes">
 <div class="topnav-items-box">
 <div class ='circle circle1 close_box'></div>
 <div class ='circle circle2'></div>
@@ -99,16 +99,27 @@ export function startTime() {
 export function clickDivs() {
   const _boxes = document.querySelectorAll(".box_open");
   const _modals = document.querySelectorAll(`div[id^="modal_"]`);
-  console.log(_modals,"modals")
+  console.log(_modals, "modals")
 
   _boxes.forEach(box => {
     box.addEventListener("click", () => {
-      const modalId = box.getAttribute("data-modal");
-      const modal = document.getElementById(modalId);
-      if (modal.style.display !== "block") { // check if modal is not already open
-        closeModal(); // close any other open modal
-        modal.style.display = "block";
-      }
+      const modalIds = box.getAttribute("data-modal").split(",");
+
+      console.log(modalIds, "modalsIds");
+
+      modalIds.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (modal.style.display !== "block") { // check if modal is not already open
+          modal.style.display = "block";
+             // bring the modal to the front
+             modal.style.zIndex = getHighestZIndex() + 1;
+        }   else {
+          // if the modal is already open, bring it to the front
+          modal.style.zIndex = getHighestZIndex() + 1;
+        }
+      });
+      // closeModal(); // close any other open modal
+
     });
   });
 
@@ -120,16 +131,25 @@ export function clickDivs() {
     });
   });
 
-  function closeModal() {
-    _modals.forEach(modal => {
-      if (modal.style.display === "block") {
-        modal.style.display = "none";
+  // function closeModal() {
+  //   _modals.forEach(modal => {
+  //     if (modal.style.display === "block") {
+  //       modal.style.display = "none";
+  //     }
+  //   });
+  // }
+
+  function getHighestZIndex() {
+    const modals = document.querySelectorAll(`div[id^="modal_"]:not([style*="display: none"])`);
+    let maxZIndex = 0;
+    modals.forEach((modal) => {
+      const zIndex = parseInt(modal.style.zIndex);
+      if (zIndex > maxZIndex) {
+        maxZIndex = zIndex;
       }
     });
+    return maxZIndex;
   }
-
-
-
 }
 
 
