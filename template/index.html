@@ -19,40 +19,7 @@
   <link rel="stylesheet" href="./style.css" />
 
   <title>Luna Page</title>
-  <style>
-    /* styles for the close button */
-.close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 28px;
-  font-weight: bold;
-  color: #000;
-  cursor: pointer;
-}
 
-/* styles for the modal */
-.modal_s {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-}
-
-/* styles for the modal content */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-  </style>
 </head>
 
 <body>
@@ -61,91 +28,8 @@
     <div class="container">
       <div class="container-itemsPage">
         <div class="section4_middle_grid">
-          <div class="overlays modal" id="finder_Container" style="z-index: 500">
-            <div class="content">
-              <div id="finderBox">
-                <div id="finderBoxJs"></div>
-              </div>
-            </div>
-          </div>
-          <div id="modal_one" class="modal_s">
-            <div class="modal-content">
-              <span class="closeer">&times;sss</span>
-              <p>Modal 1</p>
-            </div>
-          </div>
-          <div id="modal_five" class="modal_s">
-            <div class="modal-content">
-              <span class="closeer">&times;sss</span>
-              <p>Modal 5</p>
-            </div>
-          </div>
-          <div class="overlays modal" id="aboutMe_Container">
-            <div class="content">
-              <div id="aboutmeBox">
-                <div class="container-contact">
-                  <div class="contact-topnav" id="aboutmeBoxheader">
-                    <div class="contact-topnav-items finder-topnav-items header append_circles"></div>
-                    <p>macOs Luna</p>
-                  </div>
-
-                  <div class="container-footer-contact">
-                    <i class="fas fa-home"></i>
-                    <div>wallet code{} <span>donate</span></div>
-                    <div>Marian Iordache</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="overlays modal" id="myMacMaster">
-            <div class="content">
-              <div id="aboutmacBox"></div>
-            </div>
-          </div>
-          <div class="overlays modal" id="TerminalMaster">
-            <div class="content">
-              <div id="terminalBox">
-                <div id="terminalBoxJs"></div>
-              </div>
-            </div>
-          </div>
-          <div class="overlays modal" id="chromePageMaster">
-            <div class="content">
-              <div id="chromePageBox">
-                <div id="chromePageBoxJs"></div>
-              </div>
-            </div>
-          </div>
-          <div class="overlays modal" id="adobeXDMaster">
-            <div class="content">
-              <div id="adobeXDBox">
-                <div id="adobeXDBoxJs"></div>
-              </div>
-            </div>
-          </div>
-          <div class="overlays modal" id="linkdinMaster" style="z-index: 500">
-            <div class="content">
-              <div id="linkdinBox">
-                <div id="linkdinBoxJs"></div>
-              </div>
-            </div>
-          </div>
-          <div class="overlays modal" id="unfinishMaster" style="z-index: 500">
-            <div class="content">
-              <div id="unfinishBox">
-                <div id="unfinishBoxJs"></div>
-              </div>
-            </div>
-          </div>
-          <div class="overlays modal" id="githubMaster" style="z-index: 500">
-            <div class="content">
-              <div id="githubBox">
-                <div id="githubBoxJs"></div>
-              </div>
-            </div>
-          </div>
-          <div class="active-popup" id="overlasyP" style="z-index: -2"></div>
+            <div class="linkedin_push"></div>
+   
         </div>
       </div>
     </div>
@@ -176,30 +60,28 @@
 
   <script>
     console.log("fetch Nav-and-Icons");
-    fetch("./pages/header/header.html")
-      .then((response) => {
-        return response.text();
-      })
-      .then((data_include) => {
-        document.querySelector("#header-container").innerHTML = data_include;
-      });
+    function fetchHTMLContent(url, selector) {
+  fetch(url)
+    .then((response) => {
+      return response.text();
+    })
+    .then((htmlContent) => {
+      document.querySelector(selector).innerHTML = htmlContent;
+    })
+    .catch((error) => {
+      console.error(`Failed to fetch HTML content from ${url}:`, error);
+    });
+}
 
-    fetch("./pages/icons/icons.html")
-      .then((response) => {
-        return response.text();
-      })
-      .then((data_include) => {
-        document.querySelector("#footer-container").innerHTML = data_include;
-      });
+// Usage:
+fetchHTMLContent("./pages/header/header.html", "#header-container");
+fetchHTMLContent("./pages/icons/icons.html", "#footer-container");
+fetchHTMLContent("./pages/linkdin/linkdin.html", ".linkedin_push");
+
+
   </script>
 
-  <script async type="module">
-    import { openNavLink,startTime,clickDivs} from "./pages/settings.js";
-      openNavLink();
-      startTime();
-      clickDivs();
-    </script>
-
+<script type="module" src="app.js"></script>
 </body>
 
 </html>

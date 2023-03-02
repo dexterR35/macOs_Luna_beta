@@ -1,4 +1,25 @@
 console.log("exportNavLink");
+
+
+let title = "linkedin"
+
+let _TopNavBox =
+`<div class="container_top_nav_boxes">
+<div class="topnav-items-box">
+<div class ='circle circle1 close'></div>
+<div class ='circle circle2'></div>
+<div class ='circle circle3'></div>
+</div>
+<div class="text_boxes_nav drag-header">${title}</div>
+</div>`
+
+$(".insert_header_box").append(_TopNavBox);
+
+function appendStuff() {
+  $(".nav_checkBox").append(`<input type="checkbox" class="checkBox_nav" checked>`)
+}
+
+
 export function openNavLink() {
   let dropBtns = document.querySelectorAll(".dropdown-button");
   console.log(dropBtns, "dropBtns");
@@ -44,9 +65,7 @@ export function openNavLink() {
 // }
 
 
-function appendStuff() {
-  $(".nav_checkBox").append(`<input type="checkbox" class="checkBox_nav" checked>`)
-}
+
 
 export function startTime() {
   var date = new Date(),
@@ -78,52 +97,75 @@ export function startTime() {
 
 
 export function clickDivs() {
-  let openModals = [];
 
-  const divs_box = document.querySelectorAll(`div[id^="box_"]`);
-  console.log(divs_box)
-  divs_box.forEach((divClick) => {
-    divClick.addEventListener("click", () => {
-      if (openModals.length < 6) {
-        const divId = divClick.getAttribute('id');
-        const modalId = `modal${divId.slice(3)}`;
-        console.log(modalId, "div click");
-        if (!openModals.includes(modalId)) {
-          showModal(modalId);
-          openModals.push(modalId);
-        }
-        // showModal(modalId);
+
+  // const divs_box = document.querySelectorAll(`div[id^="box_"]`);
+  const _boxes = document.querySelectorAll(".box_open");
+  const _modals = document.querySelectorAll(".modal");
+
+  _boxes.forEach(box => {
+    box.addEventListener("click", () => {
+      const modalId = box.getAttribute("data-modal");
+      const modal = document.getElementById(modalId);
+      if (modal.style.display !== "block") { // check if modal is not already open
+        closeModal(); // close any other open modal
+        modal.style.display = "block";
       }
     });
   });
-  console.log(openModals, "testt");
 
-  function showModal(modalId) {
+  _modals.forEach(modal => {
+    // const closeBtn = modal.querySelector(".close-btn");
+    // closeBtn.addEventListener("click", () => {
+    //   modal.style.display = "none";
+    // });
+  });
 
-    const modal_box = document.getElementById(modalId);
-    console.log(modal_box, "dladas");
-    modal_box.style.display = "block";
-    const closeButton = document.querySelector('.closeer');
-    console.log(closeButton)
-    closeButton.addEventListener('click', () => {
-      hideModal(modalId);
-      openModals = openModals.filter((id) => id !== modalId);
-      // re-enable click events on the corresponding div
-      const divId = modalId.slice(5);
-      console.log(divId,"sssssssssssssssssssssssssssssssssssssssssssss")
-      const divssss = document.querySelector(`box_${divId}`);
-      divssss.style.pointerEvents = "block";
+  function closeModal() {
+    _modals.forEach(modal => {
+      if (modal.style.display === "block") {
+        modal.style.display = "none";
+      }
     });
-    // disable click events on the corresponding div
-    const divId = modalId.slice(0);
-    console.log(divId,"fsafasfas")
-    const div = document.getElementById(`box_${divId}`);
-    div.style.pointerEvents = "none";
   }
 
-  function hideModal(modalId) {
-    const modalClose = document.getElementById(modalId);
-    modalClose.style.display = "none";
-  }
 
+
+}
+
+
+export function dragWindows() {
+  const draggableElements = document.querySelectorAll('.drag-only');
+  draggableElements.forEach((draggableElement) => {
+    const header = draggableElement.querySelector('.drag-header');
+    header.addEventListener('mousedown', dragMouseDown);
+
+    let pos1 = 0,
+      pos2 = 0,
+      pos3 = 0,
+      pos4 = 0;
+
+    function dragMouseDown(e) {
+      e.preventDefault();
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.addEventListener('mouseup', closeDragElement);
+      document.addEventListener('mousemove', elementDrag);
+    }
+
+    function elementDrag(e) {
+      e.preventDefault();
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      draggableElement.style.top = draggableElement.offsetTop - pos2 + 'px';
+      draggableElement.style.left = draggableElement.offsetLeft - pos1 + 'px';
+    }
+
+    function closeDragElement() {
+      document.removeEventListener('mouseup', closeDragElement);
+      document.removeEventListener('mousemove', elementDrag);
+    }
+  });
 }
