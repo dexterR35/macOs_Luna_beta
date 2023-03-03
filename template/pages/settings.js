@@ -19,6 +19,8 @@ function appendStuff() {
   );
 }
 
+
+
 export function openNavLink() {
   let dropBtns = document.querySelectorAll(".dropdown-button");
   // console.log(dropBtns, "dropBtns");
