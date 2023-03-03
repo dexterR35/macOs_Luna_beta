@@ -99,27 +99,19 @@ export function startTime() {
 export function clickDivs() {
   const _boxes = document.querySelectorAll(".box_open");
   const _modals = document.querySelectorAll(`div[id^="modal_"]`);
-  console.log(_modals, "modals")
-
   _boxes.forEach(box => {
     box.addEventListener("click", () => {
       const modalIds = box.getAttribute("data-modal").split(",");
-
-      console.log(modalIds, "modalsIds");
-
       modalIds.forEach(modalId => {
         const modal = document.getElementById(modalId);
-        if (modal.style.display !== "block") { // check if modal is not already open
+        if (modal.style.display !== "block") { 
           modal.style.display = "block";
-             // bring the modal to the front
-             modal.style.zIndex = getHighestZIndex() + 1;
-        }   else {
-          // if the modal is already open, bring it to the front
-          modal.style.zIndex = getHighestZIndex() + 1;
+          modal.style.zIndex = "140";
+        } else {
+          modal.style.zIndex = "150";
         }
       });
-      // closeModal(); // close any other open modal
-
+      // closeModal(); 
     });
   });
 
@@ -129,6 +121,7 @@ export function clickDivs() {
     closeBtn.addEventListener("click", () => {
       modal.style.display = "none";
     });
+    modal.style.zIndex = "100";
   });
 
   // function closeModal() {
@@ -139,17 +132,6 @@ export function clickDivs() {
   //   });
   // }
 
-  function getHighestZIndex() {
-    const modals = document.querySelectorAll(`div[id^="modal_"]:not([style*="display: none"])`);
-    let maxZIndex = 0;
-    modals.forEach((modal) => {
-      const zIndex = parseInt(modal.style.zIndex);
-      if (zIndex > maxZIndex) {
-        maxZIndex = zIndex;
-      }
-    });
-    return maxZIndex;
-  }
 }
 
 
