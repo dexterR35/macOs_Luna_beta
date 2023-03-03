@@ -43,7 +43,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 35px;
+  height: 40px;
 }
 
 .chrome-page-link.chrome-page-line,
@@ -62,7 +62,7 @@
 .chrome-link-left .link ul {
   display: flex;
   flex-direction: row;
-  gap: 18px;
+  gap: 7px;
   margin-left: 10px;
 }
 
@@ -87,7 +87,7 @@
   background-color: #121212;
   border-radius: 10px;
   border: 1px solid grey;
-  height: 24px;
+  height: 25px;
   outline: none;
   padding: 0 20px;
   color: aliceblue;
@@ -100,7 +100,6 @@
   color: var(--text-finder-color);
   z-index: 200;
   top: 3px;
-  font-size: 0.8em;
 }
 
 .chrome-search-icn > i {
@@ -111,8 +110,8 @@
   flex-basis: 20%;
   display: flex;
   justify-content: center;
-  gap: 15px;
-  font-size: 0.8em;
+  margin: 0 13px 0 6px;
+  gap: 8px;
   color: var(--text-low-finder-color);
 }
 
@@ -128,7 +127,7 @@
   align-items: center;
   color: var(--Rwhite-color);
   font-size: 12px;
-  height: 4vh;
+  height: 2.3em;
 }
 
 .bookmark-chrome > i {
@@ -146,9 +145,9 @@
   border: none;
 }
 
-.chrome-page-bookmark.chrome-page-line {
-  margin-left: 10px;
-}
+/* .chrome-page-bookmark.chrome-page-line {
+  border-top: 1px solid #3e3e3e2a;
+} */
 
 .chrome-home-items p {
   font-size: 10px;
@@ -212,10 +211,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100%;
+  height: 85%;
   gap: 25px;
-  top: -42px;
-  position: relative;
+  /* top: -42px; */
+  /* position: relative; */
 }
 
 .chrome-home-items h1 {
@@ -247,11 +246,11 @@ h1 span[rel="green"] {
 }
 
 #chrome-home {
-  background-color: #fff;
+  background-color: #f7f7f7;
 }
 
 #chrome-news {
-  background-color: green;
+  background-color: #f7f7f7;
 }
 
 #chrome-contact {
@@ -284,4 +283,61 @@ h1 span[rel="green"] {
 }
 #linkDin_chrome > #modal_four .linkDin-icon-page::after {
   color: black;
+}
+
+#chrome_push .chrome_title .drag-header {
+  margin-right: 10px;
+}
+.chrome-link-search > .material-symbols-outlined {
+  position: absolute;
+  left: 12px;
+  top: 4px;
+  font-size: 14px;
+  color: lightgray;
+}
+
+.chrome-link-search input[type="search"]::placeholder {
+  text-indent: 7px;
+  color: rgb(201, 201, 201);
+  transform: translateY(-0.5px);
+  -webkit-transform: translateY(-0.5px);
+}
+
+/* 
+
+start blog */
+.chrome-contact{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#chrome-news {
+  /* display: flex; */
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+  color: black;
+}
+#chrome-news h3 {
+  font-size: 4em;
+}
+#chrome-news p {
+  font-size: 1.4em;
+  line-height: 0.8;
+  font-weight: 300;
+}
+
+#chrome-news .material-symbols-outlined {
+  font-size: 5em;
+  animation: material_icon_rotate 10s linear forwards infinite;
+}
+
+@keyframes material_icon_rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

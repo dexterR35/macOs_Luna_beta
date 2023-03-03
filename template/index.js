@@ -13,6 +13,7 @@ function fetchHTMLContent(url, selector) {
     });
 }
 
+
 // Usage:
 fetchHTMLContent("./pages/header/header.html", "#header-container");
 fetchHTMLContent("./pages/icons/icons.html", "#footer-container");

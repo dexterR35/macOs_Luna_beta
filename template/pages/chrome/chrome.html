@@ -1,12 +1,12 @@
 <div class="modal_boxes" id="modal_nine">
   <div class="chrome-page wrapper-chrome dimension_boxes">
-    <div class="insert_header_box chrome_title"></div>
     <div class="chrome-page-container">
       <div class="chrome-page-top-header">
-        <div class="chrome-page-left" >
+        <div class="chrome-page-left">
+          <div class="insert_header_box chrome_title"></div>
           <div class="chrome-page-tabs chrome-page-line">
             <button class="tablink" onclick="openPage('chrome-home', this, 'dimgray')" id="defaultOpen">Home</button>
-            <button class="tablink" onclick="openPage('chrome-news', this, 'dimgray')">News</button>
+            <button class="tablink" onclick="openPage('chrome-news', this, 'dimgray')">Blog</button>
             <button class="tablink" onclick="openPage('chrome-contact', this, 'dimgray')">Contact</button>
             <button class="tablink" onclick="openPage('chrome-about', this, 'dimgray')">Linkedin</button>
             <button class="tablink" onclick="openPage('chrome-linkdin', this, 'dimgray')">Css Battle</button>
@@ -18,38 +18,69 @@
             <div class="link">
               <ul>
                 <li>
-                  <a href="#"><i class="fa-solid fa-angle-left"></i></a>
+                  <a href="#"><span class="material-symbols-outlined">
+                    arrow_back_ios
+                    </span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa-solid fa-angle-right"></i></a>
+                  <a href="#"><span class="material-symbols-outlined">
+                    arrow_forward_ios
+                    </span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa-solid fa-rotate-right"></i></a>
+                  <a href="#"><span class="material-symbols-outlined">
+                    refresh
+                    </span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fas fa-home"></i></a>
+                  <a href="#"><span class="material-symbols-outlined">
+                    home
+                    </span></a>
                 </li>
               </ul>
             </div>
           </div>
           <div class="chrome-link-middle">
             <div class="chrome-link-search">
-              <input type="search" name="chrome-link-searchs" id="chrome-search" />
+              <span class="material-symbols-outlined">
+                lock
+                </span>
+              <input type="search" name="chrome-link-searchs" id="chrome-search" placeholder="https://www.google.com"/>
               <div class="chrome-search-icn">
-                <i class="fa-solid fa-code"></i>
-                <i class="fa-solid fa-star"></i>
+                <span class="material-symbols-outlined">
+                  terminal
+                  </span>
+                  <span class="material-symbols-outlined">
+                    star
+                    </span>
               </div>
             </div>
           </div>
           <div class="chrome-link-right">
-            <i class="fa-solid fa-bug-slash"></i>
-            <i class="fa-solid fa-cannabis"></i>
-            <i class="fa-solid fa-brush"></i>
-            <i class="fa-solid fa-headphones"></i>
-            <i class="fa-solid fa-terminal"></i>
-            <i class="fa-brands fa-amazon-pay"></i>
-            <i class="fa-solid fa-power-off"></i>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
+            <span class="material-symbols-outlined">
+              pest_control
+              </span>
+              <span class="material-symbols-outlined">
+                spa
+                </span>
+                <span class="material-symbols-outlined">
+                  brush
+                  </span>
+                  <span class="material-symbols-outlined">
+                    psychology
+                    </span>
+                    <span class="material-symbols-outlined">
+                      contact_mail
+                      </span>
+                      <span class="material-symbols-outlined">
+                        metabolism
+                        </span>
+                        <span class="material-symbols-outlined">
+                          download
+                          </span>
+                          <span class="material-symbols-outlined">
+                            cloud_done
+                            </span>
           </div>
         </div>
         <div class="chrome-page-bookmark chrome-page-line">
@@ -64,7 +95,7 @@
         </div>
       </div>
       <div class="chrome-page-middle">
-        <div id="chrome-home" class="tabcontent">
+        <div id="chrome-home" class="tabcontent chrome-contact">
           <div class="chrome-home-items">
             <h1>G<span rel="red">o</span rel="red"><span rel="yellow">o</span><span>g</span><span
                 rel="green">l</span><span rel="red">e</span></h1>
@@ -76,19 +107,23 @@
             <p>Google offered in: <a href="#">Romana</a> <a href="#">Engleza</a></p>
           </div>
         </div>
-        <div id="chrome-news" class="tabcontent">
-          <h3>News</h3>
+        <div id="chrome-news" class="tabcontent chrome-contact">
+          <span class="material-symbols-outlined">
+            settings
+            </span>
+          <h3>Blog</h3>
           <p>Some news this fine day!</p>
+          <p>coming soon</p>
         </div>
-        <div id="chrome-contact" class="tabcontent">
+        <div id="chrome-contact" class="tabcontent chrome-contact">
           <h3>Contact</h3>
           <p>Get in touch, or swing by for a cup of coffee.</p>
         </div>
-        <div id="chrome-about" class="tabcontent">
+        <div id="chrome-about" class="tabcontent chrome-contact">
           <!-- <iframe class="iframeLink" src="/template/pages/linkdin/linkdin.html" frameborder="0"></iframe> -->
 <div id="linkDin_chrome"></div>
         </div>
-        <div id="chrome-linkdin" class="tabcontent">
+        <div id="chrome-linkdin" class="tabcontent chrome-contact">
           <!-- <iframe src="https://cssbattle.dev/player/VbqbK0gKScgciHu3kMxYoIko40B2" frameborder="0"></iframe> -->
         </div>
       </div>
@@ -117,7 +152,7 @@
     tablinks[i].style.backgroundColor = "";
   }
 
- document.getElementById(pageName).style.display = "block";
+ document.getElementById(pageName).style.display = "flex";
   elmnt.style.backgroundColor = color;
   
 }

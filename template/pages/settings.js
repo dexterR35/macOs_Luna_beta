@@ -1,7 +1,7 @@
 
 console.log("start settings");
 
-let title = "Marian Iordache";
+let title = 'Luna';
 
 let _TopNavBox = `<div class="container_top_nav_boxes">
 <div class="topnav-items-box">
