@@ -2,6 +2,7 @@
 @import "./pages/icons/icons.css";
 @import "./pages/linkdin/linkdin.css";
 @import "./pages/github/github.css";
+@import "./pages/chrome/chrome.css";
 
 @font-face {
   font-family: product-sans;
@@ -118,7 +119,14 @@ ul li a {
   -webkit-transform: translate(-50%, -50%);
 }
 
-
+.dimension_boxes {
+  
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
 
 .modal_boxes {
   display: none;
@@ -136,10 +144,7 @@ ul li a {
 .modal_boxes:hover {
   background-color: rgba(68, 68, 68, 0.9);
 }
-.container-linkdin {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
+
 
 /*top header boxes*/
 
@@ -192,7 +197,7 @@ ul li a {
 }
 /*END top header boxes*/
 
-.linkedinBox, .githubBox{
+.linkedinBox, .githubBox, .chromeBox{
   position:absolute;
 }
 
@@ -203,4 +208,14 @@ ul li a {
 .githubBox {
   top: 7%;
   left: 15%;
+}
+.chromeBox{
+  top: 3%;
+  left: 5%;
+}
+.container-github,.container-linkdin{
+  border:1px solid #909090;
+  border-top: none !important;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
