@@ -1,4 +1,5 @@
-// console.log("exportNavLink");
+
+console.log("start settings");
 
 let title = "Marian Iordache";
 
