@@ -4,10 +4,9 @@
   position: relative;
   width: 100%;
   justify-content: space-between;
-  height: 41px;
+  height: 3em;
   align-items: center;
   z-index: 1;
-  line-height: 1;
   user-select: none;
   cursor: pointer;
 }
@@ -20,8 +19,6 @@
   left: 0;
   width: 100%;
   height: 35px;
-  background-color: var(--Rwhite-color);
-  box-shadow: 5px 2px 2px 2px var(--third-finder-color);
   z-index: -1;
   /* background-color: red; */
 }
@@ -36,10 +33,6 @@
   margin-left: 30px;
 }
 
-.container-topheader .section4_topheader_right ul li a .fas,
-.container-topheader .section4_topheader_right ul li a .fa {
-  font-weight: 300 !important;
-}
 
 .container_topheader_left,
 .section4_topheader_right {
@@ -63,47 +56,33 @@
 
 .dropDown-menu > li {
   display: inline-block;
-  color: #fff;
 }
 
 .dropDown-menu > li > a {
   display: inline-block;
   padding: 1px 6px;
   margin: 0;
-  font-size: 0.7em !important;
-  color: #fff;
   text-transform: capitalize;
 }
 
-.dropDown-menu > li > a:hover,
-.dropDown-menu > li > a:focus {
-  background-color: var(--medium-grey);
-}
 
 .dropdown-button {
   position: relative;
 }
 
-.dropBtn.primary-text-dropdown {
-  /* font-weight: 500 !important;
-  font-size: 13px !important; */
-  letter-spacing: 1px;
-  color: var(--speedy);
-}
-
 .dropMenu-list {
   position: absolute;
   display: none;
-  top: 26px;
+  top: 27px;
   left: 3px;
-  border: 1px solid color;
-  width: 109px;
-  background: var(--primaryM-finder-color);
-  font-size: 0.8em !important;
+  background: var(--bg_nav_drop);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   z-index: 1;
   overflow: hidden;
+}
+._font_li_header{
+  top: 30px;
 }
 
 .show {
@@ -117,15 +96,11 @@
 .dropMenu-list li a {
   display: block;
   padding: 10px 8px;
-  color: #fff;
+  color: azure;
   text-align: start;
   text-decoration: none;
-  font-size: 11px !important;
-}
+  text-transform: capitalize;
 
-.menu_icons_ul li:hover,
-.dropMenu-list li:hover {
-  background: #a0080d;
 }
 
 
@@ -139,18 +114,11 @@
   padding: 0 3px;
   width: max-content;
 }
-/* .section4_topheader_right ul li  {
-display: flex;
-} */
-.section4_topheader_right ul li a,
-.dropDown-menu > li > a {
-  font-size: 0.8em !important;
-}
 
 .volume_container {
-  height: 20em;
-  width: 50px !important;
-  left: -12px !important;
+  height: 16em;
+  width: 35px !important;
+  left: -5px !important;
 }
 .volume_menu {
   transform: rotate(270deg);
@@ -161,10 +129,12 @@ display: flex;
 
 .wifi_container {
   width: 250px;
-  left: -18em !important;
+  left: -21em !important;
 }
 .menu_icons_ul h5 {
   padding: 0.5em 1.5em;
+  font-family: 'SF-Ultralight' !important;
+  letter-spacing: 1.2px;
 }
 .menu_icons_ul {
   padding: 0.5em 0.2em;
@@ -252,7 +222,7 @@ input:checked[type="checkbox"]::after {
 }
 
 #clock_top {
-  width: 80px;
+  width: 90px;
 }
 
 
@@ -280,5 +250,64 @@ input:checked[type="checkbox"]::after {
   width: 200px;
   height: 200px;
   margin: 10px;
+}
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 8.5rem;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #cccccc;
+  border-radius: 1rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -8px; /* Centers thumb on the track */
+  background-color: #5e5e5e;
+  border-radius: 0.5rem;
+  height: 1.5rem;
+  width: 0.5rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  outline: 3px solid #5e5e5e;
+  outline-offset: 0.125rem;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: #cccccc;
+  border-radius: 1rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  background-color: #5e5e5e;
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 0.5rem;
+  height: 1.5rem;
+  width: 0.5rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb{
+  outline: 3px solid #5e5e5e;
+  outline-offset: 0.125rem;
 }
 

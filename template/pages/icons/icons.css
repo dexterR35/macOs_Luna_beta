@@ -20,10 +20,8 @@
   width: 100%;
   height: 100%;
   border-radius: 20px;
-  background-color: var(--Rwhite-color);
   opacity: 0.2;
   z-index: -34;
-  box-shadow: 5px 2px 2px 2px var(--third-finder-color);
 }
 
 .section4_botIcons ul {
@@ -943,7 +941,7 @@
 /*-----  test test icon --------*/
 
 .container-aboutMe {
-  background-color: var(--Rcrimson-color);
+  background-color: crimson;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -1431,8 +1429,6 @@
 
 .apple_logoM {
   color: white;
-  animation: rgb-anim 12s infinite;
-  font-size: 15px !important;
   padding: 0px 5px;
   text-align: center;
 }
@@ -1441,47 +1437,10 @@
   background: none;
   outline: none;
   border: none;
+    padding: 5px;
   cursor: pointer;
 }
-
-@keyframes rgb-anim {
-  0% {
-    color: #ff0000;
-  }
-
-  11% {
-    color: #ff8000;
-  }
-
-  22% {
-    color: #ffff00;
-  }
-
-  33% {
-    color: #00ff80;
-  }
-
-  44% {
-    color: #00ffff;
-  }
-
-  55% {
-    color: #0080ff;
-  }
-
-  66% {
-    color: #0000ff;
-  }
-
-  77% {
-    color: #8000ff;
-  }
-
-  88% {
-    color: #ff00ff;
-  }
-
-  100% {
-    color: #ff0000;
-  }
+.apple_logo-container img {
+  height: 15px;
+  margin-right: 4px;
 }
