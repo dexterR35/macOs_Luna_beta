@@ -34,7 +34,7 @@
 }
 :root {
 
-  --test:400px;
+
   --containers_MaxWidth: 50%;
   --containers_MinWidth: 1000px;
   --containers_width: calc(55em - 10px);
@@ -71,7 +71,7 @@
   --soft-grey: #cecdcd;
   --light-white: #ffffff;
   --Rorange-color: #346751e8;
-  --Rwhite-color: #f1f1f1;
+  --Rwhite-color: #f7f7f7;
   --Rhard-black-color: #313131;
   --Rlight-blue-color: #14d5dc;
   --Rcrimson-color: crimson;

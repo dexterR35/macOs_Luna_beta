@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   justify-content: space-between;
-  height: 35px;
+  height: 41px;
   align-items: center;
   z-index: 1;
   line-height: 1;
@@ -15,13 +15,14 @@
 .container-topheader::after {
   content: "";
   position: absolute;
+  opacity: 0.2;
   top: 0;
   left: 0;
   width: 100%;
   height: 35px;
-  background-color: var(--max-black);
+  background-color: var(--Rwhite-color);
+  box-shadow: 5px 2px 2px 2px var(--third-finder-color);
   z-index: -1;
-  opacity: 0.9;
   /* background-color: red; */
 }
 
@@ -135,7 +136,7 @@
 }
 
 .section4_topheader_right ul .dropdown-button {
-  padding: 0 4px;
+  padding: 0 3px;
   width: max-content;
 }
 /* .section4_topheader_right ul li  {
@@ -143,7 +144,7 @@ display: flex;
 } */
 .section4_topheader_right ul li a,
 .dropDown-menu > li > a {
-  font-size: 0.72rem !important;
+  font-size: 0.8em !important;
 }
 
 .volume_container {
