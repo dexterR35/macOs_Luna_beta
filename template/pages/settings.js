@@ -1,6 +1,8 @@
 
-console.log("start settings");
 
+
+console.log("start settings");
+//  append nav bar to all boxes
 let title = 'Luna';
 
 let _TopNavBox = `<div class="container_top_nav_boxes">
@@ -20,7 +22,7 @@ function appendStuff() {
   );
 }
 
-
+//  open all nav top header items
 
 export function openNavLink() {
   let dropBtns = document.querySelectorAll(".dropdown-button");
@@ -56,6 +58,7 @@ export function openNavLink() {
   appendStuff();
 }
 
+
 // let rangeInput = document.getElementById("rangeInput");
 // let output = document.getElementById("output");
 
@@ -64,6 +67,8 @@ export function openNavLink() {
 // rangeInput.oninput = function() {
 //   output.innerHTML = this.value;
 // }
+
+//  add time to nav header
 
 export function startTime() {
   var date = new Date(),
@@ -95,6 +100,8 @@ export function startTime() {
   }
   var time = setTimeout(startTime, 1000);
 }
+
+//  click all buttons with class box_open and display modal for different box
 
 export function clickDivs() {
   const _boxes = document.querySelectorAll(".box_open");
@@ -129,6 +136,8 @@ export function clickDivs() {
   //   });
   // }
 }
+
+//  drag all windows with class drag-only
 
 export function dragWindows() {
   const draggableElements = document.querySelectorAll(".drag-only");
@@ -167,7 +176,6 @@ export function dragWindows() {
   });
 }
 
-
-
+//  display all img from firebase
 
 
