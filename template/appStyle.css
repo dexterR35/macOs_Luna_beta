@@ -1,9 +1,4 @@
-@import "./pages/header/header.css";
-@import "./pages/icons/icons.css";
-@import "./pages/linkdin/linkdin.css";
-@import "./pages/github/github.css";
-@import "./pages/chrome/chrome.css";
-@import "./pages/customize/customize.css";
+
 
 @font-face {
   font-family: product-sans;
@@ -29,6 +24,7 @@
   font-family: SF-Heavy;
   src: url(./assets/fonts/sanFrancisco/SF-Pro-Display-Heavy.otf);
 }
+
 *,
 *:before,
 *:after {
@@ -37,6 +33,8 @@
   box-sizing: border-box;
 }
 :root {
+
+  --test:400px;
   --containers_MaxWidth: 50%;
   --containers_MinWidth: 1000px;
   --containers_width: calc(55em - 10px);
@@ -111,7 +109,7 @@ span .input-style,
 h3,
 h1,
 h2 {
-  font-family: "Poppins", sans-serif;
+  font-family: SF-Regular;
 }
 
 a {

@@ -84,8 +84,8 @@
 }
 
 .dropBtn.primary-text-dropdown {
-  font-weight: 500 !important;
-  font-size: 13px !important;
+  /* font-weight: 500 !important;
+  font-size: 13px !important; */
   letter-spacing: 1px;
   color: var(--speedy);
 }
