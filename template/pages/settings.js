@@ -71,7 +71,7 @@ export function openNavLink() {
 //  add time to nav header
 
 export function startTime() {
-  var date = new Date(),
+  let date = new Date(),
     hour = date.getHours(),
     minute = checkTime(date.getMinutes()),
     ss = checkTime(date.getSeconds());
@@ -98,7 +98,7 @@ export function startTime() {
     document.getElementById("t_date").innerHTML =
       hour + ":" + minute + ":" + ss + " AM";
   }
-  var time = setTimeout(startTime, 1000);
+  let time = setTimeout(startTime, 1000);
 }
 
 //  click all buttons with class box_open and display modal for different box
@@ -106,7 +106,7 @@ export function startTime() {
 export function clickDivs() {
   const _boxes = document.querySelectorAll(".box_open");
   const _modals = document.querySelectorAll(`div[id^="modal_"]`);
-  // console.log(_modals, "modals");
+  console.log(_modals, "modals");
   _boxes.forEach((box) => {
     box.addEventListener("click", () => {
       const modalIds = box.getAttribute("data-modal").split(",");

@@ -6,11 +6,11 @@
 
 .section4_botIcons {
   position: relative;
-  height: 70px;
+  height: 75px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2001;
+  z-index: 201;
   margin-bottom: 3vh;
 }
 
@@ -161,11 +161,24 @@
   display: flex;
   justify-content: center;
 }
-
+/* .section4_botIcons ul li .bounce-4:not(.container-hover-icons:hover)::before  {
+ 
+} */
 .container-hover-icons:hover {
   transform: scale(1.2) translateY(-10px) translateX(0px);
   transition: all 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
   cursor: pointer;
+}
+.container-hover-icons:hover::after {
+  content: "";
+  position: relative;
+  left: -26px;
+  bottom: -55px;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background: rgb(20, 20, 20);
+  /* background-color: red; */
 }
 
 @keyframes bounce-4 {
@@ -317,6 +330,7 @@
   height: 44px !important;
   background: rgb(167 167 167) !important;
   position: relative;
+  top: 3px;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -461,6 +475,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 5px 2px rgb(0 0 0 / 10%);
+  top: -3px;
 }
 
 .github-icon {
