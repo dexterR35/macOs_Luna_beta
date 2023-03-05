@@ -77,7 +77,7 @@
   --Rcrimson-color: crimson;
   /*End  Colors*/
 
-  --bg_image: url(./assets/png/_Bg/macos3.jpg);
+  --bg_image: url(/template/assets/png/_bg/macos3.jpg);
 }
 
 
