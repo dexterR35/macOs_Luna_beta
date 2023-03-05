@@ -7,6 +7,10 @@
   width: unset !important ;
   margin-right: 10px;
 }
+.chrome-link-right,
+.chrome-link-left {
+  cursor: pointer;
+}
 /* .text_boxes_nav {
   display: none;
 } */
@@ -136,6 +140,11 @@
 
 .bookmark-chrome {
   margin-left: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
 }
 
 .chrome-items-buttons > button {
@@ -254,7 +263,7 @@ h1 span[rel="green"] {
 }
 
 #chrome-contact {
-  background-color: blue;
+  background-color: #f7f7f7;
 }
 
 #chrome-about {
@@ -306,29 +315,44 @@ h1 span[rel="green"] {
 /* 
 
 start blog */
-.chrome-contact{
-  display: flex;
+.chrome-contact {
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
-#chrome-news {
+.container-blog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 85%;
+}
+
+#chrome-news,
+#chrome-contact {
   /* display: flex; */
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   width: 100%;
   height: 100%;
   gap: 10px;
   color: black;
 }
-#chrome-news h3 {
+#chrome-news h3,
+#chrome-contact h3 {
   font-size: 4em;
 }
-#chrome-news p {
+
+#chrome-news p,
+#chrome-contact p {
   font-size: 1.4em;
   line-height: 0.8;
   font-weight: 300;
 }
 
-#chrome-news .material-symbols-outlined {
+#chrome-news .material-symbols-outlined,
+#chrome-contact .material-symbols-outlined {
   font-size: 5em;
   animation: material_icon_rotate 10s linear forwards infinite;
 }

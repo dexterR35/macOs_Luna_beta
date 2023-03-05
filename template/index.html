@@ -22,6 +22,7 @@
 </head>
 
 <body>
+  <!-- <button  class="box_open" data-modal="modal_display" id="box_display">teetest</button> -->
   <div class="wrapper">
     <header id="header-container" class="header-container"></header>
     <div class="container">
@@ -30,6 +31,8 @@
           <div class="linkedin_push linkedinBox drag-only"></div>
           <div class="github_push githubBox drag-only"></div>
           <div class="chrome_push chromeBox drag-only" id="chrome_push"></div>
+          <div class="customize_push customizeBox drag-only" id="customize_push"></div>
+      
         </div>
       </div>
     </div>
@@ -56,18 +59,34 @@
         </button></a>
     </div>
     <footer id="footer-container" class="footer-container"></footer>
-
   </div>
+  <script>
+    // function openModalBG() {
+    //   document.getElementById("bg_change").style.display = "block";
+    //   console.log("gasgasgasgs");
+    //   alert("test");
+    // }
 
+    function selectImage(imageUrl) {
+      
+      document.body.style.backgroundImage = `url('${imageUrl}')`;
+      // closeModalBG();
+    }
+
+    // function closeModalBG() {
+    //   document.getElementById("bg_change").style.display = "none";
+    // }
+  </script>
+  <!-- 
   <div id="bg_change" class="bg_change">
     <div class="modal-content-bg">
       <img src="/template/assets/png/nature1.jpg" onclick="selectImage('/template/assets/png/nature1.jpg')">
       <img src="/template/assets/png/nature1.jpg" onclick="selectImage('/template/assets/png/nature1.jpg')">
       <img src="/template/assets/png/nature1.jpg" onclick="selectImage('/template/assets/png/nature1.jpg')">
       <img src="/template/assets/png/nature1.jpg" onclick="selectImage('/template/assets/png/nature1.jpg')">
-    </div>
-    <script src="./index.js"></script>
-    <script type="module" src="app.js" async></script>
+    </div> -->
+  <script src="./index.js"></script>
+  <script type="module" src="app.js" async></script>
 </body>
 
 </html>

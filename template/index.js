@@ -19,20 +19,9 @@ fetchHTMLContent("./pages/header/header.html", "#header-container");
 fetchHTMLContent("./pages/icons/icons.html", "#footer-container");
 fetchHTMLContent("./pages/linkdin/linkdin.html", ".linkedin_push");
 fetchHTMLContent("./pages/github/github.html", ".github_push");
-// fetchHTMLContent("./pages/chrome/chrome.html", ".chrome_push");
-$("#chrome_push").load("./pages/chrome/chrome.html");
 
-function openModalBG() {
-    document.getElementById("bg_change").style.display = "block";
-  }
-  
-  function selectImage(imageUrl) {
-    document.body.style.backgroundImage = `url('${imageUrl}')`;
-    closeModalBG();
-  }
-  
-  function closeModalBG() {
-    document.getElementById("bg_change").style.display = "none";
-  }
+$("#chrome_push").load("./pages/chrome/chrome.html");
+$("#customize_push").load("./pages/customize/customize.html");
+
 
 

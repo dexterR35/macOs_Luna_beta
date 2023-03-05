@@ -3,12 +3,32 @@
 @import "./pages/linkdin/linkdin.css";
 @import "./pages/github/github.css";
 @import "./pages/chrome/chrome.css";
+@import "./pages/customize/customize.css";
 
 @font-face {
   font-family: product-sans;
   src: url(./assets/fonts/product-sans/Product\ Sans\ Regular.ttf);
 }
-
+@font-face {
+  font-family: SF-Regular;
+  src: url(./assets/fonts/sanFrancisco/SF-Pro-Display-Regular.otf);
+}
+@font-face {
+  font-family: SF-Thin;
+  src: url(./assets/fonts/sanFrancisco/SF-Pro-Display-Light.otf);
+}
+@font-face {
+  font-family: SF-Black;
+  src: url(./assets/fonts/sanFrancisco/SF-Pro-Display-Black.otf);
+}
+@font-face {
+  font-family: SF-Bold;
+  src: url(./assets/fonts/sanFrancisco/SF-Pro-Display-Bold.otf);
+}
+@font-face {
+  font-family: SF-Heavy;
+  src: url(./assets/fonts/sanFrancisco/SF-Pro-Display-Heavy.otf);
+}
 *,
 *:before,
 *:after {
@@ -59,7 +79,7 @@
   --Rcrimson-color: crimson;
   /*End  Colors*/
 
-  --bg_image: url(./assets/png/macos3.jpg);
+  --bg_image: url(./assets/png/_Bg/macos3.jpg);
 }
 
 
@@ -206,6 +226,7 @@ iframe{
 
 .linkedinBox,
 .githubBox,
+.customizeBox,
 .chromeBox {
   position: absolute;
 }
@@ -221,6 +242,10 @@ iframe{
 .chromeBox {
   top: 3%;
   left: 5%;
+}
+.customizeBox {
+  top: 6%;
+  left: 10%;
 }
 .container-github,
 .container-linkdin {

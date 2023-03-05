@@ -5,6 +5,7 @@ import {
     startTime,
     clickDivs,
     dragWindows,
+
 } from "./pages/settings.js";
 
 openNavLink();
