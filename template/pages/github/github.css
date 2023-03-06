@@ -18,7 +18,8 @@
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    background: white;
+    color: azure;
+    background-image:var(--github_gradient);
   }
   .github-icon-page {
     width: 58px !important;

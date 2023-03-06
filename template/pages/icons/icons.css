@@ -20,7 +20,6 @@
   width: 100%;
   height: 100%;
   border-radius: 20px;
-  opacity: 0.2;
   z-index: -34;
 }
 
@@ -464,7 +463,7 @@
 
 /*-------------start github icons------------*/
 .git-hub-container {
-  background: #333;
+  background: #0e0e0e;
   width: 55px !important;
   height: 55px !important;
   border-radius: 50px;
@@ -491,7 +490,7 @@
   top: 9.5px;
   width: 26px;
   height: 17px;
-  background: #333;
+  background: #0e0e0e;
   border-radius: 20px;
   margin: auto;
 }
@@ -510,7 +509,7 @@
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-top: 10px solid #333;
+  border-top: 10px solid #0e0e0e;
 }
 
 .github-icon-ears-right {
@@ -518,13 +517,13 @@
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 10px solid #333;
+  border-bottom: 10px solid #0e0e0e;
 }
 
 .github-icon-body {
   width: 13px;
   height: 19px;
-  background: #333;
+  background: #0e0e0e;
   position: relative;
   top: 7px;
   margin: 0px auto;
@@ -536,8 +535,8 @@
   width: 17px;
   height: 11px;
   position: absolute;
-  border: solid 3px #333;
-  border-color: #333 transparent transparent transparent;
+  border: solid 3px #0e0e0e;
+  border-color: #0e0e0e transparent transparent transparent;
   border-radius: 100px/100px 0px;
   transform: rotate(30deg);
   top: 27px;

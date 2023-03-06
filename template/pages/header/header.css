@@ -73,7 +73,7 @@
 .dropMenu-list {
   position: absolute;
   display: none;
-  top: 27px;
+  top: 24px;
   left: 3px;
   background: var(--bg_nav_drop);
   border-bottom-left-radius: 20px;
@@ -81,8 +81,8 @@
   z-index: 1;
   overflow: hidden;
 }
-._font_li_header{
-  top: 30px;
+._font_li_header_r{
+  top: 27px;
 }
 
 .show {
@@ -222,7 +222,7 @@ input:checked[type="checkbox"]::after {
 }
 
 #clock_top {
-  width: 90px;
+  width: 65px;
 }
 
 
@@ -278,14 +278,14 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
   margin-top: -8px; /* Centers thumb on the track */
-  background-color: #5e5e5e;
+  background-color: #095581;
   border-radius: 0.5rem;
   height: 1.5rem;
   width: 0.5rem;
 }
 
 input[type="range"]:focus::-webkit-slider-thumb {
-  outline: 3px solid #5e5e5e;
+  outline: 3px solid #095581;
   outline-offset: 0.125rem;
 }
 
@@ -299,7 +299,7 @@ input[type="range"]::-moz-range-track {
 
 /* slider thumb */
 input[type="range"]::-moz-range-thumb {
-  background-color: #5e5e5e;
+  background-color: #095581;
   border: none; /*Removes extra border that FF applies*/
   border-radius: 0.5rem;
   height: 1.5rem;
@@ -307,7 +307,18 @@ input[type="range"]::-moz-range-thumb {
 }
 
 input[type="range"]:focus::-moz-range-thumb{
-  outline: 3px solid #5e5e5e;
+  outline: 3px solid #095581;
   outline-offset: 0.125rem;
 }
 
+#t_date
+{
+  font-size: 0.9em;
+}
+.fullname-nav  {
+  font-size: 0.95em;
+  top: -1.5px;
+}
+#clock_top {
+  top: -2px;
+}

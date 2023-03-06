@@ -3,20 +3,41 @@
 
 
   .wrapper-linkdin {
-    font-family: product-sans;
+
     width: 950px;
     height: 750px;
-    background: var(--primaryS-finder-color);
-    z-index: 2000;
+    /* background: var(--bg-color_parent); */
   }
   .container-linkdin {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--bg-color_overlay);
+    background-image: var(--linkedin_gradient);
+    animation: bg-animation 2s ease-in-out forwards;
     flex-direction: column;
     gap: 10px;
-    background: white;
+  color: azure;
+    position: relative;
+  }
+  /* @keyframes bg-animation {
+    from {
+      background:var(--bg-color_overlay);
+    
+    }
+    to {
+      background:var(--bg-color_overlay);
+      background-image: radial-gradient(circle, #1333a6, #002f88, #002869, #00204a, #03162c);
+    }
+  } */
+  .container-linkdin::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background: var(--bg-color_overlay); */
+z-index: -1;
   }
   .linkDin-icon-page {
     width: 58px !important;
@@ -47,6 +68,7 @@
     font-size: 60px;
     font-weight: 700;
     left: -177px;
+    font-family: product-sans;
   }
   .loading-linkedin-bar{
     width: 235px;
@@ -135,7 +157,7 @@
     animation-direction: normal;
     opacity: 0;
     font-size: 16px;
-    font-family: product-sans;
+    font-family: SF-Regular;
   }
   .button-linkdin {
     animation-name: fade-linkdin;
@@ -170,6 +192,7 @@
       opacity: 1;
     }
   }
+
   .moto-linkdin {
     font-size: 13px;
     text-transform: inherit;

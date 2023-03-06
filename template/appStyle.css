@@ -65,8 +65,10 @@
 
 
   --bg-low_dark:#2B3A55;
+  --bg-low_dark_icons:#000000;
+  --bg-low_dark_header:#0e0f1c;
 
-  --shadow-low_grey:#393E46;
+  --shadow-low_grey:#c9c9c9;
 
 
 --material_symbol_box_display:#0e3377;
@@ -77,6 +79,9 @@
   --containers_MinWidth: 1000px;
   --containers_width: calc(55em - 10px);
   --containers_height: 40em;
+
+  --github_gradient: radial-gradient(circle, #440000, #3a0301, #310402, #280301, #1f0000);
+  --linkedin_gradient:radial-gradient(circle, #1333a6, #002f88, #002869, #00204a, #03162c);
   /*finder colors*/
   /*contact colors*/
   /* --aditional-finder-color: #161616;
@@ -196,10 +201,16 @@ FONT SIZE  */
 
 /*color_style*/
 
-.container-topheader::after,.section4_botIcons::after{
- opacity: 0.3 !important; 
-background: var(--bg-low_dark);
-box-shadow: 5px 2px 2px 2px var(--shadow-low_grey);
+.container-topheader::after{
+  opacity: 0.6 !important; 
+  background: var(--bg-low_dark_header);
+  box-shadow: 0px 0px 8px #000000 !important;
+}
+
+.section4_botIcons::after{
+ opacity: 0.6 !important; 
+background: var(--bg-low_dark_icons);
+box-shadow: 0px 0px 6px var(--shadow-low_grey);
 }
 
 #footer-container {
@@ -344,8 +355,9 @@ box-shadow: 5px 2px 2px 2px var(--shadow-low_grey);
 }
 .container-github,
 .container-linkdin {
-  border: 1px solid #909090;
+  /* border: 1px solid #909090; */
   border-top: none !important;
+  background: var(--bg-color_overlay);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
