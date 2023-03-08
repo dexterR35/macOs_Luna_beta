@@ -57,12 +57,20 @@
 --bg-modal_after:#091214c9;
 --bg-color_overlay: #05060e9e;
 --bg-color_parent: #385278c4;
+--bg-color_child:#162531;
 --bg-border_parent: #162531;
 --bg-border_low: #244056;
-  --background_hover:#B7B78A;
+--background_hover:#B7B78A;
 
+--soft-grey:#d7d7d7b0;
+--text-azure:azure;
+--hover-text:#d7d7d7b0;
+
+--btn-contact-simple:crimson;
+--btn-contact-hover:orange;
   --bg_nav_drop:#0c0c0cb0;
 
+  
 
   --bg-low_dark:#2B3A55;
   --bg-low_dark_icons:#000000;
@@ -82,6 +90,7 @@
 
   --github_gradient: radial-gradient(circle, #440000, #3a0301, #310402, #280301, #1f0000);
   --linkedin_gradient:radial-gradient(circle, #1333a6, #002f88, #002869, #00204a, #03162c);
+  
   /*finder colors*/
   /*contact colors*/
   /* --aditional-finder-color: #161616;
@@ -167,7 +176,7 @@ li {
   background: var(--background_hover);
   color: black !important;
 }
-.container_topheader_items li a, .section4_topheader_right li a, .section4_topheader_right li span {
+.container_topheader_items li a, .section4_topheader_right li a, .section4_topheader_right li span, .finder-middle-left {
   color: azure;
 }
 
@@ -333,8 +342,13 @@ box-shadow: 0px 0px 6px var(--shadow-low_grey);
 .linkedinBox,
 .githubBox,
 .customizeBox,
-.chromeBox {
+.chromeBox,
+.finderBox {
   position: absolute;
+}
+.finderBox {
+  top: 5%;
+  left:20%;
 }
 
 .linkedinBox {

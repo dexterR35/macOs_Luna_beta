@@ -5,12 +5,12 @@
         <div class="chrome-page-left">
           <div class="insert_header_box chrome_title"></div>
           <div class="chrome-page-tabs chrome-page-line">
-            <button class="tablink" onclick="openPage('chrome-home', this, 'red')" id="defaultOpen">Home</button>
-            <button class="tablink" onclick="openPage('chrome-news', this, 'blue')">Blog</button>
-            <button class="tablink" onclick="openPage('chrome-contact', this, 'yellow')">Contact</button>
-            <button class="tablink" onclick="openPage('chrome-linkedin', this, 'purple')">Linkedin</button>
-            <button class="tablink" onclick="openPage('chrome-cssBattle', this, 'cyan')">Css Battle</button>
-            <button class="tablink-circle" onclick="openPage()">+</button>
+            <button class="tablink all_links" onclick="openPage('chrome-home', this, 'red')" id="defaultOpen">Home</button>
+            <button class="tablink all_links" onclick="openPage('chrome-news', this, 'blue')">Blog</button>
+            <button class="tablink all_links" onclick="openPage('chrome-contact', this, 'yellow')">Contact</button>
+            <button class="tablink all_links" onclick="openPage('chrome-linkedin', this, 'purple')">Linkedin</button>
+            <button class="tablink all_links" onclick="openPage('chrome-cssBattle', this, 'cyan')">Css Battle</button>
+            <button class="tablink-circle all_links" onclick="openPage()">+</button>
           </div>
         </div>
         <div class="chrome-page-link chrome-page-line">
@@ -161,26 +161,5 @@
  
   $("#linkDin_chrome").load("/template/pages/linkdin/linkdin.html");
 
-  function openPage(pageName, elmnt, color) {
-    // console.log(pageName)
-    // console.log(color)
-    let i
-    let tabcontent
-    let tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    // Remove the background color of all tablinks/buttons
-    tablinks = document.getElementsByClassName("tablink");
 
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].style.backgroundColor = "";
-    }
-
-    let pageNameDisplay = document.getElementById(pageName);
-    pageNameDisplay.style.display = "block";
-    elmnt.style.backgroundColor = color;
-  }
-  document.getElementById("defaultOpen").click();
 </script>

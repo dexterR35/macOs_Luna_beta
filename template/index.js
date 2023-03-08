@@ -8,7 +8,8 @@ const cssUrls = [
   './pages/chrome/chrome.css',
   './pages/customize/customize.css',
   './pages/linkdin/linkdin.css',
-  './pages/github/github.css'
+  './pages/github/github.css',
+  './pages/finder/finder.css'
 ];
 
 Promise.all(cssUrls.map(url => fetch(url)))
@@ -52,8 +53,58 @@ fetchHTMLContent("./pages/github/github.html", ".github_push");
 
 $("#chrome_push").load("./pages/chrome/chrome.html");
 $("#customize_push").load("./pages/customize/customize.html");
+$("#finder_push").load("./pages/finder/finder.html");
 
 console.log("end index");
+
+function openPage(pageName, elmnt, color) {
+  let i, tabcontent, tablinks;
+  tabcontent = document.querySelectorAll(".tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.querySelectorAll(".all_links");
+  console.log(tablinks,"tabs")
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  let pageNameDisplay = document.getElementById(pageName);
+  console.log(pageNameDisplay,"pagename")
+  pageNameDisplay.style.display = "block";
+  elmnt.style.backgroundColor = color;
+
+}
+
+
+// document.querySelector(".openLinks").click();
+document.getElementById("defaultOpen").click();
+
+
+
+let _folders = document.querySelector(".js_folders");
+let _foldersTxt = ["projects", "landing-page", "videos", "music", "text"];
+
+function generateFolders() {
+  for (let j = 1; j <= 15; j++) {
+    _folders.innerHTML +=
+      "<div class ='folder_nr" +
+      j +
+      " -folders'>" +
+      "<div class='folder-inside'>" +
+      "</div>" +
+      "<div class='folder-insideTxt'>" +
+      _foldersTxt[0] +
+      "</div>" +
+      "</div>";
+  }
+}
+
+generateFolders();
+
+$(".change_display").click(function () {
+  $(".change_folders").toggleClass("active");
+  $(".folder-inside").toggleClass("active_large");
+});
 
 
 
