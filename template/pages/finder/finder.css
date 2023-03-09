@@ -16,6 +16,9 @@
 .finder_title {
     width: 100%;
 }
+.finder-secondnav a span {
+    display: flex;
+}
 
 .finder-topnav-items {
   width: 46%;
@@ -49,7 +52,11 @@
   margin-left: 10px;
   background: var(--bg-color_child);
   display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 5px;
+  height: 87%;
+    width: 5%;
 }
 
 .items-secondnav-center {
@@ -542,7 +549,6 @@
   font-size: 0.72em !important;
   text-transform: capitalize;
   font-weight: 400;
-  font-family: "Poppins";
   display: flex;
   align-items: center;
   margin-left: 5px;
@@ -600,7 +606,6 @@
   justify-content: center;
   align-items: flex-end;
   gap: 5px;
-  font-family: "Open Sans", sans-serif;
 }
 
 .partners-middle-image {

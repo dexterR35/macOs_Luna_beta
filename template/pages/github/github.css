@@ -18,7 +18,7 @@
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    color: azure;
+    color: var(--text-azure);
     background-image:var(--github_gradient);
   }
   .github-icon-page {
@@ -164,7 +164,7 @@
   }
   .button-github:hover {
     background: rgba(34, 129, 207, 0.993);
-    color: white;
+    color: var(--text-azure);
     cursor: pointer;
   }
 

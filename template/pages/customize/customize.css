@@ -9,7 +9,7 @@
   justify-content: center;
   font-family: SF-Thin;
   overflow: hidden;
-  color: azure;
+  color: var(--text-azure);
   border: 2px solid var(--bg-border_parent);
 }
 
@@ -226,7 +226,7 @@ cursor: pointer;
   background:var(--material_symbol_box_display);
   border-radius: 5px;
   padding: 3px;
-  color: white;
+  color: var(--text-azure);
 }
 ._l_picture{
   padding: 5px;
