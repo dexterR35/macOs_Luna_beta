@@ -13,6 +13,9 @@
 .finder-topnav {
   overflow: hidden !important;
 }
+.finder_title {
+    width: 100%;
+}
 
 .finder-topnav-items {
   width: 46%;
@@ -34,6 +37,7 @@
 
 .finder-secondnav {
   background: var(--bg-color_overlay);
+  color: var(--text-azure);
   width: 100%;
   height: 30px;
   display: flex;
@@ -65,9 +69,6 @@
   margin-right: 10px;
 }
 
-.items-secondnav-center ul li:nth-child(5) {
-  margin-right: 10px;
-}
 
 .items-secondnav-right li a i {
   position: absolute;

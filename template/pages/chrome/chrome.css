@@ -50,14 +50,14 @@
   height: 40px;
 }
 
-.chrome-page-link.chrome-page-line,
+/* .chrome-page-link.chrome-page-line,
 .tabcontent,
 .tablink,
 .chrome-page-bookmark.chrome-page-line,
 .chrome-page-left,
 .chrome-page-top-header {
   background-color: var(--primaryM-finder-color);
-}
+} */
 
 .chrome-link-left {
   flex-basis: 10%;
