@@ -1,12 +1,6 @@
-
 .terminal-container {
-  width: 800px;
-  max-width: 800px;
-  height: 550px;
-  max-height: 550px;
-  background-color: #333;
-  border-radius: 5px;
-  overflow: hidden;
+  width: var(--containers_width);
+  height: var(--containers_height);
 }
 
 .terminal-top-nav {
@@ -29,10 +23,13 @@
   flex-direction: column;
   gap: 2px;
 }
+.terminal_title {
+  width: 100%;
+}
 .terminal-body {
   /* background-color: rgb(24, 24, 24); */
   padding: 10px;
-  height: 90%;
+  height: 92%;
 }
 
 .terminal-topnav {

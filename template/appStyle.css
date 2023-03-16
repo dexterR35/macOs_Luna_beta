@@ -168,7 +168,7 @@ a {
   text-decoration: none !important;
   color: var(--text-low-finder-color);
 }
-.__nav_list > div, .terminal-text {
+.__nav_list > div, .terminal-text, .custom_footer_pages  {
   font-family: "SF-Regular";
 }
 

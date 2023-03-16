@@ -52,6 +52,7 @@ let iSpeed = 20; // time delay of print out
     }
     destination.innerHTML =
       sContents + aText[iIndex].substring(0, iTextPos) + " | ";
+
     if (iTextPos++ == iArrLength) {
       iTextPos = 0;
       iIndex++;
@@ -60,6 +61,7 @@ let iSpeed = 20; // time delay of print out
         setTimeout("typewriter()", 100);
       }
     } else {
+      
       setTimeout("typewriter()", iSpeed);
     }
   }
