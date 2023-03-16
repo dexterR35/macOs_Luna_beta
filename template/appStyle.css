@@ -168,7 +168,7 @@ a {
   text-decoration: none !important;
   color: var(--text-low-finder-color);
 }
-.__nav_list > div {
+.__nav_list > div, .terminal-text {
   font-family: "SF-Regular";
 }
 
@@ -389,12 +389,20 @@ box-shadow: 0px 0px 6px var(--shadow-low_grey);
 .githubBox,
 .customizeBox,
 .chromeBox,
-.finderBox {
+.finderBox,
+.terminalBox{
   position: absolute;
 }
 .finderBox {
   top: 5%;
   left:20%;
+}
+
+.terminalBox { 
+
+    top: 7%;
+    left: 25%;
+
 }
 
 .linkedinBox {
@@ -406,8 +414,8 @@ box-shadow: 0px 0px 6px var(--shadow-low_grey);
   left: 15%;
 }
 .chromeBox {
-  top: 3%;
-  left: 5%;
+  top: 7%;
+  left: 15%;
 }
 .customizeBox {
   top: 6%;

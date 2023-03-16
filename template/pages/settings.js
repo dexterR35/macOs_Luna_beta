@@ -1,7 +1,7 @@
 console.log("start settings");
 //  append nav bar to all boxes
-let title = 'Luna';
 
+let title = 'Luna';
 let _TopNavBox = `<div class="container_top_nav_boxes">
 <div class="topnav-items-box">
 <div class ='circle circle1 close_box'></div>
@@ -29,6 +29,15 @@ let _FooterNav = `
 <div>Marian Iordache</div>
 `
 $(".footer_insert_pages").append(_FooterNav);
+
+// call typewriter function
+
+document.getElementById("box_terminal").addEventListener("click", function() {
+  typewriter(); 
+
+});
+
+
 //  open all nav top header items
 
 export function openNavLink() {
@@ -65,6 +74,9 @@ export function openNavLink() {
   appendStuff();
 }
 
+
+ 
+  
 
 // let rangeInput = document.getElementById("rangeInput");
 // let output = document.getElementById("output");
@@ -105,7 +117,8 @@ export function startTime() {
     document.getElementById("t_date").innerHTML =
       hour + ":" + minute + ":" + ss + " AM";
   }
-  let time = setTimeout(startTime, 1000);
+  // let time = setTimeout(startTime, 1000);
+  // console.log(time,"time");
 }
 
 //  click all buttons with class box_open and display modal for different box

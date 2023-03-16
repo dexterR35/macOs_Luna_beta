@@ -1,0 +1,69 @@
+<div class="modal_terminal modal_boxes" id="modal_terminal">
+  <div class="terminal-container">
+    <div class="terminal-topnav" id="terminalBoxheader">
+      <div class="insert_header_box terminal_title"></div>
+ 
+    </div>
+    <div class="terminal-body color_overlay" id="demo">
+      <div class="terminal-text" id="typedtext"></div>
+    </div>
+    <div class="custom_footer_pages footer_insert_pages"></div>
+  </div>
+</div>
+<script>
+
+
+let aText = new Array(
+    "<li>macOS Luna [Version 1.0.0.2023]</li>",
+    "<li>(c) M Design. All rights reserved</li>",
+    "<li>Last login: Fri Jun 4 13:10:49 on dexter00</li>",
+    '<li>Luna@macBook-Pro - % sudo /application/install\ macOS\ Luna.app/Content</li>',
+    "<li>Password:******</li>",
+    "<li>Ready to start</li>",
+    "<li>To continue we need to erase the volume at /volume/myVolume</li>",
+    "<li>If you wish to continue type (Y) then press return: Y</li>",
+    "<li>Erasing disk:0%....10%....20%....30%....100%</li>",
+    "<li>Making disk Bootable....</li>",
+    "<li>Copying boot files</li>",
+    '<li>install media now available at "/Volumes/install macOs Luna"</li>',
+    "<li>Luna@macBook-pro ~ % [ Boot Loading.... ]</li>",
+    "<li>Please wait....</li>",
+    "<li>Start...</li>",
+    "<li> click@ <a href='https://www.buymeacoffee.com/dexterR35' target='_blank'>Now you can buy me a coffee....</a></li>"
+  );
+
+  
+let iSpeed = 20; // time delay of print out
+  let iIndex = 0; // start printing array at this position
+  let iArrLength = aText[1].length; // the length of the text array
+  let iScrollAt = 20; // start scrolling up at this many lines
+  let iTextPos = 0; // initialise text position
+  let sContents = ""; // initialise contents letiable
+  let iRow; // initialise current row
+
+  function typewriter() {
+    sContents = " ";
+    iRow = Math.max(0, iIndex - iScrollAt);
+    let destination = document.getElementById("typedtext");
+    // console.log(destination, "text");
+
+    while (iRow < iIndex) {
+      sContents += aText[iRow++];
+    }
+    destination.innerHTML =
+      sContents + aText[iIndex].substring(0, iTextPos) + " | ";
+    if (iTextPos++ == iArrLength) {
+      iTextPos = 0;
+      iIndex++;
+      if (iIndex != aText.length) {
+        iArrLength = aText[iIndex].length;
+        setTimeout("typewriter()", 100);
+      }
+    } else {
+      setTimeout("typewriter()", iSpeed);
+    }
+  }
+ 
+ 
+ 
+</script>

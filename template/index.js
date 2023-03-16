@@ -9,12 +9,15 @@ const cssUrls = [
   './pages/customize/customize.css',
   './pages/linkdin/linkdin.css',
   './pages/github/github.css',
-  './pages/finder/finder.css'
+  './pages/finder/finder.css',
+  './pages/terminal/terminal.css',
 ];
 
 Promise.all(cssUrls.map(url => fetch(url)))
   .then(responses => Promise.all(responses.map(res => res.text())))
-  .then(texts => new Blob(texts, { type: 'text/css' }))
+  .then(texts => new Blob(texts, {
+    type: 'text/css'
+  }))
   .then(blob => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('link');
@@ -54,7 +57,7 @@ fetchHTMLContent("./pages/github/github.html", ".github_push");
 $("#chrome_push").load("./pages/chrome/chrome.html");
 $("#customize_push").load("./pages/customize/customize.html");
 $("#finder_push").load("./pages/finder/finder.html");
-
+$("#terminal_push").load("./pages/terminal/terminal.html");
 console.log("end index");
 
 
@@ -66,14 +69,14 @@ function openPage(pageName, elmnt, color) {
     tabcontent[i].style.display = "none";
   }
   tablinks = document.querySelectorAll(".all_links");
-  console.log(tablinks,"tabs")
+  console.log(tablinks, "tabs")
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].style.backgroundColor = "";
   }
   let pageNameDisplay = document.getElementById(pageName);
-  console.log(pageNameDisplay,"pagename")
+  console.log(pageNameDisplay, "pagename")
   pageNameDisplay.style.display = "block";
-  elmnt.style.backgroundColor = color;
+  // elmnt.style.backgroundColor = color;
 
 }
 
@@ -109,5 +112,5 @@ $(".change_display").click(function () {
   $(".folder-inside").toggleClass("active_large");
 });
 
-
+// call typewriter function
 

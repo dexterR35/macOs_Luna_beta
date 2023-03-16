@@ -5,7 +5,8 @@ import {
     openNavLink,
     startTime,
     clickDivs,
-    dragWindows,
+    dragWindows
+
 
 } from "./pages/settings.js";
 
@@ -14,6 +15,10 @@ openNavLink();
 startTime();
 clickDivs();
 dragWindows();
+
+ 
+
+
 
 
 
