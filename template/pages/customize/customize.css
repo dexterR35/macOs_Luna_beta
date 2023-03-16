@@ -14,7 +14,6 @@
 }
 
 ._custom_left {
-  /* background-color: red; */
   width: 30%;
 }
 
@@ -33,14 +32,11 @@
 ._r_top_small,
 ._r_top {
   width: 100%;
-  /* border-bottom: 1px solid var(--bg-border_parent); */
 }
 
 ._r_top {
   height: 32%;
-  /* margin-bottom: 5px; */
   position: relative;
-  /* background: var(--color_smooth_white); */
   border-bottom: none;
 }
 
@@ -84,7 +80,6 @@
 
 ._r_top_small_inside {
   justify-content: space-between;
-  /* margin: 0 20px; */
   border: 1px solid var(--bg-border_parent);
   padding: 10px;
   border-radius: 4px;
@@ -116,7 +111,6 @@
 .carousel_wallpapper {
   height: 5.5em;
   border-top: 1px solid var(--bg-border_low);
-  /* border-bottom: 1px solid var(--bg-border_low); */
   border-left: unset;
   border-right: unset;
   border-radius: 4px;
@@ -134,14 +128,12 @@
   display: flex;
   width: 100%;
   height: 100%;
-  /* overflow: hidden; */
   transition: all 0.5s;
 }
 
 .slide_r {
   height: 90%;
   margin: auto 6px;
-  /* box-shadow: 2px 2px 4px 2px white, -2px -2px 4px 2px white; */
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -182,10 +174,6 @@ cursor: pointer;
   right: -4px;
 }
 
-._l_list {
-  padding: 3px;
-}
-
 ._l_avatar {
   justify-content: flex-start;
   margin: 0 20px;
@@ -205,21 +193,6 @@ cursor: pointer;
     margin: 0;
     flex-direction: row-reverse;
 }
-
-._l_list {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  gap: 4px;
-  padding: 3px;
-  font-size: 0.85em;
-  text-transform: capitalize;
-  cursor: pointer;
-}
-/* ._l_list:hover {
-  transition: ease 0.2s;
-  color: white;
-} */
 
 ._l_list .material-symbols-outlined {
   font-size: 16px;

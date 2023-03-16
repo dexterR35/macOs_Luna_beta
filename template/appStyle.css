@@ -129,7 +129,7 @@
   --Rcrimson-color: crimson; */
   /*End  Colors*/
 
-  --bg_image: url(/template/assets/png/_bg/macos3.jpg);
+  --bg_image: url(./assets/png/_bg/macos3.jpg);
 }
 
 
@@ -168,7 +168,11 @@ a {
   text-decoration: none !important;
   color: var(--text-low-finder-color);
 }
+.__nav_list > div {
+  font-family: "SF-Regular";
+}
 
+/* list navigation pages  */
 li {
   list-style: none;
 }
@@ -176,6 +180,17 @@ li {
   background: var(--background_hover);
   color: black !important;
 }
+._l_list a {
+  font-size:0.9em;
+  display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 4px;
+    padding: 3px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
 .container_topheader_items li a, .section4_topheader_right li a, .section4_topheader_right li span, .finder-middle-left {
   color: azure;
 }
@@ -183,6 +198,37 @@ li {
 ul li a {
   text-decoration: none;
 }
+
+ /* footer all pages */
+
+.footer_insert_pages {
+  color: rgb(180, 180, 180);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* background: var(--soft-grey); */
+  font-size: 0.6em !important;
+  font-weight: 300 !important;
+  padding: 2px 15px;
+}
+
+.settings_pannel_all a {
+ display:flex;
+ align-items:center;
+ gap:2px;
+}
+
+.container-footer-contact > div:nth-child(2) {
+  margin-left: 72px;
+}
+ .custom_footer_pages {
+ 
+
+}
+
+
+
 iframe{
   width: 100%;
   height: 100%;

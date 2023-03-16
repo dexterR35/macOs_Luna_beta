@@ -166,7 +166,7 @@
   transition: all 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
   cursor: pointer;
 }
-.container-hover-icons:hover::after {
+/* .container-hover-icons:hover::after {
   content: "";
   position: relative;
   left: -26px;
@@ -175,8 +175,7 @@
   height: 5px;
   border-radius: 100%;
   background: rgb(20, 20, 20);
-  /* background-color: red; */
-}
+} */
 
 @keyframes bounce-4 {
   0% {

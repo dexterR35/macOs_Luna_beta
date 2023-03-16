@@ -57,6 +57,8 @@ $("#finder_push").load("./pages/finder/finder.html");
 
 console.log("end index");
 
+
+
 function openPage(pageName, elmnt, color) {
   let i, tabcontent, tablinks;
   tabcontent = document.querySelectorAll(".tabcontent");
@@ -76,8 +78,9 @@ function openPage(pageName, elmnt, color) {
 }
 
 
-// document.querySelector(".openLinks").click();
+document.querySelector(".all_links").click();
 document.getElementById("defaultOpen").click();
+
 
 
 

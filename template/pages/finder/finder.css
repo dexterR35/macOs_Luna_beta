@@ -19,7 +19,10 @@
 .finder-secondnav a span {
     display: flex;
 }
-
+.finder_nav_list{
+flex-direction:column;
+align-items:flex-start;
+}
 .finder-topnav-items {
   width: 46%;
   height: 20px;
@@ -42,10 +45,12 @@
   background: var(--bg-color_overlay);
   color: var(--text-azure);
   width: 100%;
-  height: 30px;
+  /* height: 30px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px;
 }
 
 .items-secondnav-left {
@@ -94,49 +99,29 @@
 .finder-middle {
   width: 100%;
   height: 100%;
+  display: flex;
+  gap: 4px;
+  margin:3px 0px;
 }
 
 .finder-middle-left {
   height: 100%;
   width: 25%;
   float: left;
-  /* background: var(--bg-color_overlay); */
+  background: var(--bg-color_overlay);
 }
 
-.finder-middle-left ul {
-  height: 100%;
-  text-align: start;
-  margin: 10px;
-  padding: 1em;
+.finder_nav_list {
+  padding: 20px 10px;
 }
-
-.finder-middle-left ul li {
-  padding: 4px 0;
-  list-style: none;
+.finder_nav_list ._l_list {
+padding:2px;
 }
-
-.finder-middle-left ul li:hover {
-  background: rgb(65, 105, 225);
-}
-
-.finder-middle-left ul li a {
-  margin-left: 10px !important;
-}
-
-.finder-middle-left ul li a,
-.contact-middle-left ul li a {
-  text-decoration: none;
-  margin-left: 12px;
-  color: var(--text-azure);
-  font-size: 0.78em !important;
-  text-transform: capitalize;
-  font-weight: 300 !important;
-}
-
 .finder-middle-left ul > div {
   color: var(--soft-grey);
   text-transform: capitalize;
   font-size: 0.65em;
+  padding: 1em 0;
 }
 
 .finder-middle-right {
@@ -209,28 +194,20 @@
   color: rgb(180, 180, 180);
 }
 
-.container-footer-finder,
+/* .container-footer-finder,
 .container-footer-contact {
   color: rgb(180, 180, 180);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* background: var(--soft-grey); */
+
   font-size: 0.6em !important;
   font-weight: 300 !important;
   padding: 5px;
-}
+} */
 
-.container-footer-finder-settingsPanel a {
-  font-size: 0.6rem !important;
-  font-weight: 300 !important;
-  margin-right: 65px;
-}
 
-.container-footer-contact > div:nth-child(2) {
-  margin-left: 72px;
-}
 
 /*=================~~~~~~~~~ MY PROJECTS =======================!!!!!!!!!!!!*/
 .js_folders {

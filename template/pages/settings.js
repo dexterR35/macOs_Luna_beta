@@ -1,6 +1,3 @@
-
-
-
 console.log("start settings");
 //  append nav bar to all boxes
 let title = 'Luna';
@@ -22,6 +19,16 @@ function appendStuff() {
   );
 }
 
+let _FooterNav = `
+<div class="settings_pannel_all">
+  <a href="#"><span class="material-symbols-outlined">
+    settings
+    </span> Settings</a>
+</div>
+<div>25 items, 280.63 GB available</div>
+<div>Marian Iordache</div>
+`
+$(".footer_insert_pages").append(_FooterNav);
 //  open all nav top header items
 
 export function openNavLink() {
@@ -141,7 +148,7 @@ export function clickDivs() {
 
 export function dragWindows() {
   const draggableElements = document.querySelectorAll(".drag-only");
-  console.log(draggableElements,"test")
+  console.log(draggableElements, "dragElements")
   draggableElements.forEach((draggableElement) => {
     const header = draggableElement.querySelector(".drag-header");
     header.addEventListener("mousedown", dragMouseDown);
@@ -165,7 +172,14 @@ export function dragWindows() {
       pos2 = pos4 - e.clientY;
       pos3 = e.clientX;
       pos4 = e.clientY;
-      draggableElement.style.top = draggableElement.offsetTop - pos2 + "px";
+      const newTop = draggableElement.offsetTop - pos2;
+      // console.log(newTop, "newTop");
+      if (newTop >= 40) {
+        draggableElement.style.top = newTop + "px";
+      } else {
+        draggableElement.style.top = "40px";
+      }
+      // draggableElement.style.top = draggableElement.offsetTop - pos2 + "px";
       draggableElement.style.left = draggableElement.offsetLeft - pos1 + "px";
     }
 
@@ -177,5 +191,3 @@ export function dragWindows() {
 }
 
 //  display all img from firebase
-
-
