@@ -11,6 +11,7 @@ const cssUrls = [
   './pages/github/github.css',
   './pages/finder/finder.css',
   './pages/terminal/terminal.css',
+  './pages/adobe/adobe.css',
 ];
 
 Promise.all(cssUrls.map(url => fetch(url)))
@@ -58,6 +59,7 @@ $("#chrome_push").load("./pages/chrome/chrome.html");
 $("#customize_push").load("./pages/customize/customize.html");
 $("#finder_push").load("./pages/finder/finder.html");
 $("#terminal_push").load("./pages/terminal/terminal.html");
+$("#adobe_push").load("./pages/adobe/adobe.html");
 console.log("end index");
 
 
@@ -114,3 +116,81 @@ $(".change_display").click(function () {
 
 // call typewriter function
 
+// $("._modal_adobe").hide();
+// $(".adobe-icons").click(function () {
+//   let splash_adobe = document.querySelector(".splash_adobe");
+//   console.log(splash_adobe, "spal");
+//   let imagePath = "";
+//   let image_bPath = "./png/cloudLogo.png";
+//   let classPath = "";
+//   let textPath = "";
+//   let textInside = "";
+//   if ($(this).hasClass("_click_premiere")) {
+//     imagePath = "./png/premiere.jpg";
+//     classPath = "premiere-icon square-icon-size adobe-icons";
+//     textPath = "Adobe Premiere Pro";
+//     textInside = "Pr";
+//   } else if ($(this).hasClass("_click_photoshop")) {
+//     imagePath = "./png/photoshop.png";
+//     classPath = "photoshop-icon square-icon-size adobe-icons";
+//     textPath = "Adobe Photoshop";
+//     textInside = "Ps";
+//   } else if ($(this).hasClass("_click_xD")) {
+//     imagePath = "./png/photoshop2.webp";
+//     classPath = "afterEffect-icon square-icon-size adobe-icons";
+//     textPath = "Adobe After Effects";
+//     textInside = "Ae";
+//   }
+//   let modalClone = $("._modal_adobe").first().clone();
+//   modalClone
+//     .find(".divPictureAdobe")
+//     .css("background-image", "url(" + imagePath + ")");
+//   modalClone
+//     .find("._img_bottom_adobe")
+//     .css("background-image", "url(" + image_bPath + ")");
+//   modalClone.find("._img_adobe").addClass(classPath);
+//   modalClone.find("._title_adobe").text(textPath); // update text
+//   modalClone.find("._text_inside").text(textInside); // update text
+//   $(this).prop("disabled", true);
+//   modalClone.appendTo("body").show();
+// });
+
+
+$("._modal_adobe").hide();
+$(".adobe-icons").click(function () {
+  let splash_adobe = document.querySelector(".splash_adobe");
+  console.log(splash_adobe, "spal");
+  let imagePath = "";
+  let image_bPath = "./png/cloudLogo.png";
+  let classPath = "";
+  let textPath = "";
+  let textInside = "";
+  if ($(this).hasClass("_click_premiere")) {
+    imagePath = "./png/premiere.jpg";
+    classPath = "premiere-icon square-icon-size adobe-icons";
+    textPath = "Adobe Premiere Pro";
+    textInside = "Pr";
+  } else if ($(this).hasClass("_click_photoshop")) {
+    imagePath = "./png/photoshop.png";
+    classPath = "photoshop-icon square-icon-size adobe-icons";
+    textPath = "Adobe Photoshop";
+    textInside = "Ps";
+  } else if ($(this).hasClass("_click_xD")) {
+    imagePath = "./png/photoshop2.webp";
+    classPath = "afterEffect-icon square-icon-size adobe-icons";
+    textPath = "Adobe After Effects";
+    textInside = "Ae";
+  }
+  let modalClone = $("._modal_adobe").first().clone();
+  modalClone
+    .find(".divPictureAdobe")
+    .css("background-image", "url(" + imagePath + ")");
+  modalClone
+    .find("._img_bottom_adobe")
+    .css("background-image", "url(" + image_bPath + ")");
+  modalClone.find("._img_adobe").addClass(classPath);
+  modalClone.find("._title_adobe").text(textPath); // update text
+  modalClone.find("._text_inside").text(textInside); // update text
+  $(this).prop("disabled", true);
+  modalClone.appendTo("body").show();
+});
