@@ -32,8 +32,8 @@ $(".footer_insert_pages").append(_FooterNav);
 
 // call typewriter function
 
-document.getElementById("box_terminal").addEventListener("click", function() {
-  typewriter(); 
+document.getElementById("box_terminal").addEventListener("click", function () {
+  typewriter();
 
 });
 
@@ -75,8 +75,8 @@ export function openNavLink() {
 }
 
 
- 
-  
+
+
 
 // let rangeInput = document.getElementById("rangeInput");
 // let output = document.getElementById("output");
@@ -204,3 +204,52 @@ export function dragWindows() {
 }
 
 //  display all img from firebase
+
+
+
+console.log("test");
+$("._modal_adobe").hide();
+let adobe_pius = document.querySelector(".section4_middle_grid");
+$(".adobe-icons").one("click", function () {
+  let splash_adobe = document.querySelector(".splash_adobe");
+  console.log(splash_adobe, "spal");
+  let imagePath = "";
+  let image_bPath = "./assets/png/_adobe/cloudLogo.png";
+  let classPath = "";
+  let textPath = "";
+  let textInside = "";
+  if ($(this).hasClass("_click_premiere")) {
+    imagePath = "./assets/png/_adobe/premiere.jpg";
+    classPath = "premiere-icon square-icon-size adobe-icons";
+    textPath = "Adobe Premiere Pro";
+    textInside = "Pr";
+  } else if ($(this).hasClass("_click_photoshop")) {
+    imagePath = "./assets/png/_adobe/photoshop.png";
+    classPath = "photoshop-icon square-icon-size adobe-icons";
+    textPath = "Adobe Photoshop";
+    textInside = "Ps";
+  } else if ($(this).hasClass("_click_xD")) {
+    imagePath = "./assets/png/_adobe/photoshop.png";
+    classPath = "adobe-xd-icon square-icon-size adobe-icons";
+    textPath = "Adobe XD";
+    textInside = "XD";
+  } else if ($(this).hasClass("_click_afterEffects")) {
+    imagePath = "./assets/png/_adobe/photoshop2.webp";
+    classPath = "afterEffect-icon square-icon-size adobe-icons";
+    textPath = "Adobe After Effects";
+    textInside = "AE";
+
+  }
+  let modalClone = $("._modal_adobe").first().clone();
+  modalClone
+    .find(".divPictureAdobe")
+    .css("background-image", "url(" + imagePath + ")");
+  modalClone
+    .find("._img_bottom_adobe")
+    .css("background-image", "url(" + image_bPath + ")");
+  modalClone.find("._img_adobe").addClass(classPath);
+  modalClone.find("._title_adobe").text(textPath); // update text
+  modalClone.find("._text_inside").text(textInside); // update text
+  $(this).prop("disabled", true);
+  modalClone.appendTo(adobe_pius).show();
+});

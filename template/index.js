@@ -83,36 +83,36 @@ function openPage(pageName, elmnt, color) {
 }
 
 
-document.querySelector(".all_links").click();
-document.getElementById("defaultOpen").click();
+// document.querySelector(".all_links").click();
+// document.getElementById("defaultOpen").click();
 
 
 
 
-let _folders = document.querySelector(".js_folders");
-let _foldersTxt = ["projects", "landing-page", "videos", "music", "text"];
+// let _folders = document.querySelector(".js_folders");
+// let _foldersTxt = ["projects", "landing-page", "videos", "music", "text"];
 
-function generateFolders() {
-  for (let j = 1; j <= 15; j++) {
-    _folders.innerHTML +=
-      "<div class ='folder_nr" +
-      j +
-      " -folders'>" +
-      "<div class='folder-inside'>" +
-      "</div>" +
-      "<div class='folder-insideTxt'>" +
-      _foldersTxt[0] +
-      "</div>" +
-      "</div>";
-  }
-}
+// function generateFolders() {
+//   for (let j = 1; j <= 15; j++) {
+//     _folders.innerHTML +=
+//       "<div class ='folder_nr" +
+//       j +
+//       " -folders'>" +
+//       "<div class='folder-inside'>" +
+//       "</div>" +
+//       "<div class='folder-insideTxt'>" +
+//       _foldersTxt[0] +
+//       "</div>" +
+//       "</div>";
+//   }
+// }
 
-generateFolders();
+// generateFolders();
 
-$(".change_display").click(function () {
-  $(".change_folders").toggleClass("active");
-  $(".folder-inside").toggleClass("active_large");
-});
+// $(".change_display").click(function () {
+//   $(".change_folders").toggleClass("active");
+//   $(".folder-inside").toggleClass("active_large");
+// });
 
 // call typewriter function
 
@@ -155,42 +155,3 @@ $(".change_display").click(function () {
 //   modalClone.appendTo("body").show();
 // });
 
-
-$("._modal_adobe").hide();
-$(".adobe-icons").click(function () {
-  let splash_adobe = document.querySelector(".splash_adobe");
-  console.log(splash_adobe, "spal");
-  let imagePath = "";
-  let image_bPath = "./png/cloudLogo.png";
-  let classPath = "";
-  let textPath = "";
-  let textInside = "";
-  if ($(this).hasClass("_click_premiere")) {
-    imagePath = "./png/premiere.jpg";
-    classPath = "premiere-icon square-icon-size adobe-icons";
-    textPath = "Adobe Premiere Pro";
-    textInside = "Pr";
-  } else if ($(this).hasClass("_click_photoshop")) {
-    imagePath = "./png/photoshop.png";
-    classPath = "photoshop-icon square-icon-size adobe-icons";
-    textPath = "Adobe Photoshop";
-    textInside = "Ps";
-  } else if ($(this).hasClass("_click_xD")) {
-    imagePath = "./png/photoshop2.webp";
-    classPath = "afterEffect-icon square-icon-size adobe-icons";
-    textPath = "Adobe After Effects";
-    textInside = "Ae";
-  }
-  let modalClone = $("._modal_adobe").first().clone();
-  modalClone
-    .find(".divPictureAdobe")
-    .css("background-image", "url(" + imagePath + ")");
-  modalClone
-    .find("._img_bottom_adobe")
-    .css("background-image", "url(" + image_bPath + ")");
-  modalClone.find("._img_adobe").addClass(classPath);
-  modalClone.find("._title_adobe").text(textPath); // update text
-  modalClone.find("._text_inside").text(textInside); // update text
-  $(this).prop("disabled", true);
-  modalClone.appendTo("body").show();
-});

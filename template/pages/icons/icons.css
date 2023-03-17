@@ -952,7 +952,7 @@
   color: white;
   z-index: 1;
   width: 100%;
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "SF-Black", sans-serif;
 }
 
 .overlay {
@@ -1329,7 +1329,7 @@
   color: white;
   font-size: 0.8em;
   margin-top: 2px;
-  font-family: product-sans !important;
+  font-family: "SF-Black";
 }
 
 /* .apple {
