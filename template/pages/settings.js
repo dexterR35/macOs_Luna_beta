@@ -240,7 +240,7 @@ $(".adobe-icons").one("click", function (values) {
   setTimeout(function () {
     $("._modal_adobe").hide();
     openAdobe(values.currentTarget);
-  }, 200000);
+  }, 2000);
 
 
   // 

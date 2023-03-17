@@ -13,6 +13,7 @@ const cssUrls = [
   './pages/terminal/terminal.css',
   './pages/s_adobe/s_adobe.css',
   './pages/p_adobe/p_premiere.css',
+  './pages/apps/apps.css'
   // './pages/p_adobe/p_photoshop.css',
   // './pages/p_adobe/p_afterEffects.css'
 ];
@@ -67,6 +68,7 @@ $("#premiere_push").load("./pages/p_adobe/p_premiere.html");
 $("#xD_push").load("./pages/p_adobe/p_xd.html");
 $("#photoshop_push").load("./pages/p_adobe/p_photoshop.html");
 $("#afterEffects_push").load("./pages/p_adobe/p_afterEffects.html");
+$("#apps_push").load("./pages/apps/apps.html");
 console.log("end index");
 
 

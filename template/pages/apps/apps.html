@@ -1,36 +1,11 @@
-<!DOCTYPE html>
-<html lang="ro">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="../icons/icons.css">
-    <link rel="stylesheet" href="./apps.css" />
-    <link rel="stylesheet" href="/macOS_Luna_beta/template/appStyle.css">
-    
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>
-
-    <title>apps</title>
-  </head>
-
-  <body>
-    <div class="container-apps">
-
-     <!-- <iframe class="iframeLink" src="../icons/icons.html" frameborder="0"></iframe> -->
-     <div id="appss"></div>
-    </div>
-
-
-
-
-
-
-    </div>
-    <script>
-        $("#appss").load("./macOS_Luna_beta/template/pages/apps/apps/html");
-        
-    </script>
-  </body>
-</html>
+<div class="modal_boxes" id="modal_apps">
+  <div class="insert_header_box apps_title"></div>
+  <div class="container-apps">
+    <label for="search_apps"></label>
+    <input type="search" name="search_apps" id="search_apps" />
+    <div id="appss" class="insert_apps_icons"></div>
+  </div>
+</div>
+<script>
+  $("#appss").load("/template/pages/icons/icons.html");
+</script>

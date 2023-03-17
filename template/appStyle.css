@@ -410,7 +410,9 @@ FONT SIZE  */
   top: 5%;
   left: 20%;
 }
-
+.apps_push #modal_apps {
+  z-index: 10;
+}
 .terminalBox {
   top: 7%;
   left: 25%;
