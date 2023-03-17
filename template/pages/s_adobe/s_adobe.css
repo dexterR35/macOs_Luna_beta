@@ -13,6 +13,7 @@
   border: 1px solid white;
   flex-direction: row;
   overflow: hidden;
+  background: azure;
 }
 
 ._sideAdobe {
@@ -44,6 +45,7 @@
   /* background-color: aqua; */
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 ._img_adobe {
   height: 50px;

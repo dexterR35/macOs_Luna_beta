@@ -191,9 +191,6 @@ export function dragWindows() {
   });
 }
 
-//  display all img from firebase
-
-
 
 //  Splash screen adobe pop up
 console.log("test");
@@ -208,23 +205,22 @@ $(".adobe-icons").one("click", function (values) {
   let textPath = "";
   let textInside = "";
   if ($(this).hasClass("_click_premiere")) {
-    imagePath = "./assets/png/_adobe/premiere.jpg";
+    imagePath = "./assets/png/_adobe/premiere.webp";
     classPath = "premiere-icon square-icon-size adobe-icons";
     textPath = "Adobe Premiere Pro";
     textInside = "Pr";
-
   } else if ($(this).hasClass("_click_photoshop")) {
-    imagePath = "./assets/png/_adobe/photoshop.png";
+    imagePath = "./assets/png/_adobe/photoshop.webp";
     classPath = "photoshop-icon square-icon-size adobe-icons";
     textPath = "Adobe Photoshop";
     textInside = "Ps";
   } else if ($(this).hasClass("_click_xD")) {
-    imagePath = "./assets/png/_adobe/photoshop.png";
+    imagePath = "./assets/png/_adobe/xds.webp";
     classPath = "adobe-xd-icon square-icon-size adobe-icons";
     textPath = "Adobe XD";
     textInside = "XD";
   } else if ($(this).hasClass("_click_afterEffects")) {
-    imagePath = "./assets/png/_adobe/photoshop2.webp";
+    imagePath = "./assets/png/_adobe/afterE.webp";
     classPath = "afterEffect-icon square-icon-size adobe-icons";
     textPath = "Adobe After Effects";
     textInside = "AE";
@@ -239,32 +235,21 @@ $(".adobe-icons").one("click", function (values) {
   modalClone.find("._img_adobe").addClass(classPath);
   modalClone.find("._title_adobe").text(textPath); // update text
   modalClone.find("._text_inside").text(textInside); // update text
-
   // $(this).prop("disabled", true);
-
   modalClone.appendTo(adobe_pius).show()
-
-
   setTimeout(function () {
     $("._modal_adobe").hide();
     openAdobe(values.currentTarget);
-    // console.log(val1.currentTarget, "currentTarget");
-    // console.log(val1, "fasfasf1");
-  }, 2000);
+  }, 200000);
 
 
   // 
 });
 
 function openAdobe(currentTarget) {
-      const closeBtn = document.querySelector(".close_box");
   setTimeout(function () {
     if ($(currentTarget).hasClass("_click_premiere")) {
       $(".premiere_push ").css("display", "block");
-      
-
-    console.log(closeBtn,"test2")
- 
     } else if ($(currentTarget).hasClass("_click_xD")) {
       $(".xD_push").css("display", "block");
     } else if ($(currentTarget).hasClass("_click_afterEffects")) {
@@ -274,16 +259,9 @@ function openAdobe(currentTarget) {
     }
     console.log("inside")
   }, 500);
-  
-
-    console.log(closeBtn,"test2")
-
     $(".close_box").one("click", function () {
       $(this).closest(".drag-only").css("display", "none");
     });
-    // console.log(closeBtn);
- 
- 
 }
 
 // document.getElementById('start-button').addEventListener('click', startCountdown);
