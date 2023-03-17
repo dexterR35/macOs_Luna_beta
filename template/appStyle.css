@@ -403,7 +403,7 @@ FONT SIZE  */
 .customizeBox,
 .chromeBox,
 .finderBox,
-.terminalBox,.premiereBox,.xdBox {
+.terminalBox,.premiereBox,.xdBox, .photoshopBox, .afterEffectsBox{
   position: absolute;
 }
 .finderBox {
@@ -420,7 +420,7 @@ FONT SIZE  */
   top: 5%;
   left: 20%;
 }
-.premiereBox,.xdBox {
+.premiereBox,.xdBox, .photoshopBox, .afterEffectsBox {
   top: 6%;
   left: 20%;
 }

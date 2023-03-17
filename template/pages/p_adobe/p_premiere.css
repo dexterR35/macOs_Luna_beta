@@ -13,11 +13,11 @@ background: white;
     color: black;
 
 }
-.premiere_push, .xD_push  {
+.premiere_push, .xD_push ,.photoshop_push, .afterEffects_push  {
     display: none;
 }
 
-.premiere_title,.xd_title {
+.premiere_title,.xd_title,.photoshop_title, .afterEffects_title {
     background: var(--bg-color_child);
 }
 

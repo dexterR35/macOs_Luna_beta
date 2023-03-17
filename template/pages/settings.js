@@ -110,10 +110,10 @@ export function startTime() {
 }
 
 //  click all buttons with class box_open and display modal for different box
-
+const _modals = document.querySelectorAll(`div[id^="modal_"]`);
 export function clickDivs() {
   const _boxes = document.querySelectorAll(".box_open");
-  const _modals = document.querySelectorAll(`div[id^="modal_"]`);
+
   console.log(_modals, "modals");
   _boxes.forEach((box) => {
     box.addEventListener("click", () => {
@@ -253,18 +253,37 @@ $(".adobe-icons").one("click", function (values) {
   }, 2000);
 
 
-// 
+  // 
 });
 
 function openAdobe(currentTarget) {
+      const closeBtn = document.querySelector(".close_box");
   setTimeout(function () {
     if ($(currentTarget).hasClass("_click_premiere")) {
       $(".premiere_push ").css("display", "block");
+      
+
+    console.log(closeBtn,"test2")
+ 
     } else if ($(currentTarget).hasClass("_click_xD")) {
       $(".xD_push").css("display", "block");
+    } else if ($(currentTarget).hasClass("_click_afterEffects")) {
+      $(".afterEffects_push").css("display", "block");
+    } else if ($(currentTarget).hasClass("_click_photoshop")) {
+      $(".photoshop_push").css("display", "block");
     }
     console.log("inside")
   }, 500);
+  
+
+    console.log(closeBtn,"test2")
+
+    $(".close_box").one("click", function () {
+      $(this).closest(".drag-only").css("display", "none");
+    });
+    // console.log(closeBtn);
+ 
+ 
 }
 
 // document.getElementById('start-button').addEventListener('click', startCountdown);

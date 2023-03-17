@@ -12,7 +12,9 @@ const cssUrls = [
   './pages/finder/finder.css',
   './pages/terminal/terminal.css',
   './pages/s_adobe/s_adobe.css',
-  './pages/p_adobe/p_premiere.css'
+  './pages/p_adobe/p_premiere.css',
+  // './pages/p_adobe/p_photoshop.css',
+  // './pages/p_adobe/p_afterEffects.css'
 ];
 
 Promise.all(cssUrls.map(url => fetch(url)))
@@ -63,6 +65,8 @@ $("#terminal_push").load("./pages/terminal/terminal.html");
 $("#adobe_push").load("./pages/s_adobe/s_adobe.html");
 $("#premiere_push").load("./pages/p_adobe/p_premiere.html");
 $("#xD_push").load("./pages/p_adobe/p_xd.html");
+$("#photoshop_push").load("./pages/p_adobe/p_photoshop.html");
+$("#afterEffects_push").load("./pages/p_adobe/p_afterEffects.html");
 console.log("end index");
 
 
