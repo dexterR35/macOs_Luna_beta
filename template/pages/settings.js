@@ -75,18 +75,6 @@ export function openNavLink() {
 }
 
 
-
-
-
-// let rangeInput = document.getElementById("rangeInput");
-// let output = document.getElementById("output");
-
-// output.innerHTML = rangeInput.value;
-
-// rangeInput.oninput = function() {
-//   output.innerHTML = this.value;
-// }
-
 //  add time to nav header
 
 export function startTime() {
@@ -207,10 +195,11 @@ export function dragWindows() {
 
 
 
+//  Splash screen adobe pop up
 console.log("test");
 $("._modal_adobe").hide();
 let adobe_pius = document.querySelector(".section4_middle_grid");
-$(".adobe-icons").one("click", function () {
+$(".adobe-icons").one("click", function (values) {
   let splash_adobe = document.querySelector(".splash_adobe");
   console.log(splash_adobe, "spal");
   let imagePath = "";
@@ -223,6 +212,7 @@ $(".adobe-icons").one("click", function () {
     classPath = "premiere-icon square-icon-size adobe-icons";
     textPath = "Adobe Premiere Pro";
     textInside = "Pr";
+
   } else if ($(this).hasClass("_click_photoshop")) {
     imagePath = "./assets/png/_adobe/photoshop.png";
     classPath = "photoshop-icon square-icon-size adobe-icons";
@@ -238,7 +228,6 @@ $(".adobe-icons").one("click", function () {
     classPath = "afterEffect-icon square-icon-size adobe-icons";
     textPath = "Adobe After Effects";
     textInside = "AE";
-
   }
   let modalClone = $("._modal_adobe").first().clone();
   modalClone
@@ -250,6 +239,32 @@ $(".adobe-icons").one("click", function () {
   modalClone.find("._img_adobe").addClass(classPath);
   modalClone.find("._title_adobe").text(textPath); // update text
   modalClone.find("._text_inside").text(textInside); // update text
-  $(this).prop("disabled", true);
-  modalClone.appendTo(adobe_pius).show();
+
+  // $(this).prop("disabled", true);
+
+  modalClone.appendTo(adobe_pius).show()
+
+
+  setTimeout(function () {
+    $("._modal_adobe").hide();
+    openAdobe(values.currentTarget);
+    // console.log(val1.currentTarget, "currentTarget");
+    // console.log(val1, "fasfasf1");
+  }, 2000);
+
+
+// 
 });
+
+function openAdobe(currentTarget) {
+  setTimeout(function () {
+    if ($(currentTarget).hasClass("_click_premiere")) {
+      $(".premiere_push ").css("display", "block");
+    } else if ($(currentTarget).hasClass("_click_xD")) {
+      $(".xD_push").css("display", "block");
+    }
+    console.log("inside")
+  }, 500);
+}
+
+// document.getElementById('start-button').addEventListener('click', startCountdown);

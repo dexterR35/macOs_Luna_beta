@@ -1,0 +1,23 @@
+._wrapper_adobe {
+background: white;
+    width: var(--adobe-width);
+    height: var(--adobe-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+._wrapper_adobe h2 {
+    font-size: 30px;
+    text-transform: capitalize;
+    color: black;
+
+}
+.premiere_push, .xD_push  {
+    display: none;
+}
+
+.premiere_title,.xd_title {
+    background: var(--bg-color_child);
+}
+

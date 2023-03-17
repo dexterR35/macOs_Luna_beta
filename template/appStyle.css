@@ -101,6 +101,9 @@
   --splashScreen_width: 750px;
   --splashScreen_height: 550px;
 
+  --adobe-width:1000px;
+  --adobe-height:750px;
+
   /*finder colors*/
   /*contact colors*/
   /* --aditional-finder-color: #161616;
@@ -227,7 +230,6 @@ ul li a {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* background: var(--soft-grey); */
   font-size: 0.6em !important;
   font-weight: 300 !important;
   padding: 2px 15px;
@@ -241,8 +243,6 @@ ul li a {
 
 .container-footer-contact > div:nth-child(2) {
   margin-left: 72px;
-}
-.custom_footer_pages {
 }
 
 iframe {
@@ -403,7 +403,7 @@ FONT SIZE  */
 .customizeBox,
 .chromeBox,
 .finderBox,
-.terminalBox {
+.terminalBox,.premiereBox,.xdBox {
   position: absolute;
 }
 .finderBox {
@@ -418,6 +418,10 @@ FONT SIZE  */
 
 .linkedinBox {
   top: 5%;
+  left: 20%;
+}
+.premiereBox,.xdBox {
+  top: 6%;
   left: 20%;
 }
 .githubBox {

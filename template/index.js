@@ -11,7 +11,8 @@ const cssUrls = [
   './pages/github/github.css',
   './pages/finder/finder.css',
   './pages/terminal/terminal.css',
-  './pages/adobe/adobe.css',
+  './pages/s_adobe/s_adobe.css',
+  './pages/p_adobe/p_premiere.css'
 ];
 
 Promise.all(cssUrls.map(url => fetch(url)))
@@ -59,7 +60,9 @@ $("#chrome_push").load("./pages/chrome/chrome.html");
 $("#customize_push").load("./pages/customize/customize.html");
 $("#finder_push").load("./pages/finder/finder.html");
 $("#terminal_push").load("./pages/terminal/terminal.html");
-$("#adobe_push").load("./pages/adobe/adobe.html");
+$("#adobe_push").load("./pages/s_adobe/s_adobe.html");
+$("#premiere_push").load("./pages/p_adobe/p_premiere.html");
+$("#xD_push").load("./pages/p_adobe/p_xd.html");
 console.log("end index");
 
 
