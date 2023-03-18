@@ -1,8 +1,8 @@
 console.log("start settings");
 //  append nav bar to all boxes
-
-let title = 'Luna';
-let _TopNavBox = `<div class="container_top_nav_boxes">
+function g_append() {
+  let title = 'Luna';
+  let _TopNavBox = `<div class="container_top_nav_boxes">
 <div class="topnav-items-box">
 <div class ='circle circle1 close_box'></div>
 <div class ='circle circle2'></div>
@@ -11,15 +11,9 @@ let _TopNavBox = `<div class="container_top_nav_boxes">
 <div class="text_boxes_nav drag-header">${title}</div>
 </div>`;
 
-$(".insert_header_box").append(_TopNavBox);
+  $(".insert_header_box").append(_TopNavBox);
 
-function appendStuff() {
-  $(".nav_checkBox").append(
-    `<input type="checkbox" class="checkBox_nav" checked>`
-  );
-}
-
-let _FooterNav = `
+  let _FooterNav = `
 <div class="settings_pannel_all">
   <a href="#"><span class="material-symbols-outlined">
     settings
@@ -28,14 +22,26 @@ let _FooterNav = `
 <div>25 items, 280.63 GB available</div>
 <div>Marian Iordache</div>
 `
-$(".footer_insert_pages").append(_FooterNav);
+  $(".footer_insert_pages").append(_FooterNav);
+}
 
+
+function appendStuff() {
+  $(".nav_checkBox").append(
+    `<input type="checkbox" class="checkBox_nav" checked>`
+  );
+}
 // call typewriter function
 
-document.getElementById("box_terminal").addEventListener("click", function () {
-  typewriter();
+let typeWritting = document.getElementById("box_terminal");
 
+typeWritting.addEventListener("click", function () {
+  typewriter();
 });
+let all_links = document.querySelector(".all_links")
+all_links.click();
+let defaultOpen = document.getElementById("defaultOpen")
+defaultOpen.click();
 
 
 //  open all nav top header items
@@ -112,6 +118,7 @@ export function startTime() {
 //  click all buttons with class box_open and display modal for different box
 const _modals = document.querySelectorAll(`div[id^="modal_"]`);
 export function clickDivs() {
+  g_append();
   const _boxes = document.querySelectorAll(".box_open");
 
   console.log(_modals, "modals");
@@ -143,6 +150,7 @@ export function clickDivs() {
   //     }
   //   });
   // }
+
 }
 
 //  drag all windows with class drag-only
@@ -195,6 +203,8 @@ export function dragWindows() {
 //  Splash screen adobe pop up
 console.log("test");
 $("._modal_adobe").hide();
+
+
 let adobe_pius = document.querySelector(".section4_middle_grid");
 $(".adobe-icons").one("click", function (values) {
   let splash_adobe = document.querySelector(".splash_adobe");
@@ -241,10 +251,8 @@ $(".adobe-icons").one("click", function (values) {
     $("._modal_adobe").hide();
     openAdobe(values.currentTarget);
   }, 2000);
-
-
   // 
-});
+})
 
 function openAdobe(currentTarget) {
   setTimeout(function () {
@@ -259,9 +267,10 @@ function openAdobe(currentTarget) {
     }
     console.log("inside")
   }, 500);
-    $(".close_box").one("click", function () {
-      $(this).closest(".drag-only").css("display", "none");
-    });
+  $(".close_box").one("click", function () {
+    $(this).closest(".drag-only").css("display", "none");
+  });
 }
+console.log("page is fully loaded");
 
 // document.getElementById('start-button').addEventListener('click', startCountdown);

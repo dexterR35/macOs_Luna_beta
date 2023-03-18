@@ -1,23 +1,21 @@
 ._wrapper_adobe {
-background: white;
-    width: var(--adobe-width);
-    height: var(--adobe-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  background: white;
+  width: var(--adobe-width);
+  height: var(--adobe-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 ._wrapper_adobe h2 {
-    font-size: 30px;
-    text-transform: capitalize;
-    color: black;
-
-}
-.premiere_push, .xD_push ,.photoshop_push, .afterEffects_push  {
-    display: none;
+  font-size: 30px;
+  text-transform: capitalize;
+  color: black;
 }
 
-.premiere_title,.xd_title,.photoshop_title, .afterEffects_title {
-    background: var(--bg-color_child);
+.premiere_title,
+.xd_title,
+.photoshop_title,
+.afterEffects_title {
+  background: var(--bg-color_child);
 }
-

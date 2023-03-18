@@ -27,8 +27,8 @@
   margin: 0 !important;
 }
 .insert_apps_icons .section4_botIcons::after {
-content: none !important;
-  }
+  content: none !important;
+}
 .insert_apps_icons .section4_botIcons ul {
   display: flex;
   justify-content: flex-start;

@@ -101,8 +101,8 @@
   --splashScreen_width: 750px;
   --splashScreen_height: 550px;
 
-  --adobe-width:1000px;
-  --adobe-height:750px;
+  --adobe-width: 1000px;
+  --adobe-height: 750px;
 
   /*finder colors*/
   /*contact colors*/
@@ -397,13 +397,22 @@ FONT SIZE  */
   text-transform: capitalize;
 }
 /*END top header boxes*/
-
+.premiere_push,
+.xD_push,
+.photoshop_push,
+.afterEffects_push {
+  display: none;
+}
 .linkedinBox,
 .githubBox,
 .customizeBox,
 .chromeBox,
 .finderBox,
-.terminalBox,.premiereBox,.xdBox, .photoshopBox, .afterEffectsBox{
+.terminalBox,
+.premiereBox,
+.xdBox,
+.photoshopBox,
+.afterEffectsBox {
   position: absolute;
 }
 .finderBox {
@@ -422,7 +431,10 @@ FONT SIZE  */
   top: 5%;
   left: 20%;
 }
-.premiereBox,.xdBox, .photoshopBox, .afterEffectsBox {
+.premiereBox,
+.xdBox,
+.photoshopBox,
+.afterEffectsBox {
   top: 6%;
   left: 20%;
 }
@@ -446,9 +458,6 @@ FONT SIZE  */
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-
-
-
 
 ._changeBG_icon_desktop {
   width: 60px;

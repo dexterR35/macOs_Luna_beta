@@ -1,37 +1,4 @@
-console.log("start index");
-// one http request for all css files
-
-const cssUrls = [
-  // 'appStyle.css',
-  './pages/header/header.css',
-  './pages/icons/icons.css',
-  './pages/chrome/chrome.css',
-  './pages/customize/customize.css',
-  './pages/linkdin/linkdin.css',
-  './pages/github/github.css',
-  './pages/finder/finder.css',
-  './pages/terminal/terminal.css',
-  './pages/s_adobe/s_adobe.css',
-  './pages/p_adobe/p_premiere.css',
-  './pages/apps/apps.css'
-  // './pages/p_adobe/p_photoshop.css',
-  // './pages/p_adobe/p_afterEffects.css'
-];
-
-Promise.all(cssUrls.map(url => fetch(url)))
-  .then(responses => Promise.all(responses.map(res => res.text())))
-  .then(texts => new Blob(texts, {
-    type: 'text/css'
-  }))
-  .then(blob => {
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = url;
-    document.head.appendChild(link);
-  });
-
-// end http request for all css files
+console.log("start index")
 
 
 // fetch all html file 
@@ -54,6 +21,7 @@ fetchHTMLContent("./pages/header/header.html", "#header-container");
 fetchHTMLContent("./pages/icons/icons.html", "#footer-container");
 fetchHTMLContent("./pages/linkdin/linkdin.html", ".linkedin_push");
 fetchHTMLContent("./pages/github/github.html", ".github_push");
+fetchHTMLContent("./pages/p_adobe/p_premiere.html", ".premiere_push");
 
 // end fetch all html file with export function
 
@@ -64,11 +32,12 @@ $("#customize_push").load("./pages/customize/customize.html");
 $("#finder_push").load("./pages/finder/finder.html");
 $("#terminal_push").load("./pages/terminal/terminal.html");
 $("#adobe_push").load("./pages/s_adobe/s_adobe.html");
-$("#premiere_push").load("./pages/p_adobe/p_premiere.html");
+// $("#premiere_push").load("./pages/p_adobe/p_premiere.html");
 $("#xD_push").load("./pages/p_adobe/p_xd.html");
 $("#photoshop_push").load("./pages/p_adobe/p_photoshop.html");
 $("#afterEffects_push").load("./pages/p_adobe/p_afterEffects.html");
 $("#apps_push").load("./pages/apps/apps.html");
+
 console.log("end index");
 
 
@@ -90,11 +59,6 @@ function openPage(pageName, elmnt, color) {
   // elmnt.style.backgroundColor = color;
 
 }
-
-
-// document.querySelector(".all_links").click();
-// document.getElementById("defaultOpen").click();
-
 
 
 
@@ -125,42 +89,4 @@ function openPage(pageName, elmnt, color) {
 
 // call typewriter function
 
-// $("._modal_adobe").hide();
-// $(".adobe-icons").click(function () {
-//   let splash_adobe = document.querySelector(".splash_adobe");
-//   console.log(splash_adobe, "spal");
-//   let imagePath = "";
-//   let image_bPath = "./png/cloudLogo.png";
-//   let classPath = "";
-//   let textPath = "";
-//   let textInside = "";
-//   if ($(this).hasClass("_click_premiere")) {
-//     imagePath = "./png/premiere.jpg";
-//     classPath = "premiere-icon square-icon-size adobe-icons";
-//     textPath = "Adobe Premiere Pro";
-//     textInside = "Pr";
-//   } else if ($(this).hasClass("_click_photoshop")) {
-//     imagePath = "./png/photoshop.png";
-//     classPath = "photoshop-icon square-icon-size adobe-icons";
-//     textPath = "Adobe Photoshop";
-//     textInside = "Ps";
-//   } else if ($(this).hasClass("_click_xD")) {
-//     imagePath = "./png/photoshop2.webp";
-//     classPath = "afterEffect-icon square-icon-size adobe-icons";
-//     textPath = "Adobe After Effects";
-//     textInside = "Ae";
-//   }
-//   let modalClone = $("._modal_adobe").first().clone();
-//   modalClone
-//     .find(".divPictureAdobe")
-//     .css("background-image", "url(" + imagePath + ")");
-//   modalClone
-//     .find("._img_bottom_adobe")
-//     .css("background-image", "url(" + image_bPath + ")");
-//   modalClone.find("._img_adobe").addClass(classPath);
-//   modalClone.find("._title_adobe").text(textPath); // update text
-//   modalClone.find("._text_inside").text(textInside); // update text
-//   $(this).prop("disabled", true);
-//   modalClone.appendTo("body").show();
-// });
 
