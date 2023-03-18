@@ -1,9 +1,9 @@
 # macOs_Luna_beta
+
 soon
 
-
 <div>test</div>
-<!DOCTYPE html>
+
 <html lang="ro">
   <head>
     <meta charset="UTF-8" />
@@ -12,126 +12,18 @@ soon
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"
-    ></script>
-
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link rel="stylesheet" href="./appStyle.css" />
-    <script>
-      console.log("start index");
-      // one http request for all css files
-
-      const cssUrls = [
-        // 'appStyle.css',
-        "./pages/header/header.css",
-        "./pages/icons/icons.css",
-        "./pages/chrome/chrome.css",
-        "./pages/customize/customize.css",
-        "./pages/linkdin/linkdin.css",
-        "./pages/github/github.css",
-        "./pages/finder/finder.css",
-        "./pages/terminal/terminal.css",
-        "./pages/s_adobe/s_adobe.css",
-        "./pages/p_adobe/p_premiere.css",
-        "./pages/apps/apps.css",
-        // './pages/p_adobe/p_photoshop.css',
-        // './pages/p_adobe/p_afterEffects.css'
-      ];
-
-      Promise.all(cssUrls.map((url) => fetch(url)))
-        .then((responses) => Promise.all(responses.map((res) => res.text())))
-        .then(
-          (texts) =>
-            new Blob(texts, {
-              type: "text/css",
-            })
-        )
-        .then((blob) => {
-          const url = URL.createObjectURL(blob);
-          const link = document.createElement("link");
-          link.rel = "stylesheet";
-          link.href = url;
-          document.head.appendChild(link);
-        });
-
-      // end http request for all css files
-    </script>
     <title>Luna Page</title>
     <style>
-      /* #splash-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  z-index: 2200;
-} */
-      /* .loader {
-        font-size: 25px;
-        width: 1em;
-        height: 1em;
-        border-radius: 50%;
-        position: relative;
-        text-indent: -9999em;
-        -webkit-animation: load5 1.1s infinite ease;
-        animation: load5 1.1s infinite ease;
-        transform: scale(0.2);
-      }
-      #loadingDiv {
-        color: azure;
-        top: 0;
-        left: 0;
-        z-index: 2200;
-        font-size: 24px;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1241;
-        background-color: #333;
-      } */
+
     </style>
+
   </head>
 
   <body>
-    <script>
-      document.addEventListener("readystatechange", function () {
-        if (document.readyState === "loading") {
-          console.log("loading");
-        } else if (document.readyState === "interactive") {
-          console.log("interactive");
-          // DOM is ready but resources are still loading
-        } else if (document.readyState === "complete") {
-          console.log("complete");
-          // Document and all resources are loaded
-        }
-      });
-    </script>
-    <!-- <div id="splash-screen">Loading...</div> -->
-    <!-- <div id="loadingDiv">
-      <div class="loader">Loading...</div>
-      Loading...
-    </div> -->
-    <!-- <button  class="box_open" data-modal="modal_display" id="box_display">teetest</button> -->
+
+
+
+
     <div class="wrapper">
       <header id="header-container" class="header-container"></header>
       <div class="container">
@@ -142,8 +34,7 @@ soon
                 <li
                   class="box_open _changeBG_icon_desktop"
                   data-modal="modal_display"
-                  id="box_display"
-                >
+                  id="box_display">
                   <a href="#">icons</a>
                 </li>
               </div>
@@ -193,111 +84,8 @@ soon
             min:1440px - max:2560px
           </div>
         </div>
-        <!-- <button class="like-mobile-button btn like__btn" id="like-mobile-button">
-        <span id="icon"><i class="far fa-thumbs-up"></i></span>
-        <span id="count">0</span> Like
-      </button>
-      <br /> -->
-        <!-- <a href="https://www.crafties.ro" target="_blank">run second choice <br />
-        <button class="like-mobile-button crafties">
-          www.crafties.ro
-        </button></a> -->
-      </div>
       <footer id="footer-container" class="footer-container"></footer>
     </div>
-    <!-- <div id="myDiv"></div> -->
-    <style>
-      /* #myDiv {
-    position: absolute;
-    top: 200px;
-    left: 100px;
-    color: wheat;
-    font-size: 41px;
-  } */
-    </style>
-    <script>
-      // window.onload = function() {
-      //     var divCount = document.getElementsByTagName("div").length;
-      //     var classes = document.querySelectorAll("[class]").length;
-      //     var aCount = document.getElementsByTagName("a").length;
-      // console.log("Total number of div elements in the page: " + divCount);
-      // console.log("Total number of a elements in the page: " + aCount);
-      // console.log("Total number of a classes in the page: " + classes);
-      //     var myData = document.documentElement.innerHTML; // Get all the HTML data
-      //     var length = myData.length; // Get the length of the HTML data
-      //     console.log("Total number of myData elements in the page: " + length);
-      //     var counter = 0; // Initialize the counter to 0
-      //     var intervalId = setInterval(function() {
-      //       document.getElementById("myDiv").innerHTML = "Data loaded: " + counter + " Html Data";
-      //       counter = counter + 250
-      //       // Update the div with the current counter value
-      //       counter++; // Increment the counter
-      //       // console.log(counter,"HTML DATA")
-      //       if ((counter) > length) {
-      //         clearInterval(intervalId); // Stop the counting animation when the counter reaches the length of the HTML data
-      //       }
-      //     }, 10); // Set the interval to update the div every 10 milliseconds
 
-      //     setTimeout(function() {
-      //       clearInterval(intervalId); // Stop the counting animation after 3 secondss
-      //       document.getElementById("myDiv").innerHTML = "Data loaded: " + length + " html Data";
-      //       console.log(document.getElementById("myDiv").innerHTML = "Data loaded: " + length + "  html Data")
-      //       // Display the length of the HTML data in the div after the counting animation is complete
-      //     }, 1500) // Set the timeout to stop the counting animation after 3 seconds
-
-      //   }
-    </script>
-    <script>
-      // $(document).ready(function () {
-      //   console.log("0");
-      //   $(window).on("load", function () {
-      //     console.log("2");
-      //     setTimeout(removeLoader, 600);
-
-      //     //wait for page load PLUStwo seconds.
-      //     // setTimeout(function () {
-      //     //   $("#bootdiv").load("./template/assets/windows/boot/bootload.html");
-      //     //   console.log("22");
-      //     // }, 2000)
-
-      //     // setTimeout(function () {
-      //     //   console.log("3");
-      //     // }, 3000);
-      //   });
-      //   console.log("1");
-      // });
-
-      function selectImage(imageUrl) {
-        document.body.style.backgroundImage = `url('${imageUrl}')`;
-        // closeModalBG();
-      }
-
-      // function closeModalBG() {
-      //   document.getElementById("bg_change").style.display = "none";
-      // }
-      // Display the splash screen
-      // var splashScreen = document.getElementById("splash-screen");
-      // splashScreen.style.display = "flex";
-
-      // Hide the splash screen after 2 seconds
-      // setTimeout(function() {
-      //   splashScreen.style.display = "none";
-      // }, 2000);
-
-      // function removeLoader() {
-      //   $("#loadingDiv").fadeOut(500, function () {
-      //     // fadeOut complete. Remove the loading div
-      //     $("#loadingDiv").remove(); //makes page more lightweight
-      //   });
-      // }
-
-      // Wait for the page to fully load before hiding the splash screen
-      // window.onload = function() {
-      //   splashScreen.style.display = "none";
-      // };
-    </script>
-
-    <script src="./index.js"></script>
-    <script type="module" src="app.js" async></script>
   </body>
 </html>
