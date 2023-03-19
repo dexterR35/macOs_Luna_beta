@@ -64,30 +64,7 @@ function openPage(pageName, elmnt, color) {
 
 
 
-// let _folders = document.querySelector(".js_folders");
-// let _foldersTxt = ["projects", "landing-page", "videos", "music", "text"];
 
-// function generateFolders() {
-//   for (let j = 1; j <= 15; j++) {
-//     _folders.innerHTML +=
-//       "<div class ='folder_nr" +
-//       j +
-//       " -folders'>" +
-//       "<div class='folder-inside'>" +
-//       "</div>" +
-//       "<div class='folder-insideTxt'>" +
-//       _foldersTxt[0] +
-//       "</div>" +
-//       "</div>";
-//   }
-// }
-
-// generateFolders();
-
-// $(".change_display").click(function () {
-//   $(".change_folders").toggleClass("active");
-//   $(".folder-inside").toggleClass("active_large");
-// });
 
 // call typewriter function
 
