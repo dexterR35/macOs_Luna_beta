@@ -90,7 +90,7 @@
             <a
               href="#"
               class="tablink-profile openLinks all_links"
-              onclick="openPage('person_one')"
+              onclick="openPage('person_two')"
               ><span class="material-symbols-outlined">
                 home
                 </span>Home</a
@@ -187,163 +187,27 @@
       </div>
       <div class="finder-middle-right">
         <div class="contact-middle-right-person tabcontent" id="person_one">
-          <div class="contact-middle-image">
-            <div class="contact-image-container">
-              <div class="contact-profile-img" id="your_img_id"></div>
-            </div>
-            <div class="contact-name">
-              <div>Marian Iordache</div>
-              <div style="margin-left: -5px; text-align: end !important">
-                "Front-End Developer"
-              </div>
-            </div>
+          <div class="wrapper_aboutme">
+
+            <div class="aboutme_push aboutmeBox" id="aboutme_push">cc</div>
+
+
           </div>
-          <div class="contact-middle-top">
-            <div class="contact-middle-information">
-              <div class="info-middle">
-                <div class="info-middle-list">
-                  <p>phone:</p>
-                  <span> <a href="http://">0765.965.155</a></span>
-                </div>
-                <hr />
-                <div class="info-middle-list">
-                  <p>Website:</p>
-                  <span
-                    ><a
-                      href="https://crafties.ro"
-                      target="_blank"
-                      style="text-transform: lowercase !important"
-                      >crafties.ro</a
-                    ></span
-                  >
-                </div>
-                <hr />
-                <div class="info-middle-list">
-                  <p>GitHub:</p>
-                  <span>
-                    <a
-                      href="https://github.com/DexTerR33"
-                      style="text-transform: lowercase !important"
-                      >/DexTerR33</a
-                    >
-                  </span>
-                </div>
-                <hr />
-                <div class="info-middle-list">
-                  <p>youtube:</p>
-                  <span>
-                    <a
-                      href="https://www.youtube.com/watch?v=6AyEce0NdM0&ab_channel=JSGeek"
-                      target="_blank"
-                      >js geek</a
-                    ></span
-                  >
-                </div>
-                <hr />
-                <div class="info-middle-list">
-                  <p>email:</p>
-                  <span>
-                    <a
-                      href="mailto:iordache.marian21@gmail.com"
-                      class="info-middle-list-email"
-                      >Iordache.marian21@gmail.com</a
-                    ></span
-                  >
-                </div>
-                <hr />
-                <div class="info-middle-list">
-                  <p>Linkdin:</p>
-                  <span><a href="#">Marian Iordache</a></span>
-                </div>
-                <hr />
-                <div class="info-middle-list">
-                  <p>css battle:</p>
-                  <span
-                    ><a
-                      href="https://cssbattle.dev/player/VbqbK0gKScgciHu3kMxYoIko40B2"
-                      target="_blank"
-                    >
-                      <div class="cssbattle-container">
-                        <div class="css-Grank">
-                          <div>Global Rank</div>
-                          <div>1797/172217</div>
-                        </div>
-                        <div class="css-TScore">
-                          <div>Total Score</div>
-                          <div>27326.32</div>
-                        </div>
-                        <div class="css-Tplayed">
-                          <div>Targets Played</div>
-                          <div>47/100</div>
-                        </div>
-                      </div> </a
-                    >click me!</span
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="contact-middle-footer">
-              <input
-                type="button"
-                value="CV"
-                class="btn btn-standard btn-danger btn-contact"
-              />
-              <div class="contact-middle-footer-btn">
-                <input
-                  type="button"
-                  class="btn btn-standard btn-contact"
-                  value="hire me"
-                />
-                <input
-                  type="button"
-                  class="btn btn-standard btn-active btn-contact"
-                  value="linkdin"
-                />
-              </div>
-            </div>
-          </div>
+       
+          <script>
+            $("#aboutme_push").load("./pages/_about_me/aboutme.html");
+          </script>
+
         </div>
         <div class="contact-middle-right-person tabcontent" id="person_two">
-          <div class="contact-middle-image">
-            <div class="contact-image-container">
-              <div class="contact-profile-img Sorin"></div>
-            </div>
-            <div class="contact-name">
-              <div>crafties</div>
-              <div style="text-align: center !important; margin-left: 1px">
-                "homemade"
-              </div>
-            </div>
-          </div>
-          <div class="contact-middle-top">
-            <div class="close-button-contact">
-              <button
-                class="push-me-button press-me-button"
-                onclick="pushme()"
-              ></button>
-            </div>
+         <div class="contact_wrapper_forms d-flex-around d-flex-row-reverse">
+          <div class="contact_push_right"><p>give me a note</p></div>
+          <div class="contact_push contactBox d-flex-around" id="contact_push">cc</div>
+          <script>
+            // $("#contact_push").load("./pages/_finder_tabs/forms/forms.html");
 
-            <div class="contact-middle-information"></div>
-            <div class="contact-middle-footer">
-              <input
-                type="button"
-                value="CV"
-                class="btn btn-standard btn-danger btn-contact"
-              />
-              <div class="contact-middle-footer-btn">
-                <input
-                  type="button"
-                  class="btn btn-standard btn-contact"
-                  value="hire me"
-                />
-                <input
-                  type="button"
-                  class="btn btn-standard btn-active btn-contact"
-                  value="linkdin"
-                />
-              </div>
-            </div>
-          </div>
+          </script>
+         </div>
         </div>
         <div class="contact-middle-right-person tabcontent" id="person_three">
           <div class="contact-middle-image">

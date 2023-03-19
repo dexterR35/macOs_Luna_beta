@@ -23,8 +23,12 @@ function g_append() {
 <div>Marian Iordache</div>
 `
   $(".footer_insert_pages").append(_FooterNav);
-}
 
+}
+$(".contact_push").each(function() {
+ 
+  $(this).load("./pages/_finder_tabs/forms/forms.html");
+ });
 
 function appendStuff() {
   $(".nav_checkBox").append(

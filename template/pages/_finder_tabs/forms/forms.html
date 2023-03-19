@@ -1,0 +1,93 @@
+
+    <div class="container-forms">
+      <form action="submit" id="form_contact">
+        <h2>how are you? Today!</h2>
+        <div class="_input_parent">
+          <p>who are you?</p>
+          <div class="input-contact-box">
+            <label for="" class="contact_label">name</label>
+            <input
+              type="text"
+              class="input_focus input_val"
+              onfocus="setFocus(true)"
+              onblur="setFocus(false)"
+            />
+          </div>
+        </div>
+        <div class="_input_parent">
+          <p>who are you?</p>
+          <div class="input-contact-box">
+            <label for="" class="contact_label">last name</label>
+            <input
+              type="text"
+              class="input_focus input_val"
+              onfocus="setFocus(true)"
+              onblur="setFocus(false)"
+            />
+          </div>
+        </div>
+        <div class="_input_parent">
+          <p>add your email for chatting</p>
+          <div class="input-contact-box">
+            <label for="" class="contact_label">let's chat @</label>
+            <input
+              type="email"
+              class="input_focus input_val"
+              onfocus="setFocus(true)"
+              onblur="setFocus(false)"
+            />
+          </div>
+        </div>
+        <div class="_input_parent">
+            <p>maybe i can call you</p>
+            <div class="input-contact-box">
+              <label for="" class="contact_label">number (optional)</label>
+              <input
+                type="number"
+                class="input_focus input_val"
+                onfocus="setFocus(true)"
+                onblur="setFocus(false)"
+              />
+            </div>
+          </div>
+        <div class="_input_parent">
+          <p>send me your thoroughts</p>
+          <div class="input-contact-box error">
+            <label for="" class="contact_label">send me some words</label>
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              class="input_focus input_val"
+              onfocus="setFocus(true)"
+              onblur="setFocus(false)"
+            ></textarea>
+          </div>
+        </div>
+        <button type="button" class="btn-contact btn-primary pull-right">
+          Button
+        </button>
+        <div class="clear_c"></div>
+      </form>
+    </div>
+
+    <script>
+      function setFocus(on) {
+        let element_active = document.activeElement;
+        if (on) {
+          setTimeout(function () {
+            element_active.parentNode.classList.add("focus_input");
+          });
+        } else {
+          let box_contact = document.querySelector(".input-contact-box");
+          box_contact.classList.remove("focus_input");
+          $("input").each(function () {
+            var input = $(this);
+            var parent = input.closest(".input-contact-box");
+            if (input.val()) parent.addClass("focus_input");
+            else parent.removeClass("focus_input");
+          });
+        }
+      }
+    </script>

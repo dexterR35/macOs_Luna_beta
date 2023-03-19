@@ -35,6 +35,7 @@
         "./pages/s_adobe/s_adobe.css",
         "./pages/p_adobe/p_premiere.css",
         "./pages/apps/apps.css",
+        "./pages/_finder_tabs/forms/forms.css"
         // './pages/p_adobe/p_photoshop.css',
         // './pages/p_adobe/p_afterEffects.css'
       ];
@@ -211,6 +212,12 @@
   } */
     </style>
     <script>
+      
+$(".contact_push").each(function() {
+ 
+ $(this).load("./pages/_finder_tabs/forms/forms.html");
+});
+
       // window.onload = function() {
       //     var divCount = document.getElementsByTagName("div").length;
       //     var classes = document.querySelectorAll("[class]").length;
