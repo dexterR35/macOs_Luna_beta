@@ -1,6 +1,6 @@
 /* FORM CONTACT */
 .container-forms {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: fit-content;
   padding: 0.5em 1.2em;
   border-radius: 14px;
@@ -8,18 +8,22 @@
   /* background: #333; */
 }
 #form_contact {
-  width: 25vw;
+  max-width: 450px;
+  width: 450px;
   margin: 0 auto;
+  flex-wrap: wrap;
+  column-gap: 45px;
+  row-gap: 10px;
 }
 #form_contact h2 {
   text-align: center;
   text-transform: capitalize;
   padding: 0.5em;
 }
-._input_parent p{
-    font-size: 0.9em;
-    text-transform: capitalize;
-    padding: 0.3em;
+._input_parent p {
+  font-size: 0.9em;
+  text-transform: capitalize;
+  padding: 0.3em;
 }
 
 .input-contact-box {
@@ -119,4 +123,11 @@
 }
 .clear_c {
   clear: both;
+}
+
+.textarea {
+  width: 430px;
+  height: 55px;
+  resize: none;
+  overflow-y: scroll;
 }

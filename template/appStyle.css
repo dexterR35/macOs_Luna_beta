@@ -77,8 +77,8 @@
 
   --containers_MaxWidth: 50%;
   --containers_MinWidth: 1000px;
-  --containers_width: calc(55em - 10px);
-  --containers_height: 40em;
+  --containers_width: calc(60em - 10px);
+  --containers_height: 50em;
 
   --github_gradient: radial-gradient(
     circle,
@@ -282,9 +282,11 @@ iframe {
   justify-content: space-evenly;
 }
 .d-flex-column {
+  display: flex;
   flex-direction: column;
 }
 .d-flex-row {
+  display: flex;
   flex-direction: row;
 }
 .d-flex-row-reverse {
@@ -451,9 +453,9 @@ FONT SIZE  */
   height: 100%;
   padding: 0 1em;
 }
-.contactBox {
+/* .contactBox {
   height: 100%;
-}
+} */
 
 .premiere_push,
 .xD_push,
@@ -542,4 +544,12 @@ FONT SIZE  */
   color: azure;
   text-align: center;
   text-transform: capitalize;
+}
+
+
+
+
+/* FINDER CONTACT FORM */
+.contact_push_right {
+  
 }

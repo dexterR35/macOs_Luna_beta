@@ -1,0 +1,47 @@
+
+
+.js_folders {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1em;
+    gap: 10px;
+  }
+  
+  /* .change_folders {
+    grid-template-columns: repeat(9, 65px);
+    grid-template-rows: repeat(7, 65px);
+    font-size: 0.8em;
+  }
+   */
+  .-folders {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .change_folders.active {
+    grid-template-columns: repeat(7, 75px);
+    grid-template-rows: repeat(4, 75px);
+    grid-gap: 8px;
+    font-size: 1em;
+  }
+  
+  .folder-inside {
+    width: 40px;
+    height: 40px;
+    background-image: url(/template/assets/png/folders/mac_folder.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .folder-inside.active_large {
+    width: 65px;
+    height: 65px;
+  }
+  

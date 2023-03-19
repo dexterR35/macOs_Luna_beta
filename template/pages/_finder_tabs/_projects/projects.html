@@ -1,0 +1,29 @@
+<h3>projects</h3>
+<div class="container-myProjects js_folders change_folders"></div>
+<script>
+  let _folders = document.querySelector(".js_folders");
+  let _foldersTxt = ["projects", "lp", "videos", "music", "text", "pictures"];
+
+  function generateFolders() {
+    
+    for (let j = 0; j <= 5; j++) {
+      _folders.innerHTML +=
+        "<div class ='folder_nr" +
+        j +
+        " -folders'>" +
+        "<div class='folder-inside'>" +
+        "</div>" +
+        "<div class='folder-insideTxt'>" +
+        _foldersTxt[j] +
+        "</div>" +
+        "</div>";
+    }
+  }
+
+  generateFolders(); 
+
+  $(".change_display").click(function () {
+    $(".change_folders").toggleClass("active");
+    $(".folder-inside").toggleClass("active_large");
+  });
+</script>

@@ -1,7 +1,7 @@
 
     <div class="container-forms">
-      <form action="submit" id="form_contact">
-        <h2>how are you? Today!</h2>
+      <form action="submit" id="form_contact" class="form_contact d-flex-row d-flex-center">
+     
         <div class="_input_parent">
           <p>who are you?</p>
           <div class="input-contact-box">
@@ -54,7 +54,7 @@
           <p>send me your thoroughts</p>
           <div class="input-contact-box error">
             <label for="" class="contact_label">send me some words</label>
-            <textarea
+            <textarea class="textarea"
               name=""
               id=""
               cols="30"
@@ -65,13 +65,16 @@
             ></textarea>
           </div>
         </div>
-        <button type="button" class="btn-contact btn-primary pull-right">
-          Button
-        </button>
-        <div class="clear_c"></div>
+  
       </form>
+      <button type="button" class="btn-contact btn-primary pull-right">
+        Button
+      </button>
+      <div class="clear_c"></div>
     </div>
 
+
+        
     <script>
       function setFocus(on) {
         let element_active = document.activeElement;

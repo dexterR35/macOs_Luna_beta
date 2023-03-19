@@ -80,317 +80,148 @@
             <a
               href="#"
               class="tablink-profile openLinks all_links"
-              onclick="openPage('person_one')" 
-              ><span class="material-symbols-outlined">
-                favorite
-                </span>About Me</a
+              onclick="openPage('about_me')"
+              ><span class="material-symbols-outlined"> favorite </span>About
+              Me</a
             >
           </li>
           <li class="_l_list">
             <a
               href="#"
               class="tablink-profile openLinks all_links"
-              onclick="openPage('person_two')"
-              ><span class="material-symbols-outlined">
-                home
-                </span>Home</a
+              onclick="openPage('contact_me')"
+              ><span class="material-symbols-outlined"> home </span>Home</a
             >
           </li>
           <li class="_l_list">
             <a
               href="#"
               class="tablink-profile openLinks all_links"
-              onclick="openPage('myProjects')"
-              ><span class="material-symbols-outlined">
-                save
-                </span>Projects</a
+              onclick="openPage('my_Projects')"
+              ><span class="material-symbols-outlined"> save </span>Projects</a
             >
           </li>
           <li class="_l_list">
             <a
               href="#"
               class="tablink-profile openLinks all_links"
-              onclick="openPage('partners')"
-              ><span class="material-symbols-outlined">
-                group
-                </span>Script</a
+              onclick="openPage('my_partners')"
+              ><span class="material-symbols-outlined"> group </span>Script</a
             >
           </li>
           <li class="_l_list">
             <a
               href="#"
               class="tablink-profile openLinks all_links"
-              onclick="openPage('person_three')"
-              ><span class="material-symbols-outlined">
-                slideshow
-                </span>Photos</a
+              onclick="openPage('my_photos')"
+              ><span class="material-symbols-outlined"> slideshow </span
+              >Photos</a
             >
           </li>
           <li class="_l_list">
             <a
               href="#"
               class="tablink-profile openLinks all_links"
-              onclick="openPage('person_three')"
+              onclick="openPage('my_social')"
               ><span class="material-symbols-outlined">
-                sentiment_satisfied
-                </span>Social</a
+                sentiment_satisfied </span
+              >Social</a
             >
           </li>
           <li class="_l_list">
             <a
               href="#"
               class="tablink-profile openLinks all_links"
-              onclick="openPage('person_three')"
-              ><span class="material-symbols-outlined">
-                travel_explore
-                </span>Friends</a
+              onclick="openPage('my_partners')"
+              ><span class="material-symbols-outlined"> travel_explore </span
+              >Friends</a
             >
           </li>
           <li class="_l_list">
             <a
               href="#"
               class="tablink-profile openLinks all_links"
-              onclick="openPage('person_three')"
-              ><span class="material-symbols-outlined">
-                videocam
-                </span>videos</a
+              onclick="openPage('my_partners')"
+              ><span class="material-symbols-outlined"> videocam </span
+              >videos</a
             >
           </li>
           <li class="_l_list">
             <a
               href="#"
               class="tablink-profile openLinks all_links"
-              onclick="openPage('person_three')"
-              ><span class="material-symbols-outlined">
-                lan
-                </span>network</a
+              onclick="openPage('my_partners')"
+              ><span class="material-symbols-outlined"> lan </span>network</a
             >
           </li>
           <div>location</div>
           <li class="_l_list">
-            <a href="#"><span class="material-symbols-outlined">
-              save
-              </span>455 gb Volume I</a>
+            <a href="#"
+              ><span class="material-symbols-outlined"> save </span>455 gb
+              Volume I</a
+            >
           </li>
           <li class="_l_list">
-            <a href="#"><span class="material-symbols-outlined">
-              save
-              </span>250 gb Volume II</a>
+            <a href="#"
+              ><span class="material-symbols-outlined"> save </span>250 gb
+              Volume II</a
+            >
           </li>
           <div>icloud</div>
           <li class="_l_list">
-            <a href="#"><span class="material-symbols-outlined">
-              save
-              </span>GitHub Remote</a>
+            <a href="#"
+              ><span class="material-symbols-outlined"> save </span>GitHub
+              Remote</a
+            >
           </li>
         </ul>
       </div>
       <div class="finder-middle-right">
-        <div class="contact-middle-right-person tabcontent" id="person_one">
-          <div class="wrapper_aboutme">
-
-            <div class="aboutme_push aboutmeBox" id="aboutme_push">cc</div>
-
-
+        <div class="contact-middle-right-person tabcontent" id="about_me">
+          <div class="wrapper_aboutme" id="defaultOpen">
+            <div class="aboutme_push aboutmeBox" id="aboutme_push"></div>
           </div>
-       
           <script>
-            $("#aboutme_push").load("./pages/_about_me/aboutme.html");
+            $("#aboutme_push").load("./pages/_finder_tabs/_about_me/aboutme.html");
           </script>
-
         </div>
-        <div class="contact-middle-right-person tabcontent" id="person_two">
-         <div class="contact_wrapper_forms d-flex-around d-flex-row-reverse">
-          <div class="contact_push_right"><p>give me a note</p></div>
-          <div class="contact_push contactBox d-flex-around" id="contact_push">cc</div>
-          <script>
-            // $("#contact_push").load("./pages/_finder_tabs/forms/forms.html");
-
-          </script>
-         </div>
-        </div>
-        <div class="contact-middle-right-person tabcontent" id="person_three">
-          <div class="contact-middle-image">
-            <div class="contact-image-container">
-              <div class="contact-profile-img Rares"></div>
+        <div class="contact-middle-right-person tabcontent" id="contact_me">
+          <div class="contact_wrapper_forms d-flex-around d-flex-column">
+            <h2>how are you? Today!</h2>
+            <div class="contact_push_right d-flex-column d-flex-center">
+              <p>give me a note</p>
             </div>
-            <div class="contact-name">
-              <div>test</div>
-              <div>"test"</div>
-            </div>
-          </div>
-          <div class="contact-middle-top">
-            <div class="close-button-contact">
-              <button
-                class="push-me-button press-me-button"
-                onclick="pushme()"
-              ></button>
-            </div>
-
-            <div class="contact-middle-information"></div>
-            <div class="contact-middle-footer">
-              <input
-                type="button"
-                value="CV"
-                class="btn btn-standard btn-danger btn-contact"
-              />
-              <div class="contact-middle-footer-btn">
-                <input
-                  type="button"
-                  class="btn btn-standard btn-contact"
-                  value="hire me"
-                />
-                <input
-                  type="button"
-                  class="btn btn-standard btn-active btn-contact"
-                  value="linkdin"
-                />
-              </div>
+            <div
+              class="contact_push contactBox d-flex-around d-flex-column"
+              id="contact_push"
+            >
+              cc
             </div>
           </div>
         </div>
-        <div class="contact-middle-right-person tabcontent" id="partners">
-          <div class="contact-middle-image partners-middle-image">
-            <div class="contact-name">
-              <div>Partners</div>
-              <div
-                style="text-align: center !important; margin-left: 1px"
-                class="partnes-text"
-              >
-                "combine all together and change the world"
-              </div>
-            </div>
-          </div>
-          <div class="contact-middle-top">
-            <div class="contact-middle-information">
-              <div class="container-contact-cards">
-                <div class="person__cards__one cards-persons">
-                  <div class="outside-contact-person cards-effects">
-                    <span data-name="Andrei Ene"></span>
-                    <buttom class="button-cards-person btn-contact"
-                      >test</buttom
-                    >
-                  </div>
-                  <div class="inside-contact-person">
-                    <div class="partners-profile"></div>
-                    <div class="partners-info"></div>
-                  </div>
-                </div>
-                <div class="person__cards__two cards-persons">
-                  <div class="outside-contact-person cards-effects">
-                    <span data-name="Denis Neagu"></span>
-                    <buttom class="button-cards-person btn-contact"
-                      >test</buttom
-                    >
-                  </div>
-                  <div class="inside-contact-person">
-                    <div class="partners-profile"></div>
-                    <div class="partners-info"></div>
-                  </div>
-                </div>
-                <div class="person__cards__tree cards-persons">
-                  <div class="outside-contact-person cards-effects">
-                    <span data-name="andrei"></span>
-                    <buttom class="button-cards-person btn-contact"
-                      >test</buttom
-                    >
-                  </div>
-                  <div class="inside-contact-person">
-                    <div class="partners-profile"></div>
-                    <div class="partners-info"></div>
-                  </div>
-                </div>
-                <div class="person__cards__four cards-persons">
-                  <div class="outside-contact-person cards-effects">
-                    <span data-name="rares craciun"></span>
-                    <buttom class="button-cards-person btn-contact"
-                      >test</buttom
-                    >
-                  </div>
-                  <div class="inside-contact-person">
-                    <div class="partners-profile"></div>
-                    <div class="partners-info"></div>
-                  </div>
-                </div>
-                <div class="person__cards__five cards-persons">
-                  <div class="outside-contact-person cards-effects">
-                    <span data-name="Alex Lungeanu"></span>
-                    <buttom class="button-cards-person btn-contact"
-                      >test</buttom
-                    >
-                  </div>
-                  <div class="inside-contact-person">
-                    <div class="partners-profile"></div>
-                    <div class="partners-info"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="contact-middle-footer">
-              <input
-                type="button"
-                value="welcome"
-                class="btn btn-standard btn-danger btn-contact"
-                onclick="pushme()"
-              />
-              <div class="contact-middle-footer-btn">
-                <input
-                  type="button"
-                  class="btn btn-standard btn-contact"
-                  value="Send me"
-                  onclick="pushme()"
-                />
-                <input
-                  type="button"
-                  class="btn btn-standard btn-active btn-contact"
-                  value="contact"
-                  onclick="pushme()"
-                />
-              </div>
-            </div>
-          </div>
+        <div class="contact-middle-right-person tabcontent" id="my_photos">
+          <div class="wrapper-3">photos</div>
         </div>
-        <div class="contact-middle-right-person tabcontent" id="myProjects">
+        <div class="contact-middle-right-person tabcontent" id="my_partners">
+        <div class="wrapper-partners">my partners</div>
+        </div>
+        <div class="contact-middle-right-person tabcontent" id="my_social">
+          <div class="wrapper-social">social</div>
+          </div>
+        <div class="contact-middle-right-person tabcontent" id="my_Projects">
           <div class="contact-middle-top middle-projects">
-            <!-- *************************   MY PROJECTS ****************-->
-
-            <div class="container-myProjects js_folders change_folders"></div>
+            <div class="wrapper_projects">
+              <div class="projects_push projectsBox" id="projects_push"></div>
+            </div>
+            <script>
+              $("#projects_push").load("./pages/_finder_tabs/_projects/projects.html");
+            </script>
+        
           </div>
         </div>
       </div>
     </div>
-    <div class="container-footer-finder footer_insert_pages">
-
-    </div>
-    <!-- <div class="container-footer-finder footer_insert_pages">
-      <div class="container-footer-finder-settingsPanel">
-        <a href="#"><span class="material-symbols-outlined">
-          settings
-          </span> Settings</a>
-      </div>
-      <div>25 items, 280.63 GB available</div>
-      <div>Marian Iordache</div>
-    </div> -->
+    <div class="container-footer-finder footer_insert_pages"></div>
   </div>
 </div>
-<script>
-  // function openPage(pageName, elmnt, color) {
-  //   // Hide all elements with class="tabcontent" by default */
-  //   var i, tabcontent, tablinks;
-  //   tabcontent = document.getElementsByClassName("click_finderContainer");
-  //   for (i = 0; i < tabcontent.length; i++) {
-  //     tabcontent[i].style.display = "none";
-  //   }
-  //   // Remove the background color of all tablinks/buttons
-  //   tablinks = document.getElementsByClassName("tablink-profile");
-  //   for (i = 0; i < tablinks.length; i++) {
-  //     tablinks[i].style.backgroundColor = "";
-  //   }
-  //   // Show the specific tab content
-  //   document.getElementById(pageName).style.display = "block";
-  //   // Add the specific color to the button used to open the tab content
-  //   // elmnt.style.backgroundColor = color;
-  // }
-
-  // document.querySelector(".openLinks").click();
-</script>
+<script></script>

@@ -1,0 +1,31 @@
+.hover_info {
+    position: relative;
+    padding:1em;
+    border:1px solid black;
+    height:50px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .hidden_info {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 40%;
+    background-color: #fff;
+    cursor:pointer;
+    color: black;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    opacity: 0;
+    transition: opacity .3s ease-in-out, transform .3s ease-in-out; /* added transform transition */
+  }
+  
+  .hover_info:hover > .hidden_info {
+    opacity: 1;
+    transform: translateX(100px); /* added transform property */
+  }
+  
