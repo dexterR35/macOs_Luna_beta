@@ -51,12 +51,12 @@ function openPage(pageName, elmnt, color) {
     tabcontent[i].style.display = "none";
   }
   tablinks = document.querySelectorAll(".all_links");
-  console.log(tablinks, "tabs")
+  // console.log(tablinks, "tabs")
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].style.backgroundColor = "";
   }
   let pageNameDisplay = document.getElementById(pageName);
-  console.log(pageNameDisplay, "pagename")
+  // console.log(pageNameDisplay, "pagename")
   pageNameDisplay.style.display = "block";
   // elmnt.style.backgroundColor = color;
 

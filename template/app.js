@@ -53,32 +53,22 @@
   const nameElem = document.getElementById("name");
   const usernameElem = document.getElementById("username");
   const codepenElem = document.getElementById("codepen");
-
   const docRef_onwer = getDocs(collection(db, "onwer"));
 
-  //   console.log(elements_owner, "elements");
+
   docRef_onwer
     .then((querySnapshot) => {
-      //   console.log(querySnapshot);
       querySnapshot.forEach((doc) => {
         if (doc.exists) {
           const data = doc.data();
-          // const meObj = {
-          //   email: data.email,
-          //   firstName: data.firstName,
-          //   lastName: data.lastName,
-          //   social: data.social.codepen,
-          // };
           emailElem.innerHTML = data.email;
           nameElem.innerHTML = data.firstName;
           usernameElem.innerHTML = data.lastName;
           codepenElem.innerHTML = data.social.codepen;
-          // console.log(meObj);
         } else {
           console.log("No such document!");
         }
       });
-
     })
     .catch((error) => {
       console.log("Error getting documents: ", error);
