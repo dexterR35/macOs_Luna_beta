@@ -7,25 +7,38 @@
 
     <title>Document</title>
   </head>
+  <style>
+    .append_img img {
+      height: 50%;
+    }
+  </style>
   <body>
-
     <div id="data" class="info_s"></div>
     <div id="email" class="info_f"></div>
     <div id="name" class="info_g"></div>
     <div id="username" class="info_h"></div>
     <div id="codepen" class="info_j"></div>
+    <!-- <img id="myImage" url="" /> -->
+    <div class="append_img" style="width: 200px; height: 200px"></div>
+    <div class="testAppend" style="width: 200px; height: 200px"></div>
 
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
       // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
+
       import {
         getFirestore,
         collection,
         getDocs,
       } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
-
+      import {
+        getStorage,
+        ref,
+        getDownloadURL,
+        listAll,
+      } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
       // https://firebase.google.com/docs/web/setup#available-libraries
 
       // Your web app's Firebase configuration
@@ -43,8 +56,11 @@
       };
 
       // Initialize Firebase
+
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
+      const storage = getStorage(app);
+      // const storage = getStorage(app);
       // const analytics = getAnalytics(app);
 
       const emailElem = document.getElementById("email");
@@ -52,32 +68,27 @@
       const usernameElem = document.getElementById("username");
       const messageElem = document.getElementById("message");
       const codepenElem = document.getElementById("codepen");
-      const docRef_onwer = getDocs(collection(db, "onwer"));
+      const imgAppend = document.querySelector(".append_img");
+      const testAppend = document.querySelector(".testAppend");
 
-    //   const elements_owner = {
-    //     email: emailElem,
-    //     name: nameElem,
-    //     username: usernameElem,
-    //     social: codepenElem,
-    //   };
-    //   console.log(elements_owner, "elements");
+      const docRef_onwer = getDocs(collection(db, "onwer"));
+      const imagesRef = ref(storage, "gs://macos-luna.appspot.com/Images");
+
       docRef_onwer
         .then((querySnapshot) => {
-          //   console.log(querySnapshot);
           querySnapshot.forEach((doc) => {
             if (doc.exists) {
               const data = doc.data();
-              const meObj = {
-                email: data.email,
-                firstName: data.firstName,
-                lastName: data.lastName,
-                social: data.social.codepen,
-              };
-              emailElem.innerHTML = meObj.email;
-              nameElem.innerHTML = meObj.firstName;
-              usernameElem.innerHTML = meObj.lastName;
-              codepenElem.innerHTML = meObj.social;
-              console.log(meObj);
+              emailElem.innerHTML = data.email;
+              nameElem.innerHTML = data.firstName;
+              usernameElem.innerHTML = data.lastName;
+              testAppend.innerHTML = data.imagess;
+ 
+              // codepenElem.innerHTML = data.social.codepen;
+
+              // const imageRefss = data.imagess;
+              // console.log(imageRefs,"imageRefs")
+              // console.log(imageRefs, "imageRefs");
             } else {
               console.log("No such document!");
             }
@@ -86,6 +97,39 @@
         .catch((error) => {
           console.log("Error getting documents: ", error);
         });
+
+      listAll(imagesRef)
+        .then((res) => {
+          res.items.forEach((itemRef) => {
+            getDownloadURL(itemRef)
+              .then((url) => {
+                const img_c = document.createElement("img");
+                img_c.src = url;
+                imgAppend.appendChild(img_c);
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      // const imageRef = ref(
+      //   storage,
+      //   "gs://macos-luna.appspot.com/Images/macos2.webp"
+      // );
+      // getDownloadURL(imageRef)
+      //   .then((url) => {
+      //     console.log(url);
+      //     console.log(imageRef);
+      //     const img = document.getElementById("myImage");
+      //     console.log(img, "img");
+      //     img.src = url;
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
     </script>
   </body>
 </html>

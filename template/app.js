@@ -21,14 +21,12 @@
     initializeApp
   } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
   // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
-  //  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
   import {
     getFirestore,
     collection,
     getDocs,
   } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+
 
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -49,11 +47,18 @@
   const db = getFirestore(app);
   // const analytics = getAnalytics(app);
 
-  const emailElem = document.getElementById("email");
-  const nameElem = document.getElementById("name");
-  const usernameElem = document.getElementById("username");
-  const codepenElem = document.getElementById("codepen");
+  const emailMe = document.querySelector("._email_add");
+  // const nameMe = document.querySelector("_name_add");
+  // const lastNameMe = document.querySelector("_allias_add");
+  const codepenMe = document.querySelector("._codepen_add");
+  const linkedinMe = document.querySelector("._likedin_add");
+  const cssBattleMe = document.querySelector("._cssbattle_add");
+  const githubMe = document.querySelector("._github_add");
+  const numberMe = document.querySelector("._number_add");
+  const websiteMe = document.querySelector("._website_add");
+  
   const docRef_onwer = getDocs(collection(db, "onwer"));
+
 
 
   docRef_onwer
@@ -61,10 +66,17 @@
       querySnapshot.forEach((doc) => {
         if (doc.exists) {
           const data = doc.data();
-          emailElem.innerHTML = data.email;
-          nameElem.innerHTML = data.firstName;
-          usernameElem.innerHTML = data.lastName;
-          codepenElem.innerHTML = data.social.codepen;
+          emailMe.innerHTML = data.email;
+          numberMe.innerHTML = data.phone;
+          // nameMe.innerHTML = data.firstName;
+          // lastNameMe.innerHTML = data.lastName;
+          codepenMe.innerHTML = data.social.codepen;
+          linkedinMe.innerHTML = data.social.linkedin;
+          cssBattleMe.innerHTML = data.social.cssbattle;
+          githubMe.innerHTML = data.social.github;
+          websiteMe.innerHTML = data.website;
+      
+
         } else {
           console.log("No such document!");
         }
