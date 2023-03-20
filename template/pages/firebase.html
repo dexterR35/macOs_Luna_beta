@@ -8,7 +8,12 @@
     <title>Document</title>
   </head>
   <body>
-    <ul id="data"></ul>
+
+    <div id="data" class="info_s"></div>
+    <div id="email" class="info_f"></div>
+    <div id="name" class="info_g"></div>
+    <div id="username" class="info_h"></div>
+    <div id="codepen" class="info_j"></div>
 
     <script type="module">
       // Import the functions you need from the SDKs you need
@@ -20,11 +25,11 @@
         collection,
         getDocs,
       } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
-      // TODO: Add SDKs for Firebase products that you want to use
+
       // https://firebase.google.com/docs/web/setup#available-libraries
 
       // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
       const firebaseConfig = {
         apiKey: "AIzaSyBaPsn82u0CblmIXb9SktjOvfq2vRqeBPY",
         authDomain: "macos-luna.firebaseapp.com",
@@ -40,34 +45,41 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
-
-      const dataContainer = document.getElementById("data");
       // const analytics = getAnalytics(app);
 
-      getDocs(collection(db, "onwer"))
+      const emailElem = document.getElementById("email");
+      const nameElem = document.getElementById("name");
+      const usernameElem = document.getElementById("username");
+      const messageElem = document.getElementById("message");
+      const codepenElem = document.getElementById("codepen");
+      const docRef_onwer = getDocs(collection(db, "onwer"));
+
+    //   const elements_owner = {
+    //     email: emailElem,
+    //     name: nameElem,
+    //     username: usernameElem,
+    //     social: codepenElem,
+    //   };
+    //   console.log(elements_owner, "elements");
+      docRef_onwer
         .then((querySnapshot) => {
-          console.log(querySnapshot);
+          //   console.log(querySnapshot);
           querySnapshot.forEach((doc) => {
-            const data = doc.data();
-            // console.log(data,"data");
-            // const li = document.createElement("li");
-            // // li.textContent = data.firstName;
-            // // console.log(data,"data");
-            // // dataContainer.appendChild(li);
-            // li.textContent = JSON.stringify(data);
-            // dataContainer.appendChild(li);
-            for (let key in data) {
-              const li = document.createElement("li");
-              if (typeof data[key] === "object" && data[key] !== null) {
-                // If the field is a nested object, iterate over its properties
-                for (let nestedKey in data[key]) {
-                  li.textContent = `${key}.${nestedKey}: ${data[key][nestedKey]}`;
-                  dataContainer.appendChild(li);
-                }
-              } else {
-                li.textContent = `${key}: ${data[key]}`;
-                dataContainer.appendChild(li);
-              }
+            if (doc.exists) {
+              const data = doc.data();
+              const meObj = {
+                email: data.email,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                social: data.social.codepen,
+              };
+              emailElem.innerHTML = meObj.email;
+              nameElem.innerHTML = meObj.firstName;
+              usernameElem.innerHTML = meObj.lastName;
+              codepenElem.innerHTML = meObj.social;
+              console.log(meObj);
+            } else {
+              console.log("No such document!");
             }
           });
         })

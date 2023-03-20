@@ -1,4 +1,10 @@
 <h3>projects</h3>
+
+<div id="data" class="info_s">email</div>
+<div id="email" class="info_f"></div>
+<div id="name" class="info_g"></div>
+<div id="username" class="info_h"></div>
+<div id="codepen" class="info_j"></div>
 <div class="container-myProjects js_folders change_folders"></div>
 <script>
   let _folders = document.querySelector(".js_folders");
@@ -18,7 +24,7 @@
     }
   }
 
-  generateFolders(); 
+  generateFolders();
 
   $(".change_display").click(function () {
     $(".change_folders").toggleClass("active");

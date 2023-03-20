@@ -278,3 +278,5 @@ function openAdobe(currentTarget) {
 console.log("page is fully loaded");
 
 // document.getElementById('start-button').addEventListener('click', startCountdown);
+
+
