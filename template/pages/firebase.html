@@ -105,7 +105,7 @@
       </div>
       <div>
         <label for="username-input">phone:</label>
-        <input type="number" id="phonebox" placeholder="phone"  />
+        <input type="number" id="phonebox" placeholder="phone (optional)"  />
       </div>
       <div>
         <label for="username-input">email:</label>
@@ -114,6 +114,10 @@
       <div>
         <label for="username-input">section:</label>
         <input type="text" id="sectionbox"  placeholder="what you are ..?" />
+      </div>
+      <div>
+        <label for="username-input">portofolio:</label>
+        <input type="text" id="portofoliobox"  placeholder="add link to your, whatever" />
       </div>
       <div>
         <label for="">gender</label>
@@ -222,6 +226,7 @@
       let emailBox = document.getElementById("emailbox");
       let genBox = document.getElementById("genbox");
       let sectionBox = document.getElementById("sectionbox");
+      let portofolioBox = document.getElementById("portofoliobox");
 
       let insBtn = document.getElementById("insbtn");
       let selBtn = document.getElementById("selbtn");
@@ -241,12 +246,14 @@
           email: emailBox.value,
           section: sectionBox.value,
           gender: genBox.value,
+          portofolio:portofolioBox.value,
           idkeys: newDocRef.id,
         };
         // Validate the data before adding to Firestore
         if (
           !data.firstName ||
           !data.lastName ||
+          !data.portofolio ||
           !data.section ||
           !data.phone ||
           !data.email ||
@@ -265,6 +272,7 @@
             firstNameBox.value = "";
             lastNameBox.value = "";
             phoneBox.value = "";
+            portofolioBox.value = "",
             emailBox.value = "";
             genBox.value = "";
             sectionBox.value = "";
@@ -286,6 +294,7 @@
           genBox.value = docSnap.data().gender;
           phoneBox.value = docSnap.data().phone;
           sectionBox.value = docSnap.data().section;
+          portofolioBox.value = docSnap.data().portofolio;
         } else {
           alert("no suck a document");
         }
@@ -357,6 +366,7 @@
          </div>
          <div class="user_gender user_">${doc.data().gender}</div>
          <div class="user_section user_">${doc.data().section}</div>
+         <div class="user_portofolio user_">${doc.data().portofolio}</div>
           <div class="user_phone user_">${doc.data().phone}</div>
           <div class="user_email user_">${doc.data().email}</div>
           <div class="user_idkeys user_">${doc.data().idkeys}</div>
