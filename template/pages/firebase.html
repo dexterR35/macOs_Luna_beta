@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
   </head>
   <style>
@@ -107,47 +112,6 @@
       };
 
       // Initialize Firebase
-
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-      const storage = getStorage(app);
-
-      let NameBox = document.getElementById("Namebox");
-      let RollBox = document.getElementById("Rollbox");
-      let SecBox = document.getElementById("Secbox");
-      let GenBox = document.getElementById("Genbox");
-
-      let insBtn = document.getElementById("insbtn");
-      let selBtn = document.getElementById("selbtn");
-      let updBtn = document.getElementById("updBtn");
-      let delBtn = document.getElementById("delbtn");
-
-      async function AddDocument_AutoID() {
-        let ref = collection(db, "network");
-        const newDocRef = doc(ref);
-        const data = {
-          NameOfStd: NameBox.value,
-          RollNo: RollBox.value,
-          Section: SecBox.value,
-          Gender: GenBox.value,
-          Idkeys:newDocRef.id
-        };
-        await setDoc(newDocRef, data)
-          // const docRef = await addDoc(ref, {
-          //   NameOfStd: NameBox.value,
-          //   RollNo: RollBox.value,
-          //   Section: SecBox.value,
-          //   Gender: GenBox.value,
-          // })
-          .then(() => {
-            alert("data added succesfully");
-          })
-          .catch((error) => {
-            alert("unsecc operation. error:" + error);
-          });
-        console.log("document id is" + newDocRef.id);
-      }
-
       // async function AddDocument_CustomID() {
       //   let ref = doc(db, "network", RollBox.value);
       //   const docRef = await setDoc(ref, {
@@ -167,6 +131,39 @@
       // }
 
       // Getting Document
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const storage = getStorage(app);
+
+      let NameBox = document.getElementById("Namebox");
+      let RollBox = document.getElementById("Rollbox");
+      let SecBox = document.getElementById("Secbox");
+      let GenBox = document.getElementById("Genbox");
+
+      let insBtn = document.getElementById("insbtn");
+      let selBtn = document.getElementById("selbtn");
+      let updBtn = document.getElementById("updBtn");
+      let delBtn = document.getElementById("delbtn");
+      let newDocRef;
+      async function AddDocument_AutoID() {
+        let ref = collection(db, "network");
+        const newDocRef = doc(ref);
+        const data = {
+          NameOfStd: NameBox.value,
+          RollNo: RollBox.value,
+          Section: SecBox.value,
+          Gender: GenBox.value,
+          Idkeys: newDocRef.id,
+        };
+        await setDoc(newDocRef, data)
+          .then(() => {
+            console.log("data added succesfully");
+          })
+          .catch((error) => {
+            alert("unsecc operation. error:" + error);
+          });
+        console.log("document id is" + newDocRef.id);
+      }
 
       async function GetADocument() {
         let ref = doc(db, "network", RollBox.value);
@@ -176,6 +173,7 @@
           NameBox.value = docSnap.data().NameOfStd;
           SecBox.value = docSnap.data().Section;
           GenBox.value = docSnap.data().Gender;
+          RollBox.value = docSnap.data().RollNo;
         } else {
           alert("no suck a document");
         }
@@ -189,6 +187,7 @@
           NameOfStd: NameBox.value,
           Section: SecBox.value,
           Gender: GenBox.value,
+          RollNo: RollBox.value,
         })
           .then(() => {
             alert("data updated succesfully");
@@ -224,39 +223,41 @@
       delBtn.addEventListener("click", DeleteDocument);
 
       // get reference to container element in HTML
-      const container = document.getElementById("container_get");
+      // const container = document.getElementById("container_get");
 
       // retrieve all documents from collection "network"
       async function GetAllDocuments() {
         const collectionRef = collection(db, "network");
         const querySnapshot = await getDocs(collectionRef);
-
+        const container = document.querySelector("#container_get");
+        let divs = "";
         querySnapshot.forEach((doc) => {
-          // create a new div for each document
-          const div = document.createElement("div");
+          const userDiv = document.createElement("div");
+          userDiv.classList.add("user-container");
 
-          // create child elements for each data field
-          const name = document.createElement("p");
-          name.innerHTML = "Name: " + doc.data().NameOfStd;
+          const nameDiv = document.createElement("div");
+          nameDiv.textContent = doc.data().NameOfStd;
+          userDiv.appendChild(nameDiv);
 
-          const rollNo = document.createElement("p");
-          rollNo.innerHTML = "Roll No: " + doc.data().RollNo;
+          const rollNoDiv = document.createElement("div");
+          rollNoDiv.textContent = doc.data().RollNo;
+          userDiv.appendChild(rollNoDiv);
 
-          const section = document.createElement("p");
-          section.innerHTML = "Section: " + doc.data().Section;
+          const sectionDiv = document.createElement("div");
+          sectionDiv.textContent = doc.data().Section;
+          userDiv.appendChild(sectionDiv);
 
-          const gender = document.createElement("p");
-          gender.innerHTML = "Gender: " + doc.data().Gender;
+          const genderDiv = document.createElement("div");
+          genderDiv.textContent = doc.data().Gender;
+          userDiv.appendChild(genderDiv);
 
-          // add child elements to the div
-          div.appendChild(name);
-          div.appendChild(rollNo);
-          div.appendChild(section);
-          div.appendChild(gender);
-
-          // add the div to the container element
-          container.appendChild(div);
+          const idKeysDiv = document.createElement("div");
+          idKeysDiv.textContent = doc.data().Idkeys;
+          userDiv.appendChild(idKeysDiv);
+          container.appendChild(userDiv);
         });
+
+        // container.innerHTML = divs;
       }
       GetAllDocuments();
       // const storage = getStorage(app);
