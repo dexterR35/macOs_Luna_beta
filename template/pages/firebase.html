@@ -16,6 +16,18 @@
     .append_img img {
       height: 50%;
     }
+    .container_get {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 400px;
+    }
+    .user-container {
+      width: 250px;
+      height: 150px;
+      border: 1px solid black;
+    }
   </style>
 
   <body>
@@ -40,13 +52,15 @@
       "
     >
       <label for="name-input">Name:</label>
-      <input type="text" id="Namebox" />
-      <label for="username-input">rollNo:</label>
-      <input type="text" id="Rollbox" />
+      <input type="text" id="firstNamebox" />
+      <label for="username-input">lastName:</label>
+      <input type="text" id="lastNamebox" />
+      <label for="username-input">phone:</label>
+      <input type="number" id="phonebox" />
       <label for="username-input">section:</label>
-      <input type="text" id="Secbox" />
+      <input type="text" id="emailbox" />
       <label for="">gender</label>
-      <select name="" id="Genbox">
+      <select name="" id="genbox">
         <option value="male">male</option>
         <option value="female">female</option>
       </select>
@@ -64,12 +78,12 @@
       "
     >
       <button id="insbtn">insert</button>
-      <button id="selbtn">select</button>
-      <button id="updBtn">update</button>
-      <button id="delbtn">delete</button>
+      <button id="selbtn" disabled>select</button>
+      <button id="updBtn" disabled>update</button>
+      <button id="delbtn" disabled>delete</button>
       <!-- <button id="submit-button">Submit</button> -->
     </div>
-    <div id="container_get"></div>
+    <div id="container_get" class="container_get"></div>
     <script></script>
     <script type="module">
       // Import the functions you need from the SDKs you need
@@ -88,6 +102,7 @@
         updateDoc,
         deleteDoc,
         deleteField,
+        onSnapshot,
       } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
       import {
         getStorage,
@@ -135,29 +150,55 @@
       const db = getFirestore(app);
       const storage = getStorage(app);
 
-      let NameBox = document.getElementById("Namebox");
-      let RollBox = document.getElementById("Rollbox");
-      let SecBox = document.getElementById("Secbox");
-      let GenBox = document.getElementById("Genbox");
+      let firstNameBox = document.getElementById("firstNamebox");
+      let lastNameBox = document.getElementById("lastNamebox");
+
+      let phoneBox = document.getElementById("phonebox");
+      let emailBox = document.getElementById("emailbox");
+      let genBox = document.getElementById("genbox");
 
       let insBtn = document.getElementById("insbtn");
       let selBtn = document.getElementById("selbtn");
       let updBtn = document.getElementById("updBtn");
       let delBtn = document.getElementById("delbtn");
+
       let newDocRef;
+
       async function AddDocument_AutoID() {
         let ref = collection(db, "network");
         const newDocRef = doc(ref);
         const data = {
-          NameOfStd: NameBox.value,
-          RollNo: RollBox.value,
-          Section: SecBox.value,
-          Gender: GenBox.value,
-          Idkeys: newDocRef.id,
+          avatar: "avatar",
+          firstName: firstNameBox.value,
+          lastName: lastNameBox.value,
+          phone: phoneBox.value,
+          email: emailBox.value,
+          gender: genBox.value,
+          idkeys: newDocRef.id,
         };
+        // Validate the data before adding to Firestore
+        if (
+          !data.firstName ||
+          !data.lastName ||
+          !data.phone ||
+          !data.email ||
+          !data.gender
+        ) {
+          console.error("Invalid data:", data);
+          alert("add some data");
+          return;
+        }
+
         await setDoc(newDocRef, data)
           .then(() => {
+            // console.log("data added succesfully");
             console.log("data added succesfully");
+            // reset form inputs
+            firstNameBox.value = "";
+            lastNameBox.value = "";
+            phoneBox.value = "";
+            emailBox.value = "";
+            genBox.value = "";
           })
           .catch((error) => {
             alert("unsecc operation. error:" + error);
@@ -166,14 +207,15 @@
       }
 
       async function GetADocument() {
-        let ref = doc(db, "network", RollBox.value);
+        let ref = doc(db, "network");
         const docSnap = await getDoc(ref);
 
         if (docSnap.exists()) {
-          NameBox.value = docSnap.data().NameOfStd;
-          SecBox.value = docSnap.data().Section;
-          GenBox.value = docSnap.data().Gender;
-          RollBox.value = docSnap.data().RollNo;
+          firstNameBox.value = docSnap.data().firstName;
+          lastNameBox.value = docSnap.data().lastName;
+          emailBox.value = docSnap.data().email;
+          genBox.value = docSnap.data().gender;
+          phoneBox.value = docSnap.data().phone;
         } else {
           alert("no suck a document");
         }
@@ -181,46 +223,46 @@
 
       // Update document
 
-      async function UpdateFieldsInADocument() {
-        let ref = doc(db, "network", RollBox.value);
-        await updateDoc(ref, {
-          NameOfStd: NameBox.value,
-          Section: SecBox.value,
-          Gender: GenBox.value,
-          RollNo: RollBox.value,
-        })
-          .then(() => {
-            alert("data updated succesfully");
-          })
-          .catch((error) => {
-            alert("unsecc operation. error:" + error);
-          });
-      }
+      // async function UpdateFieldsInADocument() {
+      //   let ref = doc(db, "network", RollBox.value);
+      //   await updateDoc(ref, {
+      //     NameOfStd: NameBox.value,
+      //     Section: SecBox.value,
+      //     Gender: GenBox.value,
+      //     RollNo: RollBox.value,
+      //   })
+      //     .then(() => {
+      //       alert("data updated succesfully");
+      //     })
+      //     .catch((error) => {
+      //       alert("unsecc operation. error:" + error);
+      //     });
+      // }
 
       // delete document
 
-      async function DeleteDocument() {
-        let ref = collection(db, "network", RollBox.value);
-        const docSnap = await getDoc(ref);
+      // async function DeleteDocument() {
+      //   let ref = collection(db, "network", RollBox.value);
+      //   const docSnap = await getDoc(ref);
 
-        if (!docSnap.exists()) {
-          alert("document does not exist");
-          return;
-        }
-        await deleteDoc(ref)
-          .then(() => {
-            alert("data deleted succesfully");
-          })
-          .catch((error) => {
-            alert("unsecc operation. error:" + error);
-          });
-      }
+      //   if (!docSnap.exists()) {
+      //     alert("document does not exist");
+      //     return;
+      //   }
+      //   await deleteDoc(ref)
+      //     .then(() => {
+      //       alert("data deleted succesfully");
+      //     })
+      //     .catch((error) => {
+      //       alert("unsecc operation. error:" + error);
+      //     });
+      // }
 
       // insBtn.addEventListener("click", AddDocument_CustomID);
       insBtn.addEventListener("click", AddDocument_AutoID);
-      selBtn.addEventListener("click", GetADocument);
-      updBtn.addEventListener("click", UpdateFieldsInADocument);
-      delBtn.addEventListener("click", DeleteDocument);
+      // selBtn.addEventListener("click", GetADocument);
+      // updBtn.addEventListener("click", UpdateFieldsInADocument);
+      // delBtn.addEventListener("click", DeleteDocument);
 
       // get reference to container element in HTML
       // const container = document.getElementById("container_get");
@@ -228,37 +270,30 @@
       // retrieve all documents from collection "network"
       async function GetAllDocuments() {
         const collectionRef = collection(db, "network");
-        const querySnapshot = await getDocs(collectionRef);
+        // const querySnapshot = await getDocs(collectionRef);
         const container = document.querySelector("#container_get");
         let divs = "";
-        querySnapshot.forEach((doc) => {
-          const userDiv = document.createElement("div");
-          userDiv.classList.add("user-container");
+        onSnapshot(collectionRef, (querySnapshot) => {
+          // Clear the previous user containers from the container element
+          container.innerHTML = "";
 
-          const nameDiv = document.createElement("div");
-          nameDiv.textContent = doc.data().NameOfStd;
-          userDiv.appendChild(nameDiv);
-
-          const rollNoDiv = document.createElement("div");
-          rollNoDiv.textContent = doc.data().RollNo;
-          userDiv.appendChild(rollNoDiv);
-
-          const sectionDiv = document.createElement("div");
-          sectionDiv.textContent = doc.data().Section;
-          userDiv.appendChild(sectionDiv);
-
-          const genderDiv = document.createElement("div");
-          genderDiv.textContent = doc.data().Gender;
-          userDiv.appendChild(genderDiv);
-
-          const idKeysDiv = document.createElement("div");
-          idKeysDiv.textContent = doc.data().Idkeys;
-          userDiv.appendChild(idKeysDiv);
-          container.appendChild(userDiv);
+          querySnapshot.forEach((doc) => {
+            const userDiv = `
+        <div class="user-container">
+          <div>${doc.data().avatar}</div>
+        <div>${doc.data().firstName}</div>
+          <div>${doc.data().lastName}</div>
+          <div>${doc.data().phone}</div>
+          <div>${doc.data().email}</div>
+          <div>${doc.data().gender}</div>
+          <div>${doc.data().idkeys}</div>
+        </div>
+      `;
+            container.insertAdjacentHTML("beforeend", userDiv);
+          });
         });
-
-        // container.innerHTML = divs;
       }
+
       GetAllDocuments();
       // const storage = getStorage(app);
       // const analytics = getAnalytics(app);
