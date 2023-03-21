@@ -21,9 +21,12 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: center;
       width: 100%;
       height: fit-content;
       gap: 40px;
+      position: relative;
+      top: 5em;
     }
 
     .user-container {
@@ -53,19 +56,34 @@
     .user_fullName > .user_ {
       width: 50%;
     }
+    .container-display-none {
+      display: none;
+    }
+    .wrapper-all {
+      width: 100%;
+      position: relative;
+      top: 7em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   </style>
 
   <body>
-    <div id="data" class="info_s"></div>
-    <div id="email" class="info_f"></div>
-    <div id="name" class="info_g"></div>
-    <div id="username" class="info_h"></div>
-    <div id="codepen" class="info_j"></div>
-    <!-- <img id="myImage" url="" /> -->
+    <div class="container-display-none">
+      <div id="data" class="info_s"></div>
+      <div id="email" class="info_f"></div>
+      <div id="name" class="info_g"></div>
+      <div id="username" class="info_h"></div>
+      <div id="codepen" class="info_j"></div>
+      <!-- <img id="myImage" url="" /> -->
 
-    <div class="append_img" style="width: 200px; height: 200px"></div>
-    <div class="testAppend" style="width: 200px; height: 200px"></div>
+      <div class="append_img" style="width: 200px; height: 200px"></div>
+      <div class="testAppend" style="width: 200px; height: 200px"></div>
+    </div>
 
+    <div class="wrapper-all">
     <div
       class="containerss"
       style="
@@ -79,19 +97,23 @@
     >
       <div>
         <label for="name-input">Name:</label>
-        <input type="text" id="firstNamebox" />
+        <input type="text" id="firstNamebox" placeholder="Name" />
       </div>
       <div>
         <label for="username-input">lastName:</label>
-        <input type="text" id="lastNamebox" />
+        <input type="text" id="lastNamebox" placeholder="lastName"  />
       </div>
       <div>
         <label for="username-input">phone:</label>
-        <input type="number" id="phonebox" />
+        <input type="number" id="phonebox" placeholder="phone"  />
+      </div>
+      <div>
+        <label for="username-input">email:</label>
+        <input type="text" id="emailbox"  placeholder="email" />
       </div>
       <div>
         <label for="username-input">section:</label>
-        <input type="text" id="emailbox" />
+        <input type="text" id="sectionbox"  placeholder="what you are ..?" />
       </div>
       <div>
         <label for="">gender</label>
@@ -126,7 +148,8 @@
     <br />
     <br />
     <div id="container_get" class="container_get"></div>
-    <script></script>
+  </div>
+
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
@@ -198,6 +221,7 @@
       let phoneBox = document.getElementById("phonebox");
       let emailBox = document.getElementById("emailbox");
       let genBox = document.getElementById("genbox");
+      let sectionBox = document.getElementById("sectionbox");
 
       let insBtn = document.getElementById("insbtn");
       let selBtn = document.getElementById("selbtn");
@@ -215,6 +239,7 @@
           lastName: lastNameBox.value,
           phone: phoneBox.value,
           email: emailBox.value,
+          section: sectionBox.value,
           gender: genBox.value,
           idkeys: newDocRef.id,
         };
@@ -222,6 +247,7 @@
         if (
           !data.firstName ||
           !data.lastName ||
+          !data.section ||
           !data.phone ||
           !data.email ||
           !data.gender
@@ -241,6 +267,7 @@
             phoneBox.value = "";
             emailBox.value = "";
             genBox.value = "";
+            sectionBox.value = "";
           })
           .catch((error) => {
             alert("unsecc operation. error:" + error);
@@ -258,6 +285,7 @@
           emailBox.value = docSnap.data().email;
           genBox.value = docSnap.data().gender;
           phoneBox.value = docSnap.data().phone;
+          sectionBox.value = docSnap.data().section;
         } else {
           alert("no suck a document");
         }
@@ -328,6 +356,7 @@
         <div class="user_lastName user_">${doc.data().lastName}</div>
          </div>
          <div class="user_gender user_">${doc.data().gender}</div>
+         <div class="user_section user_">${doc.data().section}</div>
           <div class="user_phone user_">${doc.data().phone}</div>
           <div class="user_email user_">${doc.data().email}</div>
           <div class="user_idkeys user_">${doc.data().idkeys}</div>
