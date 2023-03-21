@@ -16,17 +16,42 @@
     .append_img img {
       height: 50%;
     }
+
     .container_get {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       width: 100%;
-      height: 400px;
+      height: fit-content;
+      gap: 40px;
     }
+
     .user-container {
       width: 250px;
-      height: 150px;
+      height: fit-content;
+
+      /* border: 1px solid black; */
+    }
+    .user_avatar {
+      height: 80px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .user_fullName {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      /* gap: 20px; */
+      width: 100%;
+    }
+    .user_ {
       border: 1px solid black;
+      padding: 10px;
+    }
+    .user_fullName > .user_ {
+      width: 50%;
     }
   </style>
 
@@ -49,21 +74,32 @@
         justify-content: center;
         width: 100%;
         align-items: center;
+        gap: 30px;
       "
     >
-      <label for="name-input">Name:</label>
-      <input type="text" id="firstNamebox" />
-      <label for="username-input">lastName:</label>
-      <input type="text" id="lastNamebox" />
-      <label for="username-input">phone:</label>
-      <input type="number" id="phonebox" />
-      <label for="username-input">section:</label>
-      <input type="text" id="emailbox" />
-      <label for="">gender</label>
-      <select name="" id="genbox">
-        <option value="male">male</option>
-        <option value="female">female</option>
-      </select>
+      <div>
+        <label for="name-input">Name:</label>
+        <input type="text" id="firstNamebox" />
+      </div>
+      <div>
+        <label for="username-input">lastName:</label>
+        <input type="text" id="lastNamebox" />
+      </div>
+      <div>
+        <label for="username-input">phone:</label>
+        <input type="number" id="phonebox" />
+      </div>
+      <div>
+        <label for="username-input">section:</label>
+        <input type="text" id="emailbox" />
+      </div>
+      <div>
+        <label for="">gender</label>
+        <select name="" id="genbox">
+          <option value="male">male</option>
+          <option value="female">female</option>
+        </select>
+      </div>
     </div>
     <br />
     <br />
@@ -77,12 +113,18 @@
         justify-content: center;
       "
     >
+      <br />
+      <br />
+      <br />
       <button id="insbtn">insert</button>
       <button id="selbtn" disabled>select</button>
       <button id="updBtn" disabled>update</button>
       <button id="delbtn" disabled>delete</button>
       <!-- <button id="submit-button">Submit</button> -->
     </div>
+    <br />
+    <br />
+    <br />
     <div id="container_get" class="container_get"></div>
     <script></script>
     <script type="module">
@@ -280,13 +322,15 @@
           querySnapshot.forEach((doc) => {
             const userDiv = `
         <div class="user-container">
-          <div>${doc.data().avatar}</div>
-        <div>${doc.data().firstName}</div>
-          <div>${doc.data().lastName}</div>
-          <div>${doc.data().phone}</div>
-          <div>${doc.data().email}</div>
-          <div>${doc.data().gender}</div>
-          <div>${doc.data().idkeys}</div>
+          <div class="user_avatar user_">${doc.data().avatar}</div>
+          <div class= user_fullName>
+        <div class="user_firstName user_">${doc.data().firstName}</div> 
+        <div class="user_lastName user_">${doc.data().lastName}</div>
+         </div>
+         <div class="user_gender user_">${doc.data().gender}</div>
+          <div class="user_phone user_">${doc.data().phone}</div>
+          <div class="user_email user_">${doc.data().email}</div>
+          <div class="user_idkeys user_">${doc.data().idkeys}</div>
         </div>
       `;
             container.insertAdjacentHTML("beforeend", userDiv);
