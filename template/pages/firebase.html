@@ -12,6 +12,7 @@
       height: 50%;
     }
   </style>
+
   <body>
     <div id="data" class="info_s"></div>
     <div id="email" class="info_f"></div>
@@ -19,9 +20,52 @@
     <div id="username" class="info_h"></div>
     <div id="codepen" class="info_j"></div>
     <!-- <img id="myImage" url="" /> -->
+
     <div class="append_img" style="width: 200px; height: 200px"></div>
     <div class="testAppend" style="width: 200px; height: 200px"></div>
 
+    <div
+      class="containerss"
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+      "
+    >
+      <label for="name-input">Name:</label>
+      <input type="text" id="Namebox" />
+      <label for="username-input">rollNo:</label>
+      <input type="text" id="Rollbox" />
+      <label for="username-input">section:</label>
+      <input type="text" id="Secbox" />
+      <label for="">gender</label>
+      <select name="" id="Genbox">
+        <option value="male">male</option>
+        <option value="female">female</option>
+      </select>
+    </div>
+    <br />
+    <br />
+    <div
+      class="container-btn"
+      style="
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-color: red;
+        justify-content: center;
+      "
+    >
+      <button id="insbtn">insert</button>
+      <button id="selbtn">select</button>
+      <button id="updBtn">update</button>
+      <button id="delbtn">delete</button>
+      <!-- <button id="submit-button">Submit</button> -->
+    </div>
+<div id="container_get"></div>
+    <script></script>
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
@@ -32,6 +76,13 @@
         getFirestore,
         collection,
         getDocs,
+        getDoc,
+        setDoc,
+        doc,
+        addDoc,
+        updateDoc,
+        deleteDoc,
+        deleteField,
       } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
       import {
         getStorage,
@@ -60,61 +111,198 @@
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
       const storage = getStorage(app);
+
+      let NameBox = document.getElementById("Namebox");
+      let RollBox = document.getElementById("Rollbox");
+      let SecBox = document.getElementById("Secbox");
+      let GenBox = document.getElementById("Genbox");
+
+      let insBtn = document.getElementById("insbtn");
+      let selBtn = document.getElementById("selbtn");
+      let updBtn = document.getElementById("updBtn");
+      let delBtn = document.getElementById("delbtn");
+
+      // async function AddDocument_AutoID() {
+      //   let ref = collection(db, "network");
+      //   const docRef = await addDoc(ref, {
+      //     NameOfStd: NameBox.value,
+      //     RollNo: RollBox.value,
+      //     Section: SecBox.value,
+      //     Gender: GenBox.value,
+      //   })
+      //     .then(() => {
+      //       alert("data added succesfully");
+      //     })
+      //     .catch((error) => {
+      //       alert("unsecc operation. error:" + error);
+      //     });
+      //     console.log("document id is" + docRef.id);
+      // }
+
+      async function AddDocument_CustomID() {
+        let ref = doc(db, "network", RollBox.value);
+        const docRef = await setDoc(ref, {
+          NameOfStd: NameBox.value,
+          RollNo: RollBox.value,
+          Section: SecBox.value,
+          Gender: GenBox.value
+        })
+          .then(() => {
+            alert("data added succesfully");
+          })
+          .catch((error) => {
+            alert("unsecc operation. error:" + error);
+          });
+      }
+
+      // Getting Document
+
+      async function GetADocument() {
+        let ref = doc(db, "network", RollBox.value);
+        const docSnap = await getDoc(ref);
+
+        if (docSnap.exists()) {
+          NameBox.value = docSnap.data().NameOfStd;
+          SecBox.value = docSnap.data().Section;
+          GenBox.value = docSnap.data().Gender;
+        } else {
+          alert("no suck a document");
+        }
+      }
+
+      // Update document
+
+      async function UpdateFieldsInADocument() {
+        let ref = doc(db, "network", RollBox.value);
+        await updateDoc(ref, {
+          NameOfStd: NameBox.value,
+          Section: SecBox.value,
+          Gender: GenBox.value,
+        })
+          .then(() => {
+            alert("data updated succesfully");
+          })
+          .catch((error) => {
+            alert("unsecc operation. error:" + error);
+          });
+      }
+
+      // delete document
+
+      async function DeleteDocument() {
+        let ref = collection(db, "network", RollBox.value);
+        const docSnap = await getDoc(ref);
+
+        if (!docSnap.exists()) {
+          alert("document does not exist");
+          return;
+        }
+        await deleteDoc(ref)
+          .then(() => {
+            alert("data deleted succesfully");
+          })
+          .catch((error) => {
+            alert("unsecc operation. error:" + error);
+          });
+      }
+
+      insBtn.addEventListener("click", AddDocument_CustomID);
+      selBtn.addEventListener("click", GetADocument);
+      updBtn.addEventListener("click", UpdateFieldsInADocument);
+      delBtn.addEventListener("click", DeleteDocument);
+
+
+// get reference to container element in HTML
+const container = document.getElementById("container_get");
+
+// retrieve all documents from collection "network"
+async function GetAllDocuments() {
+  const collectionRef = collection(db, "network");
+  const querySnapshot = await getDocs(collectionRef);
+
+  querySnapshot.forEach((doc) => {
+    // create a new div for each document
+    const div = document.createElement("div");
+
+    // create child elements for each data field
+    const name = document.createElement("p");
+    name.innerHTML = "Name: " + doc.data().NameOfStd;
+
+    const rollNo = document.createElement("p");
+    rollNo.innerHTML = "Roll No: " + doc.data().RollNo;
+
+    const section = document.createElement("p");
+    section.innerHTML = "Section: " + doc.data().Section;
+
+    const gender = document.createElement("p");
+    gender.innerHTML = "Gender: " + doc.data().Gender;
+
+    // add child elements to the div
+    div.appendChild(name);
+    div.appendChild(rollNo);
+    div.appendChild(section);
+    div.appendChild(gender);
+
+    // add the div to the container element
+    container.appendChild(div);
+  });
+}
+GetAllDocuments() 
       // const storage = getStorage(app);
       // const analytics = getAnalytics(app);
 
-      const emailElem = document.getElementById("email");
-      const nameElem = document.getElementById("name");
-      const usernameElem = document.getElementById("username");
-      const messageElem = document.getElementById("message");
-      const codepenElem = document.getElementById("codepen");
-      const imgAppend = document.querySelector(".append_img");
-      const testAppend = document.querySelector(".testAppend");
+      // const emailElem = document.getElementById("email");
+      // const nameElem = document.getElementById("name");
+      // const usernameElem = document.getElementById("username");
+      // const messageElem = document.getElementById("message");
+      // const codepenElem = document.getElementById("codepen");
+      // const imgAppend = document.querySelector(".append_img");
+      // const testAppend = document.querySelector(".testAppend");
 
-      const docRef_onwer = getDocs(collection(db, "onwer"));
-      const imagesRef = ref(storage, "gs://macos-luna.appspot.com/Images");
+      // const docRef_onwer = getDocs(collection(db, "onwer"));
+      // const imagesRef = ref(storage, "gs://macos-luna.appspot.com/Images");
 
-      docRef_onwer
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            if (doc.exists) {
-              const data = doc.data();
-              emailElem.innerHTML = data.email;
-              nameElem.innerHTML = data.firstName;
-              usernameElem.innerHTML = data.lastName;
-              testAppend.innerHTML = data.imagess;
- 
-              // codepenElem.innerHTML = data.social.codepen;
+      // docRef_onwer
+      //   .then((querySnapshot) => {
+      //     querySnapshot.forEach((doc) => {
+      //       if (doc.exists) {
+      //         const data = doc.data();
+      //         emailElem.innerHTML = data.email;
+      //         nameElem.innerHTML = data.firstName;
+      //         usernameElem.innerHTML = data.lastName;
+      //         testAppend.innerHTML = data.imagess;
 
-              // const imageRefss = data.imagess;
-              // console.log(imageRefs,"imageRefs")
-              // console.log(imageRefs, "imageRefs");
-            } else {
-              console.log("No such document!");
-            }
-          });
-        })
-        .catch((error) => {
-          console.log("Error getting documents: ", error);
-        });
+      //         // codepenElem.innerHTML = data.social.codepen;
 
-      listAll(imagesRef)
-        .then((res) => {
-          res.items.forEach((itemRef) => {
-            getDownloadURL(itemRef)
-              .then((url) => {
-                const img_c = document.createElement("img");
-                img_c.src = url;
-                imgAppend.appendChild(img_c);
-              })
-              .catch((error) => {
-                console.error(error);
-              });
-          });
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      //         // const imageRefss = data.imagess;
+      //         // console.log(imageRefs,"imageRefs")
+      //         // console.log(imageRefs, "imageRefs");
+      //       } else {
+      //         console.log("No such document!");
+      //       }
+      //     });
+      //   })
+      //   .catch((error) => {
+      //     console.log("Error getting documents: ", error);
+      //   });
+
+      // listAll(imagesRef)
+      //   .then((res) => {
+      //     res.items.forEach((itemRef) => {
+      //       getDownloadURL(itemRef)
+      //         .then((url) => {
+      //           const img_c = document.createElement("img");
+      //           img_c.src = url;
+      //           imgAppend.appendChild(img_c);
+      //         })
+      //         .catch((error) => {
+      //           console.error(error);
+      //         });
+      //     });
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
       // const imageRef = ref(
       //   storage,
       //   "gs://macos-luna.appspot.com/Images/macos2.webp"
