@@ -10,67 +10,15 @@
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="./firebase.css" />
     <title>Document</title>
   </head>
-  <style>
-    .append_img img {
-      height: 50%;
-    }
-
-    .container_get {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      width: 100%;
-      height: fit-content;
-      gap: 40px;
-      position: relative;
-      top: 5em;
-    }
-
-    .user-container {
-      width: 250px;
-      height: fit-content;
-
-      /* border: 1px solid black; */
-    }
-    .user_avatar {
-      height: 80px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .user_fullName {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      /* gap: 20px; */
-      width: 100%;
-    }
-    .user_ {
-      border: 1px solid black;
-      padding: 10px;
-    }
-    .user_fullName > .user_ {
-      width: 50%;
-    }
-    .container-display-none {
-      display: none;
-    }
-    .wrapper-all {
-      width: 100%;
-      position: relative;
-      top: 7em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-  </style>
+  <style></style>
 
   <body>
+    <button class="show-hidden-section-btn test">Show Hidden Section</button>
+    <div id="loading-spinner" class="loading-spinner"></div>
+    <button class="show-more">Show more</button>
     <div class="container-display-none">
       <div id="data" class="info_s"></div>
       <div id="email" class="info_f"></div>
@@ -83,78 +31,15 @@
       <div class="testAppend" style="width: 200px; height: 200px"></div>
     </div>
 
-    <div class="wrapper-all">
-    <div
-      class="containerss"
-      style="
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-        align-items: center;
-        gap: 30px;
-      "
-    >
-      <div>
-        <label for="name-input">Name:</label>
-        <input type="text" id="firstNamebox" placeholder="Name" />
-      </div>
-      <div>
-        <label for="username-input">lastName:</label>
-        <input type="text" id="lastNamebox" placeholder="lastName"  />
-      </div>
-      <div>
-        <label for="username-input">phone:</label>
-        <input type="number" id="phonebox" placeholder="phone (optional)"  />
-      </div>
-      <div>
-        <label for="username-input">email:</label>
-        <input type="text" id="emailbox"  placeholder="email" />
-      </div>
-      <div>
-        <label for="username-input">section:</label>
-        <input type="text" id="sectionbox"  placeholder="what you are ..?" />
-      </div>
-      <div>
-        <label for="username-input">portofolio:</label>
-        <input type="text" id="portofoliobox"  placeholder="add link to your, whatever" />
-      </div>
-      <div>
-        <label for="">gender</label>
-        <select name="" id="genbox">
-          <option value="male">male</option>
-          <option value="female">female</option>
-        </select>
-      </div>
-    </div>
-    <br />
-    <br />
-    <div
-      class="container-btn"
-      style="
-        display: flex;
-        align-items: center;
-        width: 100%;
-        background-color: red;
-        justify-content: center;
-      "
-    >
-      <br />
-      <br />
-      <br />
-      <button id="insbtn">insert</button>
-      <button id="selbtn" disabled>select</button>
-      <button id="updBtn" disabled>update</button>
-      <button id="delbtn" disabled>delete</button>
-      <!-- <button id="submit-button">Submit</button> -->
-    </div>
-    <br />
-    <br />
-    <br />
-    <div id="container_get" class="container_get"></div>
-  </div>
+    <div class="wrapper_users">
 
-    <script type="module">
+
+      <button id="insbtn" style="display:none;">insert</button>
+      <div id="container_get" class="container_get"></div>
+    </div>
+    <script src="./firebase.js" type="module"></script>
+
+    <!-- <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
       // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
@@ -172,6 +57,9 @@
         deleteDoc,
         deleteField,
         onSnapshot,
+        serverTimestamp,
+        query,
+        where,
       } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
       import {
         getStorage,
@@ -235,7 +123,21 @@
 
       let newDocRef;
 
+      async function checkEmailInNetworkCollection(email) {
+        const q = query(collection(db, "network"), where("email", "==", email));
+        const querySnapshot = await getDocs(q);
+        return !querySnapshot.empty;
+      }
+
       async function AddDocument_AutoID() {
+        const email = emailBox.value;
+        // Check if the email exists in the "network" collection
+        const emailExists = await checkEmailInNetworkCollection(email);
+        if (emailExists) {
+          alert("Email already exists in the network!");
+          return;
+        }
+
         let ref = collection(db, "network");
         const newDocRef = doc(ref);
         const data = {
@@ -243,11 +145,12 @@
           firstName: firstNameBox.value,
           lastName: lastNameBox.value,
           phone: phoneBox.value,
-          email: emailBox.value,
+          email,
           section: sectionBox.value,
           gender: genBox.value,
-          portofolio:portofolioBox.value,
+          portofolio: portofolioBox.value,
           idkeys: newDocRef.id,
+          timestamp: serverTimestamp(),
         };
         // Validate the data before adding to Firestore
         if (
@@ -272,8 +175,7 @@
             firstNameBox.value = "";
             lastNameBox.value = "";
             phoneBox.value = "";
-            portofolioBox.value = "",
-            emailBox.value = "";
+            (portofolioBox.value = ""), (emailBox.value = "");
             genBox.value = "";
             sectionBox.value = "";
           })
@@ -283,22 +185,22 @@
         console.log("document id is" + newDocRef.id);
       }
 
-      async function GetADocument() {
-        let ref = doc(db, "network");
-        const docSnap = await getDoc(ref);
+      // async function GetADocument() {
+      //   let ref = doc(db, "network");
+      //   const docSnap = await getDoc(ref);
 
-        if (docSnap.exists()) {
-          firstNameBox.value = docSnap.data().firstName;
-          lastNameBox.value = docSnap.data().lastName;
-          emailBox.value = docSnap.data().email;
-          genBox.value = docSnap.data().gender;
-          phoneBox.value = docSnap.data().phone;
-          sectionBox.value = docSnap.data().section;
-          portofolioBox.value = docSnap.data().portofolio;
-        } else {
-          alert("no suck a document");
-        }
-      }
+      //   if (docSnap.exists()) {
+      //     firstNameBox.value = docSnap.data().firstName;
+      //     lastNameBox.value = docSnap.data().lastName;
+      //     emailBox.value = docSnap.data().email;
+      //     genBox.value = docSnap.data().gender;
+      //     phoneBox.value = docSnap.data().phone;
+      //     sectionBox.value = docSnap.data().section;
+      //     portofolioBox.value = docSnap.data().portofolio;
+      //   } else {
+      //     alert("no suck a document");
+      //   }
+      // }
 
       // Update document
 
@@ -338,7 +240,9 @@
       // }
 
       // insBtn.addEventListener("click", AddDocument_CustomID);
+
       insBtn.addEventListener("click", AddDocument_AutoID);
+
       // selBtn.addEventListener("click", GetADocument);
       // updBtn.addEventListener("click", UpdateFieldsInADocument);
       // delBtn.addEventListener("click", DeleteDocument);
@@ -347,32 +251,73 @@
       // const container = document.getElementById("container_get");
 
       // retrieve all documents from collection "network"
+      const loadingSpinner = document.getElementById("loading-spinner");
+      loadingSpinner.style.display = "block";
+
       async function GetAllDocuments() {
         const collectionRef = collection(db, "network");
         // const querySnapshot = await getDocs(collectionRef);
         const container = document.querySelector("#container_get");
+
+        // show the loading spinner
+
         let divs = "";
         onSnapshot(collectionRef, (querySnapshot) => {
           // Clear the previous user containers from the container element
           container.innerHTML = "";
 
+          // Find the last added document in the query snapshot
+          let lastAddedDoc = null;
+          querySnapshot.docChanges().forEach((change) => {
+            if (
+              change.type === "added" &&
+              (!lastAddedDoc ||
+                change.doc.data().timestamp > lastAddedDoc.data().timestamp)
+            ) {
+              lastAddedDoc = change.doc;
+            }
+          });
+
           querySnapshot.forEach((doc) => {
             const userDiv = `
-        <div class="user-container">
-          <div class="user_avatar user_">${doc.data().avatar}</div>
-          <div class= user_fullName>
-        <div class="user_firstName user_">${doc.data().firstName}</div> 
-        <div class="user_lastName user_">${doc.data().lastName}</div>
-         </div>
-         <div class="user_gender user_">${doc.data().gender}</div>
-         <div class="user_section user_">${doc.data().section}</div>
-         <div class="user_portofolio user_">${doc.data().portofolio}</div>
-          <div class="user_phone user_">${doc.data().phone}</div>
-          <div class="user_email user_">${doc.data().email}</div>
-          <div class="user_idkeys user_">${doc.data().idkeys}</div>
+      <div class="user-container">
+        
+          <div class="card_header">
+            <div class="user_avatar"></div>
+              <div class= "user_fullName user_">
+                  <div class="user_firstName"> ${doc.data().firstName}</div> 
+                  <div class="user_lastName">${doc.data().lastName}</div>
+              </div>
+          </div>
+        
+        <div class="user_email user_ user_font">${doc.data().email}</div>
+        <div class="user_section user_ user_font">${doc.data().section}</div>
+ 
+        <div class="card-body">
+            <div class="user_section_hide hidden-section ">
+                <div class="user_portofolio user_ user_font">${
+                  doc.data().portofolio
+                }</div>
+                <div class="user_phone user_ user_font">${
+                  doc.data().phone
+                }</div>
+                <div class="user_gender user_ user_font">${
+                  doc.data().gender
+                }</div>
+                <div class="user_idkeys user_ user_font" style="display:none">${
+                  doc.data().idkeys
+                }</div>
+            </div>
         </div>
+      </div>
+      
       `;
-            container.insertAdjacentHTML("beforeend", userDiv);
+
+            // check if this is the last added document
+            setTimeout(() => {
+              container.insertAdjacentHTML("afterbegin", userDiv);
+              loadingSpinner.style.display = "none";
+            }, 1000); // add a delay of 2 seconds
           });
         });
       }
@@ -449,5 +394,13 @@
       //     console.log(error);
       //   });
     </script>
+    <script>
+      console.log("test");
+      $(".test").click(function () {
+        var parentDiv = $(this).parent();
+        console.log("parentDiv", parentDiv);
+        parentDiv.find(".hidden-section").slideToggle();
+      });
+    </script> -->
   </body>
 </html>

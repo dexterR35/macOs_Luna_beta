@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"
+  ></script>
+  <link rel="stylesheet" href="./firebase.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper-all">
+        <div
+          class="containerss"
+          style="
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            align-items: center;
+            gap: 30px;
+          "
+        >
+          <div>
+            <label for="name-input">Name:</label>
+            <input type="text" id="firstNamebox" placeholder="Name" />
+          </div>
+          <div>
+            <label for="username-input">lastName:</label>
+            <input type="text" id="lastNamebox" placeholder="lastName" />
+          </div>
+          <div>
+            <label for="username-input">phone:</label>
+            <input type="number" id="phonebox" placeholder="phone (optional)" />
+          </div>
+          <div>
+            <label for="username-input">email:</label>
+            <input type="text" id="emailbox" placeholder="email" />
+          </div>
+          <div>
+            <label for="username-input">section:</label>
+            <input type="text" id="sectionbox" placeholder="what you are ..?" />
+          </div>
+          <div>
+            <label for="username-input">portofolio:</label>
+            <input
+              type="text"
+              id="portofoliobox"
+              placeholder="add link to your, whatever"
+            />
+          </div>
+    
+          <div>
+            <label for="">gender</label>
+            <select name="" id="genbox">
+              <option value="male">male</option>
+              <option value="female">female</option>
+            </select>
+          </div>
+        </div>
+     
+        <div
+          class="container-btn"
+          style="
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background-color: red;
+            justify-content: center;
+          "
+        >
+     
+          <button id="insbtn">insert</button>
+          <button id="selbtn" disabled>select</button>
+          <button id="updBtn" disabled>update</button>
+          <button id="delbtn" disabled>delete</button>
+          <!-- <button id="submit-button">Submit</button> -->
+        </div>
+    
+ 
+        <div id="container_get" class="container_get"></div>
+      </div>
+      <script src="./firebase.js" type="module"></script>
+</body>
+</html>
