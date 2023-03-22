@@ -22,8 +22,10 @@ import {
 import {
   getStorage,
   ref,
+  
   getDownloadURL,
   listAll,
+  uploadBytes
 } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -98,8 +100,19 @@ async function AddDocument_AutoID() {
     return;
   }
 
-  let ref = collection(db, "network");
-  const newDocRef = doc(ref);
+
+
+  let ref_ = collection(db, "network");
+  const newDocRef = doc(ref_);
+
+  const fileInput = document.getElementById('file-input');
+  const file = fileInput.files[0];
+
+  const storageRef = ref(storage, 'avatars/' + newDocRef.id + '/' + file.name);
+  await uploadBytes(storageRef, file);
+
+  const avatarUrl = await getDownloadURL(storageRef);
+
   const data = {
     avatar: "avatar",
     firstName: firstNameBox.value,
@@ -111,6 +124,7 @@ async function AddDocument_AutoID() {
     portofolio: portofolioBox.value,
     idkeys: newDocRef.id,
     timestamp: serverTimestamp(),
+    avatarUrl,
   };
   // Validate the data before adding to Firestore
   if (
@@ -215,6 +229,7 @@ async function AddDocument_AutoID() {
 async function GetAllDocuments() {
   const collectionRef = collection(db, "network");
   const container = document.querySelector("#container_get");
+  
 
   onSnapshot(collectionRef, (querySnapshot) => {
     // Clear the previous user containers from the container element

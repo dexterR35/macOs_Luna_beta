@@ -278,7 +278,7 @@ iframe {
 
 /* ------------DISPLAY FLEX --------------------- */
 
-.d-flex-center, .d-flex-around{
+.d-flex-center, .d-flex-around,.d-flex{
   display: flex;
 }
 .d-flex-center {
