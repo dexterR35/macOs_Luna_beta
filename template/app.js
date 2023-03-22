@@ -42,6 +42,7 @@ import {
   ref,
   getDownloadURL,
   listAll,
+  uploadBytes
 } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -115,9 +116,16 @@ async function AddDocument_AutoID() {
     alert("Email already exists in the network!");
     return;
   }
+  const fileInput = document.getElementById('file-input');
+  const file = fileInput.files[0];
 
-  let ref = collection(db, "network");
-  const newDocRef = doc(ref);
+  const storageRef = ref(storage, 'avatars/' + newDocRef.id + '/' + file.name);
+  await uploadBytes(storageRef, file);
+
+  const avatarUrl = await getDownloadURL(storageRef);
+
+  let ref_ = collection(db, "network");
+  const newDocRef = doc(ref_);
   const data = {
     avatar: "avatar",
     firstName: firstNameBox.value,
@@ -128,6 +136,7 @@ async function AddDocument_AutoID() {
     gender: genBox.value,
     portofolio: portofolioBox.value,
     idkeys: newDocRef.id,
+    avatarUrl,
     timestamp: serverTimestamp(),
   };
   // Validate the data before adding to Firestore
@@ -256,7 +265,9 @@ async function GetAllDocuments() {
 <div class="user-container">
   
     <div class="card_header">
-      <div class="user_avatar"></div>
+    <div class = user_avatar>
+      <img src="${doc.data().avatarUrl}" alt="User Avatar" class="user_avatar_img">
+      </div>
         <div class= "user_fullName user_">
             <div class="user_firstName"> ${doc.data().firstName}</div> 
             <div class="user_lastName">${doc.data().lastName}</div>

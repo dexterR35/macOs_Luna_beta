@@ -37,7 +37,10 @@ overflow-y: scroll;
   background-position: center;
   background-size: contain;
 }
-
+.user_avatar_img {
+  width: fit-content;
+  height: 100%;
+}
 .container_get {
   flex-wrap: wrap;
   width: 100%;

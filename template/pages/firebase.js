@@ -149,7 +149,8 @@ async function AddDocument_AutoID() {
       firstNameBox.value = "";
       lastNameBox.value = "";
       phoneBox.value = "";
-      (portofolioBox.value = ""), (emailBox.value = "");
+      (portofolioBox.value = ""), 
+      (emailBox.value = "");
       genBox.value = "";
       sectionBox.value = "";
     })
@@ -253,8 +254,10 @@ async function GetAllDocuments() {
 <div class="user-container">
   
     <div class="card_header">
-      <div class="user_avatar"></div>
-        <div class= "user_fullName user_">
+    <div class = user_avatar>
+      <img src="${doc.data().avatarUrl}" alt="User Avatar" class="user_avatar_img">
+      </div>
+      <div class= "user_fullName user_">
             <div class="user_firstName"> ${doc.data().firstName}</div> 
             <div class="user_lastName">${doc.data().lastName}</div>
         </div>
@@ -262,6 +265,8 @@ async function GetAllDocuments() {
     <button class="show-hidden-section-btn test">Show Hidden Section</button>
   <div class="user_email user_ user_font">${doc.data().email}</div>
   <div class="user_section user_ user_font">${doc.data().section}</div>
+
+
 
   <div class="card-body">
       <div class="user_section_hide hidden-section ">
