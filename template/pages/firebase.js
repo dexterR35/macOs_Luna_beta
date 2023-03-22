@@ -209,8 +209,8 @@ async function AddDocument_AutoID() {
 // const container = document.getElementById("container_get");
 
 // retrieve all documents from collection "network"
-const loadingSpinner = document.getElementById("loading-spinner");
-loadingSpinner.style.display = "block";
+// const loadingSpinner = document.getElementById("loading-spinner");
+// loadingSpinner.style.display = "block";
 
 async function GetAllDocuments() {
   const collectionRef = collection(db, "network");
@@ -264,7 +264,7 @@ async function GetAllDocuments() {
 `;
       setTimeout(() => {
         container.insertAdjacentHTML("afterbegin", userDiv);
-        loadingSpinner.style.display = "none";
+        // loadingSpinner.style.display = "none";
       }, 1000);
     });
   });

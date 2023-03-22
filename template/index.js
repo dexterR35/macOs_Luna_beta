@@ -38,7 +38,7 @@ $("#photoshop_push").load("./pages/p_adobe/p_photoshop.html");
 $("#afterEffects_push").load("./pages/p_adobe/p_afterEffects.html");
 $("#apps_push").load("./pages/apps/apps.html");
 
-
+$("#network_push").load("./pages/network/network.html");
 
 console.log("end index");
 

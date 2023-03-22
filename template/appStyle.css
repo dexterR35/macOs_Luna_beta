@@ -221,7 +221,24 @@ li {
 ul li a {
   text-decoration: none;
 }
-
+.loading-spinner {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: rgb(255, 8, 0);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
 /* footer all pages */
 
 .footer_insert_pages {
@@ -346,6 +363,7 @@ FONT SIZE  */
   -o-user-select: none;
   user-select: none;
 }
+
 /* .same_color_wrapper {
   background: var(--same_color_wrapper);
 } */
@@ -394,8 +412,8 @@ FONT SIZE  */
 /*top header boxes*/
 
 .circle {
-  width: 7px;
-  height: 7px;
+  width: 9px;
+  height: 9px;
   border-radius: 50px;
   margin-left: 5px;
 }
@@ -472,14 +490,15 @@ FONT SIZE  */
 .premiereBox,
 .xdBox,
 .photoshopBox,
-.afterEffectsBox {
+.afterEffectsBox,
+.networkBox{
   position: absolute;
 }
 .finderBox {
   top: 5%;
   left: 20%;
 }
-.apps_push #modal_apps {
+.apps_push, #modal_apps {
   z-index: 10;
 }
 .terminalBox {
@@ -502,7 +521,7 @@ FONT SIZE  */
   top: 7%;
   left: 15%;
 }
-.chromeBox {
+.chromeBox, .networkBox {
   top: 7%;
   left: 15%;
 }

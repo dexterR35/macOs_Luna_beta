@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./admin.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper_admin">
+      <div class="container_admin">
+        <div class="_input">
+          <label for="name-input">Name:</label>
+          <input type="text" id="firstNamebox" placeholder="Name" />
+        </div>
+        <div class="_input">
+          <label for="username-input">lastName:</label>
+          <input type="text" id="lastNamebox" placeholder="lastName" />
+        </div>
+        <div class="_input">
+          <label for="username-input">phone:</label>
+          <input type="number" id="phonebox" placeholder="phone (optional)" />
+        </div>
+        <div class="_input">
+          <label for="username-input">email:</label>
+          <input type="text" id="emailbox" placeholder="email" />
+        </div>
+        <div class="_input">
+          <label for="username-input">section:</label>
+          <input type="text" id="sectionbox" placeholder="what you are ..?" />
+        </div>
+        <div class="_input">
+          <label for="username-input">portofolio:</label>
+          <input
+            type="text"
+            id="portofoliobox"
+            placeholder="add link to your, whatever"
+          />
+        </div>
+
+        <div class="_input">
+          <label for="">gender</label>
+          <select name="" id="genbox">
+            <option value="male">male</option>
+            <option value="female">female</option>
+          </select>
+        </div>
+        <div class="container-btn">
+          <button id="insbtn" class="btn-admin">insert</button>
+          <button id="selbtn" class="btn-admin" disabled>select</button>
+          <button id="updBtn" class="btn-admin" disabled>update</button>
+          <button id="delbtn" class="btn-admin" disabled>delete</button>
+          <!-- <button id="submit-button">Submit</button> -->
+        </div>
+      </div>
+      <br>
+      <br>
+   
+    </div>
+   
+
+    <!-- <div id="container_get" class="container_get"></div> -->
+
+    <script src="./firebase.js" type="module"></script>
+  </body>
+</html>
