@@ -26,6 +26,7 @@ import {
   getDownloadURL,
   listAll,
   uploadBytes
+  
 } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -65,7 +66,7 @@ const insBtn = document.querySelector(".insbtn");
 insBtn.addEventListener("click", AddDocument_AutoID);
 console.log(insBtn, "button ")
 
-let newDocRef;
+// let newDocRef;
 async function checkEmailInNetworkCollection(email) {
   const q = query(collection(db, "network"), where("email", "==", email));
   const querySnapshot = await getDocs(q);
@@ -99,7 +100,6 @@ async function AddDocument_AutoID() {
 
 
   const data = {
-    avatar: "avatar",
     firstName: firstNameBox.value,
     lastName: lastNameBox.value,
     email,
@@ -208,7 +208,7 @@ async function GetAllDocuments() {
   });
 }
 
-GetAllDocuments();
+
 
 async function getDataFromOwnerCollection() {
   const emailMe = document.querySelector("._email_add");
@@ -242,6 +242,61 @@ async function getDataFromOwnerCollection() {
   }
 }
 
+
+
+
+
+// Get a reference to the Firestore database
+// var db = firebase.firestore();
+// const collectionRef = collection(db, "network");
+// Get a reference to the avatar collection
+var avatarsRef_s = collection(db,"avatar_profile");
+
+// Get a reference to the male and female avatar folders
+
+const maleAvatarsRef = collection(doc(avatarsRef_s, "men"), "male");
+const femaleAvatarsRef = collection(doc(avatarsRef_s, "female"), "female");
+
+async function retrieveMaleAvatars() {
+  const querySnapshot = await getDocs(maleAvatarsRef);
+  const maleTabContent = document.getElementById("Male");
+
+  querySnapshot.forEach(function(doc) {
+    const avatar = doc.data();
+    const img = document.createElement("img");
+    img.src = avatar.url;
+    maleTabContent.appendChild(img);
+});
+}
+
+async function retrieveFemaleAvatars() {
+  const querySnapshot = await getDocs(femaleAvatarsRef);
+  const femaleTabContent = document.getElementById("Female");
+
+  querySnapshot.forEach(function(doc) {
+    const avatar = doc.data();
+    const img = document.createElement("img");
+    img.src = avatar.url;
+    femaleTabContent.appendChild(img);
+});
+}
+
+retrieveMaleAvatars();
+retrieveFemaleAvatars();
+
+
+
+
+
+
+
+
+
+
+
+
+
+GetAllDocuments();
 getDataFromOwnerCollection()
 // console.log("test");
 // $(".test").click(function () {
@@ -249,6 +304,18 @@ getDataFromOwnerCollection()
 //   console.log("parentDiv", parentDiv);
 //   parentDiv.find(".hidden-section").slideToggle();
 // });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 export {

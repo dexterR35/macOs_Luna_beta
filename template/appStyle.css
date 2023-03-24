@@ -491,7 +491,7 @@ FONT SIZE  */
 .premiere_push,
 .xD_push,
 .photoshop_push,
-.afterEffects_push,.modal_push {
+.afterEffects_push,.modal_push{
   display: none;
 }
 .linkedinBox,
@@ -505,10 +505,10 @@ FONT SIZE  */
 .photoshopBox,
 .afterEffectsBox,
 .networkBox,
-.adminBox{
+.adminBox, .avatarsBox{
   position: absolute;
 }
-.finderBox,.adminBox {
+.finderBox,.adminBox,.avatars_push {
   top: 5%;
   left: 20%;
 }

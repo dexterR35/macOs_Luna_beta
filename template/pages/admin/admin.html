@@ -1,14 +1,12 @@
 <div class="modal_push" id="modal_admin">
   <div class="insert_header_box github_title"></div>
   <div class="wrapper_admin">
-  
-
     <div class="container_admin">
       <div class="title_section_admin d-flex-row d-flex-around">
         <h4>Admin Panel</h4>
         <h6 class="login_admin">login</h6>
       </div>
-      <br>
+      <br />
       <div class="_input">
         <label for="firstNamebox">the first name</label>
         <input type="text" id="firstNamebox" placeholder="Name" />
@@ -42,19 +40,33 @@
           class="file-input"
         />
       </div>
+     
+        <div
+          class="container-btn-avatars box_open"
+          data-modal="modal_avatars"
+          id="box_avatars"
+        >
+          <button class="btn-users">add avatars</button>
+        </div>
+   
       <div class="_input">
         <label for="">the gender</label>
         <select name="" id="genbox">
           <option value="male">Male</option>
           <option value="female">Female</option>
-      
         </select>
       </div>
       <div class="container-btn">
         <button id="insbtn" class="btn-admin insbtn">insert</button>
-        <button id="selbtn" class="btn-admin btn-disabled" disabled>select</button>
-        <button id="updBtn" class="btn-admin btn-disabled" disabled>update</button>
-        <button id="delbtn" class="btn-admin btn-disabled" disabled>delete</button>
+        <button id="selbtn" class="btn-admin btn-disabled" disabled>
+          select
+        </button>
+        <button id="updBtn" class="btn-admin btn-disabled" disabled>
+          update
+        </button>
+        <button id="delbtn" class="btn-admin btn-disabled" disabled>
+          delete
+        </button>
         <!-- <button id="submit-button">Submit</button> -->
       </div>
     </div>
