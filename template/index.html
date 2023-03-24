@@ -35,6 +35,7 @@
       "./pages/_finder_tabs/_about_me/aboutme.css",
       "./pages/_finder_tabs/_projects/projects.css",
       "./pages/network/network.css",
+      "./pages/admin/admin.css",
       // './pages/p_adobe/p_photoshop.css',
       // './pages/p_adobe/p_afterEffects.css'
     ];
@@ -155,6 +156,7 @@
 
 
           <div class="network_push networkBox drag-only" id="network_push"></div>
+          <div class="admin_push adminBox drag-only" id="admin_push"></div>
 
           <div class="apps_push appsBox" id="apps_push"></div>
         </div>
@@ -172,15 +174,6 @@
           min:1440px - max:2560px
         </div>
       </div>
-      <!-- <button class="like-mobile-button btn like__btn" id="like-mobile-button">
-        <span id="icon"><i class="far fa-thumbs-up"></i></span>
-        <span id="count">0</span> Like
-      </button>
-      <br /> -->
-      <!-- <a href="https://www.crafties.ro" target="_blank">run second choice <br />
-        <button class="like-mobile-button crafties">
-          www.crafties.ro
-        </button></a> -->
     </div>
     <footer id="footer-container" class="footer-container"></footer>
   </div>
@@ -245,7 +238,6 @@
     //   });
     //   console.log("1");
     // });
-
     function selectImage(imageUrl) {
       document.body.style.backgroundImage = `url('${imageUrl}')`;
       // closeModalBG();
@@ -277,7 +269,9 @@
   </script>
 
   <script src="./index.js"></script>
+  <!-- <script src="/template/pages/test.js" type="module" defer></script> -->
   <script type="module" src="app.js" async></script>
+  <!-- <script type="module" src="../template/pages/settings.js" async></script> -->
 
 </body>
 

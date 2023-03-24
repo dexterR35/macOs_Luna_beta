@@ -100,8 +100,6 @@ async function AddDocument_AutoID() {
     return;
   }
 
-
-
   let ref_ = collection(db, "network");
   const newDocRef = doc(ref_);
 
@@ -112,9 +110,9 @@ async function AddDocument_AutoID() {
   await uploadBytes(storageRef, file);
 
   const avatarUrl = await getDownloadURL(storageRef);
+ 
 
   const data = {
-    avatar: "avatar",
     firstName: firstNameBox.value,
     lastName: lastNameBox.value,
     phone: phoneBox.value,
@@ -142,6 +140,7 @@ async function AddDocument_AutoID() {
   }
 
   await setDoc(newDocRef, data)
+  
     .then(() => {
       // console.log("data added succesfully");
       console.log("data added succesfully");
@@ -157,9 +156,10 @@ async function AddDocument_AutoID() {
     .catch((error) => {
       alert("unsecc operation. error:" + error);
     });
+
   console.log("document id is" + newDocRef.id);
 }
-
+// console.log("Document written with ID: ", newDocRef.id);
 // async function GetADocument() {
 //   let ref = doc(db, "network");
 //   const docSnap = await getDoc(ref);
@@ -289,6 +289,22 @@ async function GetAllDocuments() {
     });
   });
 }
+
+// async function displayAvatarUrlsFromStorage() {
+//   const storageRef = ref(storage, "avatars");
+//   const listResult = await listAll(storageRef);
+
+//   listResult.items.forEach(async (itemRef) => {
+//     const avatarUrl = await getDownloadURL(itemRef);
+//     const imageDiv = document.createElement('div');
+//     const image = document.createElement('img');
+//     image.src = avatarUrl;
+//     imageDiv.appendChild(image);
+//     document.body.appendChild(imageDiv);
+//   });
+// }
+
+// displayAvatarUrlsFromStorage();
 
 GetAllDocuments();
 // const storage = getStorage(app);

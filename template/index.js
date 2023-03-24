@@ -39,6 +39,7 @@ $("#afterEffects_push").load("./pages/p_adobe/p_afterEffects.html");
 $("#apps_push").load("./pages/apps/apps.html");
 
 $("#network_push").load("./pages/network/network.html");
+$("#admin_push").load("./pages/admin/admin.html");
 
 console.log("end index");
 

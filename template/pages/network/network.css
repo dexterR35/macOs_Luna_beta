@@ -4,13 +4,13 @@
 .network_wrapper {
   width: var(--containers_width);
   height: var(--containers_height);
-overflow-y: scroll;
+  overflow-y: scroll;
 }
-.network_wrapper{
+.network_wrapper {
   -ms-overflow-style: none;
   scrollbar-width: none;
-} 
- .network_wrapper::-webkit-scrollbar {
+}
+.network_wrapper::-webkit-scrollbar {
   display: none;
 }
 .wrapper_users {
@@ -32,7 +32,7 @@ overflow-y: scroll;
 }
 
 .user_avatar {
-  background-image: url(/macOS_Luna_beta/template/assets/png/_cards/avatar2.png);
+  /* background-image: url(/template/assets/png/_cards/avatar2.png); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -106,12 +106,13 @@ overflow-y: scroll;
   width: 50%;
   text-align: end;
   text-transform: uppercase;
+  line-height: 0.9;
 }
 .user_firstName {
-  font-size: 1.1em;
+  font-size: 0.7em;
 }
 .user_lastName {
-  font-size: 0.7em;
+  font-size: 1.4em;
 }
 .user_ {
   border: 1px solid #ebebeb;
@@ -124,7 +125,6 @@ overflow-y: scroll;
   font-size: 0.9em;
 }
 
-
 .network_header_top {
   height: 75px;
   margin: 10px 0px;
@@ -135,11 +135,10 @@ overflow-y: scroll;
 .motto_network {
   font-size: 1em;
   font-family: "SF-Ultralight";
-
 }
 .network_text {
-text-align: start;
-color: var(--text-azure);
+  text-align: start;
+  color: var(--text-azure);
 }
 .h2_network {
   font-size: 2.5em;

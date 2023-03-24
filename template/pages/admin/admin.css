@@ -1,0 +1,64 @@
+
+/* .wrapper_admin {
+  width: 100%;
+  background: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+.container_admin {
+  /* background-color: red;
+    width: 50%;
+    height: fit-content; */
+  /* border: 1px solid black; */
+  background: azure;
+  width: fit-content;
+  padding: 2em 2em;
+  color: black;
+  text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  border-radius: 15px;
+
+}
+._input input::placeholder {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 0.94em;
+    text-transform: capitalize;
+}
+.container-btn {
+  display: flex;
+  padding: 0.5em;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.btn-admin {
+  padding: 0.5em 2em;
+  border: none;
+  outline: none;
+  background: crimson;
+  color: white;
+  text-transform: uppercase;
+}
+._input input,
+#genbox {
+  width: 35em;
+  padding: 10px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+._input Label {
+    padding: 0.3em;
+}
+._input {
+  padding: 0.2em;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  /* justify-content: space-around; */
+}

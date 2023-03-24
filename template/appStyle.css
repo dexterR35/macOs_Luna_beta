@@ -275,7 +275,10 @@ iframe {
   max-height: 100vh;
 }
 
-
+.btn-admin {
+  cursor: pointer;
+  border-radius: 4px;
+}
 /* ------------DISPLAY FLEX --------------------- */
 
 .d-flex-center, .d-flex-around,.d-flex{
@@ -478,7 +481,7 @@ FONT SIZE  */
 .premiere_push,
 .xD_push,
 .photoshop_push,
-.afterEffects_push {
+.afterEffects_push,.modal_push {
   display: none;
 }
 .linkedinBox,
@@ -491,10 +494,11 @@ FONT SIZE  */
 .xdBox,
 .photoshopBox,
 .afterEffectsBox,
-.networkBox{
+.networkBox,
+.adminBox{
   position: absolute;
 }
-.finderBox {
+.finderBox,.adminBox {
   top: 5%;
   left: 20%;
 }

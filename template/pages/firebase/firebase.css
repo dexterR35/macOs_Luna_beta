@@ -25,7 +25,10 @@ background-color: #6e6e6e;
     border: 1px solid black;
     padding: 1em;
 }
-
+.user_avatar_img {
+  width: 100px;
+  height: 100px;
+}
 
 .user_avatar {
     background-image: url(/macOS_Luna_beta/template/assets/png/_cards/avatar2.png);
