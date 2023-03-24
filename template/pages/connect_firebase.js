@@ -26,7 +26,7 @@ import {
   getDownloadURL,
   listAll,
   uploadBytes
-  
+
 } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -88,10 +88,10 @@ async function AddDocument_AutoID() {
   const fileInput = document.querySelector('.file-input');
   const file = fileInput.files[0];
 
-  console.log(fileInput,"safasfasf")
+  console.log(fileInput, "safasfasf")
   let ref_ = collection(db, "network");
   const newDocRef = doc(ref_);
- 
+
   const storageRef = ref(storage, 'avatars/' + newDocRef.id + '/' + file.name);
   await uploadBytes(storageRef, file);
 
@@ -250,35 +250,40 @@ async function getDataFromOwnerCollection() {
 // var db = firebase.firestore();
 // const collectionRef = collection(db, "network");
 // Get a reference to the avatar collection
-var avatarsRef_s = collection(db,"avatar_profile");
+// var avatarsRef_s = collection(db,"avatar_profile");
+
+
 
 // Get a reference to the male and female avatar folders
-
-const maleAvatarsRef = collection(doc(avatarsRef_s, "men"), "male");
-const femaleAvatarsRef = collection(doc(avatarsRef_s, "female"), "female");
+const maleAvatarsRef = ref(storage, "/avatar_profile/men/");
+const femaleAvatarsRef = ref(storage, "/avatar_profile/female/");
+// const storageRef = ref(storage, 'avatars/' + newDocRef.id + '/' + file.name);
 
 async function retrieveMaleAvatars() {
-  const querySnapshot = await getDocs(maleAvatarsRef);
-  const maleTabContent = document.getElementById("Male");
+  // const maleTabContent = document.getElementById("Male");
+  const maleTabContent = document.getElementById("maleTabContent");
+  // const maleAvatarsSnapshot = await getDownloadURL(maleAvatarsRef);
+  const maleAvatarsSnapshot = await listAll(maleAvatarsRef);
 
-  querySnapshot.forEach(function(doc) {
-    const avatar = doc.data();
+  maleAvatarsSnapshot.items.forEach(async function(avatarRef) {
+    const avatarUrl = await getDownloadURL(avatarRef);
     const img = document.createElement("img");
-    img.src = avatar.url;
+    img.src = avatarUrl;
+    img.setAttribute("type", "image/svg+xml");
     maleTabContent.appendChild(img);
-});
+  });
 }
-
 async function retrieveFemaleAvatars() {
-  const querySnapshot = await getDocs(femaleAvatarsRef);
-  const femaleTabContent = document.getElementById("Female");
+  const femaleTabContent = document.querySelector(".femaleTabContent");
+  const femaleAvatarsSnapshot = await listAll(femaleAvatarsRef);
 
-  querySnapshot.forEach(function(doc) {
-    const avatar = doc.data();
+  femaleAvatarsSnapshot.items.forEach(async function(avatarRef) {
+    const avatarUrl = await getDownloadURL(avatarRef);
     const img = document.createElement("img");
-    img.src = avatar.url;
+    img.src = avatarUrl;
+    img.setAttribute("type", "image/svg+xml");
     femaleTabContent.appendChild(img);
-});
+  });
 }
 
 retrieveMaleAvatars();

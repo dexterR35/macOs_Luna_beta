@@ -53,9 +53,9 @@
   font-family: "SF-Regular";
 }
 
-#modal_network {
+/* #modal_network {
   display: block !important;
-}
+} */
 .btn-network {
   align-self:flex-end;
 }

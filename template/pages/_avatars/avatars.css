@@ -1,10 +1,23 @@
 .wrapper_avatars {
-    width: 500px;
-    height: 700px;
+    width: 750px;
+    height: 500px;
     color: white;
-    background-color: red
+    overflow-y: scroll;
+    /* background-color: red */
 }
 
 /* .avatars_push {
     display:  block !important;
 } */
+.maleTabContent , .femaleTabContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.maleTabContent img, .femaleTabContent img {
+height: 70px;
+width: 70px;
+}
