@@ -56,6 +56,9 @@
 #modal_network {
   display: block !important;
 }
+.btn-network {
+  align-self:flex-end;
+}
 .user-container {
   width: 280px;
   height: fit-content;
@@ -126,24 +129,33 @@
 }
 
 .network_header_top {
-  height: 75px;
+  height: 60px;
   margin: 10px 0px;
-  border-top: 1px solid white;
+  /* border-top: 1px solid white; */
   padding: 0em 1.4em;
+  align-items: flex-end;
 }
 
 .motto_network {
-  font-size: 1em;
   font-family: "SF-Ultralight";
+  font-style: oblique;
+  letter-spacing: 0.4px;
+  font-size: 0.8em;
 }
 .network_text {
   text-align: start;
   color: var(--text-azure);
+  line-height: 0.94;
 }
 .h2_network {
-  font-size: 2.5em;
+  font-size: 2.7em;
 }
 
 ._search_network {
   align-self: flex-end;
+  width: 50%;
+  padding: 0.5em;
+  border-radius: 4px;
+  outline: none;
+  border: none;
 }

@@ -175,7 +175,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-family: "SF-Regular";
 }
 
@@ -278,6 +279,15 @@ iframe {
 .btn-admin {
   cursor: pointer;
   border-radius: 4px;
+  padding: 0.5em 2em;
+  border: none;
+  outline: none;
+  background: var(--bg-low_dark);
+  color: white;
+  text-transform: uppercase;
+}
+.btn-disabled {
+  background: var(--hover-text);
 }
 /* ------------DISPLAY FLEX --------------------- */
 

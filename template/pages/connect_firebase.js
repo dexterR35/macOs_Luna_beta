@@ -51,7 +51,6 @@ const storage = getStorage(app);
 let firstNameBox = document.getElementById("firstNamebox");
 let lastNameBox = document.getElementById("lastNamebox");
 
-let phoneBox = document.getElementById("phonebox");
 let emailBox = document.getElementById("emailbox");
 let genBox = document.getElementById("genbox");
 let sectionBox = document.getElementById("sectionbox");
@@ -103,7 +102,6 @@ async function AddDocument_AutoID() {
     avatar: "avatar",
     firstName: firstNameBox.value,
     lastName: lastNameBox.value,
-    phone: phoneBox.value,
     email,
     section: sectionBox.value,
     gender: genBox.value,
@@ -118,7 +116,6 @@ async function AddDocument_AutoID() {
     !data.lastName ||
     !data.portofolio ||
     !data.section ||
-    !data.phone ||
     !data.email ||
     !data.gender
   ) {
@@ -132,12 +129,12 @@ async function AddDocument_AutoID() {
       // console.log("data added succesfully");
       console.log("data added succesfully");
       // reset form inputs
-      firstNameBox.value = "";
-      lastNameBox.value = "";
-      phoneBox.value = "";
-      (portofolioBox.value = ""), (emailBox.value = "");
-      genBox.value = "";
-      sectionBox.value = "";
+      firstNameBox.value = ""
+      lastNameBox.value = ""
+      portofolioBox.value = ""
+      emailBox.value = ""
+      genBox.value = ""
+      sectionBox.value = ""
     })
     .catch((error) => {
       alert("unsecc operation. error:" + error);
@@ -194,7 +191,7 @@ async function GetAllDocuments() {
         <div class="user_portofolio user_ user_font">${
           doc.data().portofolio
         }</div>
-        <div class="user_phone user_ user_font">${doc.data().phone}</div>
+      
         <div class="user_gender user_ user_font">${doc.data().gender}</div>
         <div class="user_idkeys user_ user_font" style="display:none">${
           doc.data().idkeys
@@ -231,7 +228,6 @@ async function getDataFromOwnerCollection() {
       if (doc.exists) {
         const data = doc.data();
         emailMe.innerHTML = data.email;
-        numberMe.innerHTML = data.phone;
         codepenMe.innerHTML = data.social.codepen;
         linkedinMe.innerHTML = data.social.linkedin;
         cssBattleMe.innerHTML = data.social.cssbattle;
