@@ -5,6 +5,9 @@
     overflow-y: scroll;
     /* background-color: red */
 }
+.wrapper_avatars h3 {
+    text-align: center;
+}
 
 /* .avatars_push {
     display:  block !important;
