@@ -4,14 +4,13 @@
     src: url(template/assets/fonts/product-sans/Product\ Sans\ Regular.ttf);
   } */
 
-  .wrapper-github {
+  /* .wrapper-github {
     font-family: product-sans;
-    width: 950px;
-    height: 750px;
-
+width: var(--social_Box_width);
+height: var(--social_Box_height);
     z-index: 2000;
-  }
-  .container-github {
+  } */
+  ._wrapper_social {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -111,7 +110,7 @@
     }
   }
   
-  
+/*   
   .loading-github {
     position: relative;
     top: -27px;
@@ -132,7 +131,7 @@
     100% {
       opacity: 0;
     }
-  }
+  } */
   ._user_text {
     animation-name: fade-github;
     animation-duration: 1.5s;
@@ -144,7 +143,7 @@
     font-size: 16px;
     font-family: product-sans;
   }
-  .button-github {
+  ._user_boxModals_button {
     animation-name: fade-github;
     animation-duration: 1.5s;
     animation-delay: 2.8s;
@@ -162,7 +161,7 @@
     font-size: 1em;
     font-weight: 400;
   }
-  .button-github:hover {
+  ._user_boxModals_button:hover {
     background: rgba(34, 129, 207, 0.993);
     color: var(--text-azure);
     cursor: pointer;
@@ -177,7 +176,7 @@
       opacity: 1;
     }
   }
-  .moto-github {
+  ._social_moto {
     font-size: 13px;
     text-transform: inherit;
     font-weight: 300;
@@ -201,7 +200,7 @@
       opacity: 1;
     }
   }
-  .moto-github span {
+  ._social_moto span {
     font-style: italic;
     font-weight: 400;
   }
@@ -216,6 +215,6 @@
     flex-direction: row;
     justify-content: start;
     border-top-left-radius: 0;
-    background: var(--second-finder-color);
+    /* background: var(--second-finder-color); */
 }
 

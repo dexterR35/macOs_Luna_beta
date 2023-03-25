@@ -1,28 +1,61 @@
 <div class="modal_boxes" id="modal_network">
-  <div class="network_wrapper dimension_boxes">
+  <div class="network_wrapper dimension_boxes ">
     <div class="insert_header_box network_title"></div>
+    <div class="container-linkdin _wrapper_social">
+      <div class="linkDin-icon linkDin-icon-page square-icon-size _social_animation_title">
+        <div>NE</div>
+      </div>
+      <div class="text-linkdin _user_text">Marian Iordache</div>
+      <a
+        class="a-network"
+        href="#"
+      
+      >
+        <button class="button-linkdin btn_social btn_simple _user_boxModals_button">connect</button></a
+      >
+      <div class="_social_container_loading_bar">
+        <div class="_social_loading_bar loading-animation"></div>
+      </div>
+      <div class="moto-linkdin _social_moto">
+        “ To succeed in life, you need two things: Ignorance and Confidence. ”
+        <br />
+        <span>Mark Twain</span>
+      </div>
+    </div>
     <div class="wrapper_users">
-      <!-- <div id="loading-spinner" class="loading-spinner"></div> -->
       <button id="insbtn" style="display: none">insert</button>
       <div class="network_header_top d-flex-row-reverse d-flex-between d-flex">
-        <button class="btn-classic btn-admin box_open btn-network" data-modal="modal_admin" id="box_admin">add user</button>
-       
-        <!-- <button class="show-hidden-section-btn test">
-          Show Hidden Section
-        </button> -->
-      <div class="network_text">
-        <h2 class="h2_network">Network</h2>
-        <p class="motto_network">Connecting People, like Nokia”</p>
-      </div>
+        <button class="btn-classic btn-admin box_open btn-network" data-modal="modal_admin" id="box_admin">
+          add user
+        </button>
+
+        <div class="network_text">
+          <h2 class="h2_network">Network</h2>
+          <p class="motto_network">Connecting People, like Nokia”</p>
+        </div>
       </div>
       <div class="d-flex-column d-flex-center wrapp_get">
-        <br>
-        <input type="search" class="search_big _search _search_network" placeholder="search users"/>
-      <div id="container_get" class="container_get d-flex-row d-flex-center">
-       
+        <br />
+        <input type="search" class="search_big _search _search_network" placeholder="search users" />
+        <div id="container_get" class="container_get d-flex-row d-flex-center"></div>
       </div>
     </div>
-    </div>
- 
   </div>
 </div>
+
+<script>
+
+const buttonS = document.querySelector('._user_boxModals_button');
+
+// Add an event listener to the button
+
+  // Select the wrapper_users element
+  $(buttonS).on('click', function() {
+  // Select the wrapper_users element
+ $('._wrapper_social').addClass("social_off");
+
+  // Toggle its visibility
+
+});
+
+</script>
