@@ -80,23 +80,10 @@
   --containers_width: calc(60em - 10px);
   --containers_height: 50em;
 
-  --github_gradient: radial-gradient(
-    circle,
-    #440000,
-    #3a0301,
-    #310402,
-    #280301,
-    #1f0000
-  );
-  --linkedin_gradient: radial-gradient(
-    circle,
-    #1333a6,
-    #002f88,
-    #002869,
-    #00204a,
-    #03162c
-  );
+  --github_gradient:linear-gradient(180deg, rgba(214,214,214,1) 0%, rgba(235,235,235,1) 25%, rgba(255,255,255,1) 50%, rgba(214,214,214,1) 100%);
+  --linkedin_gradient: linear-gradient(180deg, rgba(214,214,214,1) 0%, rgba(235,235,235,1) 25%, rgba(255,255,255,1) 50%, rgba(214,214,214,1) 100%);
 
+  
   /* adobe containers */
   --splashScreen_width: 750px;
   --splashScreen_height: 550px;

@@ -31,30 +31,30 @@
           placeholder="add link to your, whatever"
         />
       </div>
-      <div class="_input">
-        <label for="username-input">the avatar:</label>
-        <input
-          type="file"
-          id="file-input"
-          placeholder="add link to your, whatever"
-          class="file-input"
-        />
-      </div>
+
      
         <div
           class="container-btn-avatars box_open"
           data-modal="modal_avatars"
           id="box_avatars"
         >
-          <button class="btn-users">add avatars</button>
+          <button class="btn-users" style="display:none !important;">add avatars</button>
         </div>
-   
+   <!-- <div id="avatar-test"></div> -->
+
+
       <div class="_input">
         <label for="">the gender</label>
-        <select name="" id="genbox">
+        <select id="genbox" name="gender" class="gender">
+          <option value="">Select a gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
+     
+        <!-- <select name="" id="genbox">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select> -->
       </div>
       <div class="container-btn">
         <button id="insbtn" class="btn-admin insbtn">insert</button>

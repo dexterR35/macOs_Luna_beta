@@ -42,39 +42,51 @@ const firebaseConfig = {
   measurementId: "G-5EMDZ1MDC2",
 };
 
-// Getting Document
+/* initiate firebase */
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
 
+/* Documnets from admin inputs */
 
 let firstNameBox = document.getElementById("firstNamebox");
 let lastNameBox = document.getElementById("lastNamebox");
-
 let emailBox = document.getElementById("emailbox");
 let genBox = document.getElementById("genbox");
 let sectionBox = document.getElementById("sectionbox");
 let portofolioBox = document.getElementById("portofoliobox");
 
-// let insBtn = document.getElementById("insbtn");
-// let selBtn = document.getElementById("selbtn");
-// let updBtn = document.getElementById("updBtn");
-// let delBtn = document.getElementById("delbtn");
+/* Documnets from Gender Selection and display img Data */
+const maleAvatarsRef = ref(storage, "avatar_profile/men");
+const femaleAvatarsRef = ref(storage, "avatar_profile/female");
+const genderSelect = document.querySelector(".gender");
+const avatarGrid = document.querySelector(".avatar_selected");
+const avatarUrlInput = document.querySelector("#avatarUrlInput");
+
+/* Documnets from Owner Data */
+
+const emailMe = document.querySelector("._email_add");
+// const nameMe = document.querySelector("_name_add");
+// const lastNameMe = document.querySelector("_allias_add");
+const codepenMe = document.querySelector("._codepen_add");
+const linkedinMe = document.querySelector("._likedin_add");
+const cssBattleMe = document.querySelector("._cssbattle_add");
+const githubMe = document.querySelector("._github_add");
+const numberMe = document.querySelector("._number_add");
+const websiteMe = document.querySelector("._website_add");
+
 
 const insBtn = document.querySelector(".insbtn");
 insBtn.addEventListener("click", AddDocument_AutoID);
-console.log(insBtn, "button ")
 
-// let newDocRef;
+/* query mail */
 async function checkEmailInNetworkCollection(email) {
   const q = query(collection(db, "network"), where("email", "==", email));
   const querySnapshot = await getDocs(q);
   return !querySnapshot.empty;
 }
-
-
-
+/* add user */
 async function AddDocument_AutoID() {
   console.log(AddDocument_AutoID, "insert auto idssssssss ")
   const email = emailBox.value;
@@ -84,20 +96,17 @@ async function AddDocument_AutoID() {
     alert("Email already exists in the network!");
     return;
   }
+  const selectedAvatar = avatarGrid.querySelector(".selected");
+  const selectedAvatarRef = selectedAvatar ? selectedAvatar.getAttribute("src") : null;
+  console.log(selectedAvatarRef, "select avatar");
+  if (!selectedAvatar) {
+    alert("Please select an avatar!");
+    return;
+  }
 
-  const fileInput = document.querySelector('.file-input');
-  const file = fileInput.files[0];
-
-  console.log(fileInput, "safasfasf")
   let ref_ = collection(db, "network");
+
   const newDocRef = doc(ref_);
-
-  const storageRef = ref(storage, 'avatars/' + newDocRef.id + '/' + file.name);
-  await uploadBytes(storageRef, file);
-
-  const avatarUrl = await getDownloadURL(storageRef);
-
-
 
   const data = {
     firstName: firstNameBox.value,
@@ -107,26 +116,30 @@ async function AddDocument_AutoID() {
     gender: genBox.value,
     portofolio: portofolioBox.value,
     idkeys: newDocRef.id,
-    avatarUrl,
+    selectedAvatarRef,
     timestamp: serverTimestamp(),
   };
-  // Validate the data before adding to Firestore
+
+  /* Validate Data before adding to firestore */
+
   if (
     !data.firstName ||
     !data.lastName ||
     !data.portofolio ||
     !data.section ||
+    !data.selectedAvatarRef ||
     !data.email ||
     !data.gender
   ) {
     console.error("Invalid data:", data);
-    alert("add some data");
+    alert("Fill All the inputs");
     return;
   }
 
+  /* Reset Form */
+
   await setDoc(newDocRef, data)
     .then(() => {
-      // console.log("data added succesfully");
       console.log("data added succesfully");
       // reset form inputs
       firstNameBox.value = ""
@@ -139,15 +152,12 @@ async function AddDocument_AutoID() {
     .catch((error) => {
       alert("unsecc operation. error:" + error);
     });
-  console.log("document id is" + newDocRef.id);
-
+  console.log("document id is" + newDocRef.id + selectedAvatar);
 }
 
-
-// const loadingSpinner = document.getElementById("loading-spinner");
-// loadingSpinner.style.display = "block";
-
+/* Get Documents Real time */
 async function GetAllDocuments() {
+
   const collectionRef = collection(db, "network");
   const container = document.querySelector("#container_get");
 
@@ -166,7 +176,8 @@ async function GetAllDocuments() {
         lastAddedDoc = change.doc;
       }
     });
-    // snapsnot
+
+    /* Create Card for user */
 
     querySnapshot.forEach((doc) => {
       const userDiv = `
@@ -174,7 +185,7 @@ async function GetAllDocuments() {
 
   <div class="card_header">
   <div class = user_avatar>
-    <img src="${doc.data().avatarUrl}" alt="User Avatar" class="user_avatar_img">
+    <img src="${doc.data().selectedAvatarRef}" alt="User Avatar" class="user_avatar_img">
     </div>
       <div class= "user_fullName user_">
       <div class="user_lastName"> ${doc.data().lastName}</div> 
@@ -200,28 +211,15 @@ async function GetAllDocuments() {
 </div>
 </div>
 `;
-
       container.insertAdjacentHTML("afterbegin", userDiv);
-      // loadingSpinner.style.display = "none";
 
     });
   });
 }
 
-
+/* Get Data For Owner */
 
 async function getDataFromOwnerCollection() {
-  const emailMe = document.querySelector("._email_add");
-  // const nameMe = document.querySelector("_name_add");
-  // const lastNameMe = document.querySelector("_allias_add");
-  const codepenMe = document.querySelector("._codepen_add");
-  const linkedinMe = document.querySelector("._likedin_add");
-  const cssBattleMe = document.querySelector("._cssbattle_add");
-  const githubMe = document.querySelector("._github_add");
-  const numberMe = document.querySelector("._number_add");
-  const websiteMe = document.querySelector("._website_add");
-
-
   try {
     const querySnapshot = await getDocs(collection(db, "onwer"));
     querySnapshot.forEach((doc) => {
@@ -241,87 +239,79 @@ async function getDataFromOwnerCollection() {
     console.log("Error getting documents: ", error);
   }
 }
+/* Load Avatars and append in a div */
 
+async function loadAvatars(gender) {
+  /* Clear the avatar grid */
+  avatarGrid.innerHTML = "";
+  let avatarsRef;
+  /* display img for male or female */
+  if (gender === "male") {
+    $(".modal_avatars").css("display", "block")
+    avatarsRef = maleAvatarsRef;
+  } else if (gender === "female") {
+    $(".modal_avatars").css("display", "block")
+    avatarsRef = femaleAvatarsRef;
+  }
+  let selectedImg;
+  /* display all img with attr */
+  if (avatarsRef) {
 
+    try {
+      // const avatarsSnapshot = await listAll(avatarsRef);
+      avatarsSnapshot.items.forEach(async (avatarRef) => {
 
+        // const avatarUrl = await getDownloadURL(avatarRef);
+        
+        const img_ = document.createElement("img");
+        img_.src = avatarUrl;
+        img_.setAttribute("type", "image/svg+xml");
+        /* Click one avatar and add a class and update the ui*/
+        img_.addEventListener("click", () => {
+          /*chose avatar with class*/
+          if (img_.classList.contains("selected")) {
+            img_.classList.remove("selected");
+            avatarUrlInput.value = "";
+            selectedImg = null;
+          } else {
+            avatarGrid.querySelectorAll("img").forEach((img) => {
+              img.classList.remove("selected");
+            });
+            img_.classList.add("selected");
+            avatarUrlInput.value = avatarUrl;
+            selectedImg = img_;
+            console.log(selectedImg, "select img")
+          }
+        });
 
+        if (selectedImg && avatarUrl === selectedImg.src) {
+          img_.classList.add("selected");
+          avatarUrlInput.value = avatarUrl;
+          selectedImg = img_;
+        }
 
-// Get a reference to the Firestore database
-// var db = firebase.firestore();
-// const collectionRef = collection(db, "network");
-// Get a reference to the avatar collection
-// var avatarsRef_s = collection(db,"avatar_profile");
-
-
-
-// Get a reference to the male and female avatar folders
-const maleAvatarsRef = ref(storage, "/avatar_profile/men/");
-const femaleAvatarsRef = ref(storage, "/avatar_profile/female/");
-// const storageRef = ref(storage, 'avatars/' + newDocRef.id + '/' + file.name);
-
-async function retrieveMaleAvatars() {
-  // const maleTabContent = document.getElementById("Male");
-  const maleTabContent = document.getElementById("maleTabContent");
-  // const maleAvatarsSnapshot = await getDownloadURL(maleAvatarsRef);
-  const maleAvatarsSnapshot = await listAll(maleAvatarsRef);
-
-  maleAvatarsSnapshot.items.forEach(async function(avatarRef) {
-    const avatarUrl = await getDownloadURL(avatarRef);
-    const img = document.createElement("img");
-    img.src = avatarUrl;
-    img.setAttribute("type", "image/svg+xml");
-    maleTabContent.appendChild(img);
-  });
+        avatarGrid.appendChild(img_);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
-async function retrieveFemaleAvatars() {
-  const femaleTabContent = document.querySelector(".femaleTabContent");
-  const femaleAvatarsSnapshot = await listAll(femaleAvatarsRef);
 
-  femaleAvatarsSnapshot.items.forEach(async function(avatarRef) {
-    const avatarUrl = await getDownloadURL(avatarRef);
-    const img = document.createElement("img");
-    img.src = avatarUrl;
-    img.setAttribute("type", "image/svg+xml");
-    femaleTabContent.appendChild(img);
-  });
-}
+/* When the gender select changes, load the corresponding avatars*/
 
-retrieveMaleAvatars();
-retrieveFemaleAvatars();
-
-
-
-
-
-
-
-
-
-
-
-
+genderSelect.addEventListener("change", () => {
+  const gender = genderSelect.value;
+  console.log(gender, "gender select")
+  if (gender) {
+    loadAvatars(gender);
+  } else {
+    avatarGrid.innerHTML = "";
+  }
+});
 
 GetAllDocuments();
 getDataFromOwnerCollection()
-// console.log("test");
-// $(".test").click(function () {
-//   var parentDiv = $(this).parent();
-//   console.log("parentDiv", parentDiv);
-//   parentDiv.find(".hidden-section").slideToggle();
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export {
   app,

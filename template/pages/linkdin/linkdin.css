@@ -18,7 +18,7 @@
     animation: bg-animation 2s ease-in-out forwards;
     flex-direction: column;
     gap: 10px;
-  color: azure;
+  /* color: azure; */
     position: relative;
   }
   /* @keyframes bg-animation {
@@ -70,63 +70,8 @@ z-index: -1;
     left: -177px;
     font-family: product-sans;
   }
-  .loading-linkedin-bar{
-    width: 235px;
-    transform: translateX(6px);
-    height: 7px;
-    background: #dbdbdb;
-    position: relative;
-    overflow: hidden;
-    opacity: 0;
-    animation: opacity-linkbar 0.5s linear forwards;
-    border-radius: 10px;
-
-  }
-  .loading-linkedin-bar::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0px;
-    height: 7px;
-    background: #292c33;
-    animation: loading-linkbar 2s 1s linear forwards;
-    border-radius: 10px;
-  }
-  .container-loadingbar{
-    animation: opacity-linkbar2 0.2s 2.4s ease-in-out forwards;
-    opacity: 1;
-    transform: translateY(-20px);
-  }
-  
-  @keyframes loading-linkbar {
-    0% {
-      width: 0px;
-    }
-    100% {
-      width: 350px;
-    }
-  }
-  @keyframes opacity-linkbar {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes opacity-linkbar2 {
-    0% {
-   
-      opacity: 1;
-    }
-    100% {
  
-      opacity: 0;
-    }
-  }
-  
-  
+/*   
   .loading-linkedin {
     position: relative;
     top: -27px;
@@ -147,7 +92,7 @@ z-index: -1;
     100% {
       opacity: 0;
     }
-  }
+  } */
   .text-linkdin {
     animation-name: fade-linkdin;
     animation-duration: 1.5s;

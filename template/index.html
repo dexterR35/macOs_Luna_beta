@@ -1,67 +1,71 @@
 <!DOCTYPE html>
 <html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="./appStyle.css" />
+    <script>
+      console.log("start index");
+      // one http request for all css files
 
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="stylesheet" href="./appStyle.css" />
-  <script>
-    console.log("start index");
-    // one http request for all css files
+      const cssUrls = [
+        // 'appStyle.css',
+        "./pages/header/header.css",
+        "./pages/icons/icons.css",
+        "./pages/chrome/chrome.css",
+        "./pages/customize/customize.css",
+        "./pages/linkdin/linkdin.css",
+        "./pages/github/github.css",
+        "./pages/finder/finder.css",
+        "./pages/terminal/terminal.css",
+        "./pages/s_adobe/s_adobe.css",
+        "./pages/p_adobe/p_premiere.css",
+        "./pages/apps/apps.css",
+        "./pages/_finder_tabs/forms/forms.css",
+        "./pages/_finder_tabs/_about_me/aboutme.css",
+        "./pages/_finder_tabs/_projects/projects.css",
+        "./pages/network/network.css",
+        "./pages/admin/admin.css",
+        "./pages/_avatars/avatars.css",
+        // './pages/p_adobe/p_photoshop.css',
+        // './pages/p_adobe/p_afterEffects.css'
+      ];
 
-    const cssUrls = [
-      // 'appStyle.css',
-      "./pages/header/header.css",
-      "./pages/icons/icons.css",
-      "./pages/chrome/chrome.css",
-      "./pages/customize/customize.css",
-      "./pages/linkdin/linkdin.css",
-      "./pages/github/github.css",
-      "./pages/finder/finder.css",
-      "./pages/terminal/terminal.css",
-      "./pages/s_adobe/s_adobe.css",
-      "./pages/p_adobe/p_premiere.css",
-      "./pages/apps/apps.css",
-      "./pages/_finder_tabs/forms/forms.css",
-      "./pages/_finder_tabs/_about_me/aboutme.css",
-      "./pages/_finder_tabs/_projects/projects.css",
-      "./pages/network/network.css",
-      "./pages/admin/admin.css",
-      "./pages/_avatars/avatars.css",
-      // './pages/p_adobe/p_photoshop.css',
-      // './pages/p_adobe/p_afterEffects.css'
-    ];
+      Promise.all(cssUrls.map((url) => fetch(url)))
+        .then((responses) => Promise.all(responses.map((res) => res.text())))
+        .then(
+          (texts) =>
+            new Blob(texts, {
+              type: "text/css",
+            })
+        )
+        .then((blob) => {
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = url;
+          document.head.appendChild(link);
+        });
 
-    Promise.all(cssUrls.map((url) => fetch(url)))
-      .then((responses) => Promise.all(responses.map((res) => res.text())))
-      .then(
-        (texts) =>
-        new Blob(texts, {
-          type: "text/css",
-        })
-      )
-      .then((blob) => {
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = url;
-        document.head.appendChild(link);
-      });
-
-    // end http request for all css files
-  </script>
-  <title>Luna Page</title>
-  <style>
-    /* #splash-screen {
+      // end http request for all css files
+    </script>
+    <title>Luna Page</title>
+    <style>
+      /* #splash-screen {
   position: fixed;
   top: 0;
   left: 0;
@@ -75,7 +79,7 @@
   font-weight: bold;
   z-index: 2200;
 } */
-    /* .loader {
+      /* .loader {
         font-size: 25px;
         width: 1em;
         height: 1em;
@@ -106,177 +110,202 @@
         z-index: 1241;
         background-color: #333;
       } */
-  </style>
-</head>
+    </style>
+  </head>
 
-<body>
-  <script>
-    document.addEventListener("readystatechange", function () {
-      if (document.readyState === "loading") {
-        console.log("loading");
-      } else if (document.readyState === "interactive") {
-        console.log("interactive");
-        // DOM is ready but resources are still loading
-      } else if (document.readyState === "complete") {
-        console.log("complete");
-        // Document and all resources are loaded
-      }
-    });
-  </script>
-  <!-- <div id="splash-screen">Loading...</div> -->
-  <!-- <div id="loadingDiv">
+  <body>
+    <script>
+      document.addEventListener("readystatechange", function () {
+        if (document.readyState === "loading") {
+          console.log("loading");
+        } else if (document.readyState === "interactive") {
+          console.log("interactive");
+          // DOM is ready but resources are still loading
+        } else if (document.readyState === "complete") {
+          console.log("complete");
+          // Document and all resources are loaded
+        }
+      });
+    </script>
+    <!-- <div id="splash-screen">Loading...</div> -->
+    <!-- <div id="loadingDiv">
       <div class="loader">Loading...</div>
       Loading...
     </div> -->
-  <!-- <button  class="box_open" data-modal="modal_display" id="box_display">teetest</button> -->
-  <div class="wrapper">
-    
-    <header id="header-container" class="header-container"></header>
-    <div class="container">
-      <div class="container-itemsPage">
-        <div class="section4_middle_grid">
-          <div class="icons_desktop_add">
-            <div class="change_bg_icons">
-              <li class="box_open _changeBG_icon_desktop" data-modal="modal_display" id="box_display">
-                <a href="#">icons</a>
-              </li>
+    <!-- <button  class="box_open" data-modal="modal_display" id="box_display">teetest</button> -->
+    <div class="wrapper">
+      <header id="header-container" class="header-container"></header>
+      <div class="container">
+        <div class="container-itemsPage">
+          <div class="section4_middle_grid">
+            <div class="icons_desktop_add">
+              <div class="change_bg_icons">
+                <li
+                  class="box_open _changeBG_icon_desktop"
+                  data-modal="modal_display"
+                  id="box_display"
+                >
+                  <a href="#">icons</a>
+                </li>
+              </div>
             </div>
+
+            <div class="finder_push finderBox drag-only" id="finder_push"></div>
+            <div class="linkedin_push linkedinBox drag-only"></div>
+            <div class="github_push githubBox drag-only"></div>
+            <div class="chrome_push chromeBox drag-only" id="chrome_push"></div>
+            <div
+              class="customize_push customizeBox drag-only"
+              id="customize_push"
+            ></div>
+            <div
+              class="terminal_push terminalBox drag-only"
+              id="terminal_push"
+            ></div>
+            <div class="adobe_push tests adobeBox" id="adobe_push"></div>
+
+            <div
+              class="premiere_push premiereBox drag-only"
+              id="premiere_push"
+            ></div>
+            <div class="xD_push xdBox drag-only" id="xD_push"></div>
+            <div
+              class="afterEffects_push afterEffectsBox drag-only"
+              id="afterEffects_push"
+            ></div>
+            <div
+              class="photoshop_push photoshopBox drag-only"
+              id="photoshop_push"
+            ></div>
+
+            <div
+              class="network_push networkBox drag-only"
+              id="network_push"
+            ></div>
+            <div class="admin_push adminBox drag-only" id="admin_push"></div>
+
+            <div
+              class="avatars_push avatarsBox drag-only"
+              id="avatars_push"
+            ></div>
+
+            <div class="apps_push appsBox" id="apps_push"></div>
           </div>
-      
-          <div class="finder_push finderBox drag-only" id="finder_push"></div>
-          <div class="linkedin_push linkedinBox drag-only"></div>
-          <div class="github_push githubBox drag-only"></div>
-          <div class="chrome_push chromeBox drag-only" id="chrome_push"></div>
-          <div class="customize_push customizeBox drag-only" id="customize_push"></div>
-          <div class="terminal_push terminalBox drag-only" id="terminal_push"></div>
-          <div class="adobe_push tests adobeBox" id="adobe_push"></div>
-
-          <div class="premiere_push premiereBox drag-only" id="premiere_push"></div>
-          <div class="xD_push xdBox drag-only" id="xD_push"></div>
-          <div class="afterEffects_push afterEffectsBox drag-only" id="afterEffects_push"></div>
-          <div class="photoshop_push photoshopBox drag-only" id="photoshop_push"></div>
-
-
-          <div class="network_push networkBox drag-only" id="network_push"></div>
-          <div class="admin_push adminBox drag-only" id="admin_push"></div>
-
-          <div class="avatars_push avatarsBox drag-only" id="avatars_push"></div>
-
-          <div class="apps_push appsBox" id="apps_push"></div>
         </div>
       </div>
-    </div>
-    <div class="container-mobile" style="display: none">
-      <div class="text-container-mobile">
-        <h2>Attention:</h2>
-        <div>
-          this site cannot be run on devices smaller than 1024px, <br />
-          <span>please use pc or laptop for better experience</span>
-        </div>
-        <div>
-          recommended resolution <br />
-          min:1440px - max:2560px
+      <div class="container-mobile" style="display: none">
+        <div class="text-container-mobile">
+          <h2>Attention:</h2>
+          <div>
+            this site cannot be run on devices smaller than 1024px, <br />
+            <span>please use pc or laptop for better experience</span>
+          </div>
+          <div>
+            recommended resolution <br />
+            min:1440px - max:2560px
+          </div>
         </div>
       </div>
+      <footer id="footer-container" class="footer-container"></footer>
     </div>
-    <footer id="footer-container" class="footer-container"></footer>
-  </div>
-  <div id="myDiv"></div>
-  <style>
-    /* #myDiv {
+    <div id="myDiv"></div>
+    <style>
+      /* #myDiv {
     position: absolute;
     top: 200px;
     left: 100px;
     color: wheat;
     font-size: 41px;
   } */
-  </style>
-  <script>
-    window.onload = function() {
-        var divCount = document.getElementsByTagName("div").length;
-        var classes = document.querySelectorAll("[class]").length;
-        var aCount = document.getElementsByTagName("a").length;
-    console.log("Total number of div elements in the page: " + divCount);
-    console.log("Total number of a elements in the page: " + aCount);
-    console.log("Total number of a classes in the page: " + classes);
-        var myData = document.documentElement.innerHTML; // Get all the HTML data
-        var length = myData.length; // Get the length of the HTML data
-        console.log("Total number of myData elements in the page: " + length);
-        var counter = 0; // Initialize the counter to 0
-        var intervalId = setInterval(function() {
-          document.getElementById("myDiv").innerHTML = "Data loaded: " + counter + " Html Data";
-          counter = counter + 250
-          // Update the div with the current counter value
-          counter++; // Increment the counter
-          // console.log(counter,"HTML DATA")
-          if ((counter) > length) {
-            clearInterval(intervalId); // Stop the counting animation when the counter reaches the length of the HTML data
-          }
-        }, 10); // Set the interval to update the div every 10 milliseconds
+    </style>
+    <script>
+      // window.onload = function () {
+      //   var divCount = document.getElementsByTagName("div").length;
+      //   var classes = document.querySelectorAll("[class]").length;
+      //   var aCount = document.getElementsByTagName("a").length;
+      //   console.log("Total number of div elements in the page: " + divCount);
+      //   console.log("Total number of a elements in the page: " + aCount);
+      //   console.log("Total number of a classes in the page: " + classes);
+      //   var myData = document.documentElement.innerHTML; // Get all the HTML data
+      //   var length = myData.length; // Get the length of the HTML data
+      //   console.log("Total number of myData elements in the page: " + length);
+      //   var counter = 0; // Initialize the counter to 0
+      //   var intervalId = setInterval(function () {
+      //     document.getElementById("myDiv").innerHTML =
+      //       "Data loaded: " + counter + " Html Data";
+      //     counter = counter + 250;
+      //     // Update the div with the current counter value
+      //     counter++; // Increment the counter
+      //     // console.log(counter,"HTML DATA")
+      //     if (counter > length) {
+      //       clearInterval(intervalId); // Stop the counting animation when the counter reaches the length of the HTML data
+      //     }
+      //   }, 10); // Set the interval to update the div every 10 milliseconds
 
-        setTimeout(function() {
-          clearInterval(intervalId); // Stop the counting animation after 3 secondss
-          document.getElementById("myDiv").innerHTML = "Data loaded: " + length + " html Data";
-          console.log(document.getElementById("myDiv").innerHTML = "Data loaded: " + length + "  html Data")
-          // Display the length of the HTML data in the div after the counting animation is complete
-        }, 1500) // Set the timeout to stop the counting animation after 3 seconds
+      //   setTimeout(function () {
+      //     clearInterval(intervalId); // Stop the counting animation after 3 secondss
+      //     document.getElementById("myDiv").innerHTML =
+      //       "Data loaded: " + length + " html Data";
+      //     console.log(
+      //       (document.getElementById("myDiv").innerHTML =
+      //         "Data loaded: " + length + "  html Data")
+      //     );
+      //     // Display the length of the HTML data in the div after the counting animation is complete
+      //   }, 1500); // Set the timeout to stop the counting animation after 3 seconds
+      // };
+    </script>
+    <script>
+      // $(document).ready(function () {
+      //   console.log("0");
+      //   $(window).on("load", function () {
+      //     console.log("2");
+      //     setTimeout(removeLoader, 600);
 
+      //     //wait for page load PLUStwo seconds.
+      //     // setTimeout(function () {
+      //     //   $("#bootdiv").load("./template/assets/windows/boot/bootload.html");
+      //     //   console.log("22");
+      //     // }, 2000)
+
+      //     // setTimeout(function () {
+      //     //   console.log("3");
+      //     // }, 3000);
+      //   });
+      //   console.log("1");
+      // });
+      function selectImage(imageUrl) {
+        document.body.style.backgroundImage = `url('${imageUrl}')`;
+        // closeModalBG();
       }
-  </script>
-  <script>
-    // $(document).ready(function () {
-    //   console.log("0");
-    //   $(window).on("load", function () {
-    //     console.log("2");
-    //     setTimeout(removeLoader, 600);
 
-    //     //wait for page load PLUStwo seconds.
-    //     // setTimeout(function () {
-    //     //   $("#bootdiv").load("./template/assets/windows/boot/bootload.html");
-    //     //   console.log("22");
-    //     // }, 2000)
+      // function closeModalBG() {
+      //   document.getElementById("bg_change").style.display = "none";
+      // }
+      // Display the splash screen
+      // var splashScreen = document.getElementById("splash-screen");
+      // splashScreen.style.display = "flex";
 
-    //     // setTimeout(function () {
-    //     //   console.log("3");
-    //     // }, 3000);
-    //   });
-    //   console.log("1");
-    // });
-    function selectImage(imageUrl) {
-      document.body.style.backgroundImage = `url('${imageUrl}')`;
-      // closeModalBG();
-    }
+      // Hide the splash screen after 2 seconds
+      // setTimeout(function() {
+      //   splashScreen.style.display = "none";
+      // }, 2000);
 
-    // function closeModalBG() {
-    //   document.getElementById("bg_change").style.display = "none";
-    // }
-    // Display the splash screen
-    // var splashScreen = document.getElementById("splash-screen");
-    // splashScreen.style.display = "flex";
+      // function removeLoader() {
+      //   $("#loadingDiv").fadeOut(500, function () {
+      //     // fadeOut complete. Remove the loading div
+      //     $("#loadingDiv").remove(); //makes page more lightweight
+      //   });
+      // }
 
-    // Hide the splash screen after 2 seconds
-    // setTimeout(function() {
-    //   splashScreen.style.display = "none";
-    // }, 2000);
+      // Wait for the page to fully load before hiding the splash screen
+      // window.onload = function() {
+      //   splashScreen.style.display = "none";
+      // };
+    </script>
 
-    // function removeLoader() {
-    //   $("#loadingDiv").fadeOut(500, function () {
-    //     // fadeOut complete. Remove the loading div
-    //     $("#loadingDiv").remove(); //makes page more lightweight
-    //   });
-    // }
-
-    // Wait for the page to fully load before hiding the splash screen
-    // window.onload = function() {
-    //   splashScreen.style.display = "none";
-    // };
-  </script>
-
-  <script src="./index.js"></script>
-  <!-- <script src="/template/pages/test.js" type="module" defer></script> -->
-  <script type="module" src="app.js" async></script>
-  <!-- <script type="module" src="../template/pages/settings.js" async></script> -->
-
-</body>
-
+    <script src="./index.js"></script>
+    <!-- <script src="/template/pages/test.js" type="module" defer></script> -->
+    <script type="module" src="app.js" async></script>
+    <!-- <script type="module" src="../template/pages/settings.js" async></script> -->
+  </body>
 </html>

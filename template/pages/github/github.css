@@ -8,7 +8,7 @@
     font-family: product-sans;
     width: 950px;
     height: 750px;
-    background: var(--primaryS-finder-color);
+
     z-index: 2000;
   }
   .container-github {
@@ -18,14 +18,14 @@
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    color: var(--text-azure);
+    /* color: var(--text-azure); */
     background-image:var(--github_gradient);
   }
   .github-icon-page {
     width: 58px !important;
     height: 58px !important;
   }
-  .git-hub-animation {
+  ._social_animation_title {
     animation-name: fade-github-move;
     animation-duration: 1s;
     animation-delay: 2.5s;
@@ -55,7 +55,7 @@
     font-weight: 700;
     left: -189px;
   }
-  .loading-github-bar{
+  ._social_loading_bar{
     width: 235px;
     transform: translateX(6px);
     height: 7px;
@@ -67,7 +67,7 @@
     border-radius: 10px;
 
   }
-  .loading-github-bar::after{
+  ._social_loading_bar::after{
     content: "";
     position: absolute;
     top: 0;
@@ -78,7 +78,7 @@
     animation: loading-linkbar 2s 1s linear forwards;
     border-radius: 10px;
   }
-  .container-loadingbar{
+  ._social_container_loading_bar{
     animation: opacity-linkbar2 0.2s 2.4s ease-in-out forwards;
     opacity: 1;
     transform: translateY(-20px);
@@ -133,7 +133,7 @@
       opacity: 0;
     }
   }
-  .text-github {
+  ._user_text {
     animation-name: fade-github;
     animation-duration: 1.5s;
     animation-delay: 2.8s;

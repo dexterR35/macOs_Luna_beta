@@ -1,8 +1,8 @@
 .wrapper_avatars {
-    width: 750px;
-    height: 500px;
+    width: 450px;
+    height: fit-content;
     color: white;
-    overflow-y: scroll;
+    padding: 2em 1em;
     /* background-color: red */
 }
 .wrapper_avatars h3 {
@@ -12,15 +12,16 @@
 /* .avatars_push {
     display:  block !important;
 } */
-.maleTabContent , .femaleTabContent {
+.avatar_selected {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.maleTabContent img, .femaleTabContent img {
+.avatar_selected img {
 height: 70px;
 width: 70px;
+cursor: pointer;
 }
