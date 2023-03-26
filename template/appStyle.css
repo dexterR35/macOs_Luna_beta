@@ -262,7 +262,9 @@ iframe {
 .wrapper {
   position: relative;
 }
-
+.drag-only{
+  display: block;
+}
 .wrapper {
   height: 100vh;
   max-height: 100vh;

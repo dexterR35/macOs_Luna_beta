@@ -52,8 +52,10 @@
     transform: translateY(0px) translateX(96px);
   }
 }
-.linkDin-icon-page::after {
-  content: "Linked";
+
+
+.linkDin-icon-page::after,._me_icon_page::after {
+
   position: absolute;
   top: -8px;
   font-size: 60px;
@@ -61,7 +63,12 @@
   left: -177px;
   font-family: product-sans;
 }
-
+.linkDin-icon-page::after{
+  content: "Linked";
+}
+._me_icon_page::after {
+  content: "Network";
+}
 /*   
   .loading-linkedin {
     position: relative;

@@ -1,4 +1,3 @@
-
 console.log("start settings");
 
 
@@ -89,7 +88,15 @@ export function openNavLink() {
   appendStuff();
 }
 
+// $(".close_box").on("click", function () {
+//   if(true){
+//     $(this).closest(".drag-only").css("display", "none");
+//   } else {
+//     (this).closest(".drag-only").css("display", "block");
+//   }
 
+//   // $(this).css("display", "none");
+// });
 //  add time to nav header
 
 export function startTime() {
@@ -127,27 +134,32 @@ export function startTime() {
 //  click all buttons with class box_open and display modal for different box
 
 
-
 export function clickDivs() {
-  const _modals = document.querySelectorAll(`div[id^="modal_"]`);
   g_append();
+
+  const _modals = document.querySelectorAll(`div[id^="modal_"]`);
+
   const _boxes = document.querySelectorAll(".box_open");
 
-  console.log(_modals, "modals");
+  // console.log(_modals, "modals");
   _boxes.forEach((box) => {
     box.addEventListener("click", () => {
       const modalIds = box.getAttribute("data-modal").split(",");
+      console.log(modalIds, "modailsid")
       modalIds.forEach((modalId) => {
         const modal = document.getElementById(modalId);
+        console.log(modal, "modal")
         if (modal.style.display !== "block") {
           modal.style.display = "block";
         }
       });
-      // closeModal();
+
     });
+
   });
 
   _modals.forEach((modal) => {
+    console.log(modal, "modal")
     const closeBtn = modal.querySelector(".close_box");
     // console.log(closeBtn);
     closeBtn.addEventListener("click", () => {
@@ -155,13 +167,6 @@ export function clickDivs() {
     });
   });
 
-  // function closeModal() {
-  //   _modals.forEach(modal => {
-  //     if (modal.style.display === "block") {
-  //       modal.style.display = "none";
-  //     }
-  //   });
-  // }
 
 }
 
@@ -283,8 +288,9 @@ $(document).ready(function () {
       }
       console.log("inside")
     }, 500);
-    $(".close_box").one("click", function () {
-      $(this).closest(".drag-only").css("display", "none");
+    $(".close_box").on("click", function () {
+      // $(this).closest(".drag-only").css("display", "none");
+      $(this).css("display", "none");
     });
   }
 

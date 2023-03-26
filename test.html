@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 </head>
-<body>
-    <script>
-        fetch("http://keyword.com/serp/api/?viewkey=jcore14&auth=a2c4e1945d540523f7f80a2282add3f5")
-  .then((response) => response.json())
-  .then((data) => console.log(data));
 
-    </script>
+<body>
+  
+    <div class="user-container">
+        <div class="card_header">
+            <div class=user_avatar>
+                <img src="${doc.data().selectedAvatarRef}" alt="User Avatar" class="user_avatar_img">
+            </div>
+            <div class="user_fullName user_">
+                <div class="user_lastName"> ${doc.data().lastName}</div>
+                <div class="user_firstName">${doc.data().firstName}</div>
+                <div class="user_section>"${doc.data().section}"</div>
+            </div> 
+            </div>
+        </div>
+        <div class="user_email user_ user_font">${doc.data().email}</div>
+        <div class="card-body">
+            <div class="user_section_hide hidden-section">
+                <div class="user_portofolio user_ user_font">${doc.data().portofolio}</div>
+                <div class="user_gender user_ user_font">${doc.data().gender}</div>
+                <div class="user_idkeys user_ user_font" style="display:none">${doc.data().idkeys}</div>
+                <div class="user_footer">
+                    <div class="user_likes">
+                        <p>likes</p>
+                    </div>
+                    <a href="https://www.${doc.data().portofolio}" id="myLinkS" target="_blank"><button>i m
+                        here</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>

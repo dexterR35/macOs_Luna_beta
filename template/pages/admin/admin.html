@@ -9,19 +9,19 @@
       <br />
       <div class="_input">
         <label for="firstNamebox">the first name</label>
-        <input type="text" id="firstNamebox" placeholder="Name" />
+        <input type="text" id="firstNamebox" placeholder="Name" maxlength="20" required/>
       </div>
       <div class="_input">
         <label for="lastNamebox">the last name</label>
-        <input type="text" id="lastNamebox" placeholder="lastName" />
+        <input type="text" id="lastNamebox" placeholder="lastName" maxlength="20" required />
       </div>
       <div class="_input">
         <label for="emailbox">the email</label>
-        <input type="text" id="emailbox" placeholder="email" />
+        <input type="text" id="emailbox" placeholder="email" maxlength="40" required/>
       </div>
       <div class="_input">
         <label for="sectionbox">what are you studying?!</label>
-        <input type="text" id="sectionbox" placeholder="what you are ..?" />
+        <input type="text" id="sectionbox" placeholder="what you are ..?" maxlength="30" required/>
       </div>
       <div class="_input">
         <label for="portofoliobox">the website</label>
@@ -29,6 +29,7 @@
           type="text"
           id="portofoliobox"
           placeholder="add link to your, whatever"
+          maxlength="20" required
         />
       </div>
 
@@ -57,7 +58,7 @@
         </select> -->
       </div>
       <div class="container-btn">
-        <button id="insbtn" class="btn-admin insbtn">insert</button>
+        <button id="insbtn" class="btn-admin insbtn close_box_btn">insert</button>
         <button id="selbtn" class="btn-admin btn-disabled" disabled>
           select
         </button>

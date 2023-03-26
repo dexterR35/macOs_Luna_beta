@@ -78,8 +78,11 @@ const websiteMe = document.querySelector("._website_add");
 
 
 const insBtn = document.querySelector(".insbtn");
-insBtn.addEventListener("click", AddDocument_AutoID);
 
+// const addButton = document.getElementById('add-data-btn');
+const modal = document.getElementById('modal');
+const message = document.getElementById('modal-message');
+const loadingBar = document.getElementById('loading-bar-progress');
 /* query mail */
 async function checkEmailInNetworkCollection(email) {
   const q = query(collection(db, "network"), where("email", "==", email));
@@ -87,22 +90,29 @@ async function checkEmailInNetworkCollection(email) {
   return !querySnapshot.empty;
 }
 /* add user */
+
 async function AddDocument_AutoID() {
-  console.log(AddDocument_AutoID, "insert auto idssssssss ")
+
   const email = emailBox.value;
-  // Check if the email exists in the "network" collection
   const emailExists = await checkEmailInNetworkCollection(email);
   if (emailExists) {
-    alert("Email already exists in the network!");
+    showLoadingModal(emailBox.value + " " + "already exists in the network!");
+    // alert("Email already exists in the network!");
     return;
   }
+
+
+
   const selectedAvatar = avatarGrid.querySelector(".selected");
   const selectedAvatarRef = selectedAvatar ? selectedAvatar.getAttribute("src") : null;
   console.log(selectedAvatarRef, "select avatar");
   if (!selectedAvatar) {
-    alert("Please select an avatar!");
+    showLoadingModal(selectedAvatar + " " + "Please select an avatar!");
+    // alert("Please select an avatar!");
     return;
   }
+
+
 
   let ref_ = collection(db, "network");
 
@@ -118,6 +128,11 @@ async function AddDocument_AutoID() {
     idkeys: newDocRef.id,
     selectedAvatarRef,
     timestamp: serverTimestamp(),
+    info: {
+      likes: 10,
+      starCount: 5,
+      message: "mesage"
+    },
   };
 
   /* Validate Data before adding to firestore */
@@ -132,14 +147,20 @@ async function AddDocument_AutoID() {
     !data.gender
   ) {
     console.error("Invalid data:", data);
-    alert("Fill All the inputs");
+    showLoadingModal(data + "Fill All the inputs");
+    // alert("Fill All the inputs");
     return;
   }
-
-  /* Reset Form */
-
-  await setDoc(newDocRef, data)
+  console.log("1");
+  await showLoadingModal("Well Done, Data added successfully!")
     .then(() => {
+      console.log("2");
+      setDoc(newDocRef, data);
+    })
+
+    /* Reset Form */
+    .then(() => {
+      console.log("3");
       console.log("data added succesfully");
       // reset form inputs
       firstNameBox.value = ""
@@ -148,18 +169,50 @@ async function AddDocument_AutoID() {
       emailBox.value = ""
       genBox.value = ""
       sectionBox.value = ""
+      // show success message modal
+
     })
     .catch((error) => {
+      console.log("4");
+      showLoadingModal("unsecc operation. error:" + error);
       alert("unsecc operation. error:" + error);
     });
-  console.log("document id is" + newDocRef.id + selectedAvatar);
+  console.log("document id is" + newDocRef.id);
+
 }
 
+async function showLoadingModal(_message) {
+  // Show the popup modal
+  modal.style.display = 'flex';
+  // Set the message
+  // message.innerText = 'Adding to database. please wait...';
+  message.innerText = _message;
+  // Set the initial width of the loading bar
+  loadingBar.style.width = '0%';
+  // Animate the loading bar
+  setTimeout(function () {
+    loadingBar.style.width = '100%';
+    // Wait for 1 second
+    setTimeout(function () {
+      // Set the success message
+      message.innerText = _message;
+      // Hide the popup modal after 1 second
+      setTimeout(function () {
+        modal.style.display = 'none';
+      }, 1200);
+    }, 1000);
+  }, 400);
+}
+
+
+insBtn.addEventListener("click", AddDocument_AutoID);
 /* Get Documents Real time */
 async function GetAllDocuments() {
 
   const collectionRef = collection(db, "network");
   const container = document.querySelector("#container_get");
+
+
 
   onSnapshot(collectionRef, (querySnapshot) => {
     // Clear the previous user containers from the container element
@@ -177,44 +230,51 @@ async function GetAllDocuments() {
       }
     });
 
+
+
+
     /* Create Card for user */
 
-    querySnapshot.forEach((doc) => {
-      const userDiv = `
-<div class="user-container">
 
-  <div class="card_header">
-  <div class = user_avatar>
-    <img src="${doc.data().selectedAvatarRef}" alt="User Avatar" class="user_avatar_img">
-    </div>
-      <div class= "user_fullName user_">
-      <div class="user_lastName"> ${doc.data().lastName}</div> 
-          <div class="user_firstName">${doc.data().firstName}</div>
-         
+
+    querySnapshot.forEach((doc) => {
+
+      const userDiv = `
+  <div class="user-container">
+      <div class="card_header">
+          <div class=user_avatar>
+              <img src="${doc.data().selectedAvatarRef}" alt="User Avatar" class="user_avatar_img">
+          </div>
+          <div class="user_fullName user_">
+              <div class="user_lastName">${doc.data().lastName}</div>
+              <div class="user_firstName">${doc.data().firstName}</div>
+              <div class="user_section">"${doc.data().section}"</div>
+          </div> 
+      </div>
+      <div class="user_email user_ user_font"><span class="user_span">Email:</span> ${doc.data().email}</div>
+      <div class="card-body">
+          <div class="user_section_hide hidden-section">
+              <div class="user_portofolio user_ user_font"><span class="user_span">Website:</span> ${doc.data().portofolio}</div>
+              <div class="user_gender user_ user_font"><span class="user_span">Gender:</span> ${doc.data().gender}</div>
+              <div class="user_idkeys user_ user_font" style="display:none"><span class="user_span">Tokken:</span> ${doc.data().idkeys}</div>
+              <div class="user_footer">
+                  <div class="user_likes">
+                      <p>likes</p>
+                  </div>
+                  <a href="https://www.${doc.data().portofolio}" id="myLinkS" target="_blank"><button>i m
+                      here</button></a>
+              </div>
+          </div>
       </div>
   </div>
-
-<div class="user_email user_ user_font">${doc.data().email}</div>
-<div class="user_section user_ user_font">${doc.data().section}</div>
-
-<div class="card-body">
-    <div class="user_section_hide hidden-section ">
-        <div class="user_portofolio user_ user_font">${
-          doc.data().portofolio
-        }</div>
-      
-        <div class="user_gender user_ user_font">${doc.data().gender}</div>
-        <div class="user_idkeys user_ user_font" style="display:none">${
-          doc.data().idkeys
-        }</div>
-    </div>
-</div>
-</div>
 `;
-      container.insertAdjacentHTML("afterbegin", userDiv);
-
+      setTimeout(() => {
+        container.insertAdjacentHTML("afterbegin", userDiv);
+      }, 700);
     });
+
   });
+
 }
 
 /* Get Data For Owner */
@@ -258,11 +318,11 @@ async function loadAvatars(gender) {
   if (avatarsRef) {
 
     try {
-      // const avatarsSnapshot = await listAll(avatarsRef);
+      const avatarsSnapshot = await listAll(avatarsRef);
       avatarsSnapshot.items.forEach(async (avatarRef) => {
 
-        // const avatarUrl = await getDownloadURL(avatarRef);
-        
+        const avatarUrl = await getDownloadURL(avatarRef);
+
         const img_ = document.createElement("img");
         img_.src = avatarUrl;
         img_.setAttribute("type", "image/svg+xml");
