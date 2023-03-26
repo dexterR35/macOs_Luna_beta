@@ -1,6 +1,7 @@
 .wrapper_avatars {
     width: 450px;
-    height: fit-content;
+    height: 630px;
+    max-width: 630px;
     color: white;
     padding: 2em 1em;
     /* background-color: red */
@@ -12,12 +13,23 @@
 /* .avatars_push {
     display:  block !important;
 } */
+.insert_aVtitle {
+    font-size: 1.4em;
+    text-align: start;
+    text-transform: uppercase;
+    padding: 0em 1em;
+    margin-bottom: 8px;
+
+}
 .avatar_selected {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 1em 0;
+    border-top: 1px solid azure;
+    border-bottom: 1px solid azure;
 }
 
 .avatar_selected img {

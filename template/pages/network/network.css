@@ -158,7 +158,13 @@
   font-size: 0.8em;
   margin: auto 0;
 }
-
+.user_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 0 0;
+  margin: 0 8px;
+}
 .network_header_top {
   height: 55px;
   margin: 0px 0px 10px;

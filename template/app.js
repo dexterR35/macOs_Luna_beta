@@ -16,10 +16,10 @@
   startTime();
   clickDivs();
   dragWindows();
-  GetAllDocuments();
 
 
 
- import { db, storage,app, GetAllDocuments } from "./pages/connect_firebase.js";
+
+ import { db, storage,app } from "./pages/connect_firebase.js";
 
 

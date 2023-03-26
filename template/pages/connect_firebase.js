@@ -263,7 +263,7 @@ export async function GetAllDocuments() {
                   <div class="user_likes">
                       <p>likes</p>
                   </div>
-                  <a href="https://www.${doc.data().portofolio}" id="myLinkS" target="_blank"><button>i m
+                  <a href="https://www.${doc.data().portofolio}" id="myLinkS" target="_blank"><button class="btn-cards-mini">i m
                       here</button></a>
               </div>
           </div>
@@ -307,12 +307,16 @@ async function loadAvatars(gender) {
   /* Clear the avatar grid */
   avatarGrid.innerHTML = "";
   let avatarsRef;
+  let avatarTitle = document.querySelector(".insert_aVtitle");
   /* display img for male or female */
   if (gender === "male") {
-    $(".modal_avatars").css("display", "block")
+
+    $(".modal_avatars").css("display", "block");
+    avatarTitle.innerHTML = "male";
     avatarsRef = maleAvatarsRef;
   } else if (gender === "female") {
-    $(".modal_avatars").css("display", "block")
+    $(".modal_avatars").css("display", "block");
+    avatarTitle.innerHTML= "Female"
     avatarsRef = femaleAvatarsRef;
   }
   let selectedImg;
