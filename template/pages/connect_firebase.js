@@ -78,6 +78,7 @@ const websiteMe = document.querySelector("._website_add");
 
 
 const insBtn = document.querySelector(".insbtn");
+const getDataBtn = document.querySelector("#get_data_btn");
 
 // const addButton = document.getElementById('add-data-btn');
 const modal = document.getElementById('modal');
@@ -204,10 +205,11 @@ async function showLoadingModal(_message) {
   }, 400);
 }
 
-
+get_data_btn
 insBtn.addEventListener("click", AddDocument_AutoID);
+getDataBtn.addEventListener("click", GetAllDocuments);
 /* Get Documents Real time */
-async function GetAllDocuments() {
+export async function GetAllDocuments() {
 
   const collectionRef = collection(db, "network");
   const container = document.querySelector("#container_get");
@@ -370,7 +372,7 @@ genderSelect.addEventListener("change", () => {
   }
 });
 
-GetAllDocuments();
+// GetAllDocuments();
 getDataFromOwnerCollection()
 
 export {
