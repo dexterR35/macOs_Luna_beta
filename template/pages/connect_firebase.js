@@ -208,18 +208,15 @@ async function showLoadingModal(_message) {
 
 insBtn.addEventListener("click", AddDocument_AutoID);
 getDataBtn.addEventListener("click", GetAllDocuments);
-/* Get Documents Real time */
-export async function GetAllDocuments() {
 
+/* Get Documents Real time */
+
+export async function GetAllDocuments() {
   const collectionRef = collection(db, "network");
   const container = document.querySelector("#container_get");
-
-
-
   onSnapshot(collectionRef, (querySnapshot) => {
     // Clear the previous user containers from the container element
     container.innerHTML = "";
-
     // // Find the last added document in the query snapshot
     // let lastAddedDoc = null;
     // querySnapshot.docChanges().forEach((change) => {
@@ -232,44 +229,44 @@ export async function GetAllDocuments() {
     //   }
     // });
 
-
-
-
     /* Create Card for user */
-
-
 
     querySnapshot.forEach((doc) => {
 
+      const timestamp_ = doc.data().timestamp;
+      const date_mew_ = new Date(timestamp_.seconds * 1000 + timestamp_.nanoseconds / 1000000);
+      const dateString_ = date_mew_.toLocaleDateString();
+
       const userDiv = `
-  <div class="user-container">
-      <div class="card_header">
-          <div class=user_avatar>
-              <img src="${doc.data().selectedAvatarRef}" alt="User Avatar" class="user_avatar_img">
+      <div class="user-container">
+      <div class = "dateAdded_user"><span class="user_span">JOINED:</span>${dateString_}</div>
+          <div class="card_header">
+              <div class=user_avatar>
+                  <img src="${doc.data().selectedAvatarRef}" alt="User Avatar" class="user_avatar_img">
+              </div>
+              <div class="user_fullName user_">
+                  <div class="user_lastName">${doc.data().lastName}</div>
+                  <div class="user_firstName">${doc.data().firstName}</div>
+                  <div class="user_section">"${doc.data().section}"</div>
+              </div> 
           </div>
-          <div class="user_fullName user_">
-              <div class="user_lastName">${doc.data().lastName}</div>
-              <div class="user_firstName">${doc.data().firstName}</div>
-              <div class="user_section">"${doc.data().section}"</div>
-          </div> 
-      </div>
-      <div class="user_email user_ user_font"><span class="user_span">Email:</span> ${doc.data().email}</div>
-      <div class="card-body">
-          <div class="user_section_hide hidden-section">
-              <div class="user_portofolio user_ user_font"><span class="user_span">Website:</span> ${doc.data().portofolio}</div>
-              <div class="user_gender user_ user_font"><span class="user_span">Gender:</span> ${doc.data().gender}</div>
-              <div class="user_idkeys user_ user_font" style="display:none"><span class="user_span">Tokken:</span> ${doc.data().idkeys}</div>
-              <div class="user_footer">
-                  <div class="user_likes">
-                      <p>likes</p>
+          <div class="user_email user_ user_font"><span class="user_span">Email:</span> ${doc.data().email}</div>
+          <div class="card-body">
+              <div class="user_section_hide hidden-section">
+                  <div class="user_portofolio user_ user_font"><span class="user_span">Website:</span> ${doc.data().portofolio}</div>
+                  <div class="user_gender user_ user_font"><span class="user_span">Gender:</span> ${doc.data().gender}</div>
+                  <div class="user_idkeys user_ user_font" style="display:none"><span class="user_span">Tokken:</span> ${doc.data().idkeys}</div>
+                  <div class="user_footer">
+                      <div class="user_likes">
+                          <p>likes</p>
+                      </div>
+                      <a href="https://www.${doc.data().portofolio}" id="myLinkS" target="_blank"><button class="btn-cards-mini">i m
+                          here</button></a>
                   </div>
-                  <a href="https://www.${doc.data().portofolio}" id="myLinkS" target="_blank"><button class="btn-cards-mini">i m
-                      here</button></a>
               </div>
           </div>
       </div>
-  </div>
-`;
+            `;
       setTimeout(() => {
         container.insertAdjacentHTML("afterbegin", userDiv);
       }, 700);
@@ -301,8 +298,8 @@ async function getDataFromOwnerCollection() {
     console.log("Error getting documents: ", error);
   }
 }
-/* Load Avatars and append in a div */
 
+/* Load Avatars and append in a div */
 async function loadAvatars(gender) {
   /* Clear the avatar grid */
   avatarGrid.innerHTML = "";
@@ -310,25 +307,21 @@ async function loadAvatars(gender) {
   let avatarTitle = document.querySelector(".insert_aVtitle");
   /* display img for male or female */
   if (gender === "male") {
-
     $(".modal_avatars").css("display", "block");
     avatarTitle.innerHTML = "male";
     avatarsRef = maleAvatarsRef;
   } else if (gender === "female") {
     $(".modal_avatars").css("display", "block");
-    avatarTitle.innerHTML= "Female"
+    avatarTitle.innerHTML = "Female"
     avatarsRef = femaleAvatarsRef;
   }
   let selectedImg;
   /* display all img with attr */
   if (avatarsRef) {
-
     try {
       const avatarsSnapshot = await listAll(avatarsRef);
       avatarsSnapshot.items.forEach(async (avatarRef) => {
-
         const avatarUrl = await getDownloadURL(avatarRef);
-
         const img_ = document.createElement("img");
         img_.src = avatarUrl;
         img_.setAttribute("type", "image/svg+xml");

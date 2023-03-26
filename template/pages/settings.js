@@ -36,6 +36,7 @@ function appendStuff() {
     `<input type="checkbox" class="checkBox_nav" checked>`
   );
 }
+
 // call typewriter function
 
 
