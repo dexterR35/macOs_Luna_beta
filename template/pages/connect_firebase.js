@@ -205,7 +205,7 @@ async function showLoadingModal(_message) {
   }, 400);
 }
 
-get_data_btn
+
 insBtn.addEventListener("click", AddDocument_AutoID);
 getDataBtn.addEventListener("click", GetAllDocuments);
 /* Get Documents Real time */
@@ -220,17 +220,17 @@ export async function GetAllDocuments() {
     // Clear the previous user containers from the container element
     container.innerHTML = "";
 
-    // Find the last added document in the query snapshot
-    let lastAddedDoc = null;
-    querySnapshot.docChanges().forEach((change) => {
-      if (
-        change.type === "added" &&
-        (!lastAddedDoc ||
-          change.doc.data().timestamp > lastAddedDoc.data().timestamp)
-      ) {
-        lastAddedDoc = change.doc;
-      }
-    });
+    // // Find the last added document in the query snapshot
+    // let lastAddedDoc = null;
+    // querySnapshot.docChanges().forEach((change) => {
+    //   if (
+    //     change.type === "added" &&
+    //     (!lastAddedDoc ||
+    //       change.doc.data().timestamp > lastAddedDoc.data().timestamp)
+    //   ) {
+    //     lastAddedDoc = change.doc;
+    //   }
+    // });
 
 
 
