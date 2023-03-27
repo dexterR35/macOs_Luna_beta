@@ -66,9 +66,7 @@
 .linkDin-icon-page::after{
   content: "Linked";
 }
-._me_icon_page::after {
-  content: "Network";
-}
+
 /*   
   .loading-linkedin {
     position: relative;

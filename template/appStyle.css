@@ -378,6 +378,7 @@ iframe {
     }
   }
   
+/* page in front */
 /*   
   .loading-github {
     position: relative;
@@ -408,8 +409,34 @@ iframe {
     animation-fill-mode: forwards;
     animation-direction: normal;
     opacity: 0;
-    font-size: 16px;
+    font-family: "SF-Thin";
+    font-style: oblique;
+    letter-spacing: 0.6px;
+    margin-top: -0.6em;
+    font-size: 0.9em;
+  }
+  ._title_section {
+    gap: 2px;
+  }
+  ._me_icon_page {
+    background-color: #ed7e14;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'SF-Heavy';
+      font-size: 2.6em;
+      color: black;
+      margin-top: 0.2em;
+      margin-left: 0.1em;
+      font-weight: 800;
+      width: 50px;
+    height: 50px;
+  }
+  ._icon_text-second {
+    font-size: 3.6em;
     font-family: product-sans;
+    font-weight: 700;
   }
   ._user_boxModals_button {
     animation-name: fade-github;

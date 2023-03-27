@@ -13,6 +13,9 @@
 .container_get::-webkit-scrollbar {
   display: none;
 }
+#modal_network {
+  display: block !important;
+}
 .wrapper_users {
   /* background-color: #6e6e6e; */
   width: 100%;
@@ -251,3 +254,17 @@
 .wrapp_get {
   border-top: 1px solid #ebebeb;
 }
+
+.container-network {
+  position: absolute !important;
+  width: 100%;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
