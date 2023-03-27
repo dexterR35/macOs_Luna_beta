@@ -60,7 +60,7 @@
   height: 35px;
   background: var(--card_button);
 }
-.user_likes{
+.user_likes {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -146,7 +146,7 @@
   /* border: 1px solid black; */
 }
 .btn_user_card {
-  background:var(--card_button) ;
+  background: var(--card_button);
   color: black;
 }
 .user_avatar {
@@ -175,12 +175,12 @@
 .user_firstName {
   font-size: 1.2em;
   margin-top: -5px;
-  font-family:var(--card_title_font);
+  font-family: var(--card_title_font);
   color: var(--card_title);
 }
 .user_lastName {
   font-size: 1.3em;
-  font-family:var(--card_title_font);
+  font-family: var(--card_title_font);
   color: var(--card_title);
 }
 .user_section {
@@ -198,7 +198,6 @@
   padding: 10px;
   margin-bottom: 5px;
   text-align: end;
-
 }
 .user_font {
   font-size: 0.9em;
@@ -260,11 +259,3 @@
   width: 100%;
   z-index: 1;
 }
-
-
-
-
-
-
-
-
