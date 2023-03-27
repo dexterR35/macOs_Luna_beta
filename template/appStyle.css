@@ -95,6 +95,16 @@
 --social_Box_width:950px;
 --social_Box_height:750px;
 
+  /*cards color */
+--card_text:#000;
+--card_title:#000;
+--card_title_font:"SF-Black";
+--card_ocupation_font:"SFUIText";
+--card_button:#ffae1b;
+--card_container:#ebebe4;
+--user_border:#5e5e5ee8;
+
+
 
   /*finder colors*/
   /*contact colors*/
@@ -291,13 +301,15 @@ iframe {
 }
 
 .btn-cards-mini {
-  background: orangered;
-  color: azure;
+  background: var(--card_button);
+  color: black;
   padding: 0.6em 1em;
   border: none;
   outline: none;
   text-transform: capitalize;
   border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #6c6c6c;
 }
 
 /* ------------buttons--------------------- */

@@ -209,7 +209,6 @@ async function showLoadingModal(_message) {
 insBtn.addEventListener("click", AddDocument_AutoID);
 getDataBtn.addEventListener("click", GetAllDocuments);
 
-/* Get Documents Real time */
 
 export async function GetAllDocuments() {
   const collectionRef = collection(db, "network");
@@ -231,14 +230,14 @@ export async function GetAllDocuments() {
 
     /* Create Card for user */
 
-    querySnapshot.forEach((doc) => {
+    querySnapshot.forEach(async (doc) => {
 
       const timestamp_ = doc.data().timestamp;
       const date_mew_ = new Date(timestamp_.seconds * 1000 + timestamp_.nanoseconds / 1000000);
       const dateString_ = date_mew_.toLocaleDateString();
 
       const userDiv = `
-      <div class="user-container">
+      <div class="user-container user-${doc.data().idkeys}" id="user-${doc.data().idkeys}">
       <div class = "dateAdded_user"><span class="user_span">JOINED:</span>${dateString_}</div>
           <div class="card_header">
               <div class=user_avatar>
@@ -258,24 +257,63 @@ export async function GetAllDocuments() {
                   <div class="user_idkeys user_ user_font" style="display:none"><span class="user_span">Tokken:</span> ${doc.data().idkeys}</div>
                   <div class="user_footer">
                       <div class="user_likes">
-                          <p>likes</p>
+                         <p><span class="material-symbols-outlined">
+                          favorite
+                          </span><span class="likes-count">${doc.data().info.likes}</span></p>
                       </div>
-                      <a href="https://www.${doc.data().portofolio}" id="myLinkS" target="_blank"><button class="btn-cards-mini">i m
-                          here</button></a>
+                      <a href="https://www.${doc.data().portofolio}" id="myLinkS" target="_blank"><button class="btn-cards-mini">enjoy!</button></a>
                   </div>
               </div>
           </div>
       </div>
             `;
-      setTimeout(() => {
-        container.insertAdjacentHTML("afterbegin", userDiv);
-      }, 700);
+      container.insertAdjacentHTML("afterbegin", userDiv);
+
+      const userContainers = document.querySelectorAll("[id^='user-']");
+
+      userContainers.forEach((container) => {
+        const likesButton = container.querySelector(".user_likes");
+        const likesCount = container.querySelector(".likes-count");
+
+        likesButton.addEventListener("click", async (event) => {
+          event.preventDefault();
+          likesButton.disabled = true;
+          const currentLikes = parseInt(likesCount.innerText);
+          const newLikes = currentLikes + 1;
+          await updateLikes(container.id.split("-")[1], newLikes);
+          // await updateLikes(i, newLikes);
+          likesCount.innerText = newLikes;
+          likesButton.disabled = false;
+        });
+      })
+      await new Promise(resolve => setTimeout(resolve, 700));
+
     });
 
   });
 
 }
 
+
+/* Get Documents Real time */
+async function updateLikes(idkeys, newLikes) {
+  const userDiv = document.getElementById(`user-${idkeys}`);
+  const likesCount = userDiv.querySelector(".likes-count");
+  console.log(likesCount, "likesCount")
+  const likeButton = userDiv.querySelector(".user_likes");
+  const documentRef = doc(db, "network", idkeys);
+  await updateDoc(documentRef, {
+    "info.likes": newLikes
+  });
+
+  // likesCount.textContent = newLikes;
+
+  // likeButton.onclick = () => {
+  //   const currentLikes = parseInt(likesCount.innerText);
+  //   const newLikes = currentLikes + 1;
+  //   updateLikes(idkeys, newLikes);
+  // };
+}
 /* Get Data For Owner */
 
 async function getDataFromOwnerCollection() {
