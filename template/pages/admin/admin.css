@@ -34,12 +34,18 @@
   align-items: center;
   justify-content: center;
 }
-.avatar_selected img.selected {
-  background: orangered;
-}
-.avatar_selected img{
-  background: transparent;
-}
+
+.avatar_selected img {
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+  border: 2px solid #cccccc;
+  border-radius: 100px;
+  }
+  
+  .avatar_selected img.selected {
+      background: var(--card_button);
+    }
 
 ._input input,
 #genbox {
