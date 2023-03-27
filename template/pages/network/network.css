@@ -259,3 +259,9 @@
   width: 100%;
   z-index: 1;
 }
+.user_font{
+  font-weight: 700;
+}
+.user_span {
+  font-weight: 400 !important;
+}

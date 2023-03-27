@@ -146,11 +146,12 @@ export function clickDivs() {
   _boxes.forEach((box) => {
     box.addEventListener("click", () => {
       const modalIds = box.getAttribute("data-modal").split(",");
-      console.log(modalIds, "modailsid")
+      console.log(modalIds, "modailid")
       modalIds.forEach((modalId) => {
         const modal = document.getElementById(modalId);
         console.log(modal, "modal")
         if (modal.style.display !== "block") {
+          $('.container-network').css("display","flex");
           modal.style.display = "block";
         }
       });
