@@ -171,10 +171,7 @@ export function clickDivs() {
 
 
 }
-$(".close_box").on("click", function () {
-  $(this).closest(".drag-only").css("display", "none");
-  // $(this).css("display", "none");
-});
+
 //  drag all windows with class drag-only
 
 export function dragWindows() {
@@ -293,6 +290,10 @@ $(document).ready(function () {
       openAdobe(values.currentTarget);
     }, 2000);
     // 
+    $(".close_box").on("click", function () {
+      $(this).closest(".drag-only").css("display", "none");
+      // $(this).css("display", "none");
+    });
   })
 
   function openAdobe(currentTarget) {
