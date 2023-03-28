@@ -68,8 +68,8 @@
   --bg_nav_drop: #0c0c0cb0;
 
   --bg-low_dark: #2b3a55;
-  --bg-low_dark_icons: #000000;
-  --bg-low_dark_header: #0e0f1c;
+  --bg-container_icons: #c1c1c1ad;
+  --bg-low_dark_header: #20262E;
 
   --shadow-low_grey: #c9c9c9;
 
@@ -81,7 +81,7 @@
   --containers_width: calc(60em - 10px);
   --containers_height: 50em;
 
-  --github_gradient: #ede4e0;
+  --github_gradient: #ECE8DD;
   --linkedin_gradient: linear-gradient(
     180deg,
     rgba(214, 214, 214, 1) 0%,
@@ -89,10 +89,10 @@
     rgba(255, 255, 255, 1) 50%,
     rgba(214, 214, 214, 1) 100%
   );
-
+--btn_social-hover:#AA3A3A;
   --btn_social: #4e6c50;
   --wrapper_social: #ede4e0;
-  --header_bg: #675d50;
+  --header_bg: #241e1e;
   --bg-footer: #091214c9;
   /* adobe containers */
   --splashScreen_width: 750px;
@@ -106,11 +106,11 @@
   --social_Box_height: 750px;
 
   /*cards color */
-  --card_text: #000;
-  --card_title: #000;
+  --card_text: #525151;
+  --card_title: #323232;
   --card_title_font: "SF-Black";
   --card_ocupation_font: "SFUIText";
-  --card_button: #4e6c50;
+  --card_button: #95A792;
   --card_container: #ebebe4;
   --user_border: #5e5e5ee8;
 
@@ -152,7 +152,7 @@
   --Rcrimson-color: crimson; */
   /*End  Colors*/
 
-  --bg_image: url(./assets/png/_bg/macos3.jpg);
+  --bg_image: url(./assets/png/_bg/macos2.jpg);
 }
 
 body {
@@ -294,6 +294,7 @@ iframe {
 .btn_social_large {
   padding: 5px 0px;
   width: 120px;
+  text-shadow: 0px 2px 1px black;
   /* height: 27px; */
   border-radius: 5px;
   outline: none;
@@ -303,6 +304,12 @@ iframe {
   font-weight: 400;
   color: white;
   background: var(--btn_social);
+  box-shadow: 1px 4px 4px 1px lightgrey;
+}
+.btn_social_large:hover {
+  border: none;
+  outline: none;
+  background: var(--btn_social-hover);
 }
 .btn-admin {
   cursor: pointer;
@@ -321,7 +328,7 @@ iframe {
 
 .btn-cards-mini {
   background: var(--card_button);
-  color: black;
+  color: white;
   padding: 0.6em 1em;
   border: none;
   outline: none;
@@ -349,7 +356,7 @@ iframe {
   width: 100%;
   gap: 10px;
   position: relative;
-  background-color: white;
+  background-color: var(--github_gradient);
   overflow: hidden;
   /* background: grey; */
   width: 100%;
@@ -368,6 +375,8 @@ iframe {
 }
 ._child_title {
   font-size: 3.6em;
+  text-shadow: 2px 2px #32323257;
+  color: #141E27;
   font-family: product-sans;
   font-weight: 700;
   /* transform: translateX(210px); */
@@ -386,20 +395,21 @@ iframe {
   } */
 
 ._child_icon {
-  background-color: #ed7e14;
+  background-color: #ffa31a;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "SF-Heavy";
   font-size: 2.6em;
-  color: black;
+  color: #141E27;
   margin-top: 0.2em;
   margin-left: 0.1em;
   font-weight: 800;
   width: 50px;
   height: 50px;
   z-index: 10;
+  text-transform: uppercase;
 }
 
 ._parrent_subtitle {
@@ -410,15 +420,7 @@ iframe {
   font-size: 0.9em;
 }
 
-._social_motto {
-  font-size: 13px;
-  text-transform: inherit;
-  font-weight: 300;
-  position: relative;
-  bottom: -150px;
-  text-align: center;
-  color: #959595;
-}
+
 
 /* ._parent_social {
   animation: bg-animation 1s ease-in-out forwards;
@@ -509,7 +511,6 @@ iframe {
 .animation_parent {
   animation: parent_move 1s 2.5s ease forwards;
   transform: translateY(35px);
-  overflow: inherit;
   position: relative;
 }
 @keyframes parent_move {
@@ -525,6 +526,7 @@ iframe {
 ._parent_subtitle {
   opacity: 0;
   animation: fade_title 1.5s 2.8s ease forwards;
+  cursor: pointer;
 }
 
 /* page in front */
@@ -664,9 +666,27 @@ iframe {
     opacity: 1;
   }
 } */
-._social_moto span {
-  font-style: italic;
+
+._social_motto {
+  font-style: oblique;
   font-weight: 400;
+  font-family: 'product-sans';
+  font-size: 13px;
+  position: relative;
+  bottom: -150px;
+  text-align: center;
+  color: #959595;
+}
+._insert_motto_name {
+  font-size: 12px;
+  /* text-transform: inherit; */
+  font-style: oblique;
+  font-weight: 200;
+  position: relative;
+  bottom: -144px;
+  text-align: center;
+  color: #959595;
+  font-family: 'product-sans';
 }
 .social_off {
   display: none !important;
@@ -733,15 +753,15 @@ FONT SIZE  */
 /*color_style*/
 
 .container-topheader::after {
-  opacity: 0.6 !important;
+  opacity: 0.8 !important;
   background: var(--bg-low_dark_header);
   box-shadow: 0px 0px 8px #000000 !important;
 }
 
 .section4_botIcons::after {
   opacity: 0.6 !important;
-  background: var(--bg-low_dark_icons);
-  box-shadow: 0px 0px 6px var(--shadow-low_grey);
+  background: var(--bg-container_icons);
+  /* box-shadow: 0px 0px 6px var(--shadow-low_grey); */
 }
 
 #footer-container {
@@ -775,6 +795,8 @@ FONT SIZE  */
   z-index: 0;
   border-radius: 7px;
   overflow: hidden;
+  border: 2.1px solid #0379a7;
+  border-radius: 5px;
   /* padding: 5px; */
 }
 /* .modal_boxes::after {
@@ -805,8 +827,8 @@ FONT SIZE  */
 /*top header boxes*/
 
 .circle {
-  width: 9px;
-  height: 9px;
+  width: 9px !important;
+  height: 9px !important;
   border-radius: 50px;
   margin-left: 5px;
 }

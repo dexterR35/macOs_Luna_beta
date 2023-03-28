@@ -14,7 +14,7 @@
 .container-topheader::after {
   content: "";
   position: absolute;
-  opacity: 0.2;
+  opacity: 0.8;
   top: 0;
   left: 0;
   width: 100%;

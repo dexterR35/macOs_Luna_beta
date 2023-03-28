@@ -312,24 +312,16 @@ $(document).ready(function () {
   }
 
 
+
   function openSocial() {
-
     const socialBoxes = document.querySelectorAll(".modal_boxes");
-
     socialBoxes.forEach(socialBox => {
-  
-
-
       const _titleSocial = socialBox.querySelector("._insert_title");
       const _subtitleSocial = socialBox.querySelector("._insert_subtitle");
       const _linkSocial = socialBox.querySelector("._insert_link");
       const _mottoSocial = socialBox.querySelector("._insert_motto");
       const _mottoSocial_name = socialBox.querySelector("._insert_motto_name");
-
       const id_social = socialBox.getAttribute("id");
-
-  
-
       if (id_social === "modal_github") {
         _titleSocial.textContent = 'Github';
         _subtitleSocial.textContent = 'Marian Iordache';
@@ -339,8 +331,14 @@ $(document).ready(function () {
       } else if (id_social === "modal_network") {
         _titleSocial.textContent = 'Networ';
         _subtitleSocial.textContent = 'Connecting People - Like Nokia';
-        _mottoSocial.textContent = '“ 90% of success is going through stress, pain, torment, and bulls**t. ”'
-        _mottoSocial_name.textContent = "Andrew Tate"
+        _mottoSocial.textContent = '“ 90% of success is going through stress, pain, and bulls**t. ”'
+        _mottoSocial_name.textContent = '"Andrew Tate"'
+      } else if (id_social === "modal_linkedin") {
+        _titleSocial.textContent = 'Linked';
+        _subtitleSocial.textContent = 'Marian Iordache';
+        _mottoSocial.textContent = '“ To succeed in life, you need two things: Ignorance and Confidence. ”'
+        _mottoSocial_name.textContent = '"Mark Twain"'
+        _linkSocial.setAttribute('href', 'https://github.com/your_username');
       }
     })
   }

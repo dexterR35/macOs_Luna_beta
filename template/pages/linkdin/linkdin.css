@@ -1,42 +1,9 @@
-
-/* .container-linkdin {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--bg-color_overlay);
-  background-image: var(--linkedin_gradient);
-  animation: bg-animation 2s ease-in-out forwards;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
-} */
-/* @keyframes bg-animation {
-    from {
-      background:var(--bg-color_overlay);
-    
-    }
-    to {
-      background:var(--bg-color_overlay);
-      background-image: radial-gradient(circle, #1333a6, #002f88, #002869, #00204a, #03162c);
-    }
-  } */
-
 .linkDin-icon-page {
   width: 58px !important;
   height: 58px !important;
 }
 
-.linkDin-icon-page {
-  animation-name: fade-linkdin-move;
-  animation-duration: 1s;
-  animation-delay: 2.5s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
-  animation-direction: normal;
-  transform: translateY(40px) translateX(96px);
-  position: relative;
-}
+
 
 @keyframes fade-linkdin-move {
   0% {
@@ -47,9 +14,8 @@
   }
 }
 
-
-.linkDin-icon-page::after,._me_icon_page::after {
-
+.linkDin-icon-page::after,
+._me_icon_page::after {
   position: absolute;
   top: -8px;
   font-size: 60px;
@@ -57,104 +23,7 @@
   left: -177px;
   font-family: product-sans;
 }
-.linkDin-icon-page::after{
-  content: "Linked";
-}
 
-/*   
-  .loading-linkedin {
-    position: relative;
-    top: -27px;
-    text-align: center;
-    font-size: 0.95em;
-    left: 0px;
-    animation-name: fade-linkdin-loading;
-    animation-duration: 0.6s;
-    animation-delay: 1.5s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
-  }
-  @keyframes fade-linkdin-loading {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  } */
-.text-linkdin {
-  animation-name: fade-linkdin;
-  animation-duration: 1.5s;
-  animation-delay: 2.8s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
-  animation-direction: normal;
-  opacity: 0;
-  font-size: 16px;
-  font-family: SF-Regular;
-}
-/* .button-linkdin {
-    animation-name: fade-linkdin;
-    animation-duration: 1.5s;
-    animation-delay: 2.8s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
-    opacity: 0;
-    padding: 5px 0px;
-    width: 120px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    text-transform: uppercase;
-    font-size: 1em;
-    font-weight: 400;
-  }
-  .button-linkdin:hover {
-    background: rgba(34, 129, 207, 0.993);
-    color: white;
-    cursor: pointer;
-  }
-
-
-  @keyframes fade-linkdin {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  } */
-
-/* .moto-linkdin {
-    font-size: 13px;
-    text-transform: inherit;
-    font-weight: 300;
-    position: relative;
-    bottom: -150px;
-    text-align: center;
-    animation-name: moto-linkdin;
-    animation-duration: 0.5s;
-    animation-delay: 3s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
-    opacity: 0;
-    color: #959595;
-  } */
-/* @keyframes moto-linkdin {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  } */
-/* .moto-linkdin span {
-    font-style: italic;
-    font-weight: 400;
-  } */
 .link-none {
   display: none;
 }
@@ -166,4 +35,9 @@
   justify-content: start;
   border-top-left-radius: 0;
   background: var(--second-finder-color);
+}
+.container-linkdin .linkDin-icon {
+  position: relative;
+  left: 1px;
+  top: -3px;
 }
