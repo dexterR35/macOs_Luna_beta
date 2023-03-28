@@ -37,6 +37,8 @@
   border: 2px solid var(--user_border);
   position: relative;
   border-right: none;
+  position: relative;
+  left: -6px;
 }
 .user_avatar::after {
   content: "";
@@ -49,10 +51,11 @@
   align-items: center;
   color: var(--card_button);
   border: 2px solid var(--user_border);
-  width: 163px;
+  width: 173px;
   z-index: 0;
   height: 35px;
   background: var(--card_button);
+  border-top: 1px solid;
 }
 .user_avatar::before {
   content: "My Name Is";
@@ -61,7 +64,7 @@
   position: absolute;
   top: 31px;
   width: 100%;
-  left: 62px;
+  left: 63px;
   font-size: 11px;
   z-index: 1;
   color: white;
@@ -163,7 +166,7 @@
   color: black;
 }
 .user_avatar {
-  height: 80px;
+  height: 83px;
   width: fit-content;
   text-align: center;
   display: flex;
