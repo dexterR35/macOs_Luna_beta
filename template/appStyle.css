@@ -51,9 +51,9 @@
   --same_color_boxes: #b5b5b5; */
   /* 
   --color_border_r: #606060; */
-  --bg-modal_after: #091214c9;
-  --bg-color_overlay: #05060e9e;
-  --bg-color_parent: #385278c4;
+  --bg-footer: #091214c9;
+  /* --bg-color_overlay: #05060e9e; */
+  --bg-color_parent: #675d50;
   --bg-color_child: #162531;
   --bg-border_parent: #162531;
   --bg-border_low: #244056;
@@ -73,20 +73,15 @@
 
   --shadow-low_grey: #c9c9c9;
 
-  --material_symbol_box_display: #0e3377;
+  /* #913535; */
+  --material_symbol_box_display: #4E6C50;
 
   --containers_MaxWidth: 50%;
   --containers_MinWidth: 1000px;
   --containers_width: calc(60em - 10px);
   --containers_height: 50em;
 
-  --github_gradient: linear-gradient(
-    180deg,
-    rgba(214, 214, 214, 1) 0%,
-    rgba(235, 235, 235, 1) 25%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(214, 214, 214, 1) 100%
-  );
+  --github_gradient: #ede4e0;
   --linkedin_gradient: linear-gradient(
     180deg,
     rgba(214, 214, 214, 1) 0%,
@@ -95,6 +90,10 @@
     rgba(214, 214, 214, 1) 100%
   );
 
+  --btn_social: #4e6c50;
+  --wrapper_social: #ede4e0;
+  --header_bg: #675d50;
+  --bg-footer: #091214c9;
   /* adobe containers */
   --splashScreen_width: 750px;
   --splashScreen_height: 550px;
@@ -193,7 +192,6 @@ h6 {
 
 a {
   text-decoration: none !important;
-  color: var(--text-low-finder-color);
 }
 .__nav_list > div,
 .terminal-text,
@@ -305,6 +303,10 @@ iframe {
   color: white;
   text-transform: uppercase;
 }
+.btn-social {
+  color: white;
+  background: var(--btn_social);
+}
 .btn-disabled {
   background: var(--hover-text);
 }
@@ -407,6 +409,25 @@ iframe {
       opacity: 0;
     }
   } */
+.insert_header_box {
+  background: var(--header_bg);
+}
+.color_overlay {
+  background: var(--github_gradient);
+  border-radius: 5px;
+}
+._wrapper_social {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  animation: bg-animation 2s ease-in-out forwards;
+  position: relative;
+  background: var(--github_gradient);
+}
+
 ._user_text {
   animation-name: fade-github;
   animation-duration: 1.5s;
@@ -461,9 +482,11 @@ iframe {
   text-transform: uppercase;
   font-size: 1em;
   font-weight: 400;
+  background: var(--btn_social);
+  color: white;
 }
 ._user_boxModals_button:hover {
-  background: rgba(34, 129, 207, 0.993);
+  background: #aa5656;
   color: var(--text-azure);
   cursor: pointer;
 }
@@ -613,20 +636,17 @@ FONT SIZE  */
   overflow: hidden;
   /* padding: 5px; */
 }
-.modal_boxes::after {
+/* .modal_boxes::after {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   z-index: -1;
-  background: var(--bg-modal_after);
+  background: var(--bg-footer);
   opacity: 0.9;
-}
-.color_overlay {
-  background: var(--bg-color_overlay);
-  border-radius: 5px;
-}
+} */
+
 .bottom_signature {
   text-align: center;
   position: relative;
@@ -771,14 +791,6 @@ FONT SIZE  */
   top: 6%;
   left: 10%;
 }
-.container-github,
-.container-linkdin {
-  /* border: 1px solid #909090; */
-  border-top: none !important;
-  background: var(--bg-color_overlay);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
 
 ._changeBG_icon_desktop {
   width: 60px;
@@ -805,8 +817,4 @@ FONT SIZE  */
   color: azure;
   text-align: center;
   text-transform: capitalize;
-}
-
-/* FINDER CONTACT FORM */
-.contact_push_right {
 }

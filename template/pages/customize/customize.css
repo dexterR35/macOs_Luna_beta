@@ -9,8 +9,8 @@
   justify-content: center;
   font-family: SF-Thin;
   overflow: hidden;
-  color: var(--text-azure);
-  border: 2px solid var(--bg-border_parent);
+  color: black;
+  font-size: 1.05em;
 }
 
 ._custom_left {
@@ -80,11 +80,10 @@
 
 ._r_top_small_inside {
   justify-content: space-between;
-  border: 1px solid var(--bg-border_parent);
   padding: 10px;
   border-radius: 4px;
   font-size: 0.8em;
-  background-color: var(--color_smooth_white);
+
 }
 
 ._d_block {
@@ -200,6 +199,9 @@ cursor: pointer;
   border-radius: 5px;
   padding: 3px;
   color: var(--text-azure);
+}
+._l_list a {
+  color: black;
 }
 ._l_picture{
   padding: 5px;

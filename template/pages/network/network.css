@@ -13,9 +13,9 @@
 .container_get::-webkit-scrollbar {
   display: none;
 }
-#modal_network {
+/* #modal_network {
   display: block !important;
-}
+} */
 .wrapper_users {
   /* background-color: #6e6e6e; */
   width: 100%;

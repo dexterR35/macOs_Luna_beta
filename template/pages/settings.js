@@ -151,7 +151,7 @@ export function clickDivs() {
         const modal = document.getElementById(modalId);
         console.log(modal, "modal")
         if (modal.style.display !== "block") {
-          $('.container-network').css("display","flex");
+          // $('.container-network').css("display", "flex");
           modal.style.display = "block";
         }
       });
@@ -175,12 +175,15 @@ export function clickDivs() {
 //  drag all windows with class drag-only
 
 export function dragWindows() {
+
   const draggableElements = document.querySelectorAll(".drag-only");
-  console.log(draggableElements, "dragElements")
+
+  // console.log(draggableElements, "dragElements")
   draggableElements.forEach((draggableElement) => {
     const header = draggableElement.querySelector(".drag-header");
     header.addEventListener("mousedown", dragMouseDown);
 
+    
     let pos1 = 0,
       pos2 = 0,
       pos3 = 0,
@@ -188,10 +191,20 @@ export function dragWindows() {
 
     function dragMouseDown(e) {
       e.preventDefault();
+      const clickedElement = e.target.closest(".drag-only");
+      draggableElements.forEach((draggableElement) => {
+        if (draggableElement === clickedElement) {
+          draggableElement.style.zIndex = 100;
+        } else {
+          draggableElement.style.zIndex = 99;
+        }
+      });
       pos3 = e.clientX;
       pos4 = e.clientY;
       document.addEventListener("mouseup", closeDragElement);
       document.addEventListener("mousemove", elementDrag);
+      // Call the bringToFront function on mousedown
+
     }
 
     function elementDrag(e) {
@@ -216,6 +229,7 @@ export function dragWindows() {
       document.removeEventListener("mousemove", elementDrag);
     }
   });
+
 }
 
 let typeWritting = document.getElementById("box_terminal");

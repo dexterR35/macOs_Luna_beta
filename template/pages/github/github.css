@@ -9,16 +9,7 @@ width: var(--social_Box_width);
 height: var(--social_Box_height);
     z-index: 2000;
   } */
-._wrapper_social {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-  /* color: var(--text-azure); */
-  background-image: var(--github_gradient);
-}
+
 .github-icon-page {
   width: 58px !important;
   height: 58px !important;
