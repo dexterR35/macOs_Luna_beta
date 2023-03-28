@@ -74,7 +74,7 @@
   --shadow-low_grey: #c9c9c9;
 
   /* #913535; */
-  --material_symbol_box_display: #4E6C50;
+  --material_symbol_box_display: #4e6c50;
 
   --containers_MaxWidth: 50%;
   --containers_MinWidth: 1000px;
@@ -290,8 +290,19 @@ iframe {
 /* ------------buttons--------------------- */
 
 /* ------------buttons social--------------------- */
-.button-social {
-  border: 1px solid #7788994a !important;
+
+.btn_social_large {
+  padding: 5px 0px;
+  width: 120px;
+  /* height: 27px; */
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 400;
+  color: white;
+  background: var(--btn_social);
 }
 .btn-admin {
   cursor: pointer;
@@ -303,10 +314,7 @@ iframe {
   color: white;
   text-transform: uppercase;
 }
-.btn-social {
-  color: white;
-  background: var(--btn_social);
-}
+
 .btn-disabled {
   background: var(--hover-text);
 }
@@ -332,17 +340,138 @@ iframe {
   width: var(--social_Box_width);
   height: var(--social_Box_height);
 }
+._wrapper_social {
+  width: 100%;
+  height: 100%;
+}
+._parent_social {
+  height: 100%;
+  width: 100%;
+  gap: 10px;
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  /* background: grey; */
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+._parent_subtitle {
+  font-family: "SF-Thin";
+  font-style: oblique;
+  letter-spacing: 0.6px;
+  margin-top: -0.9em;
+  font-size: 0.9em;
+}
+._child_title {
+  font-size: 3.6em;
+  font-family: product-sans;
+  font-weight: 700;
+  /* transform: translateX(210px); */
+  /* animation: title_left 1s 0.2s forwards ease; */
+  opacity: 1;
+}
 
+/* @keyframes title_left {
+    0% {
+      transform: translateX(210px);
+    }
+    100% {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  } */
+
+._child_icon {
+  background-color: #ed7e14;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "SF-Heavy";
+  font-size: 2.6em;
+  color: black;
+  margin-top: 0.2em;
+  margin-left: 0.1em;
+  font-weight: 800;
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+}
+
+._parrent_subtitle {
+  font-family: "SF-Thin";
+  font-style: oblique;
+  letter-spacing: 0.6px;
+  margin-top: -0.6em;
+  font-size: 0.9em;
+}
+
+._social_motto {
+  font-size: 13px;
+  text-transform: inherit;
+  font-weight: 300;
+  position: relative;
+  bottom: -150px;
+  text-align: center;
+  color: #959595;
+}
+
+/* ._parent_social {
+  animation: bg-animation 1s ease-in-out forwards;
+} */
+
+._parrent_subtitle {
+  animation: fade_title 1.5s 2.8s ease forwards;
+  opacity: 0;
+  background-color: red !important;
+}
+@keyframes fade_title {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    /* background-color: red; */
+  }
+}
+
+._social_loading_bar_parent {
+  animation: opacity-linkbar2 0.2s 2.4s ease-in-out forwards;
+  opacity: 1;
+  transform: translateY(-20px);
+}
+@keyframes opacity-linkbar2 {
+  0% {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 0;
+    /* transform: translateY(0px); */
+  }
+}
 ._social_loading_bar {
+  background: #bcbdbe;
+  animation: opacity-linkbar 0.5s linear forwards;
+  transform: translateX(0px);
+  opacity: 0;
   width: 235px;
-  transform: translateX(6px);
   height: 7px;
-  background: #dbdbdb;
   position: relative;
   overflow: hidden;
-  opacity: 0;
-  animation: opacity-linkbar 0.5s linear forwards;
   border-radius: 10px;
+}
+@keyframes opacity-linkbar {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 ._social_loading_bar::after {
   content: "";
@@ -355,12 +484,6 @@ iframe {
   animation: loading-linkbar 2s 1s linear forwards;
   border-radius: 10px;
 }
-._social_container_loading_bar {
-  animation: opacity-linkbar2 0.2s 2.4s ease-in-out forwards;
-  opacity: 1;
-  transform: translateY(-20px);
-}
-
 @keyframes loading-linkbar {
   0% {
     width: 0px;
@@ -369,21 +492,39 @@ iframe {
     width: 350px;
   }
 }
-@keyframes opacity-linkbar {
+
+/* ._social_motto {
+  animation: motto-social 0.5s 2.5s ease forwards;
+  opacity: 0;
+}
+@keyframes motto-social {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+   */
+.animation_parent {
+  animation: parent_move 1s 2.5s ease forwards;
+  transform: translateY(35px);
+  overflow: inherit;
+  position: relative;
+}
+@keyframes parent_move {
   0% {
-    opacity: 0;
+    transform: translateY(35px);
   }
   100% {
-    opacity: 1;
+    transform: translateY(0px);
   }
 }
-@keyframes opacity-linkbar2 {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+
+.btn-social-animation,
+._parent_subtitle {
+  opacity: 0;
+  animation: fade_title 1.5s 2.8s ease forwards;
 }
 
 /* page in front */
@@ -416,7 +557,7 @@ iframe {
   background: var(--github_gradient);
   border-radius: 5px;
 }
-._wrapper_social {
+/* ._wrapper_social {
   height: 100%;
   display: flex;
   justify-content: center;
@@ -426,9 +567,9 @@ iframe {
   animation: bg-animation 2s ease-in-out forwards;
   position: relative;
   background: var(--github_gradient);
-}
+} */
 
-._user_text {
+/* ._user_text {
   animation-name: fade-github;
   animation-duration: 1.5s;
   animation-delay: 2.8s;
@@ -441,11 +582,11 @@ iframe {
   letter-spacing: 0.6px;
   margin-top: -0.6em;
   font-size: 0.9em;
-}
+} */
 ._title_section {
   gap: 2px;
 }
-._me_icon_page {
+/* ._me_icon_page {
   background-color: #ed7e14;
   border-radius: 10px;
   display: flex;
@@ -459,13 +600,13 @@ iframe {
   font-weight: 800;
   width: 50px;
   height: 50px;
-}
-._icon_text-second {
+} */
+/* ._icon_text-second {
   font-size: 3.6em;
   font-family: product-sans;
   font-weight: 700;
-}
-._user_boxModals_button {
+} */
+/* ._user_boxModals_button {
   animation-name: fade-github;
   animation-duration: 1.5s;
   animation-delay: 2.8s;
@@ -475,7 +616,7 @@ iframe {
   opacity: 0;
   padding: 5px 0px;
   width: 120px;
-  /* height: 27px; */
+
   border-radius: 5px;
   outline: none;
   border: none;
@@ -484,13 +625,13 @@ iframe {
   font-weight: 400;
   background: var(--btn_social);
   color: white;
-}
-._user_boxModals_button:hover {
+} */
+/* ._user_boxModals_button:hover {
   background: #aa5656;
   color: var(--text-azure);
   cursor: pointer;
-}
-
+} */
+/* 
 @keyframes fade-github {
   0% {
     opacity: 0;
@@ -522,7 +663,7 @@ iframe {
   100% {
     opacity: 1;
   }
-}
+} */
 ._social_moto span {
   font-style: italic;
   font-weight: 400;

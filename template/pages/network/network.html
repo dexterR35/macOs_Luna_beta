@@ -2,25 +2,31 @@
   <div class="network_wrapper dimension_boxes ">
     <div class="insert_header_box network_title"></div>
     <div class="container-network _wrapper_social">
-      <div class="_title_section d-flex d-flex-row-reverse d-flex-center">
-      <div class="_me_icon_page">K</div>
-        <div class="_icon_text-second">Networ</div>
-      </div>
-      <div class="_user_text">Connecting People - "Like Nokia"</div>
-      <a
-        class="a-network"
-        href="#"
-      
-      >
-        <button class="btn_social btn_simple _user_boxModals_button" id="get_data_btn">connect</button></a
-      >
-      <div class="_social_container_loading_bar">
-        <div class="_social_loading_bar loading-animation"></div>
-      </div>
-      <div class="_social_moto">
-        “ 90% of success is going through stress, pain, torment, and bulls**t. ”
-        <br />
-        <span>Andrew Tate</span>
+      <div class="_parent_social">
+        <div
+          class="_parent_title animation_parent d-flex-center d-flex-row-reverse"
+        >
+          <div class="_child_icon d-flex-center _insert_icon">
+       k
+          </div>
+          <div class="_child_title _insert_title">Github</div>
+        </div>
+        <div class="_parent_subtitle text_animation _insert_subtitle">
+        
+        </div>
+        <a href="#" class="a_social _insert_link">
+          <button class="btn-social btn_social_large btn-social-animation">
+            connect
+          </button>
+          <button class="btn_social btn_simple " id="get_data_btn">connect</button>
+        </a>
+        <div class="_social_loading_bar_parent">
+          <div class="_social_loading_bar loading-animation"></div>
+        </div>
+        <div class="_social_motto _insert_motto">
+          <br />
+          <span class="_insert_motto_name"></span>
+        </div>
       </div>
     </div>
     <div class="wrapper_users">
@@ -45,11 +51,28 @@
 </div>
 
 <script>
+$('#get_data_btn').on('click', function() {
+  var networkContainer = $('.container-network');
+  networkContainer.hide();
+  // if ($(this).hasClass('isClicked')) {
+  //   networkContainer.hide();
+  // } else {
+  //   networkContainer.show();
+  // }
 
-const buttonS = document.querySelector('._user_boxModals_button');
-  $(buttonS).on('click', function() {
-  // Select the wrapper_users element
- $('.container-network').css("display","none");
+  $(this).toggleClass('isClicked');
 });
+// const buttonS = document.querySelector('._user_boxModals_button');
+// const networkContainer = document.querySelector('._parent_social');
+//   $(buttonS).on('click', function() {
+//     if(button.isClicked){
+//       networkContainer.style.display = 'none';
+//     } else {
+//     networkContainer.style.display = 'flex';
+//   }
+//   button.isClicked = !button.isClicked;
+//   // Select the wrapper_users element
+
+// });
 
 </script>

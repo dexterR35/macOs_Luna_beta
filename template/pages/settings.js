@@ -171,7 +171,10 @@ export function clickDivs() {
 
 
 }
-
+$(".close_box").on("click", function () {
+  $(this).closest(".drag-only").css("display", "none");
+  // $(this).css("display", "none");
+});
 //  drag all windows with class drag-only
 
 export function dragWindows() {
@@ -183,7 +186,7 @@ export function dragWindows() {
     const header = draggableElement.querySelector(".drag-header");
     header.addEventListener("mousedown", dragMouseDown);
 
-    
+
     let pos1 = 0,
       pos2 = 0,
       pos3 = 0,
@@ -242,7 +245,8 @@ console.log("test");
 $("._modal_adobe").hide();
 
 $(document).ready(function () {
-  let adobe_pius = document.querySelector(".section4_middle_grid");
+  let adobe_insert = document.querySelector(".section4_middle_grid");
+
   $(".adobe-icons").one("click", function (values) {
     let splash_adobe = document.querySelector(".splash_adobe");
     console.log(splash_adobe, "spal");
@@ -283,7 +287,7 @@ $(document).ready(function () {
     modalClone.find("._title_adobe").text(textPath); // update text
     modalClone.find("._text_inside").text(textInside); // update text
     // $(this).prop("disabled", true);
-    modalClone.appendTo(adobe_pius).show()
+    modalClone.appendTo(adobe_insert).show()
     setTimeout(function () {
       $("._modal_adobe").hide();
       openAdobe(values.currentTarget);
@@ -304,11 +308,42 @@ $(document).ready(function () {
       }
       console.log("inside")
     }, 500);
-    $(".close_box").on("click", function () {
-      // $(this).closest(".drag-only").css("display", "none");
-      $(this).css("display", "none");
-    });
+
   }
 
+
+  function openSocial() {
+
+    const socialBoxes = document.querySelectorAll(".modal_boxes");
+
+    socialBoxes.forEach(socialBox => {
+  
+
+
+      const _titleSocial = socialBox.querySelector("._insert_title");
+      const _subtitleSocial = socialBox.querySelector("._insert_subtitle");
+      const _linkSocial = socialBox.querySelector("._insert_link");
+      const _mottoSocial = socialBox.querySelector("._insert_motto");
+      const _mottoSocial_name = socialBox.querySelector("._insert_motto_name");
+
+      const id_social = socialBox.getAttribute("id");
+
+  
+
+      if (id_social === "modal_github") {
+        _titleSocial.textContent = 'Github';
+        _subtitleSocial.textContent = 'Marian Iordache';
+        _linkSocial.setAttribute('href', 'https://github.com/your_username');
+        _mottoSocial.textContent = '“ The beginning of knowledge is the discovery of something we do not understand. ”'
+        _mottoSocial_name.textContent = "Frank Herbert"
+      } else if (id_social === "modal_network") {
+        _titleSocial.textContent = 'Networ';
+        _subtitleSocial.textContent = 'Connecting People - Like Nokia';
+        _mottoSocial.textContent = '“ 90% of success is going through stress, pain, torment, and bulls**t. ”'
+        _mottoSocial_name.textContent = "Andrew Tate"
+      }
+    })
+  }
+  openSocial();
   console.log("page is fully loaded");
 })
