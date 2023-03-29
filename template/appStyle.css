@@ -78,7 +78,7 @@
 
   --containers_MaxWidth: 50%;
   --containers_MinWidth: 1000px;
-  --containers_width: calc(60em - 10px);
+  --containers_width: calc(70em - 10px);
   --containers_height: 50em;
 
   --github_gradient: #ECE8DD;

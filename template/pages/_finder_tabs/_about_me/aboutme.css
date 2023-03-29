@@ -1,31 +1,95 @@
 .hover_info {
-    position: relative;
-    padding:1em;
-    border:1px solid black;
-    height:50px;
-    width: 80%;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    overflow: hidden;
-  }
-  
-  .hidden_info {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 40%;
-    background-color: #fff;
-    cursor:pointer;
-    color: black;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
-    opacity: 0;
-    transition: opacity .3s ease-in-out, transform .3s ease-in-out; /* added transform transition */
-  }
-  
-  .hover_info:hover > .hidden_info {
-    opacity: 1;
-    transform: translateX(100px); /* added transform property */
-  }
-  
+  position: relative;
+  padding: 1em;
+  border: 1px solid black;
+  height: 50px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.hidden_info {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 40%;
+  background-color: #fff;
+  cursor: pointer;
+  color: black;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* added transform transition */
+}
+
+.hover_info:hover > .hidden_info {
+  opacity: 1;
+  transform: translateX(100px); /* added transform property */
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wrapper_myself {
+}
+.container_myself {
+  width: 600px;
+  min-height: 500px;
+  border: 1px solid black;
+  background-color: aquamarine;
+  border-radius: 5px;
+  display: flex;
+  padding: 1em;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.first_row {
+  height: 140px;
+  border: 1px solid black;
+}
+.second_row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.5em;
+  margin: auto;
+  border: 1px solid black;
+}
+.third_row {
+  width: 100%;
+  padding: 0.5em 0;
+}
+.box_skills {
+  width: fit-content;
+  padding: 0em 1em;
+  height: 20px;
+  border: 1px solid black;
+  text-transform: capitalize;
+  margin-right: 5px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+._myself_input {
+  border: 1px solid rgb(3, 176, 182);
+  /* max-width: 90px; */
+  height: 40px;
+  width: 100%;
+}
+.myself_hidden {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap:5px;
+}
