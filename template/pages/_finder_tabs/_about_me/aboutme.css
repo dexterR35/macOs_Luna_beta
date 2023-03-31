@@ -1,88 +1,77 @@
-.hover_info {
-  position: relative;
-  padding: 1em;
-  border: 1px solid black;
-  height: 50px;
-  width: 80%;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.hidden_info {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 40%;
-  background-color: #fff;
-  cursor: pointer;
-  color: black;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* added transform transition */
-}
-
-.hover_info:hover > .hidden_info {
-  opacity: 1;
-  transform: translateX(100px); /* added transform property */
-}
-
 body {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  font-family: "SF-Regular";
 }
 
-.wrapper_myself {
-}
 .container_myself {
   width: 600px;
   min-height: 500px;
   border: 1px solid black;
-  background-color: aquamarine;
+  background: var(--card_container);
   border-radius: 5px;
   display: flex;
   padding: 1em;
+  gap:5px;
   justify-content: center;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .first_row {
   height: 140px;
-  border: 1px solid black;
+  border-top: 1px solid rgb(172, 171, 171);
+  gap: 20px;
+  justify-content: space-between !important;
+  padding: 0 14px;
+  color: #ffffff;
+  background: var(--skills_firstRow);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  /* border: 1px solid black; */
 }
 .second_row {
-  display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   gap: 6px;
   padding: 0.5em;
   margin: auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border-top: 1px solid rgb(172, 171, 171);
+  border-bottom: 1px solid rgb(172, 171, 171);
 }
 .third_row {
   width: 100%;
   padding: 0.5em 0;
+  border-bottom: 1px solid rgb(172, 171, 171);
 }
 .box_skills {
   width: fit-content;
-  padding: 0em 1em;
-  height: 20px;
-  border: 1px solid black;
+  padding: 0.2em 1em;
+  /* height: 20px; */
+  border: 1px solid rgb(192, 192, 192);
   text-transform: capitalize;
   margin-right: 5px;
   text-align: center;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  background: var(--skills_box);
+  color: var(----card_text);
+  font-size: 0.9em;
+}
+.box_skills:hover {
+  background: aqua;
+  transition: background 0.5s ease;
 }
 
 ._myself_input {
-  border: 1px solid rgb(3, 176, 182);
+  /* border: 1px solid var(--user_border); */
+  border-radius: 7px;
   /* max-width: 90px; */
   height: 40px;
   width: 100%;
@@ -91,5 +80,112 @@ body {
   display: flex;
   flex-direction: column;
   margin: auto;
-  gap:5px;
+  gap: 5px;
+  width: 49%;
+  align-items: flex-end;
+  color: var(----card_text);
+}
+.myself_chart {
+  width: 48%;
+  height: 265px;
+  border: 1px solid black;
+  margin: auto;
+  text-align: center;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* avatar myself */
+
+.my_avatar {
+  align-self: center;
+  width: 120px;
+  height: 120px;
+  background: white;
+  border: 1px solid rgb(173, 173, 173);
+  border-radius: 100%;
+  position: relative;
+}
+.my_avatar::after {
+  content: "My name is";
+  position: absolute;
+  top: 35%;
+  left: -40px;
+  width: 215px;
+  height: 30%;
+  padding: 5px;
+  background-color: var(--skills_box);
+  /* border: 1px solid rgb(131, 131, 131); */
+  border: none;
+  color: rgb(34, 34, 34);
+  text-align: end;
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: end;
+}
+.my_avatar img {
+  height: 100%;
+  z-index: 2;
+}
+.my_fullname {
+  width: 300px;
+  /* border: 1px solid red; */
+  padding: 10px;
+  line-height: 1;
+  gap: 3px;
+}
+.my_fullname > div {
+  padding: 0 10px;
+  width: 100%;
+  text-align: end;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  /* line-height: 0.7; */
+}
+
+.my_fullname > div:not(._ocp) {
+  font-family: "SF-Heavy";
+}
+
+.my_fullname ._ln {
+  /* border: 1px solid blue; */
+  font-size: 1.6em;
+}
+
+.my_fullname ._fn {
+  /* border: 1px solid purple; */
+  font-size: 1em;
+}
+
+.my_fullname ._ocp {
+  font-style: italic;
+  font-size: 0.7em;
+}
+
+.my_info_inside {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+  margin: auto 0;
+  cursor: pointer;
+  border: 1px solid var(--user_border);
+  border-radius: 5px;
+}
+.my_info_inside:hover {
+  background: #e4dccf;
+}
+.my_info_inside > span:nth-child(1) {
+  text-transform: capitalize;
+  font-size: 0.85em;
+}
+.my_info_inside > span:nth-child(2) {
+  text-transform: lowercase;
+  font-weight: 700;
+  font-size: 0.9em;
 }

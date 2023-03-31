@@ -114,6 +114,12 @@
   --card_container: #ebebe4;
   --user_border: #5e5e5ee8;
 
+  /*my-self card */
+
+  --skills_box :#AEC2B6;
+  --skills_firstRow:#EB455F;
+
+
   /*finder colors*/
   /*contact colors*/
   /* --aditional-finder-color: #161616;
@@ -725,6 +731,12 @@ iframe {
 }
 .d-flex-row-reverse {
   flex-direction: row-reverse;
+}
+.d-flex-j-start {
+  justify-content: flex-start;
+}
+.d-flex-a-start {
+  align-content: flex-start;
 }
 /* -----------DISPLAY FLEX v2 --------------------- */
 
