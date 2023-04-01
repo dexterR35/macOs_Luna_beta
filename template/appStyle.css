@@ -81,7 +81,7 @@
   --containers_width: calc(70em - 10px);
   --containers_height: 50em;
 
-  --github_gradient: #ECE8DD;
+  --github_gradient: #ece8ddf7;
   --linkedin_gradient: linear-gradient(
     180deg,
     rgba(214, 214, 214, 1) 0%,
@@ -92,7 +92,7 @@
 --btn_social-hover:#AA3A3A;
   --btn_social: #4e6c50;
   --wrapper_social: #ede4e0;
-  --header_bg: #241e1e;
+  --header_bg: #94B49F;
   --bg-footer: #091214c9;
   /* adobe containers */
   --splashScreen_width: 750px;
@@ -803,13 +803,17 @@ FONT SIZE  */
   left: 0;
   width: fit-content;
   height: fit-content;
-  background: var(--bg-color_parent);
+  /* background: var(--bg-color_parent); */
   z-index: 0;
   border-radius: 7px;
   overflow: hidden;
   border: 2.1px solid #0379a7;
   border-radius: 5px;
   /* padding: 5px; */
+  border: 2px solid #d7fbf6;
+}
+.footer_insert_pages{
+  background: var(--github_gradient);
 }
 /* .modal_boxes::after {
   content: "";
@@ -884,7 +888,7 @@ FONT SIZE  */
   /* background-color: #2196f3; */
   color: #fff;
   padding: 6px;
-  color: #8b8b8b85;
+  color: #ffffffa3;
   cursor: move;
   /* padding: 2px; */
   font-size: 0.8em;

@@ -1,10 +1,10 @@
-body {
+/* body {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   font-family: "SF-Regular";
-}
+} */
 
 .container_myself {
   width: 600px;
