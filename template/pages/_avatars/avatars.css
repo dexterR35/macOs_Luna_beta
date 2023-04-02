@@ -1,55 +1,56 @@
 .wrapper_avatars {
-    width: 450px;
-    height: 630px;
-    max-width: 630px;
-    color: white;
-    padding: 2em 1em;
-    /* background-color: red */
+  width: 450px;
+  height: fit-content;
+  max-width: 630px;
+  color: white;
+  padding: 1em 1em;
+  background-color: var(--github_gradient);
 }
 .wrapper_avatars h3 {
-    text-align: center;
+  text-align: center;
 }
 
 /* .avatars_push {
     display:  block !important;
 } */
 .insert_aVtitle {
-    font-size: 1.4em;
-    text-align: start;
-    text-transform: uppercase;
-    padding: 0em 1em;
-    margin-bottom: 8px;
-
+  font-size: 1.4em;
+  text-align: start;
+  text-transform: uppercase;
+  padding: 0em 1em;
+  margin-bottom: 8px;
+  color: #141e27;
 }
 .avatar_selected {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 1em 0;
-    border-top: 1px solid azure;
-    border-bottom: 1px solid azure;
-    margin: 0 auto;
-    width: 400px;
-    position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 1em 0;
+  border-top: 1px solid #979a98;
+  border-bottom: 1px solid #979a98;
+  margin: 0 auto;
+  width: 400px;
+  position: relative;
 }
 
 .avatar_selected img {
-height: 70px;
-width: 70px;
-cursor: pointer;
-border: 2px solid #cccccc;
-border-radius: 100px;
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+
+  border-radius: 100px;
 }
 
 .avatar_selected img.selected {
-    background: var(--card_button);
-  }
-  .avatar_selected img{
-    background: transparent;
-  }
-  /* .avatar_selected::after{
+  background: var(--btn_social-hover);
+  border: 1px solid #141e27;
+}
+.avatar_selected img {
+  background: white;
+}
+/* .avatar_selected::after{
     content: "";
     position: absolute;
     top: 0;

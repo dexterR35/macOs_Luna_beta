@@ -25,6 +25,7 @@
   /* align-items: center; */
   justify-content: start;
   margin: 0 auto;
+  background: var(--github_gradient);
 }
 
 .user_avatar {
@@ -251,10 +252,11 @@
   font-size: 0.7em;
   position: absolute;
   top: 76px;
+  color: var(--title_largeText);
 }
 .network_text {
   text-align: start;
-  color: var(--text-azure);
+  color: var(--title_largeText);
   line-height: 0.94;
 }
 .h2_network {

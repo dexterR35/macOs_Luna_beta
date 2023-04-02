@@ -8,41 +8,72 @@
       </div>
       <br />
       <div class="_input">
-        <label for="firstNamebox">the first name</label>
-        <input type="text" id="firstNamebox" placeholder="Name" maxlength="20" required/>
+        <label for="firstNamebox">the first name:</label>
+        <input
+          type="text"
+          id="firstNamebox"
+          placeholder="Name"
+          maxlength="40"
+          required
+        />
       </div>
       <div class="_input">
-        <label for="lastNamebox">the last name</label>
-        <input type="text" id="lastNamebox" placeholder="lastName" maxlength="20" required />
+        <label for="lastNamebox">the last name:</label>
+        <input
+          type="text"
+          id="lastNamebox"
+          placeholder="lastName"
+          maxlength="40"
+          required
+        />
       </div>
       <div class="_input">
-        <label for="emailbox">the email</label>
-        <input type="text" id="emailbox" placeholder="email" maxlength="40" required/>
+        <label for="emailbox">the email:</label>
+        <input
+          type="text"
+          id="emailbox"
+          placeholder="email"
+          maxlength="60"
+          required
+        />
       </div>
       <div class="_input">
-        <label for="sectionbox">what are you studying?!</label>
-        <input type="text" id="sectionbox" placeholder="what you are ..?" maxlength="30" required/>
+        <label for="sectionbox">what are you studying?!:</label>
+        <input
+          type="text"
+          id="sectionbox"
+          placeholder="what you are ..?"
+          maxlength="60"
+          required
+        />
       </div>
-      <div class="_input">
-        <label for="portofoliobox">the website</label>
+      <div class="_input _input_website">
+        <input
+          type="checkbox"
+          name="check_web"
+          id="check_web"
+          class="check_web"
+        />
+
+        <label for="portofoliobox">the website:</label>
+
         <input
           type="text"
           id="portofoliobox"
-          placeholder="add link to your, whatever"
-          maxlength="20" required
+          placeholder="put your link here"
+          maxlength="150"
+          required
         />
       </div>
 
-     
-        <div
-          class="container-btn-avatars box_open"
-          data-modal="modal_avatars"
-          id="box_avatars"
-        >
-          <button class="btn-users" style="display:none !important;">add avatars</button>
-        </div>
-   <!-- <div id="avatar-test"></div> -->
-
+      <div
+        class="container-btn-avatars box_open"
+        data-modal="modal_avatars"
+        id="box_avatars"
+      >
+        <!-- <button class="btn-users" style="display:none !important;">add avatars</button> -->
+      </div>
+      <!-- <div id="avatar-test"></div> -->
 
       <div class="_input">
         <label for="">the gender</label>
@@ -51,23 +82,28 @@
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
-     
+
         <!-- <select name="" id="genbox">
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select> -->
       </div>
-      <div class="container-btn">
-        <button id="insbtn" class="btn-admin insbtn close_box_btn">insert</button>
-        <button id="selbtn" class="btn-admin btn-disabled" disabled>
-          select
+      <div class="container-btn d-flex">
+        <button
+          id="insbtn"
+          class="btn_social_large btn-admin insbtn close_box_btn"
+        >
+          insert
         </button>
-        <button id="updBtn" class="btn-admin btn-disabled" disabled>
+        <!-- <button id="selbtn" class="btn-social btn-admin btn-disabled" disabled>
+          select
+        </button> -->
+        <!-- <button id="updBtn" class="btn-social  btn-disabled" disabled>
           update
         </button>
-        <button id="delbtn" class="btn-admin btn-disabled" disabled>
+        <button id="delbtn" class="btn-social btn-disabled" disabled>
           delete
-        </button>
+        </button> -->
         <!-- <button id="submit-button">Submit</button> -->
       </div>
     </div>

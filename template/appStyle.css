@@ -69,7 +69,7 @@
 
   --bg-low_dark: #2b3a55;
   --bg-container_icons: #c1c1c1ad;
-  --bg-low_dark_header: #20262E;
+  /* --bg-low_dark_header: #20262E; */
 
   --shadow-low_grey: #c9c9c9;
 
@@ -82,17 +82,12 @@
   --containers_height: 50em;
 
   --github_gradient: #ece8ddf7;
-  --linkedin_gradient: linear-gradient(
-    180deg,
-    rgba(214, 214, 214, 1) 0%,
-    rgba(235, 235, 235, 1) 25%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(214, 214, 214, 1) 100%
-  );
---btn_social-hover:#AA3A3A;
-  --btn_social: #4e6c50;
+
+  --btn_social-hover: #aa3a3a;
+  --btn_social: #49895c;
+  --btn_admin: #49895c;
   --wrapper_social: #ede4e0;
-  --header_bg: #94B49F;
+  --header_bg: #7e7054;
   --bg-footer: #091214c9;
   /* adobe containers */
   --splashScreen_width: 750px;
@@ -110,15 +105,15 @@
   --card_title: #323232;
   --card_title_font: "SF-Black";
   --card_ocupation_font: "SFUIText";
-  --card_button: #95A792;
+  --card_button: #95a792;
   --card_container: #ebebe4;
   --user_border: #5e5e5ee8;
 
+  --title_largeText: #17231c;
   /*my-self card */
 
-  --skills_box :#AEC2B6;
-  --skills_firstRow:#EB455F;
-
+  --skills_box: #aec2b6;
+  --skills_firstRow: #eb455f;
 
   /*finder colors*/
   /*contact colors*/
@@ -317,7 +312,7 @@ iframe {
   outline: none;
   background: var(--btn_social-hover);
 }
-.btn-admin {
+/* .btn-admin {
   cursor: pointer;
   border-radius: 4px;
   padding: 0.5em 2em;
@@ -326,7 +321,7 @@ iframe {
   background: var(--bg-low_dark);
   color: white;
   text-transform: uppercase;
-}
+} */
 
 .btn-disabled {
   background: var(--hover-text);
@@ -382,7 +377,7 @@ iframe {
 ._child_title {
   font-size: 3.6em;
   text-shadow: 2px 2px #32323257;
-  color: #141E27;
+  color: #141e27;
   font-family: product-sans;
   font-weight: 700;
   /* transform: translateX(210px); */
@@ -408,7 +403,7 @@ iframe {
   justify-content: center;
   font-family: "SF-Heavy";
   font-size: 2.6em;
-  color: #141E27;
+  color: #141e27;
   margin-top: 0.2em;
   margin-left: 0.1em;
   font-weight: 800;
@@ -425,8 +420,6 @@ iframe {
   margin-top: -0.6em;
   font-size: 0.9em;
 }
-
-
 
 /* ._parent_social {
   animation: bg-animation 1s ease-in-out forwards;
@@ -676,7 +669,7 @@ iframe {
 ._social_motto {
   font-style: oblique;
   font-weight: 400;
-  font-family: 'product-sans';
+  font-family: "product-sans";
   font-size: 13px;
   position: relative;
   bottom: -150px;
@@ -692,7 +685,7 @@ iframe {
   bottom: -144px;
   text-align: center;
   color: #959595;
-  font-family: 'product-sans';
+  font-family: "product-sans";
 }
 .social_off {
   display: none !important;
@@ -812,7 +805,7 @@ FONT SIZE  */
   /* padding: 5px; */
   border: 2px solid #d7fbf6;
 }
-.footer_insert_pages{
+.footer_insert_pages {
   background: var(--github_gradient);
 }
 /* .modal_boxes::after {
