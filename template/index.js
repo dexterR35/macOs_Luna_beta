@@ -43,7 +43,7 @@ $("#admin_push").load("./pages/admin/admin.html");
 
 
 $("#avatars_push").load("./pages/_avatars/avatars.html");
-$("#await_push").load("./pages/_boot/_await/await.html");
+// $("#await_push").load("./pages/_boot/_await/await.html");
 console.log("end index");
 
 

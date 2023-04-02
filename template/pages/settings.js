@@ -192,13 +192,19 @@ export function dragWindows() {
     function dragMouseDown(e) {
       e.preventDefault();
       const clickedElement = e.target.closest(".drag-only");
-      draggableElements.forEach((draggableElement) => {
-        if (draggableElement === clickedElement) {
-          draggableElement.style.zIndex = 100;
-        } else {
-          draggableElement.style.zIndex = 99;
-        }
-      });
+      if (clickedElement) {
+        draggableElements.forEach((draggableElement) => {
+          if (draggableElement === clickedElement) {
+            draggableElement.style.zIndex = 100;
+            // draggableElement.style.border = "2px solid #f3670087";
+            $(".modal_boxes", clickedElement).css("border", "2px solid #49895c");
+          } else {
+            draggableElement.style.zIndex = 99;
+            $(".modal_boxes", draggableElement).css("border", "");
+          }
+
+        });
+      }
       pos3 = e.clientX;
       pos4 = e.clientY;
       document.addEventListener("mouseup", closeDragElement);

@@ -81,9 +81,7 @@ const insBtn = document.querySelector(".insbtn");
 const getDataBtn = document.querySelector("#get_data_btn");
 
 // const addButton = document.getElementById('add-data-btn');
-const modal = document.getElementById('modal');
-const message = document.getElementById('modal-message');
-const loadingBar = document.getElementById('loading-bar-progress');
+
 /* query mail */
 async function checkEmailInNetworkCollection(email) {
   const q = query(collection(db, "network"), where("email", "==", email));
@@ -182,28 +180,7 @@ async function AddDocument_AutoID() {
 
 }
 
-async function showLoadingModal(_message) {
-  // Show the popup modal
-  modal.style.display = 'flex';
-  // Set the message
-  // message.innerText = 'Adding to database. please wait...';
-  message.innerText = _message;
-  // Set the initial width of the loading bar
-  loadingBar.style.width = '0%';
-  // Animate the loading bar
-  setTimeout(function () {
-    loadingBar.style.width = '100%';
-    // Wait for 1 second
-    setTimeout(function () {
-      // Set the success message
-      message.innerText = _message;
-      // Hide the popup modal after 1 second
-      setTimeout(function () {
-        modal.style.display = 'none';
-      }, 1200);
-    }, 1000);
-  }, 400);
-}
+
 
 
 insBtn.addEventListener("click", AddDocument_AutoID);
@@ -353,11 +330,16 @@ async function loadAvatars(gender) {
     avatarTitle.innerHTML = "Female"
     avatarsRef = femaleAvatarsRef;
   }
+
   let selectedImg;
+
   /* display all img with attr */
   if (avatarsRef) {
+
     try {
+
       const avatarsSnapshot = await listAll(avatarsRef);
+
       avatarsSnapshot.items.forEach(async (avatarRef) => {
         const avatarUrl = await getDownloadURL(avatarRef);
         const img_ = document.createElement("img");
@@ -389,10 +371,12 @@ async function loadAvatars(gender) {
 
         avatarGrid.appendChild(img_);
       });
+
     } catch (error) {
       console.log(error);
     }
   }
+
 }
 
 /* When the gender select changes, load the corresponding avatars*/
@@ -401,12 +385,55 @@ genderSelect.addEventListener("change", () => {
   const gender = genderSelect.value;
   console.log(gender, "gender select")
   if (gender) {
+    showLoadingModal('Please wait...', '_modal1');
+    showLoadingModal('Please wait...', '_modal2');
     loadAvatars(gender);
   } else {
     avatarGrid.innerHTML = "";
   }
 });
 
+async function showLoadingModal(_message, _modalId) {
+  console.log(_modalId);
+  // Get the modal element
+  const modal_wait = $('#' + _modalId);
+  console.log(modal_wait);
+  if (!modal_wait) {
+    console.error(`Modal element with ID '${_modalId}' not found.`);
+    return;
+  }
+  // Append the loading div to the modal
+  const loadingDiv = $(
+    '<div class="modal-content">' +
+    '<p class="modal-message"></p>' +
+    '<br/>' +
+    '<div class="loading-bar">' +
+    '<div class="loading-bar-progress"></div>' +
+    '</div>' +
+    '</div>'
+  );
+  modal_wait.append(loadingDiv);
+
+  // Show the popup modal
+  modal_wait.css('display', 'flex');
+
+  const message_wait = modal_wait.find('.modal-message');
+  message_wait.text(_message);
+
+  const loadingBar_wait = modal_wait.find('.loading-bar-progress');
+  loadingBar_wait.css('width', '0%');
+
+  setTimeout(function () {
+    loadingBar_wait.css('width', '100%');;
+    setTimeout(function () {
+      message_wait.text(_message);
+      setTimeout(function () {
+        modal_wait.css('display', 'none');
+        loadingDiv.remove(); // remove the loading div from the modal
+      }, 600);
+    }, 500);
+  }, 400);
+}
 // GetAllDocuments();
 getDataFromOwnerCollection()
 

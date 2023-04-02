@@ -74,17 +74,17 @@
   --shadow-low_grey: #c9c9c9;
 
   /* #913535; */
-  --material_symbol_box_display: #3a8949;
+  --material_symbol_box_display: #688e7a;
 
   --containers_MaxWidth: 50%;
   --containers_MinWidth: 1000px;
   --containers_width: calc(70em - 10px);
   --containers_height: 50em;
 
-  --github_gradient: #2d2c2bf5;
+  --github_gradient: #353534;
 
   --btn_social-hover: #aa3a3a;
-  --btn_social: #49895c;
+  --btn_social: #688e7a;
   --btn_admin: #49895c;
   --btn_social_text:#f7f7f7f2;
   --wrapper_social: #ede4e0;
