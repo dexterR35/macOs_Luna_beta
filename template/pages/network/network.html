@@ -3,19 +3,17 @@
     <div class="insert_header_box network_title"></div>
     <div class="container-network _wrapper_social">
       <div class="_parent_social">
-        <div
-          class="_parent_title animation_parent d-flex-center d-flex-row-reverse"
-        >
+        <div class="_parent_title animation_parent d-flex-center d-flex-row-reverse">
           <div class="_child_icon d-flex-center _insert_icon">
-       k
+            k
           </div>
-          <div class="_child_title _insert_title">Github</div>
+          <div class="_child_title _insert_title"></div>
         </div>
         <div class="_parent_subtitle text_animation _insert_subtitle">
-        
+
         </div>
         <a href="#" class="a_social _insert_link">
-          <button class="btn-social btn_social_large btn-social-animation"  id="get_data_btn">
+          <button class="btn-social btn_social_large btn-social-animation" id="get_data_btn">
             connect
           </button>
         </a>
@@ -27,10 +25,10 @@
       </div>
     </div>
     <div class="wrapper_users">
-      <button id="insbtn" style="display: none">insert</button>
+      <button id="insbtn" style="display: none">Submit</button>
       <div class="network_header_top d-flex-row-reverse d-flex-between d-flex">
-        <button class="btn-classic btn-admin box_open btn-network" data-modal="modal_admin" id="box_admin">
-          add user
+        <button class="btn_social_large box_open btn-network" data-modal="modal_admin" id="box_admin">
+          Join Network
         </button>
 
         <div class="network_text">
@@ -48,17 +46,17 @@
 </div>
 
 <script>
-$('#get_data_btn').on('click', function() {
-  var networkContainer = $('.container-network');
-  networkContainer.hide();
-  // if ($(this).hasClass('isClicked')) {
-  //   networkContainer.hide();
-  // } else {
-  //   networkContainer.show();
-  // }
+  $('#get_data_btn').on('click', function () {
+    var networkContainer = $('.container-network');
+    networkContainer.hide();
+    // if ($(this).hasClass('isClicked')) {
+    //   networkContainer.hide();
+    // } else {
+    //   networkContainer.show();
+    // }
 
-  $(this).toggleClass('isClicked');
-});
+    $(this).toggleClass('isClicked');
+  });
 // const buttonS = document.querySelector('._user_boxModals_button');
 // const networkContainer = document.querySelector('._parent_social');
 //   $(buttonS).on('click', function() {

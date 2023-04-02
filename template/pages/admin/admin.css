@@ -18,7 +18,7 @@
   background: var(--github_gradient);
   width: fit-content;
   padding: 2em 2em;
-  color: black;
+  color:var(--title_largeText);
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -31,10 +31,13 @@
 ._input .gender,
 ._input .gender option {
   border-radius: 5px;
-  background: #49895c29;
+  background: #888888;
 }
 ._input input[type="text"]::placeholder {
-  color: black;
+  color: rgb(49, 49, 49);
+  text-transform: lowercase;
+  font-weight: 400 !important;
+  font-size: 14px;
 }
 ._input_website {
   position: relative;
@@ -53,6 +56,7 @@
   left: -72px;
   width: 80px;
   height: fit-content;
+  color: white;
 }
 ._input .check_web:checked:after {
   content: "no website";
@@ -62,7 +66,7 @@
   left: -72px;
   width: 80px;
   height: fit-content;
-  color: red;
+  color: #e25b04;
 }
 .container-btn {
   padding: 0.5em;
@@ -75,15 +79,16 @@
 #genbox {
   width: 35em;
   padding: 10px;
-  border: 1px solid lightgray;
+  border: 1px solid #ffffff75;
+  border-top: none;
   outline: none;
 }
 ._input Label {
   padding: 0.3em;
   font-size: 0.8em;
   font-family: "SF-Regular";
-  font-weight: 600;
-  text-transform: capitalize;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 ._input {
   padding: 0.2em;

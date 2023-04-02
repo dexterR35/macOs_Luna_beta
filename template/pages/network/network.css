@@ -85,8 +85,12 @@
   color: var(--card_text);
   cursor: pointer;
 }
-.user_like p .material-symbols-outlined {
-  font-size: 23px;
+.user_likes p .material-symbols-outlined {
+  font-size: 22px !important;
+}
+.user_likes .likes-count {
+  font-size: 1.2em;
+  line-height: 0.8;
 }
 .user_avatar_img {
   width: fit-content;
@@ -130,8 +134,8 @@
   overflow: hidden;
   background: var(--card_container);
   border-radius: 14px;
-  border: 2px solid #6c6c6c;
-  box-shadow: 4px 4px 7px 0px #675d50;
+  border: 2px solid #525252;
+  box-shadow: 4px 4px 1px 0px #c2e3bd;
   padding: 1em;
   /* border: 1px solid black; */
 }
@@ -212,13 +216,14 @@
   text-transform: capitalize;
 }
 .user_ {
-  border: 2px solid #484848;
+  border: 2px solid #959595;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 5px;
   text-align: end;
-  border-top: 1px solid;
-  border-right: 1px solid;
+  border-top: 2px solid #f9f9f9;
+  border-right: 2px solid #959595;
+  border-left: 2px solid #f9f9f9;
 }
 .user_font {
   font-size: 0.9em;
@@ -263,6 +268,7 @@
   font-size: 2.7em;
 }
 
+
 ._search_network {
   /* align-self: flex-end; */
   width: 50%;
@@ -282,7 +288,7 @@
   z-index: 1;
 }
 .user_font {
-  font-weight: 700;
+  font-weight: 400;
 }
 .user_span {
   font-weight: 400 !important;

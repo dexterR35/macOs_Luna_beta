@@ -193,16 +193,8 @@ cursor: pointer;
     flex-direction: row-reverse;
 }
 
-._l_list .material-symbols-outlined {
-  font-size: 16px;
-  background:var(--material_symbol_box_display);
-  border-radius: 5px;
-  padding: 3px;
-  color: var(--text-azure);
-}
-._l_list a {
-  color: black;
-}
+
+
 ._l_picture{
   padding: 5px;
   border-radius: 4px;

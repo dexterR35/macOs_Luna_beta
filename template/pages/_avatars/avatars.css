@@ -19,7 +19,7 @@
   text-transform: uppercase;
   padding: 0em 1em;
   margin-bottom: 8px;
-  color: #141e27;
+  color: var(--title_largeText);
 }
 .avatar_selected {
   display: flex;
@@ -44,8 +44,8 @@
 }
 
 .avatar_selected img.selected {
-  background: var(--btn_social-hover);
-  border: 1px solid #141e27;
+  background: var(--btn_social);
+  border: 2px solid white;
 }
 .avatar_selected img {
   background: white;

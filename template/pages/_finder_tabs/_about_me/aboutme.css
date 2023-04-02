@@ -1,20 +1,15 @@
-/* body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  font-family: "SF-Regular";
-} */
-
+.wrapper_myself{
+  padding: 30px;
+}
 .container_myself {
-  width: 600px;
+  width: fit-content;
   min-height: 500px;
   border: 1px solid black;
   background: var(--card_container);
   border-radius: 5px;
   display: flex;
   padding: 1em;
-  gap:5px;
+  gap: 5px;
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
@@ -26,19 +21,17 @@
   gap: 20px;
   justify-content: space-between !important;
   padding: 0 14px;
-  color: #ffffff;
+  color: var(--title_largeText);
   background: var(--skills_firstRow);
   border-radius: 6px;
   border: none;
   outline: none;
-  /* border: 1px solid black; */
 }
 .second_row {
   flex-wrap: wrap;
   gap: 6px;
   padding: 0.5em;
   margin: auto;
-  /* border: 1px solid black; */
   border-top: 1px solid rgb(172, 171, 171);
   border-bottom: 1px solid rgb(172, 171, 171);
 }
@@ -50,7 +43,6 @@
 .box_skills {
   width: fit-content;
   padding: 0.2em 1em;
-  /* height: 20px; */
   border: 1px solid rgb(192, 192, 192);
   text-transform: capitalize;
   margin-right: 5px;
@@ -61,7 +53,7 @@
   cursor: pointer;
   overflow: hidden;
   background: var(--skills_box);
-  color: var(----card_text);
+  color: var(--title_largeText);
   font-size: 0.9em;
 }
 .box_skills:hover {
@@ -70,9 +62,7 @@
 }
 
 ._myself_input {
-  /* border: 1px solid var(--user_border); */
   border-radius: 7px;
-  /* max-width: 90px; */
   height: 40px;
   width: 100%;
 }
@@ -83,7 +73,7 @@
   gap: 5px;
   width: 49%;
   align-items: flex-end;
-  color: var(----card_text);
+  color: var(--card_text);
 }
 .myself_chart {
   width: 48%;
@@ -116,15 +106,16 @@
   width: 215px;
   height: 30%;
   padding: 5px;
-  background-color: var(--skills_box);
-  /* border: 1px solid rgb(131, 131, 131); */
-  border: none;
-  color: rgb(34, 34, 34);
+  background: var(--card_button);
+  /* border: none; */
+  color: var(--title_largeText);
   text-align: end;
   display: flex;
   border-radius: 5px;
   align-items: center;
   justify-content: end;
+  border: 2px solid #4c4e4c;
+  border-top: none;
 }
 .my_avatar img {
   height: 100%;
@@ -132,7 +123,6 @@
 }
 .my_fullname {
   width: 300px;
-  /* border: 1px solid red; */
   padding: 10px;
   line-height: 1;
   gap: 3px;
@@ -152,12 +142,10 @@
 }
 
 .my_fullname ._ln {
-  /* border: 1px solid blue; */
   font-size: 1.6em;
 }
 
 .my_fullname ._fn {
-  /* border: 1px solid purple; */
   font-size: 1em;
 }
 
