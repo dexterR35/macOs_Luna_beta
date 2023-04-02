@@ -78,10 +78,9 @@ const checkWebs = document.querySelector(".checkWeb");
 const insBtn = document.querySelector(".insbtn");
 const getDataBtn = document.querySelector("#get_data_btn");
 // const addButton = document.getElementById('add-data-btn');
-/* query mail */
 const checkbox_web = document.getElementById("check_web");
 
-
+/* query mail */
 async function checkEmailInNetworkCollection(email) {
   const q = query(collection(db, "network"), where("email", "==", email));
   const querySnapshot = await getDocs(q);
