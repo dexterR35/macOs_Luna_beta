@@ -72,17 +72,27 @@ const codepenMe = document.querySelector("._codepen_add");
 const linkedinMe = document.querySelector("._likedin_add");
 const cssBattleMe = document.querySelector("._cssbattle_add");
 const githubMe = document.querySelector("._github_add");
-const numberMe = document.querySelector("._number_add");
+// const numberMe = document.querySelector("._number_add");
 const websiteMe = document.querySelector("._website_add");
-
+const checkWebs = document.querySelector(".checkWeb");
 const insBtn = document.querySelector(".insbtn");
 const getDataBtn = document.querySelector("#get_data_btn");
 // const addButton = document.getElementById('add-data-btn');
 /* query mail */
+const checkbox_web = document.getElementById("check_web");
+
+
 async function checkEmailInNetworkCollection(email) {
   const q = query(collection(db, "network"), where("email", "==", email));
   const querySnapshot = await getDocs(q);
   return !querySnapshot.empty;
+}
+
+async function checkWeb() {
+  const sectionInput = document.getElementById("portofoliobox");
+  sectionInput.disabled = checkbox_web.checked;
+  console.log(checkbox_web.checked, "checkbox.checked");
+  sectionInput.value = checkbox_web.checked ? "N/A" : "";
 }
 
 /* add user */
@@ -112,7 +122,7 @@ async function AddDocument_AutoID() {
     email,
     section: sectionBox.value,
     gender: genBox.value,
-    portofolio: portofolioBox.value,
+    portofolio: checkbox_web.checked ? "N/A" : portofolioBox.value,
     idkeys: newDocRef.id,
     selectedAvatarRef,
     timestamp: serverTimestamp(),
@@ -162,6 +172,7 @@ async function AddDocument_AutoID() {
 
 insBtn.addEventListener("click", AddDocument_AutoID);
 getDataBtn.addEventListener("click", GetAllDocuments);
+checkbox_web.addEventListener("change", checkWeb);
 
 export async function GetAllDocuments() {
   showLoadingModal('Loading Cards...', '_addCards');
@@ -360,7 +371,7 @@ async function showLoadingModal(_message, _modalId) {
     message_wait.text(_message);
     setTimeout(function () {
       modal_wait.css('display', 'none');
-      loadingDiv.remove(); 
+      loadingDiv.remove();
     }, 1100);
   }, 150);
 }
