@@ -37,13 +37,9 @@ $("#xD_push").load("./pages/p_adobe/p_xd.html");
 $("#photoshop_push").load("./pages/p_adobe/p_photoshop.html");
 $("#afterEffects_push").load("./pages/p_adobe/p_afterEffects.html");
 $("#apps_push").load("./pages/apps/apps.html");
-
 $("#network_push").load("./pages/network/network.html");
 $("#admin_push").load("./pages/admin/admin.html");
-
-
 $("#avatars_push").load("./pages/_avatars/avatars.html");
-// $("#await_push").load("./pages/_boot/_await/await.html");
 console.log("end index");
 
 

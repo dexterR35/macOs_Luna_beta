@@ -47,7 +47,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-
 /* Documnets from admin inputs */
 
 let firstNameBox = document.getElementById("firstNamebox");
@@ -76,45 +75,35 @@ const githubMe = document.querySelector("._github_add");
 const numberMe = document.querySelector("._number_add");
 const websiteMe = document.querySelector("._website_add");
 
-
 const insBtn = document.querySelector(".insbtn");
 const getDataBtn = document.querySelector("#get_data_btn");
-
 // const addButton = document.getElementById('add-data-btn');
-
 /* query mail */
 async function checkEmailInNetworkCollection(email) {
   const q = query(collection(db, "network"), where("email", "==", email));
   const querySnapshot = await getDocs(q);
   return !querySnapshot.empty;
 }
-/* add user */
 
+/* add user */
 async function AddDocument_AutoID() {
 
   const email = emailBox.value;
   const emailExists = await checkEmailInNetworkCollection(email);
   if (emailExists) {
-    showLoadingModal(emailBox.value + " " + "already exists in the network!");
-    // alert("Email already exists in the network!");
+    alert("Email already exists in the network!");
     return;
   }
-
-
 
   const selectedAvatar = avatarGrid.querySelector(".selected");
   const selectedAvatarRef = selectedAvatar ? selectedAvatar.getAttribute("src") : null;
   console.log(selectedAvatarRef, "select avatar");
   if (!selectedAvatar) {
-    showLoadingModal(selectedAvatar + " " + "Please select an avatar!");
-    // alert("Please select an avatar!");
+    alert("Please select an avatar!");
     return;
   }
 
-
-
   let ref_ = collection(db, "network");
-
   const newDocRef = doc(ref_);
 
   const data = {
@@ -146,20 +135,16 @@ async function AddDocument_AutoID() {
     !data.gender
   ) {
     console.error("Invalid data:", data);
-    showLoadingModal(data + "Fill All the inputs");
-    // alert("Fill All the inputs");
+    alert("Fill All the inputs");
     return;
   }
-  console.log("1");
+
   await showLoadingModal("Well Done, Data added successfully!")
     .then(() => {
-      console.log("2");
       setDoc(newDocRef, data);
     })
-
     /* Reset Form */
     .then(() => {
-      console.log("3");
       console.log("data added succesfully");
       // reset form inputs
       firstNameBox.value = ""
@@ -169,23 +154,15 @@ async function AddDocument_AutoID() {
       genBox.value = ""
       sectionBox.value = ""
       // show success message modal
-
     })
     .catch((error) => {
-      console.log("4");
-      showLoadingModal("unsecc operation. error:" + error);
       alert("unsecc operation. error:" + error);
     });
   console.log("document id is" + newDocRef.id);
-
 }
-
-
-
 
 insBtn.addEventListener("click", AddDocument_AutoID);
 getDataBtn.addEventListener("click", GetAllDocuments);
-
 
 export async function GetAllDocuments() {
   const collectionRef = collection(db, "network");
@@ -194,16 +171,16 @@ export async function GetAllDocuments() {
     // Clear the previous user containers from the container element
     container.innerHTML = "";
     // // Find the last added document in the query snapshot
-    // let lastAddedDoc = null;
-    // querySnapshot.docChanges().forEach((change) => {
-    //   if (
-    //     change.type === "added" &&
-    //     (!lastAddedDoc ||
-    //       change.doc.data().timestamp > lastAddedDoc.data().timestamp)
-    //   ) {
-    //     lastAddedDoc = change.doc;
-    //   }
-    // });
+    let lastAddedDoc = null;
+    querySnapshot.docChanges().forEach((change) => {
+      if (
+        change.type === "added" &&
+        (!lastAddedDoc ||
+          change.doc.data().timestamp > lastAddedDoc.data().timestamp)
+      ) {
+        lastAddedDoc = change.doc;
+      }
+    });
 
     /* Create Card for user */
 
@@ -212,7 +189,6 @@ export async function GetAllDocuments() {
       const timestamp_ = doc.data().timestamp;
       const date_mew_ = new Date(timestamp_.seconds * 1000 + timestamp_.nanoseconds / 1000000);
       const dateString_ = date_mew_.toLocaleDateString();
-
       const userDiv = `
       <div class="user-container user-${doc.data().idkeys}" id="user-${doc.data().idkeys}">
       <div class = "dateAdded_user"><span class="user_span">JOINED:</span>${dateString_}</div>
@@ -242,16 +218,13 @@ export async function GetAllDocuments() {
                   </div>
               </div>
           </div>
-      </div>
-            `;
+      </div>`;
+
       container.insertAdjacentHTML("afterbegin", userDiv);
-
       const userContainers = document.querySelectorAll("[id^='user-']");
-
       userContainers.forEach((container) => {
         const likesButton = container.querySelector(".user_likes");
         const likesCount = container.querySelector(".likes-count");
-
         likesButton.addEventListener("click", async (event) => {
           event.preventDefault();
           likesButton.disabled = true;
@@ -264,13 +237,9 @@ export async function GetAllDocuments() {
         });
       })
       await new Promise(resolve => setTimeout(resolve, 700));
-
     });
-
   });
-
 }
-
 
 /* Get Documents Real time */
 async function updateLikes(idkeys, newLikes) {
@@ -282,36 +251,12 @@ async function updateLikes(idkeys, newLikes) {
   await updateDoc(documentRef, {
     "info.likes": newLikes
   });
-
   // likesCount.textContent = newLikes;
-
   // likeButton.onclick = () => {
   //   const currentLikes = parseInt(likesCount.innerText);
   //   const newLikes = currentLikes + 1;
   //   updateLikes(idkeys, newLikes);
   // };
-}
-/* Get Data For Owner */
-
-async function getDataFromOwnerCollection() {
-  try {
-    const querySnapshot = await getDocs(collection(db, "onwer"));
-    querySnapshot.forEach((doc) => {
-      if (doc.exists) {
-        const data = doc.data();
-        emailMe.innerHTML = data.email;
-        codepenMe.innerHTML = data.social.codepen;
-        linkedinMe.innerHTML = data.social.linkedin;
-        cssBattleMe.innerHTML = data.social.cssbattle;
-        githubMe.innerHTML = data.social.github;
-        websiteMe.innerHTML = data.website;
-      } else {
-        console.log("No such document!");
-      }
-    });
-  } catch (error) {
-    console.log("Error getting documents: ", error);
-  }
 }
 
 /* Load Avatars and append in a div */
@@ -319,6 +264,7 @@ async function loadAvatars(gender) {
   /* Clear the avatar grid */
   avatarGrid.innerHTML = "";
   let avatarsRef;
+  let selectedImg;
   let avatarTitle = document.querySelector(".insert_aVtitle");
   /* display img for male or female */
   if (gender === "male") {
@@ -330,16 +276,10 @@ async function loadAvatars(gender) {
     avatarTitle.innerHTML = "Female"
     avatarsRef = femaleAvatarsRef;
   }
-
-  let selectedImg;
-
   /* display all img with attr */
   if (avatarsRef) {
-
     try {
-
       const avatarsSnapshot = await listAll(avatarsRef);
-
       avatarsSnapshot.items.forEach(async (avatarRef) => {
         const avatarUrl = await getDownloadURL(avatarRef);
         const img_ = document.createElement("img");
@@ -362,21 +302,17 @@ async function loadAvatars(gender) {
             console.log(selectedImg, "select img")
           }
         });
-
         if (selectedImg && avatarUrl === selectedImg.src) {
           img_.classList.add("selected");
           avatarUrlInput.value = avatarUrl;
           selectedImg = img_;
         }
-
         avatarGrid.appendChild(img_);
       });
-
     } catch (error) {
       console.log(error);
     }
   }
-
 }
 
 /* When the gender select changes, load the corresponding avatars*/
@@ -386,7 +322,6 @@ genderSelect.addEventListener("change", () => {
   console.log(gender, "gender select")
   if (gender) {
     showLoadingModal('Please wait...', '_modal1');
-    showLoadingModal('Please wait...', '_modal2');
     loadAvatars(gender);
   } else {
     avatarGrid.innerHTML = "";
@@ -394,15 +329,11 @@ genderSelect.addEventListener("change", () => {
 });
 
 async function showLoadingModal(_message, _modalId) {
-  console.log(_modalId);
-  // Get the modal element
   const modal_wait = $('#' + _modalId);
-  console.log(modal_wait);
   if (!modal_wait) {
     console.error(`Modal element with ID '${_modalId}' not found.`);
     return;
   }
-  // Append the loading div to the modal
   const loadingDiv = $(
     '<div class="modal-content">' +
     '<p class="modal-message"></p>' +
@@ -413,8 +344,6 @@ async function showLoadingModal(_message, _modalId) {
     '</div>'
   );
   modal_wait.append(loadingDiv);
-
-  // Show the popup modal
   modal_wait.css('display', 'flex');
 
   const message_wait = modal_wait.find('.modal-message');
@@ -429,10 +358,32 @@ async function showLoadingModal(_message, _modalId) {
       message_wait.text(_message);
       setTimeout(function () {
         modal_wait.css('display', 'none');
-        loadingDiv.remove(); // remove the loading div from the modal
+        loadingDiv.remove(); 
       }, 600);
     }, 500);
   }, 400);
+}
+
+/* Get Data For Owner */
+async function getDataFromOwnerCollection() {
+  try {
+    const querySnapshot = await getDocs(collection(db, "onwer"));
+    querySnapshot.forEach((doc) => {
+      if (doc.exists) {
+        const data = doc.data();
+        emailMe.innerHTML = data.email;
+        codepenMe.innerHTML = data.social.codepen;
+        linkedinMe.innerHTML = data.social.linkedin;
+        cssBattleMe.innerHTML = data.social.cssbattle;
+        githubMe.innerHTML = data.social.github;
+        websiteMe.innerHTML = data.website;
+      } else {
+        console.log("No such document!");
+      }
+    });
+  } catch (error) {
+    console.log("Error getting documents: ", error);
+  }
 }
 // GetAllDocuments();
 getDataFromOwnerCollection()
