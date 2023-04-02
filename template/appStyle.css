@@ -86,9 +86,9 @@
   --btn_social-hover: #aa3a3a;
   --btn_social: #688e7a;
   --btn_admin: #49895c;
-  --btn_social_text:#f7f7f7f2;
+  --btn_social_text: #f7f7f7f2;
   --wrapper_social: #ede4e0;
-  --header_bg: #675D50;
+  --header_bg: #675d50;
   --bg-footer: #091214c9;
   /* adobe containers */
   --splashScreen_width: 750px;
@@ -115,7 +115,7 @@
 
   --skills_box: #6f8077;
   --skills_firstRow: #6f8077;
-
+  --loadindBar: #ffa31a;
   /*finder colors*/
   /*contact colors*/
   /* --aditional-finder-color: #161616;
@@ -376,11 +376,11 @@ iframe {
   letter-spacing: 0.6px;
   margin-top: -0.9em;
   font-size: 0.9em;
-    color: var(--title_largeText);
+  color: var(--title_largeText);
 }
 ._child_title {
   font-size: 3.6em;
-    text-shadow: 2px 2px #232222db;
+  text-shadow: 2px 2px #232222db;
   color: var(--title_largeText);
   font-family: product-sans;
   font-weight: 700;
@@ -786,7 +786,6 @@ FONT SIZE  */
   -o-user-select: none;
   user-select: none;
 }
-
 
 .modal_boxes {
   display: none;

@@ -53,7 +53,7 @@ function LinksAndDefault() {
   console.log(defaultOpen, "ffffffffffffffff");
 }
 //  open all nav top header items
-LinksAndDefault()
+LinksAndDefault();
 
 export function openNavLink() {
   let dropBtns = document.querySelectorAll(".dropdown-button");
@@ -175,9 +175,7 @@ export function clickDivs() {
 //  drag all windows with class drag-only
 
 export function dragWindows() {
-
   const draggableElements = document.querySelectorAll(".drag-only");
-
   // console.log(draggableElements, "dragElements")
   draggableElements.forEach((draggableElement) => {
     const header = draggableElement.querySelector(".drag-header");

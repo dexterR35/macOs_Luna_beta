@@ -139,10 +139,9 @@ async function AddDocument_AutoID() {
     return;
   }
 
-  await showLoadingModal("Well Done, Data added successfully!")
-    .then(() => {
-      setDoc(newDocRef, data);
-    })
+  showLoadingModal('data added succesfully', '_addSucces');
+
+  setDoc(newDocRef, data)
     /* Reset Form */
     .then(() => {
       console.log("data added succesfully");
@@ -165,6 +164,7 @@ insBtn.addEventListener("click", AddDocument_AutoID);
 getDataBtn.addEventListener("click", GetAllDocuments);
 
 export async function GetAllDocuments() {
+  showLoadingModal('Loading Cards...', '_addCards');
   const collectionRef = collection(db, "network");
   const container = document.querySelector("#container_get");
   onSnapshot(collectionRef, (querySnapshot) => {
@@ -246,7 +246,7 @@ async function updateLikes(idkeys, newLikes) {
   const userDiv = document.getElementById(`user-${idkeys}`);
   const likesCount = userDiv.querySelector(".likes-count");
   console.log(likesCount, "likesCount")
-  const likeButton = userDiv.querySelector(".user_likes");
+  // const likeButton = userDiv.querySelector(".user_likes");
   const documentRef = doc(db, "network", idkeys);
   await updateDoc(documentRef, {
     "info.likes": newLikes
@@ -275,6 +275,9 @@ async function loadAvatars(gender) {
     $(".modal_avatars").css("display", "block");
     avatarTitle.innerHTML = "Female"
     avatarsRef = femaleAvatarsRef;
+  } else {
+    $(".modal_avatars").css("display", "none");
+    // $(".user-container").removeClass("c_male");
   }
   /* display all img with attr */
   if (avatarsRef) {
@@ -321,7 +324,7 @@ genderSelect.addEventListener("change", () => {
   const gender = genderSelect.value;
   console.log(gender, "gender select")
   if (gender) {
-    showLoadingModal('Please wait...', '_modal1');
+    showLoadingModal('Loading Avatars...', '_addAvatars');
     loadAvatars(gender);
   } else {
     avatarGrid.innerHTML = "";
@@ -354,14 +357,12 @@ async function showLoadingModal(_message, _modalId) {
 
   setTimeout(function () {
     loadingBar_wait.css('width', '100%');;
+    message_wait.text(_message);
     setTimeout(function () {
-      message_wait.text(_message);
-      setTimeout(function () {
-        modal_wait.css('display', 'none');
-        loadingDiv.remove(); 
-      }, 600);
-    }, 500);
-  }, 400);
+      modal_wait.css('display', 'none');
+      loadingDiv.remove(); 
+    }, 1100);
+  }, 150);
 }
 
 /* Get Data For Owner */
