@@ -17,27 +17,30 @@
   /* border: 1px solid black; */
   background: var(--github_gradient);
   width: fit-content;
-  padding: 2em 2em;
-  color:var(--title_largeText);
+  padding: 2em 2em 1.5em;
+  color: var(--title_largeText);
   text-transform: uppercase;
   font-weight: bold;
 }
-._input input::placeholder {
-  font-weight: bold;
-  font-size: 0.94em;
-  text-transform: capitalize;
-}
+
 ._input input[type="text"],
 ._input .gender,
 ._input .gender option {
   border-radius: 5px;
-  background: #888888;
+  background: #d7d7d7;
 }
 ._input input[type="text"]::placeholder {
-  color: rgb(49, 49, 49);
+  color: rgb(78, 78, 78);
   text-transform: lowercase;
   font-weight: 400 !important;
-  font-size: 14px;
+  font-size: 13px;
+}
+._input #genbox {
+  font-size: 13px;
+  text-transform: lowercase;
+  font-weight: 400 !important;
+  color: rgb(78, 78, 78);
+  width: 100%;
 }
 ._input_website {
   position: relative;
@@ -45,33 +48,44 @@
 ._input .check_web {
   width: fit-content;
   position: absolute;
-  right: 3%;
-  top: 10px;
+  right: 2%;
+  top: 6px;
+  width: 15px;
+  -webkit-appearance: none;
+  height: 15px;
+  transform: scale(0.8);
+  background: #d7d7d7;
+  border-radius: 3px;
+  color: var(--title_largeText);
+  font-family: "SF-Regular";
 }
 ._input .check_web::after {
-  content: "no website";
+  content: "No Website";
   display: flex;
   position: relative;
-  top: -1px;
-  left: -72px;
+  top: -7px;
+  left: -94px;
   width: 80px;
   height: fit-content;
   color: white;
+  font-size: 1.1em;
+  letter-spacing: 0.4px;
 }
 ._input .check_web:checked:after {
-  content: "no website";
+  content: "✔";
   display: flex;
   position: relative;
-  top: -1px;
-  left: -72px;
+  top: -14px;
+  left: -8px;
   width: 80px;
+  font-size: 1.6em;
   height: fit-content;
-  color: #e25b04;
+  color: #f50000;
 }
-.container-btn {
-  padding: 0.5em;
-  gap: 10px;
 
+.container-btn {
+  padding: 0.8em 0.2em;
+  gap: 10px;
   justify-content: flex-start;
 }
 
@@ -84,11 +98,10 @@
   outline: none;
 }
 ._input Label {
-  padding: 0.3em;
+  padding: 0.5em 0;
   font-size: 0.8em;
-  font-family: "SF-Regular";
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 ._input {
   padding: 0.2em;
@@ -105,6 +118,15 @@
 
 .login_admin {
   position: absolute;
-  right: 0;
-  top: -17px;
+  right: -4px;
+  top: -19px;
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: 0.8em;
+  color: var(--btn_social);
+}
+.title_section_admin h4 {
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: 1.4em;
 }
