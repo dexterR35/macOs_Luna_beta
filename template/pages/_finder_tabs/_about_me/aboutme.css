@@ -5,7 +5,7 @@
   width: fit-content;
   min-height: 500px;
   border: 1px solid black;
-  background: var(--card_container);
+  background: var(--skills_firstRow);
   border-radius: 5px;
   display: flex;
   padding: 1em;
@@ -17,35 +17,37 @@
 
 .first_row {
   height: 140px;
-  border-top: 1px solid rgb(172, 171, 171);
+  /* border-top: 1px solid rgb(172, 171, 171); */
   gap: 20px;
   justify-content: space-between !important;
   padding: 0 14px;
-  color: var(--title_largeText);
-  /* background: var(--skills_firstRow); */
+  color: var(--myCard-text);
+  background: var(--skills_firstRow);
   border-radius: 6px;
   border: none;
   outline: none;
-  background: linear-gradient(145deg, #a9b0a9, #474f45);
-  box-shadow: 4px 4.9px 8px #1c1c1c, -1.3px -2.2px 1px #a6ada6;
+  box-shadow: 2px 2px 21px #3f3f3fa1;
+  border: 2px solid #171717;
+  border-top: 2px solid #323232;
+  border-right: 2px solid #171717;
+  border-left: 2px solid #323232;
 }
 .second_row {
   flex-wrap: wrap;
   gap: 6px;
   padding: 0.5em;
   margin: auto;
-  border-top: 1px solid rgb(172, 171, 171);
-  border-bottom: 1px solid rgb(172, 171, 171);
+
+  border-bottom: white;
 }
 .third_row {
   width: 100%;
   padding: 0.5em 0;
-  border-bottom: 1px solid rgb(172, 171, 171);
+  border-bottom: 1px solid white;
 }
 .box_skills {
   width: fit-content;
   padding: 0.2em 1em;
-  border: 1px solid rgb(192, 192, 192);
   text-transform: capitalize;
   margin-right: 5px;
   text-align: center;
@@ -75,7 +77,7 @@
   gap: 5px;
   width: 49%;
   align-items: flex-end;
-  color: var(--card_text);
+  color: var(--myCard-text);
 }
 .myself_chart {
   width: 48%;
@@ -86,10 +88,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #969696;
-  border-top: 2px solid #d3ddd0;
-  border-right: 2px solid #969696;
-  border-left: 2px solid #d3ddd0;
+  box-shadow: 2px 2px 21px #3f3f3fa1;
+  border: 2px solid #171717;
+  border-top: 2px solid #323232;
+  border-right: 2px solid #171717;
+  border-left: 2px solid #323232;
 }
 
 /* avatar myself */
@@ -107,22 +110,23 @@
 .my_avatar::after {
   content: "My name is";
   position: absolute;
-  top: 35%;
+  font-family: 'SF-REGULAR';
+  top: 23%;
   left: -40px;
-  width: 215px;
-  height: 30%;
-  padding: 5px;
-  background: var(--card_button);
-  color: var(--title_largeText);
+  width: 457px;
+  height: 50%;
+  padding: 5px 18px;
+  background: #151514;
+  color: var(--myCard-text);
   text-align: end;
   display: flex;
   border-radius: 5px;
   align-items: center;
   justify-content: end;
-  border: 2px solid #4c4e4c;
   border-top: none;
-  background: linear-gradient(222deg, #afb9af, #6f786c);
-  box-shadow: 4px 4.9px 8px #343434, -1.3px -2.2px 1px #acb6ac;
+  /* box-shadow: 2px 2px 21px #2f2d2da1; */
+  border: 2px solid #111010;
+  border-top: 2px solid #2b2a2a;
 }
 
 .my_avatar img {
@@ -171,10 +175,10 @@
   margin: auto 0;
   cursor: pointer;
   /* border: 1px solid var(--user_border); */
-  border: 2px solid #969696;
-  border-top: 2px solid #d3ddd0;
-  border-right: 2px solid #969696;
-  border-left: 2px solid #d3ddd0;
+  border: 2px solid #171717;
+  border-top: 2px solid #323232;
+  border-right: 2px solid #171717;
+  border-left: 2px solid #323232;
   border-radius: 5px;
 }
 .my_info_inside:hover {

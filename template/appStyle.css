@@ -74,14 +74,14 @@
   --shadow-low_grey: #c9c9c9;
 
   /* #913535; */
-  --material_symbol_box_display: #577646;
+  --material_symbol_box_display: #839e75;
 
   --containers_MaxWidth: 50%;
   --containers_MinWidth: 1000px;
   --containers_width: calc(70em - 10px);
   --containers_height: 50em;
 
-  --github_gradient: #2C3333;
+  --github_gradient: #1a1a1a;
 
   --btn_social-hover: #87805E;
   /* --btn_social: #ffa31a; */
@@ -114,13 +114,16 @@
   --title_largeText: #f7f7f7f2;
   /*my-self card */
 
-  --skills_box: #6f8077;
-  --skills_firstRow: #6f8077;
+  --skills_box: #738874;
+  --skills_firstRow: #1a1a1a;
   --loadindBar: #ffa31a;
 
   /* --card_gradient: linear-gradient(183deg, #cfc99d, #878671); */
   --card_gradient:#7aa57b;
   --card_shadow:2px 2px 3px #686868;
+
+  /* --myCard-box:#06787c; */
+  --myCard-text:#a1a1a1;
   /*finder colors*/
   /*contact colors*/
   /* --aditional-finder-color: #161616;
