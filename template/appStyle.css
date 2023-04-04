@@ -74,7 +74,7 @@
   --shadow-low_grey: #c9c9c9;
 
   /* #913535; */
-  --material_symbol_box_display: #688e7a;
+  --material_symbol_box_display: #577646;
 
   --containers_MaxWidth: 50%;
   --containers_MinWidth: 1000px;
@@ -84,9 +84,10 @@
   --github_gradient: #2C3333;
 
   --btn_social-hover: #87805E;
-  --btn_social: #ffa31a;
+  /* --btn_social: #ffa31a; */
+  --btn_social: #577646;
   --btn_admin: #49895c;
-  --btn_social_text: #0c0c0cf2;
+  --btn_social_text: #f0f0f0;
   --wrapper_social: #ede4e0;
   --header_bg: #524f45;
   --bg-footer: #091214c9;
@@ -106,8 +107,8 @@
   --card_title: #323232;
   --card_title_font: "SF-Black";
   --card_ocupation_font: "SFUIText";
-  --card_button: #95a792;
-  --card_container: #e2e5e5;
+  --card_button: #94a596;
+  --card_container: #c0cbc1;
   --user_border: #5e5e5ee8;
 
   --title_largeText: #f7f7f7f2;
@@ -345,7 +346,7 @@ iframe {
 }
 
 .btn-cards-mini {
-  background: var(--card_button);
+  background: #979482 !important;
   color: white;
   padding: 0.6em 2.5em;
   border: none;
@@ -809,7 +810,7 @@ FONT SIZE  */
   overflow: hidden;
   border-radius: 5px;
   /* padding: 5px; */
-  border: 2px solid #848484;
+  border: 1px solid #3c5e29;
 }
 .footer_insert_pages {
   background: var(--github_gradient);

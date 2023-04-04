@@ -195,7 +195,7 @@ export function dragWindows() {
           if (draggableElement === clickedElement) {
             draggableElement.style.zIndex = 100;
             // draggableElement.style.border = "2px solid #f3670087";
-            $(".modal_boxes", clickedElement).css("border", "2px solid #ffa31a");
+            $(".modal_boxes", clickedElement).css("border", "1px solid #797552");
           } else {
             draggableElement.style.zIndex = 99;
             $(".modal_boxes", draggableElement).css("border", "");

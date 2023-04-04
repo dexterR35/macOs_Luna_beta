@@ -1,4 +1,4 @@
-.wrapper_myself{
+.wrapper_myself {
   padding: 30px;
 }
 .container_myself {
@@ -22,10 +22,12 @@
   justify-content: space-between !important;
   padding: 0 14px;
   color: var(--title_largeText);
-  background: var(--skills_firstRow);
+  /* background: var(--skills_firstRow); */
   border-radius: 6px;
   border: none;
   outline: none;
+  background: linear-gradient(145deg, #a9b0a9, #474f45);
+  box-shadow: 4px 4.9px 8px #1c1c1c, -1.3px -2.2px 1px #a6ada6;
 }
 .second_row {
   flex-wrap: wrap;
@@ -78,13 +80,16 @@
 .myself_chart {
   width: 48%;
   height: 265px;
-  border: 1px solid black;
   margin: auto;
   text-align: center;
   border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid #969696;
+  border-top: 2px solid #d3ddd0;
+  border-right: 2px solid #969696;
+  border-left: 2px solid #d3ddd0;
 }
 
 /* avatar myself */
@@ -93,11 +98,12 @@
   align-self: center;
   width: 120px;
   height: 120px;
-  background: white;
-  border: 1px solid rgb(173, 173, 173);
+  background: #6f8077;
+  border: 1px solid rgb(111 128 119);
   border-radius: 100%;
   position: relative;
 }
+
 .my_avatar::after {
   content: "My name is";
   position: absolute;
@@ -107,7 +113,6 @@
   height: 30%;
   padding: 5px;
   background: var(--card_button);
-  /* border: none; */
   color: var(--title_largeText);
   text-align: end;
   display: flex;
@@ -116,25 +121,28 @@
   justify-content: end;
   border: 2px solid #4c4e4c;
   border-top: none;
+  background: linear-gradient(222deg, #afb9af, #6f786c);
+  box-shadow: 4px 4.9px 8px #343434, -1.3px -2.2px 1px #acb6ac;
 }
+
 .my_avatar img {
   height: 100%;
   z-index: 2;
 }
+
 .my_fullname {
   width: 300px;
   padding: 10px;
   line-height: 1;
   gap: 3px;
 }
+
 .my_fullname > div {
   padding: 0 10px;
   width: 100%;
   text-align: end;
   text-transform: uppercase;
-  font-weight: bold;
-
-  /* line-height: 0.7; */
+  font-weight: 400;
 }
 
 .my_fullname > div:not(._ocp) {
@@ -162,7 +170,11 @@
   padding: 0 10px;
   margin: auto 0;
   cursor: pointer;
-  border: 1px solid var(--user_border);
+  /* border: 1px solid var(--user_border); */
+  border: 2px solid #969696;
+  border-top: 2px solid #d3ddd0;
+  border-right: 2px solid #969696;
+  border-left: 2px solid #d3ddd0;
   border-radius: 5px;
 }
 .my_info_inside:hover {
@@ -170,10 +182,13 @@
 }
 .my_info_inside > span:nth-child(1) {
   text-transform: capitalize;
-  font-size: 0.85em;
+  font-size: 0.8em;
+  font-family: 'SF-Regular';
+  font-weight: 400;
 }
 .my_info_inside > span:nth-child(2) {
   text-transform: lowercase;
-  font-weight: 700;
+  font-family: 'SF-Regular';
   font-size: 0.9em;
+  font-weight: 400;
 }
