@@ -81,7 +81,7 @@
   --containers_width: calc(70em - 10px);
   --containers_height: 50em;
 
-  --github_gradient: #1a1a1a;
+  --github_gradient: #222222;
 
   --btn_social-hover: #87805E;
   /* --btn_social: #ffa31a; */
@@ -103,19 +103,19 @@
   --social_Box_height: 750px;
 
   /*cards color */
-  --card_text: #353535;
-  --card_title: #323232;
+  --card_text: #c1bcbc;
+  --card_title: #c1bcbc;
   --card_title_font: "SF-Black";
   --card_ocupation_font: "SFUIText";
   --card_button: #94a596;
-  --card_container: #c0cbc1;
+  --card_container: #2c2b2b;
   --user_border: #5e5e5ee8;
 
-  --title_largeText: #f7f7f7f2;
+  --title_largeText: #dbd7d7;
   /*my-self card */
 
   --skills_box: #738874;
-  --skills_firstRow: #1a1a1a;
+  --skills_firstRow: #222222;
   --loadindBar: #ffa31a;
 
   /* --card_gradient: linear-gradient(183deg, #cfc99d, #878671); */
@@ -123,7 +123,7 @@
   --card_shadow:2px 2px 3px #686868;
 
   /* --myCard-box:#06787c; */
-  --myCard-text:#a1a1a1;
+  --myCard-text:#c7c2c2;
   /*finder colors*/
   /*contact colors*/
   /* --aditional-finder-color: #161616;
@@ -302,6 +302,15 @@ iframe {
 /* ------------buttons--------------------- */
 /* ------------buttons--------------------- */
 
+
+
+
+.first_row, .myself_chart, .my_info_inside, .user_ , .user-container{
+  border: 2px solid #020202;
+  border-top: 2px solid #3a3a3a;
+  border-right: 2px solid #020202;
+  border-left: 2px solid #3a3a3a;
+}
 /* ------------buttons social--------------------- */
 
 .btn_social_large {
@@ -362,7 +371,7 @@ iframe {
   border-radius: 4px;
   cursor: pointer;
   background: var(--card_gradient) !important;
-  box-shadow: var(--card_shadow);
+  /* box-shadow: var(--card_shadow); */
   /* border: 1px solid #6c6c6c; */
 }
 

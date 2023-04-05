@@ -27,7 +27,6 @@
   height: 630px;
   overflow-y: scroll;
   font-family: "SF-Regular";
-
 }
 /* #modal_network {
   display: block !important;
@@ -73,8 +72,7 @@
   z-index: 0;
   height: 35px;
   background: var(--card_gradient);
-  box-shadow: var(--card_shadow);
-
+  /* box-shadow: var(--card_shadow); */
 }
 .user_avatar::before {
   content: "My Name Is";
@@ -121,7 +119,6 @@
   line-height: 0.8;
 }
 
-
 /* .wrapp_get {
   overflow-y: scroll;
 } */
@@ -143,11 +140,6 @@
   background: var(--card_container);
   border-radius: 14px;
   padding: 1em;
-  /* background: linear-gradient(145deg, #2f3737, #282e2e);
-  box-shadow: 8px 8px 14px #121414, -6.6px -4.1px 16px #94a59682; */
-  /* border: 1px solid black; */
-  /* background: linear-gradient(145deg, #afb9af, #6f786c); */
-  box-shadow: 8px 8px 14px #1b1b1b, -6.6px -4.1px 16px #1b1a1a;
 }
 
 .dateAdded_user {
@@ -164,7 +156,7 @@
   font-size: 0.75em;
   border-top-right-radius: 10px;
   background: var(--card_gradient);
-  box-shadow: var(--card_shadow);
+  /* box-shadow: var(--card_shadow); */
 }
 /* .user_section_hide {
   display: none;
@@ -217,25 +209,22 @@
   letter-spacing: -0.9px;
   margin-right: 5px;
   text-transform: capitalize;
+  color: var(--card_title);
 }
 .user_ {
-
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 5px;
   text-align: end;
-    /* border: 2px solid #999898; */
-    border-top: 2px solid #e3e3e3;
-    border-right: none;
-    border-left: 2px solid #e3e3e3;
-    border-bottom: none;
 }
+
+
 .user_font {
   font-size: 0.9em;
   display: flex;
   justify-content: space-between;
   color: var(--card_text);
-  box-shadow: 2px 2px 1px #7a7a7a;
+  /* box-shadow: 2px 2px 1px #7a7a7a; */
   margin-bottom: 10px;
 }
 .user_span {
@@ -274,7 +263,6 @@
 .h2_network {
   font-size: 2.7em;
 }
-
 
 ._search_network {
   /* align-self: flex-end; */

@@ -15,6 +15,9 @@
   overflow: hidden;
 }
 
+
+
+
 .first_row {
   height: 140px;
   /* border-top: 1px solid rgb(172, 171, 171); */
@@ -24,13 +27,9 @@
   color: var(--myCard-text);
   background: var(--skills_firstRow);
   border-radius: 6px;
-  border: none;
+  /* border: none; */
   outline: none;
   /* box-shadow: 2px 2px 21px #3f3f3fa1; */
-  border: 2px solid #131212;
-  border-top: 2px solid #2c2c2c;
-  border-right: 2px solid #131212;
-  border-left: 2px solid #2c2c2c;
 }
 .second_row {
   flex-wrap: wrap;
@@ -88,11 +87,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* box-shadow: 2px 2px 21px #3f3f3fa1; */
-  border: 2px solid #131212;
-  border-top: 2px solid #2c2c2c;
-  border-right: 2px solid #131212;
-  border-left: 2px solid #2c2c2c;
+  
 }
 
 /* avatar myself */
@@ -174,16 +169,13 @@
   padding: 0 10px;
   margin: auto 0;
   cursor: pointer;
-  /* border: 1px solid var(--user_border); */
-  border: 2px solid #131212;
-  border-top: 2px solid #2c2c2c;
-  border-right: 2px solid #131212;
-  border-left: 2px solid #2c2c2c;
   border-radius: 5px;
 }
+
 .my_info_inside:hover {
   background: #e4dccf;
 }
+
 .my_info_inside > span:nth-child(1) {
   text-transform: capitalize;
   font-size: 0.8em;
