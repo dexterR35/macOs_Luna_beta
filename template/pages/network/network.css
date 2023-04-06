@@ -5,7 +5,6 @@
   width: calc(85em - 10px);
   height: var(--containers_height);
   background: var(--github_gradient);
-  /* overflow-y: scroll; */
 }
 .container_get {
   -ms-overflow-style: none;
@@ -21,31 +20,20 @@
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 0.5em 0;
+  padding: 2em 0;
   row-gap: 18px;
   column-gap: 35px;
   height: 630px;
   overflow-y: scroll;
   font-family: "SF-Regular";
 }
-/* #modal_network {
-  display: block !important;
-} */
-/* .wrapper_users {
-
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-
-  justify-content: start;
-  margin: 0 auto;
-  background: var(--github_gradient);
-} */
+.wrapp_get {
+  border-top: 1px solid #545454;
+}
 
 .user_avatar {
   border-radius: 100%;
-  border: 2px solid var(--user_border);
+  background: var(--user_border);
   border-right: none;
   left: -6px;
 }
@@ -68,10 +56,12 @@
   justify-content: center;
   align-items: center;
   color: var(--card_button);
-  width: 200px;
+  width: 224px;
   z-index: 0;
   height: 35px;
   background: var(--card_gradient);
+  border-bottom-right-radius: 16px;
+  box-shadow: -6px 6px 5px -2px #101010;
   /* box-shadow: var(--card_shadow); */
 }
 .user_avatar::before {
@@ -81,8 +71,8 @@
   position: absolute;
   top: 48px;
   width: 100%;
-  left: 96px;
-  font-size: 11px;
+  left: 108px;
+  font-size: 11.5px;
   z-index: 1;
   color: white;
   text-transform: capitalize;
@@ -113,21 +103,13 @@
 }
 .user_likes p .material-symbols-outlined {
   font-size: 22px !important;
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 20;
+  color: #f53434;
 }
 .user_likes .likes-count {
   font-size: 1.2em;
   line-height: 0.8;
 }
-
-/* .wrapp_get {
-  overflow-y: scroll;
-} */
-/* #modal_network {
-  display: block !important;
-} */
-/* .btn-network {
-  align-self:flex-end;
-} */
 
 .user-container {
   width: 400px;
@@ -140,27 +122,30 @@
   background: var(--card_container);
   border-radius: 14px;
   padding: 1em;
+  box-shadow: -6px 6px 5px -2px #000000;
+  border-left: none;
+  border-bottom: none;
+  border-right: 2px solid #424242;
+  border-top: 2px solid #424242;
 }
 
 .dateAdded_user {
   display: flex;
   white-space: break-spaces;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 6px;
   position: absolute;
   top: 0px;
   color: white;
   right: 0px;
   width: 150px;
   height: 20px;
-  font-size: 0.75em;
+  font-size: 0.65em;
   border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
   background: var(--card_gradient);
-  /* box-shadow: var(--card_shadow); */
 }
-/* .user_section_hide {
-  display: none;
-} */
 
 .card_header {
   display: flex;
@@ -189,27 +174,23 @@
   text-transform: uppercase;
   border: none !important;
   padding: 10px 0 !important;
+  font-size: 1.2em;
 }
 .user_firstName {
-  font-size: 1.2em;
   margin-top: -5px;
   font-family: var(--card_title_font);
   color: var(--card_title);
 }
 .user_lastName {
-  font-size: 1.3em;
   font-family: var(--card_title_font);
   color: var(--card_title);
 }
 .user_section {
-  font-size: 0.8em;
-  margin-top: -0.8px;
+  font-size: 0.6em;
   font-family: var(--card_ocupation_font);
   font-style: oblique;
-  letter-spacing: -0.9px;
-  margin-right: 5px;
   text-transform: capitalize;
-  color: var(--card_title);
+  color: #a3a2a2;
 }
 .user_ {
   border-radius: 5px;
@@ -218,17 +199,15 @@
   text-align: end;
 }
 
-
 .user_font {
   font-size: 0.9em;
   display: flex;
   justify-content: space-between;
   color: var(--card_text);
-  /* box-shadow: 2px 2px 1px #7a7a7a; */
   margin-bottom: 10px;
 }
 .user_span {
-  font-size: 0.8em;
+  font-size: 0.89em;
   margin: auto 0;
 }
 .user_footer {
@@ -239,42 +218,32 @@
   margin: 0 8px;
 }
 .network_header_top {
-  height: 55px;
-  margin: 0px 0px 10px;
-  /* border-top: 1px solid white; */
+  height: 100px;
   padding: 0em 1.4em;
-  /* align-items: flex-end; */
 }
 
-.motto_network {
-  font-family: "SF-Thin";
-  font-style: oblique;
-  letter-spacing: 0.6px;
-  font-size: 0.7em;
-  position: absolute;
-  top: 76px;
-  color: var(--title_largeText);
-}
 .network_text {
   text-align: start;
   color: var(--title_largeText);
-  line-height: 0.94;
+  margin-bottom: 13px;
 }
 .h2_network {
   font-size: 2.7em;
 }
-
+.motto_network {
+  font-family: "SF-Thin";
+  font-style: oblique;
+  font-size: 0.75em;
+  position: relative;
+  top: -6px;
+  color: var(--title_largeText);
+}
 ._search_network {
-  /* align-self: flex-end; */
   width: 50%;
   padding: 0.5em;
   border-radius: 4px;
   outline: none;
   border: none;
-  margin-bottom: 16px;
-}
-.wrapp_get {
-  border-top: 1px solid #ebebeb;
 }
 
 .container-network {

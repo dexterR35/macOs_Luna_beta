@@ -27,11 +27,11 @@
     <div class="wrapper_users">
       <div id="_addCards" class="_modal-" style="display: none"></div>
       <button id="insbtn" style="display: none">Submit</button>
-      <div class="network_header_top d-flex-row-reverse d-flex-between d-flex">
+      <div class="network_header_top d-flex-row-reverse d-flex-around d-flex">
         <button class="btn_social_large box_open btn-network" data-modal="modal_admin" id="box_admin">
           Join Network
         </button>
-
+        <input type="search" class="search_big _search _search_network" placeholder="search users" />
         <div class="network_text">
           <h2 class="h2_network">Network</h2>
           <p class="motto_network">Connecting People, like Nokia”</p>
@@ -39,7 +39,7 @@
       </div>
       <div class="d-flex-column d-flex-center wrapp_get">
         <br />
-        <input type="search" class="search_big _search _search_network" placeholder="search users" />
+
         <div id="container_get" class="container_get d-flex-row d-flex-center"></div>
       </div>
     </div>
@@ -47,28 +47,10 @@
 </div>
 
 <script>
+
   $('#get_data_btn').on('click', function () {
     var networkContainer = $('.container-network');
     networkContainer.hide();
-    // if ($(this).hasClass('isClicked')) {
-    //   networkContainer.hide();
-    // } else {
-    //   networkContainer.show();
-    // }
-
     $(this).toggleClass('isClicked');
   });
-// const buttonS = document.querySelector('._user_boxModals_button');
-// const networkContainer = document.querySelector('._parent_social');
-//   $(buttonS).on('click', function() {
-//     if(button.isClicked){
-//       networkContainer.style.display = 'none';
-//     } else {
-//     networkContainer.style.display = 'flex';
-//   }
-//   button.isClicked = !button.isClicked;
-//   // Select the wrapper_users element
-
-// });
-
 </script>

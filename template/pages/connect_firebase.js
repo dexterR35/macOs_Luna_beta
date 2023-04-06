@@ -224,7 +224,7 @@ export async function GetAllDocuments() {
                           favorite
                           </span><span class="likes-count">${doc.data().info.likes}</span></p>
                       </div>
-                      <a href="https://www.${doc.data().portofolio}" id="myLinkS" target="_blank"><button class="btn-cards-mini">enjoy!</button></a>
+                      <a href="https://www.${doc.data().portofolio}" id="myLinkS" target="_blank"><button class="btn-cards-mini">join!</button></a>
                   </div>
               </div>
           </div>

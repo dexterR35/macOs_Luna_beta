@@ -314,6 +314,7 @@
   display: none;
   height: 100%;
   font-family: "product-sans";
+  background: var(--card_container);
 }
 
 .contact-middle-items {
